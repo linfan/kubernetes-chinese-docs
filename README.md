@@ -1,4 +1,6 @@
-My Awesome Book
+Kubernetes中文文档
 =======
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+Kubernetes文档的中文译本。
+
+由DockOne社区组织翻译。
