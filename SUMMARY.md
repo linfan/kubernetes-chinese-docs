@@ -1,5 +1,5 @@
 # Summary
 
 * [Introduction](README.md)
-* [First Chapter](chapter1.md)
 
+这个文件作为目录部分最后统一更新。
