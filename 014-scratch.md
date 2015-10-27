@@ -1,7 +1,8 @@
 
 # 从零开始
 
-
+这部文档是针对要订制Kubernetes
+如果
 
 This guide is for people who want to craft a custom Kubernetes cluster.  If you
 can find an existing Getting Started Guide that meets your needs on [this
