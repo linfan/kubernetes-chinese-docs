@@ -266,9 +266,3 @@ also [test-it-out](ubuntu.md#test-it-out)
 To make sure the version of the upgraded cluster is what you expect, you will find these commands helpful.
 * upgrade all components or master: `$ kubectl version`. Check the *Server Version*.
 * upgrade node 10.10.102.223: `$ ssh -t vcap@10.10.102.223 'cd /opt/bin && sudo ./kubelet --version'`
-
-
-<!-- BEGIN MUNGE: GENERATED_ANALYTICS -->
-[![Analytics](https://kubernetes-site.appspot.com/UA-36037335-10/GitHub/docs/getting-started-guides/ubuntu.md?pixel)]()
-<!-- END MUNGE: GENERATED_ANALYTICS -->
-
