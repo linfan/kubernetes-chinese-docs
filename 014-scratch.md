@@ -17,7 +17,50 @@ This guide is also useful for those wanting to understand at a high level some o
 steps that existing cluster setup scripts are making.
 
 
+**Table of Contents**
 
+<!-- BEGIN MUNGE: GENERATED_TOC -->
+
+  - [Designing and Preparing](#designing-and-preparing)
+    - [Learning](#learning)
+    - [Cloud Provider](#cloud-provider)
+    - [Nodes](#nodes)
+    - [Network](#network)
+    - [Cluster Naming](#cluster-naming)
+    - [Software Binaries](#software-binaries)
+      - [Downloading and Extracting Kubernetes Binaries](#downloading-and-extracting-kubernetes-binaries)
+      - [Selecting Images](#selecting-images)
+    - [Security Models](#security-models)
+      - [Preparing Certs](#preparing-certs)
+      - [Preparing Credentials](#preparing-credentials)
+  - [Configuring and Installing Base Software on Nodes](#configuring-and-installing-base-software-on-nodes)
+    - [Docker](#docker)
+    - [rkt](#rkt)
+    - [kubelet](#kubelet)
+    - [kube-proxy](#kube-proxy)
+    - [Networking](#networking)
+    - [Other](#other)
+    - [Using Configuration Management](#using-configuration-management)
+  - [Bootstrapping the Cluster](#bootstrapping-the-cluster)
+    - [etcd](#etcd)
+    - [Apiserver, Controller Manager, and Scheduler](#apiserver-controller-manager-and-scheduler)
+      - [Apiserver pod template](#apiserver-pod-template)
+        - [Cloud Providers](#cloud-providers)
+      - [Scheduler pod template](#scheduler-pod-template)
+      - [Controller Manager Template](#controller-manager-template)
+      - [Starting and Verifying Apiserver, Scheduler, and Controller Manager](#starting-and-verifying-apiserver-scheduler-and-controller-manager)
+    - [Logging](#logging)
+    - [Monitoring](#monitoring)
+    - [DNS](#dns)
+  - [Troubleshooting](#troubleshooting)
+    - [Running validate-cluster](#running-validate-cluster)
+    - [Inspect pods and services](#inspect-pods-and-services)
+    - [Try Examples](#try-examples)
+    - [Running the Conformance Test](#running-the-conformance-test)
+    - [Networking](#networking)
+    - [Getting Help](#getting-help)
+
+<!-- END MUNGE: GENERATED_TOC --> 
 ## Designing and Preparing
 
 ### Learning
