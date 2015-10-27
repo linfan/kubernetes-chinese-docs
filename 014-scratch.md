@@ -1,20 +1,8 @@
 
 # 从零开始
 
-这部文档是针对要订制Kubernetes
-如果
-
-This guide is for people who want to craft a custom Kubernetes cluster.  If you
-can find an existing Getting Started Guide that meets your needs on [this
-list](README.md), then we recommend using it, as you will be able to benefit
-from the experience of others.  However, if you have specific IaaS, networking,
-configuration management, or operating system requirements not met by any of
-those guides, then this guide will provide an outline of the steps you need to
-take.  Note that it requires considerably more effort than using one of the
-pre-defined guides.
-
-This guide is also useful for those wanting to understand at a high level some of the
-steps that existing cluster setup scripts are making.
+这部文档是面对想要订制Kubernetes集群的读者。如果你发现现有的新手指南已经可以满足你对 [这个列表](README.md)上所列的需求，我们建议你继续阅读这个根据前人积累经验所写的新手指南。但如果你有新手指南所不能满足的对IaaS，网络，配置管理或对操作系统有特殊要求，这个指南将会提供给你一个指导性的概述。
+这个指南也会对希望对现有集群配置有进一步理解的读者提供到帮助。
 
 
 **目录**
@@ -65,7 +53,7 @@ steps that existing cluster setup scripts are making.
 
 ### Learning
 
-  1. 你应该已经熟悉Kubernetes了。我们建议 We suggest you set
+  1. 你应该已经熟悉Kubernetes了。我们建议根据 We suggest you set
     up a temporary cluster by following one of the other Getting Started Guides.
     This will help you become familiar with the CLI ([kubectl](../user-guide/kubectl/kubectl.md)) and concepts ([pods](../user-guide/pods.md), [services](../user-guide/services.md), etc.) first.
   1. You should have `kubectl` installed on your desktop.  This will happen as a side
