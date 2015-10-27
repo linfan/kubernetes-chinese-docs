@@ -1,16 +1,6 @@
-Kubernetes Deployment On Bare-metal Ubuntu Nodes
+# Kubernetes Deployment On Bare-metal Ubuntu Nodes
 ------------------------------------------------
 
-- [Introduction](#introduction)
-- [Prerequisites](#prerequisites)
-- [Starting a Cluster](#starting-a-cluster)
-    - [Set up working directory](#set-up-working-directory)
-    - [Configure and start the kubernetes cluster](#configure-and-start-the-kubernetes-cluster)
-    - [Test it out](#test-it-out)
-    - [Deploy addons](#deploy-addons)
-    - [Trouble shooting](#trouble-shooting)
-- [Upgrading a Cluster](#upgrading-a-cluster)
-    - [Test it out](#test-it-out-ii)
 
 ## Introduction
 
