@@ -17,7 +17,7 @@ This guide is also useful for those wanting to understand at a high level some o
 steps that existing cluster setup scripts are making.
 
 
-**Table of Contents**
+**目录**
 
 <!-- BEGIN MUNGE: GENERATED_TOC -->
 
@@ -25,11 +25,11 @@ steps that existing cluster setup scripts are making.
     - [Learning](#learning)
     - [Cloud Provider](#cloud-provider)
     - [Nodes](#nodes)
-    - [Network](#network)
-    - [Cluster Naming](#cluster-naming)
-    - [Software Binaries](#software-binaries)
-      - [Downloading and Extracting Kubernetes Binaries](#downloading-and-extracting-kubernetes-binaries)
-      - [Selecting Images](#selecting-images)
+    - [网络](#network)
+    - [集群命名](#cluster-naming)
+    - [软件安装包](#software-binaries)
+      - [下载和解压缩Kubernetes安装包](#downloading-and-extracting-kubernetes-binaries)
+      - [选择镜像文件](#selecting-images)
     - [Security Models](#security-models)
       - [Preparing Certs](#preparing-certs)
       - [Preparing Credentials](#preparing-credentials)
@@ -65,7 +65,7 @@ steps that existing cluster setup scripts are making.
 
 ### Learning
 
-  1. You should be familiar with using Kubernetes already.  We suggest you set
+  1. 你应该已经熟悉Kubernetes了。我们建议 We suggest you set
     up a temporary cluster by following one of the other Getting Started Guides.
     This will help you become familiar with the CLI ([kubectl](../user-guide/kubectl/kubectl.md)) and concepts ([pods](../user-guide/pods.md), [services](../user-guide/services.md), etc.) first.
   1. You should have `kubectl` installed on your desktop.  This will happen as a side
