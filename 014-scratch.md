@@ -1,5 +1,4 @@
-Getting started from Scratch
-----------------------------
+# Getting started from Scratch
 
 This guide is for people who want to craft a custom Kubernetes cluster.  If you
 can find an existing Getting Started Guide that meets your needs on [this
@@ -15,7 +14,7 @@ steps that existing cluster setup scripts are making.
 
 **Table of Contents**
 
-<!-- BEGIN MUNGE: GENERATED_TOC -->
+
 
   - [Designing and Preparing](#designing-and-preparing)
     - [Learning](#learning)
@@ -56,7 +55,7 @@ steps that existing cluster setup scripts are making.
     - [Networking](#networking)
     - [Getting Help](#getting-help)
 
-<!-- END MUNGE: GENERATED_TOC -->
+
 
 ## Designing and Preparing
 
