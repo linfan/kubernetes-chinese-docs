@@ -7,15 +7,15 @@ Kubernetes一个用于容器集群的自动化部署、扩容以及运维的开�
 
  - 动态地对应用进行扩容。
  - 无缝地发布新特性。
- - 通过仅使用需要的资源来优化硬件使用。
+ - 仅使用需要的资源以优化硬件使用。
 
-我们希望培育出一个组件和工具的生态，帮助大家减轻在公有云及私有云上运行应用的负担。
+我们希望培育出一个组件及工具的生态，帮助大家减轻在公有云及私有云上运行应用的负担。
 
 #### Kubernetes是：
 
 * **简洁的**：轻量级，简单，易上手
 * **可移植的**：公有，私有，混合，多重云（multi-cloud）
-* **可扩展的**: 模块化, 插件化, 可挂载, 可编排
+* **可扩展的**: 模块化, 插件化, 可挂载, 可组合
 * **可自愈的**: 自动布置, 自动重启, 自动复制
 
 Kubernetes项目是Google在2014年启动的。Kubernetes构建在[Google公司十几年的大规模高负载生产系统运维经验](https://research.google.com/pubs/pub43438.html)之上，同时结合了社区中各项最佳设计和实践。
@@ -51,12 +51,13 @@ Kubernetes项目是Google在2014年启动的。Kubernetes构建在[Google公司�
 
 Kubernetes不是PaaS（平台即服务）。
 
-* Kubernetes does not limit the types of applications supported. It does not dictate application frameworks, restrict the set of supported language runtimes, nor cater to only [12-factor applications](http://12factor.net/). Kubernetes aims to support an extremely diverse variety of workloads: if an application can run in a container, it should run great on Kubernetes.
-* Kubernetes is unopinionated in the source-to-image space. It does not build your application. CI workflow is an area where different users and projects have their own requirements and preferences, so we support layering CI workflows on Kubernetes but don't dictate how it should work.
-* On the other hand, a number of PaaS systems run *on* Kubernetes, such as [Openshift](https://github.com/openshift/origin) and [Deis](http://deis.io/). You could also roll your own custom PaaS, integrate with a CI system of your choice, or get along just fine with just Kubernetes: bring your container images and deploy them on Kubernetes.
-* Since Kubernetes operates at the application level rather than at just the hardware level, it provides some generally applicable features common to PaaS offerings, such as deployment, scaling, load balancing, logging, monitoring, etc. However, Kubernetes is not monolithic, and these default solutions are optional and pluggable.
+* Kubernetes并不对支持的应用程序类型有任何限制。 它并不指定应用框架，限制语言类型，也不仅仅迎合 [12-factor应用程序](http://12factor.net/)模式. Kubernetes旨在支持各种多种多样的负载类型：只要一个程序能够在容器中运行，它就可以在Kubernetes中运行。
+* Kubernetes并不关注代码到镜像领域。它并不负责应用程序的构建。不同的用户和项目对持续集成流程都有不同的需求和偏好，所以我们分层支持持续集成但并不规定和限制它的工作方式。
+* 另一方面， 确实有不少PaaS系统运行在Kubernetes*之上*，比如[Openshift](https://github.com/openshift/origin)和[Deis](http://deis.io/)。同样你也可以将定制的PaaS系统，结合一个持续集成系统再Kubernetes上进行实施：只需生成容器镜像并通过Kubernetes部署。
+* 由于Kubernetes运行再应用层而不是硬件层，所以它提供了一些一般PaaS提供的功能，比如部署，扩容，负载均衡，日志，监控，等等。无论如何，Kubernetes不是一个单一应用，所以这些解决方案都是可选可插拔的。
 
 Kubernetes并不是单单的"编排系统"；它排除了对编排的需要:
 
-* The technical definition of "orchestration" is execution of a defined workflow: do A, then B, then C. In contrast, Kubernetes is comprised of a set of control processes that continuously drive current state towards the provided desired state. It shouldn't matter how you get from A to C: make it so. This results in a system that is easier to use and more powerful, robust, and resilient.
+* “编排”的技术定义为按照指定流程执行一系列动作：执行A，然后B，然后C。相反，Kubernetes有一系列控制进程组成，持续地控制从当前状态到指定状态的流转。无需关注你是如何从A到C：只需结果如此。这样将使得系统更加易用，强大，健壮和弹性。
+
 
