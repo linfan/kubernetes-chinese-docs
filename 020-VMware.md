@@ -12,7 +12,7 @@ vSphere入门
 
 ### 先决条件
 
-1. 你需要有一台ESXi机器或vCenter实例的管理员权限。 
+1. 需要有一台ESXi机器或vCenter实例的管理员权限。 
 2. 需要先安装Go（1.2或以上版本）。下载地址： [www.golang.org](http://www.golang.org).
 3. 需要在环境变量中添加`GOPATH`并将`$GOPATH/bin` 添加到`PATH`中。
 
