@@ -19,10 +19,12 @@
     * systemctl enable libvirtd
     * systemctl start libvirtd
 6. 开启libvirt接入的用户权限
-7. 确保qemu用户可以使用$HOME
-    在分布式环境中，libvirt的接入默认被拒绝或者每次接入需要密码
-
-
-8. 
+7. 确保qemu用户可以使用$HOME  
+    在分布式环境中，libvirt的接入默认被拒绝或者每次接入需要密码。  
+    可以使用如下命令进行测试：  
+```virsh -c qemu:///system pool-list```  
+    如果接入报错，请阅读https://libvirt.org/acl.html和https://libvirt.org/aclpolkit.html。
+    简而言之，
+8. 。
 
 
