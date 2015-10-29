@@ -19,5 +19,5 @@ CoreOS上运行Kubernetes有多条指南：
 * 
 [使用一个小的OS X 应用程序,Vagrant的多节点集群](https://github.com/rimusz/coreos-osx-gui-kubernetes-cluster/blob/master/README.md)
 * 
-[在Azure，使用Waeve的可调节多节点集群](http://kubernetes.io/v1.0/docs/getting-started-guides/coreos/azure/README.html)
+[在Azure，使用Waeve的可伸缩的多节点集群](http://kubernetes.io/v1.0/docs/getting-started-guides/coreos/azure/README.html)
 
