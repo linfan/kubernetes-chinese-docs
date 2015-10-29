@@ -1,6 +1,4 @@
 
-# 开始学习libvirt CoreOS
-
-
+# libvirt CoreOS的入门指南
 
 
