@@ -13,11 +13,11 @@ CoreOS上运行Kubernetes有多条指南：
 * 
 [使用cloud-config，Weave，Vagrant的多节点集群](https://github.com/errordeveloper/weave-demos/blob/master/poseidon/README.md)
 * 
-[使用cloud-config，Vgrant的多节点集群](https://github.com/pires/kubernetes-vagrant-coreos-cluster/blob/master/README.md)
+[使用cloud-config，Vagrant的多节点集群](https://github.com/pires/kubernetes-vagrant-coreos-cluster/blob/master/README.md)
 * 
-[使用cloud-config，Vgrant的另一种多节点集群（跟上一个类似，难度有所增加；更加注重功能和灵活性）](https://github.com/AntonioMeireles/kubernetes-vagrant-coreos-cluster/blob/master/README.md)
+[使用cloud-config，Vagrant的另一种多节点集群（跟上一个类似，难度有所增加；更加注重功能和灵活性）](https://github.com/AntonioMeireles/kubernetes-vagrant-coreos-cluster/blob/master/README.md)
 * 
-[使用一个小的OS X 应用程序,Vgrant的多节点集群](https://github.com/rimusz/coreos-osx-gui-kubernetes-cluster/blob/master/README.md)
+[使用一个小的OS X 应用程序,Vagrant的多节点集群](https://github.com/rimusz/coreos-osx-gui-kubernetes-cluster/blob/master/README.md)
 * 
 [在Azure，使用Waeve的可调节多节点集群](http://kubernetes.io/v1.0/docs/getting-started-guides/coreos/azure/README.html)
 
