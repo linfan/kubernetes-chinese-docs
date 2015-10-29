@@ -5,7 +5,7 @@ CoreOS上部署入门
 
 ## 
 
-CoreOS运行Kubernetes有多条指南：
+CoreOS上运行Kubernetes有多条指南：
 * 
 [多节点集群](http://kubernetes.io/v1.0/docs/getting-started-guides/coreos/coreos_multinode_cluster.html)
 * 
