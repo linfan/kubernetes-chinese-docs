@@ -1,4 +1,4 @@
-[CloudStack](http://cloudstack.apache.org)的入门指南
+[ CloudStack ](http://cloudstack.apache.org)的入门指南
 ------------------------------------------------------------
 
 **内容列表**
