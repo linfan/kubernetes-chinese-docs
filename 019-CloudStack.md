@@ -1,4 +1,4 @@
-Getting started on [CloudStack](http://cloudstack.apache.org)
+[CloudStack](http://cloudstack.apache.org)的入门指南
 ------------------------------------------------------------
 
 **Table of Contents**
