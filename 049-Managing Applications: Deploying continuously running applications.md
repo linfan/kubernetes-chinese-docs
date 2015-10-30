@@ -34,3 +34,10 @@ $ kubectl get rc
 CONTROLLER   CONTAINER(S)   IMAGE(S)   SELECTOR    REPLICAS
 my-nginx     nginx          nginx      app=nginx   2
 ```
+这说明你的controller会确保有两个nginx的副本。和直接创建的pod一样，也可以用`get`命令查看这些副本：
+```
+$ kubectl get pods
+NAME             READY     STATUS    RESTARTS   AGE
+my-nginx-065jq   1/1       Running   0          51s
+my-nginx-buaiq   1/1       Running   0          51s
+```
