@@ -26,4 +26,5 @@ spec:
 $ kubectl create -f ./nginx-rc.yaml
 replicationcontrollers/my-nginx
 ```
-`replication controller`会替换删除的或者因不明原因终止的（比如节点失败）pods，这和直接创建的pods的情况是不一样。基于这样的考量，
+`replication controller`会替换删除的或者因不明原因终止的（比如节点失败）pods，这和直接创建的pods的情况是不一样。基于这样的考量，对于一个需要持续运行的应用，即便你的应用只需要一个单独的pod，我们也推荐使用`replication controller`。对于单独的pod，在配置文件里可以省略`replicas`这个域，因为不设置的时候默认就只有一个副本。
+##查看replication controller的状态
