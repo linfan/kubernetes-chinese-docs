@@ -26,3 +26,4 @@ spec:
 $ kubectl create -f ./nginx-rc.yaml
 replicationcontrollers/my-nginx
 ```
+`replication controller`会替换删除的或者因不明原因终止的（比如节点失败）pods，这和直接创建的pods的情况是不一样。
