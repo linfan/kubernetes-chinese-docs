@@ -1,38 +1,38 @@
 [CloudStack](http://cloudstack.apache.org)的入门指南
 ------------------------------------------------------------
 
-**Table of Contents**
+**内容列表**
 
-- [Introduction](#introduction)
-- [Prerequisites](#prerequisites)
-- [Clone the playbook](#clone-the-playbook)
-- [Create a Kubernetes cluster](#create-a-kubernetes-cluster)
+- [介绍](#introduction)
+- [先决条件](#prerequisites)
+- [克隆脚本](#clone-the-playbook)
+- [创建一个 Kubernetes 集群](#create-a-kubernetes-cluster)
 
 ### Introduction
 
-CloudStack is a software to build public and private clouds based on hardware virtualization principles (traditional IaaS). To deploy Kubernetes on CloudStack there are several possibilities depending on the Cloud being used and what images are made available. [Exoscale](http://exoscale.ch) for instance makes a [CoreOS](http://coreos.com) template available, therefore instructions to deploy Kubernetes on coreOS can be used. CloudStack also has a vagrant plugin available, hence Vagrant could be used to deploy Kubernetes either using the existing shell provisioner or using new Salt based recipes.
+CloudStack 是一个用于构建基于硬件虚拟化的公有云和私有云（传统 IaaS ）的软件。在 CloudStack 上部署 Kubernetes 有好几种方法，需要根据 CloudStack 所使用的哪种云和有哪些可用镜像来决定。 例如[ Exoscale ](http://exoscale.ch)就提供了一个[ coreOS ](http://coreos.com)的可用模版，因此也可以使用在 coreOS 部署 Kubernetes 的指令来部署。 CloudStack 同样也提供了一个 Vagrant 插件，因此也可以用 Vagrant 来部署 Kubernetes ，既可以选择原有的基于 shell 脚本的部署方式，也可以选择新的基于 Salt 的部署方式。
 
-[CoreOS](http://coreos.com) templates for CloudStack are built [nightly](http://stable.release.core-os.net/amd64-usr/current/). CloudStack operators need to [register](http://docs.cloudstack.apache.org/projects/cloudstack-administration/en/latest/templates.html) this template in their cloud before proceeding with these Kubernetes deployment instructions.
+CloudStack的 [coreOS](http://coreos.com) 模版会[每日](http://stable.release.core-os.net/amd64-usr/current/)构建。 在执行安装 Kubernetes 部署指令之前需要先将模版[注册](http://docs.cloudstack.apache.org/projects/cloudstack-administration/en/latest/templates.html)到云上。
 
-This guide uses an [Ansible playbook](https://github.com/runseb/ansible-kubernetes).
-This is a completely automated, a single playbook deploys Kubernetes based on the coreOS [instructions](coreos/coreos_multinode_cluster.md).
+本指引使用了[Ansible playbook](https://github.com/runseb/ansible-kubernetes)。
+完全自动化构建，单个 Kubernetes 部署脚本基于 coreOS [指令](coreos/coreos_multinode_cluster.md)构建。
 
 
-This [Ansible](http://ansibleworks.com) playbook deploys Kubernetes on a CloudStack based Cloud using CoreOS images. The playbook, creates an ssh key pair, creates a security group and associated rules and finally starts coreOS instances configured via cloud-init.
+ [Ansible](http://ansibleworks.com) 脚本基于 coreOS 镜像将 Kubernetes 部署到 CloudStack 基础云上。 该脚本创建一个SSH密钥对、一个安全组和相关规则并最终通过云初始化配置来启动coreOS实例。
 
-### Prerequisites
+### 先决条件
 
     $ sudo apt-get install -y python-pip
     $ sudo pip install ansible
     $ sudo pip install cs
 
-[_cs_](https://github.com/exoscale/cs) is a python module for the CloudStack API.
+[_cs_](https://github.com/exoscale/cs) 是一个 CloudStack API 的 python 模块。
 
-Set your CloudStack endpoint, API keys and HTTP method used.
+可以通过使用API密钥和HTTP的方式来配置CloudStack终端。
 
-You can define them as environment variables: `CLOUDSTACK_ENDPOINT`, `CLOUDSTACK_KEY`, `CLOUDSTACK_SECRET` and `CLOUDSTACK_METHOD`.
+你可以将它们定义成环境变量: `CLOUDSTACK_ENDPOINT`, `CLOUDSTACK_KEY`, `CLOUDSTACK_SECRET` 和 `CLOUDSTACK_METHOD`.
 
-Or create a `~/.cloudstack.ini` file:
+或者通过创建 `~/.cloudstack.ini`文件的方式：
 
     [cloudstack]
     endpoint = <your cloudstack api endpoint>
@@ -40,22 +40,21 @@ Or create a `~/.cloudstack.ini` file:
     secret = <your api secret key>
     method = post
 
-We need to use the http POST method to pass the _large_ userdata to the coreOS instances.
+我们需要使用 http POST 请求来将 _large_ 用户的数据上传到各个coreOS实例。
 
-### Clone the playbook
+### 克隆脚本
 
     $ git clone --recursive https://github.com/runseb/ansible-kubernetes.git
     $ cd ansible-kubernetes
 
-The [ansible-cloudstack](https://github.com/resmo/ansible-cloudstack) module is setup in this repository as a submodule, hence the `--recursive`.
+[ansible-cloudstack](https://github.com/resmo/ansible-cloudstack) 模块被设置成了该仓库的一个子模块，因此需要使用`--recursive`。
+### 创建一个 Kubernetes 集群
 
-### Create a Kubernetes cluster
-
-You simply need to run the playbook.
+你只需要简单运行如下脚本。
 
     $ ansible-playbook k8s.yml
 
-Some variables can be edited in the `k8s.yml` file.
+编辑`k8s.yml`文件中的一些变量。
 
     vars:
       ssh_key: k8s
@@ -65,16 +64,15 @@ Some variables can be edited in the `k8s.yml` file.
       k8s_template: Linux CoreOS alpha 435 64-bit 10GB Disk
       k8s_instance_type: Tiny
 
-This will start a Kubernetes master node and a number of compute nodes (by default 2).
-The `instance_type` and `template` by default are specific to [exoscale](http://exoscale.ch), edit them to specify your CloudStack cloud specific template and instance type (i.e service offering).
+它将启动一个 Kubernetes 主机和一些计算节点（默认为2个）。`instance_type`和`template`默认指定的是 [exoscale](http://exoscale.ch)，编辑这两个参数来指定你CloudStack云的模板和实例类型（即服务提供商）。
 
-Check the tasks and templates in `roles/k8s` if you want to modify anything.
+如果你想修改一些其他参数的话，请参照`roles/k8s`里面的任务和模版。
 
-Once the playbook as finished, it will print out the IP of the Kubernetes master:
+一旦脚本执行完成，命令行会打印出Kubernetes主机的IP地址：
 
     TASK: [k8s | debug msg='k8s master IP is {{ k8s_master.default_ip }}'] ********
 
-SSH to it using the key that was created and using the _core_ user and you can list the machines in your cluster:
+使用 _core_ 用户和刚创建的密钥通过ssh登录到主机，你可以列出集群中的所有机器：
 
     $ ssh -i ~/.ssh/id_rsa_k8s core@<master IP>
     $ fleetctl list-machines
