@@ -20,4 +20,4 @@ spec:
         ports:
         - containerPort: 80
 ```
-和指定一个单独的Pod相比，不同的是设置了这里的kind域为ReplicationController，设定了需要的副本（replicas）数量以及把Pod的定义放到了template域下面。pods的名字不需要显示指定，
+和指定一个单独的Pod相比，不同的是设置了这里的kind域为ReplicationController，设定了需要的副本（replicas）数量以及把Pod的定义放到了template域下面。pods的名字不需要显示指定，因为它们是由`replication controller`的名字生成的。
