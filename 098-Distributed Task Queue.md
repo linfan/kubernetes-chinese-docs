@@ -52,6 +52,32 @@ $ kubectl create -f examples/celery-rabbitmq/rabbitmq-service.yaml
 
 RabbitMQ代理可以通过这个文件启动`examples/celery-rabbitmq/rabbitmq-controller.yaml`:
 
+```json
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    name: rabbitmq
+  name: rabbitmq-controller
+spec:
+  replicas: 1
+  selector:
+    component: rabbitmq
+  template:
+    metadata:
+      labels:
+        app: taskQueue
+        component: rabbitmq
+    spec:
+      containers:
+      - image: rabbitmq
+        name: rabbitmq
+        ports:
+        - containerPort: 5672
+        resources:
+          limits:
+            cpu: 100m
+```
 
 
 
