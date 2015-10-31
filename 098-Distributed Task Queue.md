@@ -51,3 +51,4 @@ $ kubectl create -f examples/celery-rabbitmq/rabbitmq-service.yaml
 
 
 
+
