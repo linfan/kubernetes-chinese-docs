@@ -87,7 +87,30 @@ spec:
 通过`$ kubectl create -f examples/celery-rabbitmq/celery-controller.yaml`来创建一个celery worker,文件如下：
 
 ```json
-
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    name: celery
+  name: celery-controller
+spec:
+  replicas: 1
+  selector:
+    component: celery
+  template:
+    metadata:
+      labels:
+        app: taskQueue
+        component: celery
+    spec:
+      containers:
+      - image: endocode/celery-app-add
+        name: celery
+        ports:
+        - containerPort: 5672
+        resources:
+          limits:
+            cpu: 100m
 ```
 
 
