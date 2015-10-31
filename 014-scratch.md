@@ -8,7 +8,7 @@
 
 ### 学习
 
-  1. 你应该已经熟悉Kubernetes了。我们建议根据 其他入门指南架设一个临时的集群。这样可以帮助你先熟悉Kubernetes命令行([kubectl](../user-guide/kubectl/kubectl.md))和一些概念([pods](../user-guide/pods.md), [services](../user-guide/services.md), etc.)。
+  1. 你应该已经熟悉Kubernetes了。我们建议根据 其他入门指南架设一个临时的集群。这样可以帮助你先熟悉Kubernetes命令行([kubectl](../user-guide/kubectl/kubectl.md))和一些概念([pods](../user-guide/pods.md), [services](../user-guide/services.md), 等等)。
   2. 当你浏览完其他入门指南的时候，你应该已经安装好了`kubectl`。如果没有，你可以根据[这个](../user-guide/prereqs.md)说明安装。
 
 ### Cloud Provider
