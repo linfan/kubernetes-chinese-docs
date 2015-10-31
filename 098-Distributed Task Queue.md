@@ -134,3 +134,4 @@ celery_conf.py文件包含了一个简单的celery加法运算任务。最后一
 
 
 
+
