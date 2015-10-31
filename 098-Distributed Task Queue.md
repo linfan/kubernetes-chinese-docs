@@ -16,5 +16,6 @@ Celery基于Python实现。
 * 一个RabbitMQ消息代理
 * Flower前端
 * 一个提供访问消息代理的服务
+* 可以传递给工作节点的级别Celery任务
 
 
