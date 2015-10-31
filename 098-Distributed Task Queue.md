@@ -130,6 +130,7 @@ ENV C_FORCE_ROOT 1
 
 CMD ["/bin/bash", "/usr/local/bin/run.sh"]
 ```
+celery_conf.py文件包含了一个简单的celery加法运算任务。
 
 
 
