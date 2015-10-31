@@ -9,16 +9,14 @@ Celery基于Python实现。
 下面的示例将向你展示，如何使用Kubernetes来建立一个基于Celery作为任务队列，RabbitMQ作为消息代理的分布式任务队列系统。同时，还要展示如何建立一个基于Flower的任务监控前端。
 
 ## 目标
-### 在例子的最后，我们可以看到：
 
-* 3个pods:
-    * 一个Celery任务队列
-    * 一个RabbitMQ消息代理
-    * Flower前端
-* 一个提供访问消息代理的服务
-* 可以传递给工作节点的级别Celery任务
+#### 在例子的最后，我们会看到：
+ * 3个pods：
+   * 一个Celery任务队列
+   * 一个RabbitMQ消息代理
+   * 一个Flower前端
 
- 
+
 
 
 
