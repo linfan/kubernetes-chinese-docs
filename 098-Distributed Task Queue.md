@@ -134,6 +134,8 @@ celery_conf.py文件包含了一个简单的celery加法运算任务。最后一
 
 注意：`ENV C_FORCE_ROOT 1`用来确保Celery以root用户身份运行，不提倡在生产环境中采用这种方式。
 
+celery_conf.py文件的内容如下：
+
 
 
 
