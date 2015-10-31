@@ -139,4 +139,4 @@ spec:
 
 注意到第一个容器计数到108就被终止了。当下一个容器启动后，计数进程复位到0。类似的，如果我们删除这个pod并重启它，当pod运行时，我们能够捕获到运行在这个pod中所有容器实例的日志。
 
-导入到Google云日志平台中的日志可能会被导出到不同的系统中，包括[Google云存储](https://cloud.google.com/storage/)
+导入到Google云日志平台中的日志可能会被导出到不同的系统中，包括[Google云存储](https://cloud.google.com/storage/)和[BigQuery](https://cloud.google.com/bigquery/)
