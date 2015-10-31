@@ -22,7 +22,7 @@ Celery基于Python实现。
 
 你应该已经拥有一个Kubernetes集群。要完成大部分的例子，确保Kubernetes创建一个以上的节点（例如，通过设置`NUM_MINIONS`环境变量为2或者更多）。
 
-### 第一步：
+### 第一步：启动RabbitMQ服务
 
 
 
