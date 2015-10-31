@@ -211,4 +211,6 @@ spec:
             cpu: 100m
 ```
 
-这将创建一个新的pod,这个pod安装了Flower，服务节点会暴露5555端口（Flower的默认端口）。
+这将创建一个新的pod,这个pod安装了Flower，服务节点会暴露5555端口（Flower的默认端口）。这个镜像使用下面命令启动Flower:
+
+
