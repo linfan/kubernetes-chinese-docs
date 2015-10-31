@@ -217,4 +217,4 @@ spec:
 flower --broker=amqp://guest:guest@${RABBITMQ_SERVICE_SERVICE_HOST:localhost}:5672//
 ```
 
-
+同样，它使用Kubernetes提供的环境变量来获取RabbitMQ服务的IP地址。
