@@ -3,5 +3,5 @@
 ### 内容表：
 
 
-* [Kubernetes 101](http://kubernetes.io/v1.0/docs/user-guide/walkthrough/README.html)
-* [Kubernetes 201](http://kubernetes.io/v1.0/docs/user-guide/walkthrough/k8s201.html)
+* [Kubernetes 101](https://www.gitbook.com/book/linfan1/kubernetes-chinese-docs/edit#/edit/master/092-Kubernetes%20101.md)
+* [Kubernetes 201]()
