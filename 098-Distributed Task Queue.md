@@ -183,3 +183,4 @@ spec:
 ```
  $ gcloud compute firewall-rules create --allow=tcp:5555 --target-tags=kubernetes-minion kubernetes-minion-5555
 ```
+请记住在运行完这个例子后删除这条规则（）
