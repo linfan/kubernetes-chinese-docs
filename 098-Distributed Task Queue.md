@@ -227,3 +227,5 @@ celery-controller-wqkz1                        1/1       Running      0         
 flower-controller-7bglc                        1/1       Running      0          7m
 rabbitmq-controller-5eb2l                      1/1       Running      0          13m
 ```
+
+
