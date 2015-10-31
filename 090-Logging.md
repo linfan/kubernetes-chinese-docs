@@ -168,4 +168,4 @@ $ cat 21\:00\:00_21\:59\:59_S0.json | jq '.structPayload.log'
 "7: Thu Jun 11 21:39:45 UTC 2015\n"
 ...
 ```
-
+这个页面已经简要介绍了如何在一个Kubernetes部署集群中收集日志的底层机制。
