@@ -75,8 +75,25 @@ root       479  0.0  0.0   4348   812 ?        S    00:05   0:00 sleep 1
 root       480  0.0  0.0  15572  2212 ?        R    00:05   0:00 ps aux
 ```
 如果任何原因导致运行在pod中的镜像被杀掉了，然后又被Kubernetes重新启动，那么会发生什么呢？我们仍然可以看到，重新启动的容器日志会接着之前调用容器输出的日志行后面输出吗？或者是原来容器的执行日志会丢失，只能看到新容器的日志行输出吗？我们来看一看，首先停止当前正在运行的计数器。
-
 ```
 $ kubectl stop pod counter
 pods/counter
+```
+现在我们重启这个计数器。
+```
+$ kubectl create -f examples/blog-logging/counter-pod.yaml
+pods/counter
+```
+等容器重新启动后重新获取日志。
+```
+$ kubectl logs counter
+0: Tue Jun  2 21:51:40 UTC 2015
+1: Tue Jun  2 21:51:41 UTC 2015
+2: Tue Jun  2 21:51:42 UTC 2015
+3: Tue Jun  2 21:51:43 UTC 2015
+4: Tue Jun  2 21:51:44 UTC 2015
+5: Tue Jun  2 21:51:45 UTC 2015
+6: Tue Jun  2 21:51:46 UTC 2015
+7: Tue Jun  2 21:51:47 UTC 2015
+8: Tue Jun  2 21:51:48 UTC 2015
 ```
