@@ -117,5 +117,7 @@ spec:
 
 像RabbitMQ控制器，需要确保总是有一个pod运行着Celery worker实例。
 
+celery-app-add这个镜像是对标准的Celery Docker镜像的扩展。
+
 
 
