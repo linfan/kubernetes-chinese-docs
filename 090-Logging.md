@@ -102,3 +102,28 @@ $ kubectl logs counter
 当Kubernetes集群创建后开启了记录到Google云日志平台的功能，系统会在集群每个节点上创建一个叫做`fluentd-cloud-logging`的pod来收集Docker容器日志。在这篇博客一开始我们就可以看到如何获取这些pods的命令。
 
 这个日志收集的pod规范文件，看起来像这样[fluentd-gcp.yaml](http://releases.k8s.io/v1.0.6/cluster/saltbase/salt/fluentd-gcp/fluentd-gcp.yaml):
+```json
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fluentd-cloud-logging
+  namespace: kube-system
+spec:
+  containers:
+  - name: fluentd-cloud-logging
+    image: gcr.io/google_containers/fluentd-gcp:1.11
+    resources:
+      limits:
+        cpu: 100m
+        memory: 200Mi
+    env:
+    - name: FLUENTD_ARGS
+      value: -qq
+    volumeMounts:
+    - name: containers
+      mountPath: /var/lib/docker/containers
+  volumes:
+  - name: containers
+    hostPath:
+      path: /var/lib/docker/containers
+```
