@@ -127,4 +127,6 @@ spec:
     hostPath:
       path: /var/lib/docker/containers
 ```
-这个pod的规范将包含Docker日志文件路径，/var/lib/docker/containers，映射到容器中的相同路径。这个pod运行一个叫做gcr.io/google_containers/fluentd-gcp:1.6的镜像，配置为从日志文件路径收集Docker日志，打到Google云日志平台。集群中的每个节点都会运行这个pod实例。如果这个pod失败退出，Kubernetes会重启它。
+这个pod的规范将包含Docker日志文件路径，/var/lib/docker/containers，映射到容器中的相同路径。这个pod运行一个叫做gcr.io/google_containers/fluentd-gcp:1.6的镜像，配置为从日志文件路径收集Docker日志，打到Google云日志平台。集群中的每个节点都会运行这个pod实例。如果这个pod失败退出，Kubernetes会自动重启它。
+
+
