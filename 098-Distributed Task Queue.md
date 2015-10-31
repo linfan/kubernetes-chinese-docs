@@ -151,5 +151,5 @@ def add(x, y):
     return x + y
 ```
 
-假设你已经熟悉Celery的运行机制，除了`os.environ.get('RABBITMQ_SERVICE_SERVICE_HOST')`这个以外基本都熟悉。
+假设你已经熟悉Celery的运行机制，除了`os.environ.get('RABBITMQ_SERVICE_SERVICE_HOST')`这个以外基本都熟悉。在环境变量中已经设置了第一步中创建了的RabbitMQ服务的IP地址
 
