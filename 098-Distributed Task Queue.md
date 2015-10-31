@@ -48,6 +48,7 @@ $ kubectl create -f examples/celery-rabbitmq/rabbitmq-service.yaml
 ```
 这个服务允许其他pods连接到rabbitmq。对于它们可以使用5672端口，服务也会将流量路由到容器（也通过5672端口）。
 
+### 第二步：启动RabbitMQ
 
 
 
