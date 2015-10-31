@@ -24,6 +24,7 @@ Celery基于Python实现。
 
 ### 第一步：启动RabbitMQ服务
 
+Celery任务队列需要连接到RabbitMQ代理。
 
 
 
