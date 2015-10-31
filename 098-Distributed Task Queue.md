@@ -84,7 +84,8 @@ spec:
 
 ### 第三步：启动Celery
 
-通过`$ kubectl create -f examples/celery-rabbitmq/celery-controller.yaml`来创建一个celery worker：
+通过`$ kubectl create -f examples/celery-rabbitmq/celery-controller.yaml`来创建一个celery worker,文件如下：
+```
 
 
 
