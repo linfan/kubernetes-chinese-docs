@@ -178,3 +178,5 @@ spec:
     component: flower
   type: LoadBalancer
 ```
+
+它会被标记为一个外部负载均衡器。
