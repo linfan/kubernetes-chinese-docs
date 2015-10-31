@@ -236,4 +236,4 @@ flower-service   name=flower   app=taskQueue,component=flower   10.0.44.166     
                                                                 162.222.181.180
 ```
 
-在你的网页浏览器中输入正确的网络地址和5555端口
+在你的网页浏览器中输入正确的flower服务地址和5555端口
