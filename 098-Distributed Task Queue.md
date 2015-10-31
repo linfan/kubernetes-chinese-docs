@@ -228,4 +228,4 @@ flower-controller-7bglc                        1/1       Running      0         
 rabbitmq-controller-5eb2l                      1/1       Running      0          13m
 ```
 
-`kubectl get service flower-service`命令会帮助你获取Flower服务的对外IP地址。
+`kubectl get service flower-service`命令会帮助你获取Flower服务的外部IP地址。
