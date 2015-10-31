@@ -24,7 +24,7 @@ Celery基于Python实现。
 
 ### 第一步：启动RabbitMQ服务
 
-Celery任务队列需要连接到RabbitMQ代理。RabbitMQ队列最终会出现在一个独立的pod上，但是，由于pod是短暂存在的，
+Celery任务队列需要连接到RabbitMQ代理。RabbitMQ队列最终会出现在一个独立的pod上，但是，由于pod是短暂存在的，需要一个服务来透明的路由请求到RabbitMQ。
 
 
 
