@@ -1,1 +1,1 @@
-# 示例: 分部署任务队列 Celery, RabbitMQ and Flower
+# 示例: 分部署任务队列 Celery, RabbitMQ和Flower
