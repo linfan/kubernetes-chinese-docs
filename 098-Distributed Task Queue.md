@@ -80,7 +80,9 @@ spec:
 ```
 运行`$ kubectl create -f examples/celery-rabbitmq/rabbitmq-controller.yaml `这个命令来创建副本控制器，确保当一个RabbitMQ实例运行时，一个pod已经存在。
 
-请注意创建这个pod需要一些时间来拉取一个docker镜像。在这个例子中，这些操作也适用于其他pods.
+请注意创建这个pod需要一些时间来拉取一个docker镜像。在这个例子中，这些操作也适用于其他pods。
+
+
 
 
 
