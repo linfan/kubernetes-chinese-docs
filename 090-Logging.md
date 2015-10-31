@@ -151,3 +151,8 @@ SELECT metadata.timestamp, structPayload.log
 
 ![](bigquery-logging.png)
 
+我们还可以从Google云存储中把这些日志拉到desktop或者laptop上来本地化搜索。下面的命令可以从一个叫作`myproject`的Computer Engine项目中获取集群中运行的pod计数器日志。只拽了2015-06-11的日志。
+
+```bash
+$ gsutil -m cp -r gs://myproject/kubernetes.counter_default_count/2015/06/11 .
+```
