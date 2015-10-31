@@ -156,7 +156,7 @@ SELECT metadata.timestamp, structPayload.log
 $ gsutil -m cp -r gs://myproject/kubernetes.counter_default_count/2015/06/11 .
 ```
 现在我们在导入的日志中执行查询。下面的示例用[jq](http://stedolan.github.io/jq/)程序来抽取日志行。
-```bash
+```
 $ cat 21\:00\:00_21\:59\:59_S0.json | jq '.structPayload.log'
 "0: Thu Jun 11 21:39:38 UTC 2015\n"
 "1: Thu Jun 11 21:39:39 UTC 2015\n"
