@@ -170,3 +170,4 @@ $ cat 21\:00\:00_21\:59\:59_S0.json | jq '.structPayload.log'
 ```
 这个页面已经简要介绍了如何在一个Kubernetes部署集群中收集日志的底层机制。这个方法仅仅适用于收集运行在pod中的容器的标准输出和标准错误输出日志。要想收集存储在文件中的日志，参照这篇文件中的描述[使用Fluentd在容器中收集日志文件](http://releases.k8s.io/v1.0.6/contrib/logging/fluentd-sidecar-gcp/README.md),可以使用一个sidecar容器来收集需要的文件，并且发送到Google云日志服务。
 
+本节中的一些材料也出现在这篇博客文章中[Cluster Level Logging with Kubernetes](http://blog.kubernetes.io/2015/06/cluster-level-logging-with-kubernetes.html)。
