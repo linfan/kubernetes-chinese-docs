@@ -142,3 +142,8 @@ spec:
 导入到Google云日志平台中的日志可能会被导出到不同的系统中，包括[Google云存储](https://cloud.google.com/storage/)和[BigQuery](https://cloud.google.com/bigquery/)。使用云日志控制台中的导出选项页来指定日志导出到哪里。你还可以按照此链接去往[设置选项卡](https://pantheon.corp.google.com/project/_/logs/settings)。
 
 我们可以通过SQL语句从BigQuery中查询导入的计数日志行，最新的日志行先显示。
+```sql
+SELECT metadata.timestamp, structPayload.log
+ FROM [mylogs.kubernetes_counter_default_count_20150611] 
+ ORDER BY metadata.timestamp DESC
+ ```
