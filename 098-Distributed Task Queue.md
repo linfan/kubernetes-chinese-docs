@@ -20,7 +20,7 @@ Celery基于Python实现。
 
 ## 先决条件
 
-
+你应该已经拥有一个Kubernetes集群。
 
 
 
