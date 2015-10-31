@@ -229,3 +229,11 @@ rabbitmq-controller-5eb2l                      1/1       Running      0         
 ```
 
 `kubectl get service flower-service`命令会帮助你获取Flower服务的外部IP地址。
+
+```
+NAME             LABELS        SELECTOR                         IP(S)            PORT(S)
+flower-service   name=flower   app=taskQueue,component=flower   10.0.44.166      5555/TCP
+                                                                162.222.181.180
+```
+
+
