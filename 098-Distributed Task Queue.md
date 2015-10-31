@@ -164,5 +164,17 @@ Flower是一个基于web的工具，用来监控和管理Celery集群。通过�
 首先，通过` $ kubectl create -f examples/celery-rabbitmq/flower-service.yaml.`命令来启动一个Flower服务。这个服务定义如下：
 
 ```
-
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: flower
+  name: flower-service
+spec:
+  ports:
+  - port: 5555
+  selector:
+    app: taskQueue
+    component: flower
+  type: LoadBalancer
 ```
