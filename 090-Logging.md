@@ -64,3 +64,14 @@ $ kubectl logs counter
 5: Tue Jun  2 21:37:36 UTC 2015
 ...
 ```
+这条命令用于从一个运行在容器中镜像的Docker日志文件中读取文本日志。我们可以连到这个运行的容器，观察计数器bash脚本运行情况。
+```
+$ kubectl exec -i counter bash
+ps aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0  17976  2888 ?        Ss   00:02   0:00 bash -c for ((i = 0; ; i++)); do echo "$i: $(date)"; sleep 1; done
+root       468  0.0  0.0  17968  2904 ?        Ss   00:05   0:00 bash
+root       479  0.0  0.0   4348   812 ?        S    00:05   0:00 sleep 1
+root       480  0.0  0.0  15572  2212 ?        R    00:05   0:00 ps aux
+```
+
