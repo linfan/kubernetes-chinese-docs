@@ -162,5 +162,3 @@ def add(x, y):
 Flower是一个基于web的工具，用来监控和管理Celery集群。通过连接到一个包含Celery的节点，你可以实时看到所有worker以及他们的任务的工作情况。
 
 首先，通过` $ kubectl create -f examples/celery-rabbitmq/flower-service.yaml.`命令来启动一个Flower服务。这个服务定义如下：
-
-```
