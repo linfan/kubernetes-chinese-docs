@@ -14,6 +14,6 @@ Celery基于Python实现。
 * 3个pods:
 * 一个Celery任务队列
 * 一个RabbitMQ消息代理
-* 
+* Flower前端
 
 
