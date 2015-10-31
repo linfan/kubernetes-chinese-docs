@@ -219,4 +219,6 @@ flower --broker=amqp://guest:guest@${RABBITMQ_SERVICE_SERVICE_HOST:localhost}:56
 
 同样，它使用Kubernetes提供的环境变量来获取RabbitMQ服务的IP地址。
 
-一旦所有的pods启动并且运行，
+一旦所有的pods启动并且运行，运行`kubectl get pods`命令会显示下面内容：
+
+
