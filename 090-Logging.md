@@ -149,3 +149,5 @@ SELECT metadata.timestamp, structPayload.log
  ```
 下面是一些示例输出：
 
+![](bigquery-logging.png)
+
