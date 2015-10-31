@@ -97,4 +97,4 @@ $ kubectl logs counter
 7: Tue Jun  2 21:51:47 UTC 2015
 8: Tue Jun  2 21:51:48 UTC 2015
 ```
-这个pod容器中的首次调用日志丢失了！理想情况是，我们会运行在每个pod中的每一个容器的每一次调用日志行。此外，即使pod重新启动，我们仍然希望保留所有的pod中容器发出的所有日志行。但是不用担心，这仅仅是Kubernetes提供的集群级别的日志功能。当集群创建后，每一个容器的标准输出和标准错误输出都可以被运行在每个节点中的[Fluentd](http://www.fluentd.org/)打到[Google云日志平台](https://cloud.google.com/logging/docs/)
+这个pod容器中的首次调用日志丢失了！理想情况是，我们会运行在每个pod中的每一个容器的每一次调用日志行。此外，即使pod重新启动，我们仍然希望保留所有的pod中容器发出的所有日志行。但是不用担心，这仅仅是Kubernetes提供的集群级别的日志功能。当集群创建后，每一个容器的标准输出和标准错误输出都可以被运行在每个节点中的[Fluentd](http://www.fluentd.org/)打到[Google云日志平台](https://cloud.google.com/logging/docs/)或者是打到Elasticsearch中用Kibana来查看。
