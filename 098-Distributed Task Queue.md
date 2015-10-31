@@ -115,7 +115,7 @@ spec:
 
 一些地方需要指出...:
 
-像RabbitMQ控制器，
+像RabbitMQ控制器，需要确保总是有一个pod运行着Celery worker实例
 
 
 
