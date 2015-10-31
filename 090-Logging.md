@@ -13,4 +13,4 @@ fluentd-cloud-logging-kubernetes-minion-20ej   1/1       Running   0          31
 kube-dns-v3-pk22                               3/3       Running   0          32m
 monitoring-heapster-v1-20ej                    0/1       Running   9          32m
 ```
-
+![](cloud-logging.png)
