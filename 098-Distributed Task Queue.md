@@ -159,3 +159,4 @@ def add(x, y):
 
 ### 第四步：弄一个前端
 
+Flower是一个基于web的工具，用来监控和管理Celery集群。
