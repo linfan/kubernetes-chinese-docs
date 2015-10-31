@@ -47,4 +47,7 @@ NAME                                           READY     STATUS    RESTARTS   AG
 counter                                        1/1       Running   0          5m
  ```
  这一步可能需要几分钟来下载Ubuntu:14.04图像，pod的状态显示为`Pending`。
+ 
+ 计数器pod运行在其中一个节点上：
+ 
 
