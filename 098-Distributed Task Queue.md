@@ -151,5 +151,5 @@ def add(x, y):
     return x + y
 ```
 
-假设你已经熟悉Celery的运行机制，除了这个`os.environ.get('RABBITMQ_SERVICE_SERVICE_HOST')`部分。第一步创建的RabbitMQ服务的IP地址已经在环境变量中设置。Kubernetes会自动对那些包含
+假设你已经熟悉Celery的运行机制，除了这个`os.environ.get('RABBITMQ_SERVICE_SERVICE_HOST')`部分。第一步创建的RabbitMQ服务的IP地址已经在环境变量中设置。Kubernetes会
 
