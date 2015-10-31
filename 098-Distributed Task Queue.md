@@ -119,6 +119,9 @@ spec:
 
 celery-app-add这个镜像是对标准的Celery Docker镜像的扩展。Dockerfile如下：
 
+```
+
+```
 
 
 
