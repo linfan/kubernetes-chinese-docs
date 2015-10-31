@@ -78,7 +78,7 @@ spec:
           limits:
             cpu: 100m
 ```
-
+运行`$ kubectl create -f examples/celery-rabbitmq/rabbitmq-controller.yaml `这个命令来创建副本控制器。
 
 
 
