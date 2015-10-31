@@ -42,7 +42,10 @@ spec:
     app: taskQueue
     component: rabbitmq
 ```
-
+这样运行一个服务：
+```
+$ kubectl create -f examples/celery-rabbitmq/rabbitmq-service.yaml
+```
 
 
 
