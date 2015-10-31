@@ -130,3 +130,7 @@ spec:
 这个pod的规范将包含Docker日志文件路径，/var/lib/docker/containers，映射到容器中的相同路径。这个pod运行一个叫做gcr.io/google_containers/fluentd-gcp:1.6的镜像，配置为从日志文件路径收集Docker日志，打到Google云日志平台。集群中的每个节点都会运行这个pod实例。如果这个pod失败退出，Kubernetes会自动重启它。
 
 我们可以在Google开发者控制台的监控页面中点击日志项，选择叫做kubernetes.counter_default_count的日志统计项。这个日志收集器标识了这个pod(计数器)，命名空间（默认）以及容器的名称（计数）。通过名称，我们可以通过名称从下拉菜单中选择计数器容器的日志。
+
+
+在开发者控制台中我们可以看到所有容器调用的日志。
+
