@@ -147,3 +147,4 @@ SELECT metadata.timestamp, structPayload.log
  FROM [mylogs.kubernetes_counter_default_count_20150611] 
  ORDER BY metadata.timestamp DESC
  ```
+下面是一些示例输出：
