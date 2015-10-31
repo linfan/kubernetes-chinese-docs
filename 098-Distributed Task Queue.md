@@ -185,4 +185,29 @@ spec:
 ```
 请记住在运行完这个例子后删除这条规则（on GCE: `$ gcloud compute firewall-rules delete kubernetes-minion-5555`）。
 
-运行下面命令来启动pods,` $ kubectl create -f examples/celery-rabbitmq/flower-controller.yaml`。
+运行下面命令来启动pods,` $ kubectl create -f examples/celery-rabbitmq/flower-controller.yaml`。这个控制器是这么定义的：
+```
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    name: flower
+  name: flower-controller
+spec:
+  replicas: 1
+  selector:
+    component: flower
+  template:
+    metadata:
+      labels:
+        app: taskQueue
+        component: flower
+    spec:
+      containers:
+      - image: endocode/flower
+        name: flower
+        resources:
+          limits:
+            cpu: 100m
+```
+
