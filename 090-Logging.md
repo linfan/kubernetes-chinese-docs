@@ -50,4 +50,17 @@ counter                                        1/1       Running   0          5m
  
  计数器pod运行在其中一个节点上：
  
+![](27gf-counter.png)
 
+当pod状态变成`Running`后，我们可以用kubectl logs命令来查看计数器pod的输出。
+
+```
+$ kubectl logs counter
+0: Tue Jun  2 21:37:31 UTC 2015
+1: Tue Jun  2 21:37:32 UTC 2015
+2: Tue Jun  2 21:37:33 UTC 2015
+3: Tue Jun  2 21:37:34 UTC 2015
+4: Tue Jun  2 21:37:35 UTC 2015
+5: Tue Jun  2 21:37:36 UTC 2015
+...
+```
