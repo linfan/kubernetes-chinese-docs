@@ -155,3 +155,4 @@ SELECT metadata.timestamp, structPayload.log
 ```bash
 $ gsutil -m cp -r gs://myproject/kubernetes.counter_default_count/2015/06/11 .
 ```
+现在我们在导入的日志中执行查询，
