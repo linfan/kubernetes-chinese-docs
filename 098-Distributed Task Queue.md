@@ -185,3 +185,4 @@ spec:
 ```
 请记住在运行完这个例子后删除这条规则（on GCE: `$ gcloud compute firewall-rules delete kubernetes-minion-5555`）。
 
+运行下面命令来启动pods,` $ kubectl create -f examples/celery-rabbitmq/flower-controller.yaml`。
