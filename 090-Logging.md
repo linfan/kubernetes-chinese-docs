@@ -14,3 +14,5 @@ kube-dns-v3-pk22                               3/3       Running   0          32
 monitoring-heapster-v1-20ej                    0/1       Running   9          32m
 ```
 ![](cloud-logging.png)
+
+图片显示GCE上创建了4个节点，紫色背景显示的是每个节点的虚拟节点名称。灰色方块中显示的分别是内网和外网IP地址，绿色方块显示的是运行在节点中的pods。
