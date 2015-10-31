@@ -221,4 +221,9 @@ flower --broker=amqp://guest:guest@${RABBITMQ_SERVICE_SERVICE_HOST:localhost}:56
 
 一旦所有的pods启动并且运行，运行`kubectl get pods`命令会显示下面内容：
 
-
+```
+NAME                                           READY     REASON       RESTARTS   AGE
+celery-controller-wqkz1                        1/1       Running      0          8m
+flower-controller-7bglc                        1/1       Running      0          7m
+rabbitmq-controller-5eb2l                      1/1       Running      0          13m
+```
