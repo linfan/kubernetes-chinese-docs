@@ -50,6 +50,7 @@ $ kubectl create -f examples/celery-rabbitmq/rabbitmq-service.yaml
 
 ### 第二步：启动RabbitMQ
 
+RabbitMQ代理可以通过这个文件启动`examples/celery-rabbitmq/rabbitmq-controller.yaml`:
 
 
 
