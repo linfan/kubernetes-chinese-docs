@@ -46,7 +46,7 @@ spec:
 ```
 $ kubectl create -f examples/celery-rabbitmq/rabbitmq-service.yaml
 ```
-这个服务允许其他pods连接到rabbitmq。对于它们可以使用5672端口。
+这个服务允许其他pods连接到rabbitmq。对于它们可以使用5672端口，
 
 
 
