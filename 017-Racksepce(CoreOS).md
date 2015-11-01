@@ -7,6 +7,7 @@
 * 集群
 * 注意点：
 * 网络设计
+
 ##入门
 
 Supported Version: v0.18.1
@@ -47,13 +48,14 @@ The master server and additional nodes will be created via the nova CLI. A cloud
 We then boot as many nodes as defined via $NUM_MINIONS.
 ##注意点：
 
-The scripts expect eth2 to be the cloud network that the containers will communicate across.
-A number of the items in config-default.sh are overridable via environment variables.
-For older versions please either:
-Sync back to v0.9 with git checkout v0.9
-Download a snapshot of v0.9
-Sync back to v0.3 with git checkout v0.3
-Download a snapshot of v0.3
+* The scripts expect eth2 to be the cloud network that the containers will communicate across.
+* A number of the items in config-default.sh are overridable via environment variables.
+* For older versions please either:
+    * Sync back to v0.9 with git checkout v0.9
+    * Download a snapshot of v0.9
+    * Sync back to v0.3 with git checkout v0.3
+    * Download a snapshot of v0.3
+
 ##网络设计
 
 * eth0 - servers/containers访问网络的公有接口
