@@ -35,7 +35,7 @@ To install the latest released version of Kubernetes use export KUBERNETES_PROVI
 
 ##编译
 
-1. Kubernetes二进制文件将通过build/下的的通用编译脚本编译。
+1. Kubernetes二进制文件将通过```build/```下的的通用编译脚本编译。
 2. 如果你已经设置了环境变量```ENV KUBERNETES_PROVIDER=rackspace```, 脚本将上传```kubernetes-server-linux-amd64.tar.gz```到云文件。
 3. 通过swiftly创建一个云文件容器，且在这个对象内启用一个链式URL。
 4. 编译过的```kubernetes-server-linux-amd64.tar.gz```将上传到这个容器内，当master/nodes启动时这个URL将传到master/nodes。
