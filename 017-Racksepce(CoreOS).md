@@ -13,7 +13,7 @@
 
 一般来说，Racksapce的dev-build-and-up.sh工作流程类似于Google Compute Engine。这个特别的实现是不同的，因为使用CoreOS， Rackspace云文件和整体网络设计。
 
-These scripts should be used to deploy development environments for Kubernetes. If your account leverages RackConnect or non-standard networking, these scripts will most likely not work without modification.
+这些脚本应该用于部署Kubernetes的开发环境。 如果你的账号利用RackConnect或者非标准的网络，不修改这些脚本，这些脚本将无法使用。
 
 注意: rackspace脚本不依赖```saltstack```而依赖于配置文件cloud-init。 
 
