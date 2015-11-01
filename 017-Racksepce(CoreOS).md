@@ -16,10 +16,10 @@ These scripts should be used to deploy development environments for Kubernetes. 
 
 NOTE: The rackspace scripts do NOT rely on saltstack and instead rely on cloud-init for configuration.
 
-The current cluster design is inspired by:
+当前集群设计受如下启发：
 
-corekube
-Angus Lees
+* [corekube](https://github.com/metral/corekube)
+* [Angus Lees](https://github.com/anguslees/kube-openstack)
 
 ##先决条件
 
