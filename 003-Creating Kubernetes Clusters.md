@@ -6,94 +6,82 @@ Kubernetes可以在多种平台运行，从笔记本电脑，到云服务商的�
 
 如果你只是想试一试Kubernetes，我们推荐[基于Docker的本地](docker.md)方案。
 
-基于Docker的本地方案是众多能够完成快速搭建的[本地集群](#本地集群解决方案)方案中的一种，但是局限于单台机器。
+基于Docker的本地方案是众多能够完成快速搭建的[本地集群](#本地服务器方案)方案中的一种，但是局限于单台机器。
 
 当你准备好扩展到多台机器和更高可用性时，[托管](#托管方案)解决方案是最容易搭建和维护的。
 
-[全套云端方案](#全套云端解决方案) 只需要少数几个命令就可以在更多的云服务提供商搭建Kubernetes。
+[全套云端方案](#全套云端方案) 只需要少数几个命令就可以在更多的云服务提供商搭建Kubernetes。
 
-[Custom solutions](#custom-solutions) require more effort to setup but cover and even
-they vary from step-by-step instructions to general advice for setting up
-a Kubernetes cluster from scratch.
+[定制方案](#定制方案) 需要花费更多的精力，但是覆盖了从零开始搭建Kubernetes集群的通用建议到分步骤的细节指引。
 
-[自定制方案](#自定制解决方案) 需要花费更多的精力，但是覆盖了从零开始搭建Kubernetes集群的通用建议到分步骤的细节指引。
+### 本地服务器方案
 
-### 本地集群解决方案
+本地服务器方案再一台物理机上创建拥有一个或者多个Kubernetes节点的单机集群。创建过程是全自动的，且不需要任何云服务商的账户。但是这种单机集群的规模和可用性都受限于单台机器。
 
-Local-machine solutions create a single cluster with one or more Kubernetes nodes on a single
-physical machine.  Setup is completely automated and doesn't require a cloud provider account.
-But their size and availability is limited to that of a single machine.
+本地服务器方案有：
 
-The local-machine solutions are:
-  - [Local Docker-based](docker.md) (recommended starting point)
-  - [Vagrant](vagrant.md) (works on any platform with Vagrant: Linux, MacOS, or Windows.)
-  - [No-VM local cluster](locally.md) (Linux only)
+  - [本地Docker](docker.md)（上手建议）
+  - [Vagrant](vagrant.md) (任何支持Vagrant的平台：Linux，MacOS，或者Windows。)
+  - [无虚拟机本地集群](locally.md) (Linux)
 
+### 托管方案
 
-### Hosted Solutions
+[Google Container Engine](https://cloud.google.com/container-engine) 提供创建好的Kubernetes集群。
 
-[Google Container Engine](https://cloud.google.com/container-engine) offers managed Kubernetes
-clusters.
+### 全套云端方案
 
-### Turn-key Cloud Solutions
+以下方案让你可以通过几个命令就在很多IaaS云服务中创建Kubernetes集群，并且有很活跃的社区支持。
 
-These solutions allow you to create Kubernetes clusters on a range of Cloud IaaS providers with only a
-few commands, and have active community support.
 - [GCE](gce.md)
 - [AWS](aws.md)
 - [Azure](coreos/azure/README.md)
 
-### Custom Solutions
+### 定制方案
 
-Kubernetes can run on a wide range of Cloud providers and bare-metal environments, and with many
-base operating systems.
+Kubernetes可以在云服务提供商和裸机环境运行，并支持很多基本操作系统。
 
-If you can find a guide below that matches your needs, use it.  It may be a little out of date, but
-it will be easier than starting from scratch.  If you do want to start from scratch because you
-have special requirements or just because you want to understand what is underneath a Kubernetes
-cluster, try the [Getting Started from Scratch](scratch.md) guide.
+如果你再如下的指南中找到了符合你需要的，可直接使用。某些指南可能有些过时，但是比起从零开始还是有不少参考价值。如果你确实因为特殊原因或因为想了解底层原理，想要从零开始搭建，可以试试参考[从零开始](scratch.md)指南。
 
-If you are interested in supporting Kubernetes on a new platform, check out our [advice for
-writing a new solution](../../docs/devel/writing-a-getting-started-guide.md).
+如果你对在新的平台支持Kubernetes感兴趣，可以看看我们的[写新方案的建议](../../docs/devel/writing-a-getting-started-guide.md)。
 
-#### Cloud
+#### 云
+以下是上文没有列出的云服务商或云操作系统支持的方案。
 
-These solutions are combinations of cloud provider and OS not covered by the above solutions.
 - [AWS + coreos](coreos.md)
 - [GCE + CoreOS](coreos.md)
 - [AWS + Ubuntu](juju.md)
 - [Joyent + Ubuntu](juju.md)
 - [Rackspace + CoreOS](rackspace.md)
 
-#### On-Premises VMs
+#### 私有虚拟机
 
-- [Vagrant](coreos.md) (uses CoreOS and flannel)
-- [CloudStack](cloudstack.md) (uses Ansible, CoreOS and flannel)
-- [Vmware](vsphere.md)  (uses Debian)
-- [juju.md](juju.md) (uses Juju, Ubuntu and flannel)
-- [Vmware](coreos.md)  (uses CoreOS and flannel)
-- [libvirt-coreos.md](libvirt-coreos.md)  (uses CoreOS)
+- [Vagrant](coreos.md)（采用CoreOS和flannel）
+- [CloudStack](cloudstack.md)（采用Ansible，CoreOS和flannel）
+- [Vmware](vsphere.md)（采用Debian）
+- [juju.md](juju.md)（采用Juju，Ubuntu和flannel）
+- [Vmware](coreos.md)（采用CoreOS和flannel）
+- [libvirt-coreos.md](libvirt-coreos.md)（采用CoreO）
 - [oVirt](ovirt.md)
-- [libvirt](fedora/flannel_multi_node_cluster.md) (uses Fedora and flannel)
-- [KVM](fedora/flannel_multi_node_cluster.md)  (uses Fedora and flannel)
+- [libvirt](fedora/flannel_multi_node_cluster.md)（采用Fedora和flannel）
+- [KVM](fedora/flannel_multi_node_cluster.md)（采用Fedora和flannel）
 
-#### Bare Metal
+#### 裸机
 
-- [Offline](coreos/bare_metal_offline.md) (no internet required.  Uses CoreOS and Flannel)
+- [Offline](coreos/bare_metal_offline.md)（无需互联网，采用CoreOS和flannel）
 - [fedora/fedora_ansible_config.md](fedora/fedora_ansible_config.md)
-- [Fedora single node](fedora/fedora_manual_config.md)
-- [Fedora multi node](fedora/flannel_multi_node_cluster.md)
+- [Fedora单节点](fedora/fedora_manual_config.md)
+- [Fedora多节点](fedora/flannel_multi_node_cluster.md)
 - [Centos](centos/centos_manual_config.md)
 - [Ubuntu](ubuntu.md)
-- [Docker Multi Node](docker-multinode.md)
+- [Docker多节点](docker-multinode.md)
 
-#### Integrations
+#### 集成
 
-- [Kubernetes on Mesos](mesos.md) (Uses GCE)
+- [Kubernetes on Mesos](mesos.md)（采用GCE）
 
 ## Table of Solutions
 
-Here are all the solutions mentioned above in table form.
+以下用表格形式列出上面的所有方案。
 
 IaaS Provider        | Config. Mgmt | OS     | Networking  | Docs                                              | Conforms | Support Level
 -------------------- | ------------ | ------ | ----------  | ---------------------------------------------     | ---------| ----------------------------
@@ -133,23 +121,19 @@ Rackspace            | CoreOS       | CoreOS | flannel     | [docs](rackspace.md
 any                  | any          | any    | any         | [docs](scratch.md)                                |          | Community ([@erictune](https://github.com/erictune))
 
 
-*Note*: The above table is ordered by version test/used in notes followed by support level.
+*注意*：以上表格按照支持级别和测试及使用的版本进行排序。
 
-Definition of columns:
+表格中列说明：
 
-  - **IaaS Provider** is who/what provides the virtual or physical machines (nodes) that Kubernetes runs on.
-  - **OS** is the base operating system of the nodes.
-  - **Config. Mgmt** is the configuration management system that helps install and maintain Kubernetes software on the
-    nodes.
-  - **Networking** is what implements the [networking model](../../docs/admin/networking.md).  Those with networking type
-    _none_ may not support more than one node, or may support multiple VM nodes only in the same physical node.
-  - **Conformance** indicates whether a cluster created with this configuration has passed the project's conformance
-    tests for supporting the API and base features of Kubernetes v1.0.0.
-  - Support Levels
-    - **Project**:  Kubernetes Committers regularly use this configuration, so it usually works with the latest release
-      of Kubernetes.
-    - **Commercial**: A commercial offering with its own support arrangements.
-    - **Community**: Actively supported by community contributions. May not work with more recent releases of Kubernetes.
-    - **Inactive**: No active maintainer.  Not recommended for first-time Kubernetes users, and may be deleted soon.
-  - **Notes** is relevant information such as the version of Kubernetes used.
+  - **IaaS Provider** 是指提供Kubernetes运行环境的虚拟机或物理机（节点）资源的提供商。
+  - **OS** 是指节点上运行的基础操作系统。
+  - **Config. Mgmt** 是指节点上安装和管理Kubernetes软件的的配置管理系统。
+  - **Networking** 是指实现[网络模型](../../docs/admin/networking.md)的软件。 _none_ 表示只支持一个节点，或支持单物理节点上的虚拟机节点。
+  - **Conformance** 表示使用该种配置创建的集群是否通过了项目一致性测试，支持Kubernetes v1.0.0的API和基本特性。
+  - Support Levels（支持级别）
+    - **Project**：Kubernetes贡献者们经常使用该配置，所以通常最新的版本可使用。
+    - **Commercial**：某些厂商负责在自己的平台支持。
+    - **Community**：在社区中有活跃支持，但可能最新版本不适用。
+    - **Inactive**: 对于初次使用Kubernetes的用户不推荐，并且有可能在将来被移除。
+  - **Notes** 说明，比如适用的Kubernetes版本。
 
