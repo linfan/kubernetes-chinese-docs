@@ -13,8 +13,7 @@ Supported Version: v0.18.1
 In general, the dev-build-and-up.sh workflow for Rackspace is the similar to Google Compute Engine. The specific implementation is different due to the use of CoreOS, Rackspace Cloud Files and the overall network design.
 
 These scripts should be used to deploy development environments for Kubernetes. If your account leverages RackConnect or non-standard networking, these scripts will most likely not work without modification.
-
-NOTE: The rackspace scripts do NOT rely on saltstack and instead rely on cloud-init for configuration.
+注意: rackspace脚本不依赖```saltstack```而依赖于配置文件cloud-init。 
 
 当前集群设计受如下启发：
 
