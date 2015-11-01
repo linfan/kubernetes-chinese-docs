@@ -56,7 +56,7 @@ Sync back to v0.3 with git checkout v0.3
 Download a snapshot of v0.3
 ##网络设计
 
-eth0 - Public Interface used for servers/containers to reach the internet
-eth1 - ServiceNet - Intra-cluster communication (k8s, etcd, etc) communicate via this interface. The cloud-config files use the special CoreOS identifier $private_ipv4 to configure the services.
+* eth0 - servers/containers访问网络的公有接口
+* eth1 - ServiceNet - Intra-cluster communication (k8s, etcd, etc) communicate via this interface. The cloud-config files use the special CoreOS identifier $private_ipv4 to configure the services.
 eth2 - Cloud Network - Used for k8s pods to communicate with one another. The proxy service will pass traffic via this interface.
 Analytics
