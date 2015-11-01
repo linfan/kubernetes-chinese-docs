@@ -46,7 +46,7 @@ The built kubernetes-server-linux-amd64.tar.gz will be uploaded to this containe
 1. 创建一个云网络并且所有的实例附属于这个网络。
     * flanneld使用这个网络作为下一跳路由。这些路由使每个节点上的容器和这个私有网络内其他的容器之间通信。
 2. 如果需要将创建且上传一个SSH key。这个key必须用于ssh登录机器（我们不捕获密码）
-3. 通过nova CLI创建主节点server和额外节点。生成一个cloud-config.yaml且作用户数据和整个系统的配置
+3. 通过nova CLI创建主节点server和额外节点。生成一个cloud-config.yaml作为户数据和整个系统的配置
 4. 然后，我们通过$NUM_MINIONS定义的数量启动节点。
 
 ##注意点：
