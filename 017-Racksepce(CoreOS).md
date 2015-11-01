@@ -47,8 +47,8 @@ The master server and additional nodes will be created via the nova CLI. A cloud
 We then boot as many nodes as defined via $NUM_MINIONS.
 ##注意点：
 
-* The scripts expect eth2 to be the cloud network that the containers will communicate across.
-* config-default.sh中条目的数量会被环境变量覆盖。 
+* 脚本期望eth2成为容器可通过它通信的云网络。
+* config-default.sh中条目的数量可通过环境变量覆盖。 
 * 旧版本请选择:
     * 使用git chechout V0.9 同步到V0.9
     * 下载V0.9的一个快照
