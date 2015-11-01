@@ -42,7 +42,7 @@ The built kubernetes-server-linux-amd64.tar.gz will be uploaded to this containe
 
 ##集群
 
-There is a specific cluster/rackspace directory with the scripts for the following steps:
+有一个特殊的cluster/rackspace脚本目录有如下步骤：
 
 1. A cloud network will be created and all instances will be attached to this network.
     * flanneld uses this network for next hop routing. These routes allow the containers running on each node to communicate with one another on this private network.
