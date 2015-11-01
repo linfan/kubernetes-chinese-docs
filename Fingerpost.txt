@@ -1,0 +1,111 @@
+# DockOne 文章排版指南
+
+## 1.文章排版
+
+### 1.1 正确排版如下：
+
+#### Docker 公司首席布道师谈容器和下一代虚拟化
+
+【编者的话】本文为LinuxCon 讲师采访的一部分，Docker 公司的Jerome 分享了Docker 与其它容器技术的区别、Docker 容器的存储和数据迁移、Docker 在企业中的应用等话题。（编者的话主要概括总结文章大意，方便读者阅读）。
+
+Jerome 是Docker 公司的首席布道师，也是老员工。对社区运营和容器非常了解。本文根据对他的采访整理而成。
+
+在这次的访谈中，Jerome 深入分析了Docker 并解释了如何管理Docker 容器的存储，以及如何随着Docker 容器迁移数据。
+
+__原文链接：Docker containers and the next generation of virtualization （翻译：译者姓名）__
+
+----
+
+**译者介绍**
+
+译者姓名，北京理工大学计算机学院在读博士，研究方向是自然语言处理在企业网络信誉评价方面的应用，平时也乐于去实现一些突发的想法。
+
+## 2.标点符号
+
+### 2.1 不重复使用标点符号
+
+#### 正确：
+
+- 德国队竟然战胜了巴西队！
+- 她竟然对你说“喵”？！
+
+#### 错误：
+
+- 德国队竟然战胜了巴西队！！
+- 德国队竟然战胜了巴西队！！！！
+- 德国队竟然战胜了巴西队！！！！！！！！
+- 她竟然对你说“喵”？？！！
+- 她竟然对你说“喵”？！？！？？！！
+
+### 2.2 使用全形中文标点
+
+#### 正确：
+
+- 嗨！你知道嘛？今天前台的小妹跟我说“喵”了哎！
+- 核磁共振成像（NMRI）是什么原理都不知道？JFGI！
+
+#### 错误：
+
+- 嗨! 你知道嘛? 今天前台的小妹跟我说"喵" 了哎!
+- 嗨!你知道嘛?今天前台的小妹跟我说"喵"了哎!
+- 核磁共振成像(NMRI) 是什么原理都不知道? JFGI!
+- 核磁共振成像(NMRI)是什么原理都不知道?JFGI!
+
+#### 注意：
+
+对于拿不准的词组或者觉得读者可能会有疑问的翻译，请在中文后面的括号里加上英文原词组。第一次使用括号之后，后文无需再使用括号。注意：括号请使用中文的标点符号。
+
+### 2.3 数字使用半角字符
+
+#### 正确：
+
+- 这件蛋糕只卖1000 元。
+
+#### 错误：
+
+- 这件蛋糕只卖１０００元。
+
+### 2.4 英文前后不加空格
+
+#### 正确：
+
+- 我是DockOne社区的译者，我喜欢Docker和Kubernetes。
+
+#### 错误：
+
+- 我是DockOne 社区的译者，我喜欢Docker 和 Kubernetes。
+
+#### 2.5 遇到完整的英文整句、特殊名词，其内容使用半角标点
+
+#### 正确：
+
+- 乔帮主那句话是怎么说的？“Stay hungry, stay foolish.”。
+- 推荐你阅读『Hackers & Painters: Big Ideas from the Computer Age』，非常的有趣。
+
+#### 错误：
+
+- 乔帮主那句话是怎么说的？“Stay hungry，stay foolish。”。
+- 推荐你阅读『Hackers＆Painters：Big Ideas from the Computer Age』，非常的有趣。
+
+## 3.大小写
+
+### 3.1 专有名词使用正确的大小写
+
+#### 正确：
+
+- 使用GitHub 登录
+- 我们的客户有GitHub、Foursquare、Microsoft Corporation、Google、Facebook, Inc.。
+
+#### 错误：
+
+- 使用github 登录
+- 使用GITHUB 登录
+- 使用Github 登录
+- 使用gitHub 登录
+- 我们的客户有github、foursquare、microsoft corporation、google、facebook, inc.。
+- 我们的客户有GITHUB、FOURSQUARE、MICROSOFT CORPORATION、GOOGLE、FACEBOOK, INC.。
+- 我们的客户有Github、FourSquare、MicroSoft Corporation、Google、FaceBook, Inc.。
+
+#### 注意：
+
+默认状态下，技术名称、产品名称的首字母大写，如Java，Web 等。如该技术术语有自己的默认大小写状态，如HTML5、.NET、IntelliJ IDEA 等，请确保译文中的大小写与其一致。
