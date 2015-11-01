@@ -24,5 +24,5 @@ https://www.gitbook.com/book/linfan1/kubernetes-chinese-docs/edit
 
 3. 不论原本内容有没有标题，麻烦大家在每个小节的**第一行**都写个标题，方便后期整理目录。可以参考已有的文件内容。
 
-4. 内容格式按照DockOne的[文章规范]](Fingerpost.txt)。
+4. 内容格式按照DockOne的[文章规范](Fingerpost.txt)。
 
