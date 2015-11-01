@@ -13,7 +13,7 @@ fluentd-cloud-logging-kubernetes-minion-20ej   1/1       Running   0          31
 kube-dns-v3-pk22                               3/3       Running   0          32m
 monitoring-heapster-v1-20ej                    0/1       Running   9          32m
 ```
-![](cloud-logging.png)
+![](images/cloud-logging.png)
 
 图片显示GCE上创建了4个节点，紫色背景显示的是每个节点的虚拟节点名称。灰色方块中显示的分别是内网和外网IP地址，绿色方块显示的是运行在节点中的pods。每一个方框中显示了pod的名称，运行的命名空间，ip地址以及执行的镜像名称。我们可以看到每个节点都运行一个叫做fluentd-cloud-logging的pod,用来收集节点容器的运行日志并且发送到Google云日志服务。其中一个节点上运行着一个[集群域名解析](http://kubernetes.io/v1.0/docs/admin/dns.html)的pod,另外一个节点上运行中提供监控服务的pod。
 
@@ -50,7 +50,7 @@ counter                                        1/1       Running   0          5m
  
  计数器pod运行在其中一个节点上：
  
-![](27gf-counter.png)
+![](images/27gf-counter.png)
 
 当pod状态变成`Running`后，我们可以用kubectl logs命令来查看计数器pod的输出。
 
@@ -131,11 +131,11 @@ spec:
 
 我们可以在Google开发者控制台的监控页面中点击日志项，选择叫做kubernetes.counter_default_count的日志统计项。这个日志收集器标识了这个pod(计数器)，命名空间（默认）以及容器的名称（计数）。通过名称，我们可以通过名称从下拉菜单中选择计数器容器的日志。
 
-![![](cloud-logging-console.png)](cloud-logging-console.png)
+![![](images/cloud-logging-console.png)](images/cloud-logging-console.png)
 
 在开发者控制台中我们可以看到所有容器调用的日志。
 
-![](all-lines.png)
+![](images/all-lines.png)
 
 注意到第一个容器计数到108就被终止了。当下一个容器启动后，计数进程复位到0。类似的，如果我们删除这个pod并重启它，当pod运行时，我们能够捕获到运行在这个pod中所有容器实例的日志。
 
@@ -149,7 +149,7 @@ SELECT metadata.timestamp, structPayload.log
  ```
 下面是一些示例输出：
 
-![](bigquery-logging.png)
+![](images/bigquery-logging.png)
 
 我们还可以从Google云存储中把这些日志拉到desktop或者laptop上来本地化搜索。下面的命令可以从一个叫作`myproject`的Computer Engine项目中获取集群中运行的pod计数器日志。只拽了2015-06-11的日志。
 ```bash
