@@ -48,7 +48,7 @@ There is a specific cluster/rackspace directory with the scripts for the followi
 
 ##注意点：
 
-* 脚本期望eth2成为容器可通过它通信的云网络。
+* 脚本设置eth2成为容器可通过它通信的云网络。
 * config-default.sh中条目的数量可通过环境变量覆盖。 
 * 旧版本请选择:
     * 使用git chechout V0.9 同步到V0.9
