@@ -43,11 +43,11 @@ The built kubernetes-server-linux-amd64.tar.gz will be uploaded to this containe
 ##集群
 
 有一个特殊的cluster/rackspace脚本目录有如下步骤：
-1. 一个云网络将会被创建并且所有的实例附属于这个网络。
-    * flanneld使用这个网络作为下一跳路由。这些路由使每个节点上的容日个这个私有网络内其他的容器之间通信。
-2. 如果需要一个SSH key将会被创建并且上传。这个key必须用于ssh登录机器（我们不捕获密码）
-3. The master server and additional nodes will be created via the nova CLI. A cloud-config.yaml is generated and provided as user-data with the entire configuration for the systems.
-4. We then boot as many nodes as defined via $NUM_MINIONS.
+1. 创建一个云网络并且所有的实例附属于这个网络。
+    * flanneld使用这个网络作为下一跳路由。这些路由使每个节点上的容器和这个私有网络内其他的容器之间通信。
+2. 如果需要将创建且上传一个SSH key。这个key必须用于ssh登录机器（我们不捕获密码）
+3. 通过nova CLI创建主节点server和额外节点。生成一个cloud-config.yaml且作用户数据和整个系统的配置
+4. 然后，我们通过$NUM_MINIONS定义的数量启动节点。、
 
 ##注意点：
 
