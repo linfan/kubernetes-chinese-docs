@@ -51,7 +51,7 @@ sudo docker run -v ~/.juju:/home/ubuntu/.juju -ti jujusolutions/jujubox:latest
 
 ```
 juju quickstart --constraints="mem=3.75G" -i```
-容器参数是可选的，他将改变虚拟机尺寸。
+容器flag是可选的，他将改变虚拟机尺寸。
 
 ## 
 运行Kubernetes集群
