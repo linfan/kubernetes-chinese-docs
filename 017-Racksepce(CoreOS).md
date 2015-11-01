@@ -49,11 +49,12 @@ We then boot as many nodes as defined via $NUM_MINIONS.
 
 The scripts expect eth2 to be the cloud network that the containers will communicate across.
 A number of the items in config-default.sh are overridable via environment variables.
-For older versions please either:
-Sync back to v0.9 with git checkout v0.9
-Download a snapshot of v0.9
-Sync back to v0.3 with git checkout v0.3
-Download a snapshot of v0.3
+* 旧版本请选择:
+    * 使用git chechout V0.9 同步到V0.9
+    * 下载V0.9的一个快照
+    * 使用 git checkout V0.3 同步到v0.3
+    * 下载v0.3的一个快照
+
 ##网络设计
 
 * eth0 - servers/containers访问网络的公有接口
