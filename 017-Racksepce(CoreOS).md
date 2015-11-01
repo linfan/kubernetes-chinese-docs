@@ -51,7 +51,7 @@ The built kubernetes-server-linux-amd64.tar.gz will be uploaded to this containe
 
 ##注意点：
 
-* 脚本设置eth2成为容器可通过它通信的云网络。
+* 脚本设置eth2成为云网络，容器可通过它通信。
 * config-default.sh中条目的数量可通过环境变量覆盖。 
 * 旧版本请选择:
     * 使用git chechout V0.9 同步到V0.9
