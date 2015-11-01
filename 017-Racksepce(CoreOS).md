@@ -20,22 +20,26 @@ The current cluster design is inspired by:
 
 corekube
 Angus Lees
+
 ##先决条件
 
 Python2.7
 You need to have both nova and swiftly installed. It's recommended to use a python virtualenv to install these packages into.
 Make sure you have the appropriate environment variables set to interact with the OpenStack APIs. See Rackspace Documentation for more details.
+
 ##供应商：Rackspace
 
 To build your own released version from source use export KUBERNETES_PROVIDER=rackspace and run the bash hack/dev-build-and-up.sh
 Note: The get.k8s.io install method is not working yet for our scripts.
 To install the latest released version of Kubernetes use export KUBERNETES_PROVIDER=rackspace; wget -q -O - https://get.k8s.io | bash
+
 ##编译
 
 The Kubernetes binaries will be built via the common build scripts in build/.
 If you've set the ENV KUBERNETES_PROVIDER=rackspace, the scripts will upload kubernetes-server-linux-amd64.tar.gz to Cloud Files.
 A cloud files container will be created via the swiftly CLI and a temp URL will be enabled on the object.
 The built kubernetes-server-linux-amd64.tar.gz will be uploaded to this container and the URL will be passed to master/nodes when booted.
+
 ##集群
 
 There is a specific cluster/rackspace directory with the scripts for the following steps:
