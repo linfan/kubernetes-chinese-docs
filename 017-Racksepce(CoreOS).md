@@ -23,9 +23,9 @@ Angus Lees
 
 ##先决条件
 
-Python2.7
-You need to have both nova and swiftly installed. It's recommended to use a python virtualenv to install these packages into.
-Make sure you have the appropriate environment variables set to interact with the OpenStack APIs. See Rackspace Documentation for more details.
+1. Python2.7
+2. You need to have both ```nova```and ```swiftly``` installed. It's recommended to use a python virtualenv to install these packages into.
+3. Make sure you have the appropriate environment variables set to interact with the OpenStack APIs. See Rackspace Documentation for more details.
 
 ##供应商：Rackspace
 
