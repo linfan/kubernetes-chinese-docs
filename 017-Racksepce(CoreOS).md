@@ -36,31 +36,31 @@ To install the latest released version of Kubernetes use export KUBERNETES_PROVI
 ##编译
 
 1. Kubernetes二进制文件将通过build/下的的通用编译脚本编译。
-2. 如果你已经设置了环境变量ENV KUBERNETES_PROVIDER=rackspace, 脚本将上传kubernetes-server-linux-amd64.tar.gz到云文件。
+2. 如果你已经设置了环境变量```ENV KUBERNETES_PROVIDER=rackspace```, 脚本将上传```kubernetes-server-linux-amd64.tar.gz```到云文件。
 3. 通过swiftly创建一个云文件容器，且在这个对象内启用一个链式URL。
-4. 编译过的kubernetes-server-linux-amd64.tar.gz将上传到这个容器内，当master/nodes启动时这个URL将传到master/nodes。
+4. 编译过的```kubernetes-server-linux-amd64.tar.gz```将上传到这个容器内，当master/nodes启动时这个URL将传到master/nodes。
 
 ##集群
 
-有一个特殊的cluster/rackspace脚本目录有如下步骤：
+有一个特殊的```cluster/rackspace```脚本目录有如下步骤：
 1. 创建一个云网络并且所有的实例附属于这个网络。
     * flanneld使用这个网络作为下一跳路由。这些路由使每个节点上的容器和这个私有网络内其他的容器之间通信。
 2. 如果需要将创建且上传一个SSH key。这个key必须用于ssh登录机器（我们不捕获密码）
-3. 通过nova CLI创建主节点server和额外节点。生成一个cloud-config.yaml作为户数据和整个系统的配置
-4. 然后，我们通过$NUM_MINIONS定义的数量启动节点。
+3. 通过```nova``` CLI创建主节点server和额外节点。生成一个```cloud-config.yaml```作为户数据和整个系统的配置
+4. 然后，我们通过```$NUM_MINIONS```定义的数量启动节点。
 
 ##注意点：
 
-* 脚本设置eth2成为云网络，容器可通过它通信。
-* config-default.sh中条目的数量可通过环境变量覆盖。 
+* 脚本设置```eth2```成为云网络，容器可通过它通信。
+* ```config-default.sh```中条目的数量可通过环境变量覆盖。 
 * 旧版本请选择:
-    * 使用git chechout V0.9 同步到V0.9
-    * 下载V0.9的一个快照
-    * 使用 git checkout V0.3 同步到v0.3
-    * 下载v0.3的一个快照
+    * 使用```git chechout V0.9```同步到```V0.9```
+    * 下载```V0.9```的一个快照
+    * 使用```git checkout V0.3```同步到```v0.3```
+    * 下载```v0.3```的一个快照
 
 ##网络设计
 
 * eth0 - servers/containers访问网络的公有接口
-* eth1 - ServiceNet - 集群内部通信 (k8s, etcd, etc) 通过这个接口。cloud-confi文件使用特殊CoreOS标识符$ private_ipv4配置服务
+* eth1 - ServiceNet - 集群内部通信 (k8s, etcd, etc) 通过这个接口。```cloud-config```文件使用特殊CoreOS标识符```$ private_ipv4```配置服务
 * eth2 - Cloud Network - k8s pods使用这个和其他pods通信。服务代理通过这个接口传输流量。
