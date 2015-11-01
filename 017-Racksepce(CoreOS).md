@@ -29,9 +29,9 @@ Make sure you have the appropriate environment variables set to interact with th
 
 ##供应商：Rackspace
 
-* To build your own released version from source use ``` KUBERNETES_PROVIDER=rackspace``` and run the``` bash hack/dev-build-and-up.sh```
-* Note: The get.k8s.io install method is not working yet for our scripts.
-    * To install the latest released version of Kubernetes use ```export KUBERNETES_PROVIDER=rackspace; wget -q -O - https://get.k8s.io | bash```
+* 使用 ``` KUBERNETES_PROVIDER=rackspace```从源码编译你自己的发布版本并且运行``` bash hack/dev-build-and-up.sh```
+* 注意: 我们脚本中还没有提供get.k8s.io安装方法。
+    * 请使用 ```export KUBERNETES_PROVIDER=rackspace; wget -q -O - https://get.k8s.io | bash```来安装Kubernetes最近发布版本
 
 ##编译
 
