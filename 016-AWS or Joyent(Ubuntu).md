@@ -53,6 +53,14 @@ juju quickstart --constraints="mem=3.75G" -i```
 
 ## 运行多个容器！
 
+## 运行“k8petsore”示例应用
+
+## 拆除集群
+
+## 更多信息
+
+###云兼容
+
 
 
 
