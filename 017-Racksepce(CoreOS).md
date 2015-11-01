@@ -54,10 +54,10 @@ To install the latest released version of Kubernetes use export KUBERNETES_PROVI
 * 脚本设置```eth2```成为云网络，容器可通过它通信。
 * ```config-default.sh```中条目的数量可通过环境变量覆盖。 
 * 旧版本请选择:
-    * 使用```git chechout V0.9```同步到```V0.9```
-    * 下载```V0.9```的一个快照
-    * 使用```git checkout V0.3```同步到```v0.3```
-    * 下载```v0.3```的一个快照
+    * 使用```git chechout v0.9```同步到```v0.9```
+    * 下载```snapshot of v0.9```
+    * 使用```git checkout v0.3```同步到```v0.3```
+    * 下载```snapshot of v0.3```
 
 ##网络设计
 
