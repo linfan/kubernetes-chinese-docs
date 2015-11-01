@@ -1,5 +1,5 @@
 # Summary
 
 * [Introduction](README.md)
-* [User's Guide](User's%20Guide)
+* [User's Guide](006-Vagrant.md)
 
