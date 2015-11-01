@@ -40,11 +40,11 @@ The built kubernetes-server-linux-amd64.tar.gz will be uploaded to this containe
 
 There is a specific cluster/rackspace directory with the scripts for the following steps:
 
-A cloud network will be created and all instances will be attached to this network.
+1. A cloud network will be created and all instances will be attached to this network.
 flanneld uses this network for next hop routing. These routes allow the containers running on each node to communicate with one another on this private network.
-A SSH key will be created and uploaded if needed. This key must be used to ssh into the machines (we do not capture the password).
-The master server and additional nodes will be created via the nova CLI. A cloud-config.yaml is generated and provided as user-data with the entire configuration for the systems.
-We then boot as many nodes as defined via $NUM_MINIONS.
+1. A SSH key will be created and uploaded if needed. This key must be used to ssh into the machines (we do not capture the password).
+1. The master server and additional nodes will be created via the nova CLI. A cloud-config.yaml is generated and provided as user-data with the entire configuration for the systems.
+1. We then boot as many nodes as defined via $NUM_MINIONS.
 ##注意点：
 
 * 脚本期望eth2成为容器可通过它通信的云网络。
