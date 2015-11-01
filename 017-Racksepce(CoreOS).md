@@ -57,6 +57,5 @@ Download a snapshot of v0.3
 ##网络设计
 
 * eth0 - servers/containers访问网络的公有接口
-* eth1 - ServiceNet - Intra-cluster communication (k8s, etcd, etc) communicate via this interface. The cloud-config files use the special CoreOS identifier $private_ipv4 to configure the services.
-eth2 - Cloud Network - Used for k8s pods to communicate with one another. The proxy service will pass traffic via this interface.
-Analytics
+* eth1 - ServiceNet - 集群内部通信 (k8s, etcd, etc) 通过这个接口。cloud-confi文件使用特殊CoreOS标识符$ private_ipv4配置服务
+* eth2 - Cloud Network - k8s pods使用这个和其他pods通信。服务代理通过这个接口传输流量。
