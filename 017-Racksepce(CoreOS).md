@@ -24,12 +24,12 @@ Angus Lees
 ##先决条件
 
 1. Python2.7
-2. You need to have both ```nova```and ```swiftly``` installed. It's recommended to use a python virtualenv to install these packages into.
-3. Make sure you have the appropriate environment variables set to interact with the OpenStack APIs. See Rackspace Documentation for more details.
+2. 需要安装 ```nova```和```swiftly```。推荐使用python virtualenv来安装这些包。
+3. 确认已经有与OpenStack APIs交互的合适的环境变量。获取更详细信息请查看 [Rackspace文档](http://docs.rackspace.com/servers/api/v2/cs-gettingstarted/content/section_gs_install_nova.html)。
 
 ##供应商：Rackspace
 
-* 使用 ``` KUBERNETES_PROVIDER=rackspace```从源码编译你自己的发布版本并且运行``` bash hack/dev-build-and-up.sh```
+* 使用 ``` KUBERNETES_PROVIDER=rackspace```从源码编译自己的发布版本并且运行``` bash hack/dev-build-and-up.sh```
 * 注意: 我们脚本中还没有提供get.k8s.io安装方法。
     * 请使用 ```export KUBERNETES_PROVIDER=rackspace; wget -q -O - https://get.k8s.io | bash```来安装Kubernetes最近发布版本
 
