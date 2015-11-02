@@ -32,7 +32,7 @@ sudo apt-get install juju-core juju-quickstart
 
 ### Docker相关部署
 
-如果您不使用Ubuntu，而是使用DOcker，您可以运行以下命令：
+如果您不使用Ubuntu，而是使用Docker，您可以运行以下命令：
 
 ```
 mkdir ~/.juju
