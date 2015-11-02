@@ -161,8 +161,7 @@ juju action do kubernetes-master/0```
 
 或者破坏你当前的Juju环境（使用```juju env```命令）
 ```
-juju destroy-environment --force `juju env`
-```
+juju destroy-environment --force `juju env````
 
 ## 更多信息
 Kubernetes的分支和包可以在github.com的```kubernetes```项目中找到：
