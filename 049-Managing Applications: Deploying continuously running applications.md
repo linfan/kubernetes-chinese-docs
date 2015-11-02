@@ -64,4 +64,5 @@ $ kubectl get rc my-nginx -L app
 CONTROLLER   CONTAINER(S)   IMAGE(S)   SELECTOR    REPLICAS   APP
 my-nginx     nginx          nginx      app=nginx   2          nginx
 ```
+更重要的是，pod模板的label会被用来创建`selector`，这个`selector`会匹配所有带这些labels的pods。用`kubectl get`的[go语言模板输出格式](http://kubernetes.io/v1.0/docs/user-guide/kubectl/kubectl_get.html)就可以看到这个域：
 
