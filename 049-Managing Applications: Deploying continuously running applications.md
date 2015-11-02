@@ -41,3 +41,20 @@ NAME             READY     STATUS    RESTARTS   AGE
 my-nginx-065jq   1/1       Running   0          51s
 my-nginx-buaiq   1/1       Running   0          51s
 ```
+##删除replication controllers
+如果想要结束你的应用并且删除repication controller。和在[快速开始]()里一样，用下面的命令：
+```
+$ kubectl delete rc my-nginx
+replicationcontrollers/my-nginx
+```
+这个操作默认会把由replication controller管理的pods一起删除。如果pods的数量比较大，这个操作要花一些时间才能完成。如果想要pods继续运行，不被删掉，可以在delete的时候指定参数`--cascade=false`。
+如果在删除replication controller之前想要删除pods，pods只是被替换了，因为replication controller会再起新的pods，确保pods的数量。
+##Labels
+Kubernetes使用自定义的键值对（称为[Labels](http://kubernetes.io/v1.0/docs/user-guide/labels.html)）分类资源集合，例如pods和replication controller。在前面的例子里，pod的模板里只设定了一个单独的label，键是`app`，值为`nginx`。所有被创建的pod都带有这个label，可以用带-L参数的命令查看：
+```
+$ kubectl get pods -L app
+NAME             READY     STATUS    RESTARTS   AGE       APP
+my-nginx-afv12   0/1       Running   0          3s        nginx
+my-nginx-lg99z   0/1       Running   0          3s        nginx
+
+```
