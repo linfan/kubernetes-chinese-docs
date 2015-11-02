@@ -58,3 +58,10 @@ my-nginx-afv12   0/1       Running   0          3s        nginx
 my-nginx-lg99z   0/1       Running   0          3s        nginx
 
 ```
+pod模板带的label默认会被复制为replication controller的label。Kubernetes中所有的资源都支持labels：
+```
+$ kubectl get rc my-nginx -L app
+CONTROLLER   CONTAINER(S)   IMAGE(S)   SELECTOR    REPLICAS   APP
+my-nginx     nginx          nginx      app=nginx   2          nginx
+```
+
