@@ -146,6 +146,7 @@ kubectl delete pods hello```
 ```
 juju add-unit docker # creates unit docker/2, kubernetes/2, docker-flannel/2```
 
+
 ## 运行“k8petsore”示例应用
 
 [k8petstore示例](https://github.com/kubernetes/kubernetes/tree/master/examples/k8petstore)可以像一个[juju action](https://jujucharms.com/docs/devel/actions)获取到。
@@ -160,7 +161,8 @@ juju action do kubernetes-master/0```
 
 或者破坏你当前的Juju环境（使用```juju env```命令）
 ```
-juju destroy-environment --force `juju env```
+juju destroy-environment --force `juju env`
+```
 
 ## 更多信息
 Kubernetes的分支和包可以在github.com的```kubernetes```项目中找到：
