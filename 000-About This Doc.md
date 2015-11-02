@@ -4,17 +4,23 @@
 
 ## 文档地址
 
-1. 小组成员邮件列表：
+1. 小组成员邮件列表：<br>
 https://shimo.im/doc/oIMn3drXeTFFMq57
 <br>请每个成员首先在这个列表中添加自己的联系方式，以便统一添加进Gitbook的编辑者中。
 
-2. 翻译任务认领表：
+2. 翻译任务认领表：<br>
 https://shimo.im/doc/N0rBQgmqBnbz0sOg
 <br>按章节认领，在这个表格中看中章节的“翻译”一栏添上自己的名字即可。
 
-3. Gitbook编辑地址：
+3. Gitbook编辑地址：<br>
 https://www.gitbook.com/book/linfan1/kubernetes-chinese-docs/edit
 <br>请首先登陆Gitbook，并确保对这个文档有编辑权限。
+
+4. Git Repo地址：<br>
+想用Git直接拉取下来编辑的话，可以用下面这个命令哦。
+```
+git clone https://git.gitbook.com/linfan1/kubernetes-chinese-docs.git
+```
 
 ## 翻译约定
 
