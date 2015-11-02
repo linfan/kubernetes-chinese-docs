@@ -176,7 +176,7 @@ Juju运行在本地和各种公共云提供商。Juju当前和[Amazon Web Servic
 
 如果你没有在多个云列表看到你比较喜欢的云供应商，可以配置为[手动配置](https://jujucharms.com/docs/stable/config-manual)。
 
-Jubernetes包已经在GCE和AWS上测试，且使用1.0.0版本
+Kubernetes包已经在GCE和AWS上测试，且使用1.0.0版本
 
 
 
