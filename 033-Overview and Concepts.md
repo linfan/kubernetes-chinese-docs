@@ -1,4 +1,3 @@
-# Kubernetes Overview
 # Kubernetes概览
 
 Kubernetes is an open-source system for managing containerized applications across multiple hosts in a cluster. Kubernetes is intended to make deploying containerized/microservice-based applications easy but powerful.
