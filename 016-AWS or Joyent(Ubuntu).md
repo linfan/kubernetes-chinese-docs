@@ -4,7 +4,7 @@ Juju使通过配置部署Kubernetes，在集群中安装和配置所有系统更
 
 ## 内容列表
 
-* 先决条件
+* [先决条件](## 先决条件)
     * Ubuntu上部署
     * Docker相关部署
 * 运行Kubernetes集群
