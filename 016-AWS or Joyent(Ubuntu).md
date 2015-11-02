@@ -80,7 +80,7 @@ juju ssh kubernetes-master/0
 ```
 ## 运行多个容器！
 
-在Kubernetes主节点```kubectl```是可用的。我们ssh登录去运行一些容器，但是可以通过设置```KUBERNETES_MASTER```为“kubernetes-master/0”的ip地址来使用本地```kubectl```。
+在Kubernetes主节点```kubectl```是可用的。我们ssh登录去运行一些容器，但也可以通过设置```KUBERNETES_MASTER```为“kubernetes-master/0”的ip地址来使用本地```kubectl```。
 
 在启动一个容器前无pods可获取
 ```
