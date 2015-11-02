@@ -79,14 +79,17 @@ $ juju status --format=oneline
 juju ssh kubernetes-master/0
 ```
 ## 运行多个容器！
-```kubectl```在Kubernetes主节点是可用的。我们ssh登录去运行一些容器，但是可以通过设置```KUBERNETES_MASTER```为“kubernetes-master/0”的ip地址来使用本地```kubectl```。
+
+在Kubernetes主节点```kubectl```是可用的。我们ssh登录去运行一些容器，但是可以通过设置```KUBERNETES_MASTER```为“kubernetes-master/0”的ip地址来使用本地```kubectl```。
+
 在启动一个容器前无pods可获取
 ```
 kubectl get pods
 NAME             READY     STATUS    RESTARTS   AGE
 
 kubectl get replicationcontrollers
-CONTROLLER  CONTAINER(S)  IMAGE(S)  SELECTOR  REPLICAS```
+CONTROLLER  CONTAINER(S)  IMAGE(S)  SELECTOR  REPLICAS
+```
 我们将跟随aws-coreos实例。创建一个pod清单：pod.json
 ```
 {
