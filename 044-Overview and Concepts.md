@@ -1,8 +1,8 @@
-#Kubernetes User Guide: Managing Applications
+#Kubernetes用户指南：应用程序管理
 
 Table of Contents
 
-##Kubernetes User Guide: Managing Applications
+##Kubernetes用户指南：应用程序管理
 >Quick walkthrough
 Thorough walkthrough
 Concept guide
@@ -11,27 +11,28 @@ The user guide is intended for anyone who wants to run programs and services on 
 
 >Please ensure you have completed the prerequisites for running examples from the user guide.
 
-##Quick walkthrough
+##Quick walkthrough 实战演练
 
-Kubernetes 101
+>Kubernetes 101
 Kubernetes 201
-Thorough walkthrough
 
->If you don't have much familiarity with Kubernetes, we recommend you read the following sections in order:
+##Thorough walkthrough 
 
->Quick start: launch and expose an application
-Configuring and launching containers: configuring common container parameters
-Deploying continuously running applications
-Connecting applications: exposing applications to clients and users
-Working with containers in production
-Managing deployments
-Application introspection and debugging
-Using the Kubernetes web user interface
-Logging
-Monitoring
-Getting into containers via exec
-Connecting to containers via proxies
-Connecting to containers via port forwarding
+If you don't have much familiarity with Kubernetes, we recommend you read the following sections in order:
+
+1.Quick start: launch and expose an application
+2.Configuring and launching containers: configuring common     container parameters
+3.Deploying continuously running applications
+4.Connecting applications: exposing applications to clients and users
+5.Working with containers in production
+6.Managing deployments
+7.Application introspection and debugging
+    1.Using the Kubernetes web user interface
+    2.Logging
+    3.Monitoring
+    4.Getting into containers via exec
+    5.Connecting to containers via proxies
+    6.Connecting to containers via port forwarding
 
 ##Concept guide
 
