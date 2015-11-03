@@ -11,12 +11,12 @@ The user guide is intended for anyone who wants to run programs and services on 
 
 >Please ensure you have completed the prerequisites for running examples from the user guide.
 
-##Quick walkthrough 实战演练
+##Quick walkthrough 实战入门
 
 >*Kubernetes 101
 *Kubernetes 201
 
-##Thorough walkthrough 
+##Thorough walkthrough 进阶路线图
 
 If you don't have much familiarity with Kubernetes, we recommend you read the following sections in order:
 
