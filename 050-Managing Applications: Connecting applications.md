@@ -311,7 +311,7 @@ $ curl https://104.197.63.17:30645 -k
 ...
 <h1>Welcome to nginx!</h1>
 ```
-Lets now recreate the Service to use a cloud load balancer, just change the Type of Service in the nginx-app.yaml from NodePort to LoadBalancer:
+Lets now recreate the Service to use a cloud load balancer, just change the **Type** of Service in the nginx-app.yaml from **NodePort** to **LoadBalancer**:
 ```
 $ kubectl delete rc, svc -l app=nginx
 $ kubectl create -f ./nginx-app.yaml
