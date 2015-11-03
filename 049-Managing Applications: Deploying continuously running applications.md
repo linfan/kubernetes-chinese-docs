@@ -69,7 +69,7 @@ my-nginx     nginx          nginx      app=nginx   2          nginx
 $ kubectl get rc my-nginx -o template --template="{{.spec.selector}}"
 map[app:nginx]
 ```
-如果你想要在pod模板里指定labels，但是又不需要select on，可以显示指定`selector`来解决，不过需要确保`selector`能够匹配由pod模板创建出来的pod的label，并且不能匹配由其他replication controller创建的pods。对于后者，最直接最保险的方法是给replication controller分配一个独特的label，并且在pod模板和selector里都进行指定。
+如果你想要在pod模板里指定labels，但是又不想要被选中，可以显示指定`selector`来解决，不过需要确保`selector`能够匹配由pod模板创建出来的pod的label，并且不能匹配由其他replication controller创建的pods。对于后者，最直接最保险的方法是给replication controller分配一个独特的label，并且在pod模板和selector里都进行指定。
 ##后续
 [学习展示应用给用户和客户，以及把应用的各层拼接起来](http://kubernetes.io/v1.0/docs/user-guide/connecting-applications.html)。
 
