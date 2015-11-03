@@ -74,3 +74,257 @@ nginxsvc     app=nginx     app=nginx   10.0.116.146   80/TCP
 
 ```
 As mentioned previously, a Service is backed by a group of pods. These pods are exposed through **endpoints**. The Service's selector will be evaluated continuously and the results will be POSTed to an Endpoints object also named **nginxsvc**. When a pod dies, it is automatically removed from the endpoints, and new pods matching the Service’s selector will automatically get added to the endpoints. Check the endpoints, and note that the ips are the same as the pods created in the first step:
+```
+$ kubectl describe svc nginxsvc
+Name:          nginxsvc
+Namespace:     default
+Labels:            app=nginx
+Selector:      app=nginx
+Type:          ClusterIP
+IP:            10.0.116.146
+Port:          <unnamed> 80/TCP
+Endpoints:     10.245.0.14:80,10.245.0.15:80
+Session Affinity:  None
+No events.
+
+$ kubectl get ep
+NAME         ENDPOINTS
+nginxsvc     10.245.0.14:80,10.245.0.15:80
+```
+You should now be able to curl the nginx Service on **10.0.116.146:80** from any node in your cluster. Note that the Service ip is completely virtual, it never hits the wire, if you’re curious about how this works you can read more about the [service proxy](http://kubernetes.io/v1.0/docs/user-guide/services.html#virtual-ips-and-service-proxies).
+##Accessing the Service
+Kubernetes supports 2 primary modes of finding a Service - environment variables and DNS. The former works out of the box while the latter requires the [kube-dns cluster addon](http://releases.k8s.io/v1.0.6/cluster/addons/dns/README.md).
+###Environment Variables
+When a Pod is run on a Node, the kubelet adds a set of environment variables for each active Service. This introduces an ordering problem. To see why, inspect the environment of your running nginx pods:
+```
+$ kubectl exec my-nginx-6isf4 -- printenv | grep SERVICE
+KUBERNETES_SERVICE_HOST=10.0.0.1
+KUBERNETES_SERVICE_PORT=443
+```
+Note there’s no mention of your Service. This is because you created the replicas before the Service. Another disadvantage of doing this is that the scheduler might put both pods on the same machine, which will take your entire Service down if it dies. We can do this the right way by killing the 2 pods and waiting for the replication controller to recreate them. This time around the Service exists before the replicas. This will given you scheduler level Service spreading of your pods (provided all your nodes have equal capacity), as well as the right environment variables:
+```
+$ kubectl scale rc my-nginx --replicas=0; kubectl scale rc my-nginx --replicas=2;
+$ kubectl get pods -l app=nginx -o wide
+NAME             READY   STATUS     RESTARTS   AGE   NODE
+my-nginx-5j8ok   1/1     Running       0         2m    node1
+my-nginx-90vaf   1/1     Running   0          2m    node2
+
+$ kubectl exec my-nginx-5j8ok -- printenv | grep SERVICE
+KUBERNETES_SERVICE_PORT=443
+NGINXSVC_SERVICE_HOST=10.0.116.146
+KUBERNETES_SERVICE_HOST=10.0.0.1
+NGINXSVC_SERVICE_PORT=80
+```
+###DNS
+Kubernetes offers a DNS cluster addon Service that uses skydns to automatically assign dns names to other Services. You can check if it’s running on your cluster:
+```
+$ kubectl get services kube-dns --namespace=kube-system
+NAME       LABELS       SELECTOR             IP(S)       PORT(S)
+kube-dns   <none>       k8s-app=kube-dns     10.0.0.10   53/UDP
+                                                         53/TCP
+```
+If it isn’t running, you can [enable it](http://releases.k8s.io/v1.0.6/cluster/addons/dns/README.md#how-do-i-configure-it). The rest of this section will assume you have a Service with a long lived ip (nginxsvc), and a dns server that has assigned a name to that ip (the kube-dns cluster addon), so you can talk to the Service from any pod in your cluster using standard methods (e.g. gethostbyname). Let’s create another pod to test this:
+```
+$ cat curlpod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: curlpod
+spec:
+  containers:
+  - image: radial/busyboxplus:curl
+    command:
+      - sleep
+      - "3600"
+    imagePullPolicy: IfNotPresent
+    name: curlcontainer
+  restartPolicy: Always
+```
+And perform a lookup of the nginx Service
+```
+$ kubectl create -f ./curlpod.yaml
+default/curlpod
+$ kubectl get pods curlpod
+NAME      READY     STATUS    RESTARTS   AGE
+curlpod   1/1       Running   0          18s
+
+$ kubectl exec curlpod -- nslookup nginxsvc
+Server:    10.0.0.10
+Address 1: 10.0.0.10
+Name:      nginxsvc
+Address 1: 10.0.116.146
+```
+##Securing the Service
+Till now we have only accessed the nginx server from within the cluster. Before exposing the Service to the internet, you want to make sure the communication channel is secure. For this, you will need:
+* Self signed certificates for https (unless you already have an identitiy certificate)
+* An nginx server configured to use the cretificates
+* A [secret](http://kubernetes.io/v1.0/docs/user-guide/secrets.html) that makes the certificates accessible to pods
+
+You can acquire all these from the [nginx https example](http://kubernetes.io/v1.0/examples/https-nginx/README.html), in short:
+```
+$ make keys secret KEY=/tmp/nginx.key CERT=/tmp/nginx.crt SECRET=/tmp/secret.json
+$ kubectl create -f /tmp/secret.json
+secrets/nginxsecret
+$ kubectl get secrets
+NAME                  TYPE                                  DATA
+default-token-il9rc   kubernetes.io/service-account-token   1
+nginxsecret           Opaque  
+```
+Now modify your nginx replicas to start a https server using the certificate in the secret, and the Service, to expose both ports (80 and 443):
+```
+$ cat nginx-app.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginxsvc
+  labels:
+    app: nginx
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    targetPort: 80
+    protocol: TCP
+    name: http
+  - port: 443
+    protocol: TCP
+    name: https
+  selector:
+    app: nginx
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: my-nginx
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: nginxsecret
+      containers:
+      - name: nginxhttps
+        image: bprashanth/nginxhttps:1.0
+        ports:
+        - containerPort: 443
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /etc/nginx/ssl
+          name: secret-volume
+```
+Noteworthy points about the nginx-app manifest:
+* It contains both rc and service specification in the same file
+* The [nginx server](http://kubernetes.io/v1.0/examples/https-nginx/default.conf) serves http traffic on port 80 and https traffic on 443, and nginx Service exposes both ports.
+* Each container has access to the keys through a volume mounted at /etc/nginx/ssl. This is setup before the nginx server is started.
+
+```
+$ kubectl delete rc,svc -l app=nginx; kubectl create -f ./nginx-app.yaml
+replicationcontrollers/my-nginx
+services/nginxsvc
+services/nginxsvc
+replicationcontrollers/my-nginx
+```
+At this point you can reach the nginx server from any node.
+```
+$ kubectl get pods -o json | grep -i podip
+    "podIP": "10.1.0.80",
+node $ curl -k https://10.1.0.80
+...
+<h1>Welcome to nginx!</h1>
+```
+Note how we supplied the -k parameter to curl in the last step, this is because we don't know anything about the pods running nginx at certificate generation time, so we have to tell curl to ignore the CName mismatch. By creating a Service we linked the CName used in the certificate with the actual DNS name used by pods during Service lookup. Lets test this from a pod (the same secret is being reused for simplicity, the pod only needs nginx.crt to access the Service):
+```
+$ cat curlpod.yaml
+vapiVersion: v1
+kind: ReplicationController
+metadata:
+  name: curlrc
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: curlpod
+    spec:
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: nginxsecret
+      containers:
+      - name: curlpod
+        command:
+        - sh
+        - -c
+        - while true; do sleep 1; done
+        image: radial/busyboxplus:curl
+        volumeMounts:
+        - mountPath: /etc/nginx/ssl
+          name: secret-volume
+
+$ kubectl create -f ./curlpod.yaml
+$ kubectl get pods
+NAME             READY     STATUS    RESTARTS   AGE
+curlpod          1/1       Running   0          2m
+my-nginx-7006w   1/1       Running   0          24m
+
+$ kubectl exec curlpod -- curl https://nginxsvc --cacert /etc/nginx/ssl/nginx.crt
+...
+<title>Welcome to nginx!</title>
+...
+```
+##Exposing the Service
+For some parts of your applications you may want to expose a Service onto an external IP address. Kubernetes supports two ways of doing this: NodePorts and LoadBalancers. The Service created in the last section already used **NodePort**, so your nginx https replica is ready to serve traffic on the internet if your node has a public ip.
+```
+$ kubeclt get svc nginxsvc -o json | grep -i nodeport -C 5
+            {
+                "name": "http",
+                "protocol": "TCP",
+                "port": 80,
+                "targetPort": 80,
+                "nodePort": 32188
+            },
+            {
+                "name": "https",
+                "protocol": "TCP",
+                "port": 443,
+                "targetPort": 443,
+                "nodePort": 30645
+            }
+
+$ kubectl get nodes -o json | grep ExternalIP
+                    {
+                        "type": "ExternalIP",
+                        "address": "104.197.63.17"
+                    }
+--
+                    },
+                    {
+                        "type": "ExternalIP",
+                        "address": "104.154.89.170"
+                    }
+$ curl https://104.197.63.17:30645 -k
+...
+<h1>Welcome to nginx!</h1>
+```
+Lets now recreate the Service to use a cloud load balancer, just change the Type of Service in the nginx-app.yaml from NodePort to LoadBalancer:
+```
+$ kubectl delete rc, svc -l app=nginx
+$ kubectl create -f ./nginx-app.yaml
+$ kubectl get svc -o json | grep -i ingress -A 5
+                    "ingress": [
+                        {
+                            "ip": "104.197.68.43"
+                        }
+                    ]
+                }
+$ curl https://104.197.68.43 -k
+...
+<title>Welcome to nginx!</title>
+```
+##What's next?
+[Learn about more Kubernetes features that will help you run containers reliably in production.](http://kubernetes.io/v1.0/docs/user-guide/production-pods.html)
