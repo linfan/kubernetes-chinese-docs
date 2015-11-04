@@ -73,6 +73,8 @@ Name :  用户为Kubernetes中资源定义的名字
 
 >Namespace : A namespace is like a prefix to the name of a resource. Namespaces help different projects, teams, or customers to share a cluster, such as by preventing name collisions between unrelated teams.
 
+Namespace : 
+
 >Annotation : A key/value pair that can hold larger (compared to a label), and possibly not human-readable, data, intended to store non-identifying auxiliary data, especially data manipulated by tools and system extensions. Efficient filtering by annotation values is not supported.
 
 ##阅读延伸
