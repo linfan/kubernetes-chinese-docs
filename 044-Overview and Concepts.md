@@ -69,17 +69,17 @@
 
 ###API resources
 
->Working with resources
+>[Working with resources](http://kubernetes.io/v1.0/docs/user-guide/working-with-resources.html)
 
 ###Pods and containers
 
->- [Pod 的生命周期和重启策略]()
-- [生命周期事件钩子]()
-- [计算资源，例如cpu和内存]()
-- [指定命令和请求的能力]()
-- [Downward API（用于向下支持各种容器的API,如Docker）: 从pod中访问系统配置]()
-- [镜像和仓库]()
-- [从使用docker-cli转向kubectl]()
-- [配置集群时的提示和技巧]()
-- [把pod分配到指定node]()
-- [展示为一组正在运行的pod左滚动更新]()
+>- [Pod 的生命周期和重启策略](http://kubernetes.io/v1.0/docs/user-guide/pod-states.html)
+- [生命周期事件钩子](http://kubernetes.io/v1.0/docs/user-guide/container-environment.html)
+- [计算资源，例如cpu和内存](http://kubernetes.io/v1.0/docs/user-guide/compute-resources.html)
+- [指定命令和请求的能力](http://kubernetes.io/v1.0/docs/user-guide/containers.html)
+- [Downward API（用于向下支持各种容器的API,如Docker）: 从pod中访问系统配置](http://kubernetes.io/v1.0/docs/user-guide/downward-api.html)
+- [镜像和仓库](http://kubernetes.io/v1.0/docs/user-guide/images.html)
+- [从使用docker-cli转向kubectl](http://kubernetes.io/v1.0/docs/user-guide/docker-cli-to-kubectl.html)
+- [配置集群时的提示和技巧](http://kubernetes.io/v1.0/docs/user-guide/config-best-practices.html)
+- [把pod分配到指定node](http://kubernetes.io/v1.0/docs/user-guide/node-selection/)
+- [展示为一组正在运行的pod左滚动更新](http://kubernetes.io/v1.0/docs/user-guide/update-demo/)
