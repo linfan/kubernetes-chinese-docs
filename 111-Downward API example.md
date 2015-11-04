@@ -6,6 +6,8 @@
 
 This example assumes you have a Kubernetes cluster installed and running, and that you have installed the kubectl command line tool somewhere in your path. Please see the [getting started]() for installation instructions for your platform.
 
+这个例子会假设你有一个安装好并正在运行的Kubernetes集群，也已经在系统的某个路径下安装好了kubectl命令行工具。具体安装步骤请在[安装入门](http://kubernetes.io/v1.0/docs/getting-started-guides/)中找到与你平台对应的安装说明。
+
 #步骤 1: 创建一个pod
 
 Containers consume the downward API using environment variables. The downward API allows containers to be injected with the name and namespace of the pod the container is in.
