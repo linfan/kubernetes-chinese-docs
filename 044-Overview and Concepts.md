@@ -43,7 +43,7 @@ Table of Contents
 
 >Cluster : 集群是指由Kubernetes使用一系列的物理机、虚拟机和其他基础资源来运行你的应用程序。
 
->Node : A node is a physical or virtual machine running Kubernetes, onto which pods can be scheduled.
+>Node : 一个node就是一个运行着Kubernetes的物理机或虚拟机，并且pod可以在其上面被调度。.
 
 >Pod : A pod is a co-located group of containers and volumes.
 
