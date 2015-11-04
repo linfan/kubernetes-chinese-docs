@@ -29,10 +29,10 @@ Table of Contents
 * 4.链接应用程序: 将应用程序展示给客户和用户
 * 5.在生产环境中是用容器
 * 6.部署管理
-* 7.Application introspection and debugging
-    * 1.Using the Kubernetes web user interface
-    * 2.Logging
-    * 3.Monitoring
+* 7.应用程序的自我检查和调试
+    * 1.使用Kubernetes的Web用户界面
+    * 2.日志
+    * 3.监控
     * 4.Getting into containers via exec
     * 5.Connecting to containers via proxies
     * 6.Connecting to containers via port forwarding
