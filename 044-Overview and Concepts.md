@@ -69,17 +69,17 @@ Table of Contents
 
 ###API resources
 
-Working with resources
+>Working with resources
 
 ###Pods and containers
 
->Pod lifecycle and restart policies
-Lifecycle hooks
-Compute resources, such as cpu and memory
-Specifying commands and requesting capabilities
-Downward API: accessing system configuration from a pod
-Images and registries
-Migrating from docker-cli to kubectl
-Tips and tricks when working with config
-Assign pods to selected nodes
-Perform a rolling update on a running group of pods
+>- Pod lifecycle and restart policies
+- Lifecycle hooks
+- Compute resources, such as cpu and memory
+- Specifying commands and requesting capabilities
+- Downward API: accessing system configuration from a pod
+- Images and registries
+- Migrating from docker-cli to kubectl
+- Tips and tricks when working with config
+- Assign pods to selected nodes
+- Perform a rolling update on a running group of pods
