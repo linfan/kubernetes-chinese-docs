@@ -74,8 +74,8 @@ Table of Contents
 ###Pods and containers
 
 >- Pod 的生命周期和重启策略
-- Lifecycle hooks
-- Compute resources, such as cpu and memory
+- 生命周期事件钩子
+- 计算资源，例如cpu.内存
 - Specifying commands and requesting capabilities
 - Downward API: accessing system configuration from a pod
 - Images and registries
