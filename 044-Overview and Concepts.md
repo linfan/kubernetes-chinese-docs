@@ -80,6 +80,6 @@ Table of Contents
 -  API: accessing system configuration from a pod
 - 镜像和仓库
 - 从使用docker-cli转向kubectl
-- 使用配置是的一些提示和技巧
+- 配置集群时的提示和技巧
 - Assign pods to selected nodes
 - Perform a rolling update on a running group of pods
