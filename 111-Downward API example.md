@@ -2,6 +2,8 @@
 
 Following this example, you will create a pod with a containers that consumes the pod's name and namespace using the downward API.
 
+接下来的例子，有会创建一个pod, 它包含了一个通过访问downward API来应用这个pod的名字和命名空得容器
+
 #Step Zero: Prerequisites
 
 This example assumes you have a Kubernetes cluster installed and running, and that you have installed the kubectl command line tool somewhere in your path. Please see the getting started for installation instructions for your platform.
