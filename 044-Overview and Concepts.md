@@ -47,29 +47,19 @@ Table of Contents
 
 >Pod : 一个pod对应一个由相关容器和卷组成的容器组 
 
->Label : A label is a key/value pair that is attached to a resource, such as a pod, to convey a user-defined identifying attribute. Labels can be used to organize and to select subsets of resources.
-
-一个label是一个被附加到资源上的键/值对，譬如附加到一个Pod上，为它传递一个用户自定的并且可识别的属性.Label还可以被应用来组织和选择子网中的资源
+>Label : 一个label是一个被附加到资源上的键/值对，譬如附加到一个Pod上，为它传递一个用户自定的并且可识别的属性.Label还可以被应用来组织和选择子网中的资源
 
 >selector是一个通过匹配labels来定义资源之间关系得表达式，例如为一个负载均衡的service指定所目标Pod.
 
 >Replication Controller : replication controller 是为了保证一定数量被指定的Pod的复制品在任何时间都能正常工作.它不仅允许复制的系统易于扩展，还会处理当pod在机器在重启或发生故障的时候再次创建一个
 
->Service : A service defines a set of pods and a means by which to access them, such as single stable IP address and corresponding DNS name.
+>Service : 一个service定义了访问pod的方式，就像单个固定的IP地址和与其相对应的DNS名之间的关系。
 
-Service : 一个service定义了访问pod的方式，就像单个固定的IP地址和与其相对应的DNS名之间的关系。
+>Volume: 一个volume是一个目录，可能会被容器作为未见系统的一部分来访问。Kubernetes volume 构建在Docker Volumes之上,并且支持添加和配置volume目录或者其他存储设备。
 
->Volume : A volume is a directory, possibly with some data in it, which is accessible to a Container as part of its filesystem. Kubernetes volumes build upon Docker Volumes, adding provisioning of the volume directory and/or device.
+>Secret : Secret 存储了敏感数据，例如能允许容器接收请求的权限令牌。
 
-Volume: 一个volume是一个目录，可能会被容器作为未见系统的一部分来访问。Kubernetes volume 构建在Docker Volumes之上,并且支持添加和配置volume目录或者其他存储设备。
-
->Secret : A secret stores sensitive data, such as authentication tokens, which can be made available to containers upon request.
-
-Secret : Secret 存储了敏感数据，例如能允许容器接收请求的权限令牌。
-
->Name : A user- or client-provided name for a resource.
-
-Name :  用户为Kubernetes中资源定义的名字
+>Name :  用户为Kubernetes中资源定义的名字
 
 >Namespace : A namespace is like a prefix to the name of a resource. Namespaces help different projects, teams, or customers to share a cluster, such as by preventing name collisions between unrelated teams.
 
