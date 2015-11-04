@@ -24,7 +24,7 @@ Table of Contents
 如果你对Kubernetes布什很熟悉的话, 我们建议你按顺序阅读下面的部分:
 
 * 1.快速入门: 运行并展示一个应用
-* 2.Configuring and launching containers: configuring common     container parameters
+* 2.容器的配置与启动: 配置容器的公共参数
 * 3.Deploying continuously running applications
 * 4.Connecting applications: exposing applications to clients and users
 * 5.Working with containers in production
