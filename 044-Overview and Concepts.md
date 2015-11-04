@@ -53,7 +53,11 @@ Table of Contents
 
 >Selector : A selector is an expression that matches labels in order to identify related resources, such as which pods are targeted by a load-balanced service.
 
+selector是一个通过匹配labels来定义资源之间关系得表达式，例如为一个负载均衡的service指定所目标Pod.
+
 >Replication Controller : A replication controller ensures that a specified number of pod replicas are running at any one time. It both allows for easy scaling of replicated systems and handles re-creation of a pod when the machine it is on reboots or otherwise fails.
+
+Replication Controller : replication controller 是为了保证一定数量被指定的Pod的复制品在任何时间都能正常工作.它不仅允许复制的系统易于扩展，还会处理pod在机器在重启或发生故障的时候重新创建
 
 >Service : A service defines a set of pods and a means by which to access them, such as single stable IP address and corresponding DNS name.
 
