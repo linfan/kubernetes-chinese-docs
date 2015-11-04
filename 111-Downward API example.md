@@ -10,6 +10,8 @@
 
 Containers consume the downward API using environment variables. The downward API allows containers to be injected with the name and namespace of the pod the container is in.
 
+容器通过环境变量来消费downward API，downward API允许容器
+
 Use the examples/downward-api/dapi-pod.yaml file to create a Pod with a container that consumes the downward API.
 
 $ kubectl create -f docs/user-guide/downward-api/dapi-pod.yaml
