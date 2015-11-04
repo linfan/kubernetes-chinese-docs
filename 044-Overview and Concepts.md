@@ -39,7 +39,7 @@ Table of Contents
 
 ##概念指南
 
->Overview : A brief overview of Kubernetes concepts.
+>概论 : Kubernetes中概念的简要概述
 
 >Cluster : A cluster is a set of physical or virtual machines and other infrastructure resources used by Kubernetes to run your applications.
 
