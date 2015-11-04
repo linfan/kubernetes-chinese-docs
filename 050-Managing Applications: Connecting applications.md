@@ -34,18 +34,23 @@ spec:
 ```
 
 这使得它从集群中的任一节点都可以被访问到。检查一下供pod运行的节点：
+
 ```
 $ kubectl create -f ./nginxrc.yaml
 $ kubectl get pods -l app=nginx -o wide
 my-nginx-6isf4   1/1       Running   0          2h        e2e-test-beeps-minion-93ly
 my-nginx-t26zt   1/1       Running   0          2h        e2e-test-beeps-minion-93ly
 ```
+
 检查pod的IP地址：
+
 ```
 $ kubectl get pods -l app=nginx -o json | grep podIP
                 "podIP": "10.245.0.15",
                 "podIP": "10.245.0.14",
 ```
+
+
 You should be able to ssh into any node in your cluster and curl both ips. Note that the containers are not using port 80 on the node, nor are there any special NAT rules to route traffic to the pod. This means you can run multiple nginx pods on the same node all using the same containerPort and access them from any other pod or node in your cluster using ip. Like Docker, ports can still be published to the host node's interface(s), but the need for this is radically diminished because of the networking model.
 
 You can read more about [how we achieve this](http://kubernetes.io/v1.0/docs/admin/networking.html#how-to-achieve-this) if you’re curious.
