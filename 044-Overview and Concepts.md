@@ -49,6 +49,8 @@ Table of Contents
 
 >Label : A label is a key/value pair that is attached to a resource, such as a pod, to convey a user-defined identifying attribute. Labels can be used to organize and to select subsets of resources.
 
+一个label是一个被附加到资源上的键/值对，譬如附加到一个Pod上，为它传递一个用户自定的并且可识别的属性.Label还可以被应用到组织和选择子网中的资源
+
 >Selector : A selector is an expression that matches labels in order to identify related resources, such as which pods are targeted by a load-balanced service.
 
 >Replication Controller : A replication controller ensures that a specified number of pod replicas are running at any one time. It both allows for easy scaling of replicated systems and handles re-creation of a pod when the machine it is on reboots or otherwise fails.
