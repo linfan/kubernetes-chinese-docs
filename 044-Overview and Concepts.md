@@ -8,9 +8,9 @@ Table of Contents
  - [Concept guide](#Concept guide)
  - [Further reading](#Further reading)
 
->The user guide is intended for anyone who wants to run programs and services on an existing Kubernetes cluster. Setup and administration of a Kubernetes cluster is described in the Cluster Admin Guide. The Developer Guide is for anyone wanting to either write code which directly accesses the Kubernetes API, or to contribute directly to the Kubernetes project.
+>The user guide is intended for anyone who wants to run programs and services on an existing Kubernetes cluster. Setup and administration of a Kubernetes cluster is described in the [Cluster Admin Guide](http://kubernetes.io/v1.0/docs/admin/README.html). The [Developer Guide](http://kubernetes.io/v1.0/docs/devel/README.html) is for anyone wanting to either write code which directly accesses the Kubernetes API, or to contribute directly to the Kubernetes project.
 
->Please ensure you have completed the prerequisites for running examples from the user guide.
+>Please ensure you have completed the [prerequisites for running examples from the user guide](http://kubernetes.io/v1.0/docs/user-guide/prereqs.html).
 
 ##实战入门
 
