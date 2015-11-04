@@ -41,7 +41,8 @@ Table of Contents
 
 >概论 : Kubernetes中概念的简要概述
 
->Cluster : A cluster is a set of physical or virtual machines and other infrastructure resources used by Kubernetes to run your applications.
+>Cluster : 集群是指由Kubernetes使用一系列的物理机、虚拟机和其他基础资源来运行你的应用程序。
+
 
 >Node : A node is a physical or virtual machine running Kubernetes, onto which pods can be scheduled.
 
