@@ -77,7 +77,7 @@ Table of Contents
 - 生命周期事件钩子
 - 计算资源，例如cpu和内存
 - Specifying commands and requesting capabilities
--  API: accessing system configuration from a pod
+-  API: 从pod中访问系统配置
 - 镜像和仓库
 - 从使用docker-cli转向kubectl
 - 配置集群时的提示和技巧
