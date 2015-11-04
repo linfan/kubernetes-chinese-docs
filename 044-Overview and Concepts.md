@@ -33,9 +33,9 @@ Table of Contents
     * 1.使用Kubernetes的Web用户界面
     * 2.日志
     * 3.监控
-    * 4.Getting into containers via exec
-    * 5.Connecting to containers via proxies
-    * 6.Connecting to containers via port forwarding
+    * 4.通过exec命令进入容器
+    * 5.通过代理连接容器
+    * 6.通过接口转发连接容器
 
 ##概念指南
 
