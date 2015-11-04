@@ -2,11 +2,11 @@
 
 接下来的例子，你会创建一个pod, 它包含了一个通过访问downward API来使用这个pod的名字和命名空的容器
 
-#步骤 0: Prerequisites
+#步骤 0: 前提条件
 
 This example assumes you have a Kubernetes cluster installed and running, and that you have installed the kubectl command line tool somewhere in your path. Please see the getting started for installation instructions for your platform.
 
-#步骤 1: Create the pod
+#步骤 1: 创建一个pod
 
 Containers consume the downward API using environment variables. The downward API allows containers to be injected with the name and namespace of the pod the container is in.
 
