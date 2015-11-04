@@ -73,7 +73,7 @@ Table of Contents
 
 ###Pods and containers
 
->- Pod lifecycle and restart policies
+>- Pod 的生命周期和重启策略
 - Lifecycle hooks
 - Compute resources, such as cpu and memory
 - Specifying commands and requesting capabilities
