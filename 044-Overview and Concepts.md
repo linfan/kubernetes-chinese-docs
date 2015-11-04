@@ -81,5 +81,5 @@ Table of Contents
 - 镜像和仓库
 - 从使用docker-cli转向kubectl
 - 配置集群时的提示和技巧
-- Assign pods to selected nodes
+- 把pod分配到指定node
 - Perform a rolling update on a running group of pods
