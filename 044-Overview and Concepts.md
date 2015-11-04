@@ -69,7 +69,7 @@
 
 ###API resources
 
->[Working with resources](http://kubernetes.io/v1.0/docs/user-guide/working-with-resources.html)
+>[更多可使用的API资源](http://kubernetes.io/v1.0/docs/user-guide/working-with-resources.html)
 
 ###Pods and containers
 
