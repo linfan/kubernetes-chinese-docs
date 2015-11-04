@@ -1,8 +1,6 @@
 #Downward API 范例
 
-Following this example, you will create a pod with a containers that consumes the pod's name and namespace using the downward API.
-
-接下来的例子，有会创建一个pod, 它包含了一个通过访问downward API来使用这个pod的名字和命名空的容器
+接下来的例子，你会创建一个pod, 它包含了一个通过访问downward API来使用这个pod的名字和命名空的容器
 
 #Step Zero: Prerequisites
 
