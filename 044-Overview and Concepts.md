@@ -75,11 +75,11 @@ Table of Contents
 
 >- Pod 的生命周期和重启策略
 - 生命周期事件钩子
-- 计算资源，例如cpu.内存
+- 计算资源，例如cpu和内存
 - Specifying commands and requesting capabilities
-- Downward API: accessing system configuration from a pod
-- Images and registries
-- Migrating from docker-cli to kubectl
+-  API: accessing system configuration from a pod
+- 镜像和仓库
+- 从使用docker-cli专项kubernetes-cli
 - Tips and tricks when working with config
 - Assign pods to selected nodes
 - Perform a rolling update on a running group of pods
