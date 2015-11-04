@@ -1,6 +1,6 @@
 #Kubernetes用户指南：应用程序管理
 
-Table of Contents
+目录
 
 - [Kubernetes用户指南：应用程序管理](#Kubernetes用户指南：应用程序管理)
  - [实战入门](#实战入门)
