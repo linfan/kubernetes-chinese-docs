@@ -77,6 +77,8 @@ Namespace : Namespace 好比一个资源名字的前缀。它帮助不同的项�
 
 >Annotation : A key/value pair that can hold larger (compared to a label), and possibly not human-readable, data, intended to store non-identifying auxiliary data, especially data manipulated by tools and system extensions. Efficient filtering by annotation values is not supported.
 
+Annotation : 
+
 ##阅读延伸
 
 ###API resources
