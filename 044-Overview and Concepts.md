@@ -82,4 +82,4 @@ Table of Contents
 - 从使用docker-cli转向kubectl
 - 配置集群时的提示和技巧
 - 把pod分配到指定node
-- Perform a rolling update on a running group of pods
+- 展示为一组正在运行的pod左滚动更新
