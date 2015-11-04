@@ -28,7 +28,7 @@ Table of Contents
 * 3.部署可持续运行的容器
 * 4.链接应用程序: 将应用程序展示给客户和用户
 * 5.在生产环境中是用容器
-* 6.Managing deployments
+* 6.部署管理
 * 7.Application introspection and debugging
     * 1.Using the Kubernetes web user interface
     * 2.Logging
