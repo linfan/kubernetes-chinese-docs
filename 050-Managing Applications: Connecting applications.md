@@ -40,7 +40,7 @@ $ kubectl get pods -l app=nginx -o wide
 my-nginx-6isf4   1/1       Running   0          2h        e2e-test-beeps-minion-93ly
 my-nginx-t26zt   1/1       Running   0          2h        e2e-test-beeps-minion-93ly
 ```
-Check your pods ips:
+检查pod的IP地址：
 ```
 $ kubectl get pods -l app=nginx -o json | grep podIP
                 "podIP": "10.245.0.15",
