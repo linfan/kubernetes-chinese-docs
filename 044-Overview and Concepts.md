@@ -10,6 +10,8 @@ Table of Contents
 
 >The user guide is intended for anyone who wants to run programs and services on an existing Kubernetes cluster. Setup and administration of a Kubernetes cluster is described in the [Cluster Admin Guide](http://kubernetes.io/v1.0/docs/admin/README.html). The [Developer Guide](http://kubernetes.io/v1.0/docs/devel/README.html) is for anyone wanting to either write code which directly accesses the Kubernetes API, or to contribute directly to the Kubernetes project.
 
+>用户指南旨在为了每一个想运行程序或者服务在已有Kubernetes集群中的人。Kubernetes集群的安装和管理相关内容在[集群管理指南]()中可以找到。[开发者指南]()是为了那些想写代码直接访问Kubernetes的API,或者为Kubernetes项目共享代码的每一个人。
+
 >Please ensure you have completed the [prerequisites for running examples from the user guide](http://kubernetes.io/v1.0/docs/user-guide/prereqs.html).
 
 ##实战入门
