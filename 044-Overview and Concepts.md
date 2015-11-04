@@ -25,7 +25,7 @@ Table of Contents
 
 * 1.快速入门: 运行并展示一个应用
 * 2.容器的配置与启动: 配置容器的公共参数
-* 3.Deploying continuously running applications
+* 3.部署可持续运行的容器
 * 4.Connecting applications: exposing applications to clients and users
 * 5.Working with containers in production
 * 6.Managing deployments
