@@ -3,10 +3,10 @@
 Table of Contents
 
 - [Kubernetes用户指南：应用程序管理](#Kubernetes用户指南：应用程序管理)
- - [Quick walkthrough](#实战入门)
- - [Thorough walkthrough](#进阶路线)
- - [Concept guide](#Concept guide)
- - [Further reading](#Further reading)
+ - [实战入门](#实战入门)
+ - [进阶路线](#进阶路线)
+ - [概念指南](#概念指南)
+ - [阅读延伸](#阅读延伸)
 
 >The user guide is intended for anyone who wants to run programs and services on an existing Kubernetes cluster. Setup and administration of a Kubernetes cluster is described in the [Cluster Admin Guide](http://kubernetes.io/v1.0/docs/admin/README.html). The [Developer Guide](http://kubernetes.io/v1.0/docs/devel/README.html) is for anyone wanting to either write code which directly accesses the Kubernetes API, or to contribute directly to the Kubernetes project.
 
@@ -35,7 +35,7 @@ If you don't have much familiarity with Kubernetes, we recommend you read the fo
     * 5.Connecting to containers via proxies
     * 6.Connecting to containers via port forwarding
 
-##Concept guide
+##概念指南
 
 >Overview : A brief overview of Kubernetes concepts.
 
@@ -63,7 +63,7 @@ If you don't have much familiarity with Kubernetes, we recommend you read the fo
 
 >Annotation : A key/value pair that can hold larger (compared to a label), and possibly not human-readable, data, intended to store non-identifying auxiliary data, especially data manipulated by tools and system extensions. Efficient filtering by annotation values is not supported.
 
-##Further reading
+##阅读延伸
 
 ###API resources
 
