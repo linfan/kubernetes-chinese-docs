@@ -77,7 +77,7 @@
 - 生命周期事件钩子
 - 计算资源，例如cpu和内存
 - 指定命令和请求的能力
-- Downward API（向下支持各种容器的API,如Docker）: 从pod中访问系统配置
+- Downward API（用于向下支持各种容器的API,如Docker）: 从pod中访问系统配置
 - 镜像和仓库
 - 从使用docker-cli转向kubectl
 - 配置集群时的提示和技巧
