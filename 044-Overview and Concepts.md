@@ -61,10 +61,15 @@ Service : 一个service定义了访问pod的方式，就像单个固定的IP地�
 
 >Volume : A volume is a directory, possibly with some data in it, which is accessible to a Container as part of its filesystem. Kubernetes volumes build upon Docker Volumes, adding provisioning of the volume directory and/or device.
 
+Volume: 一个volume是一个目录，可能会被容器作为未见系统的一部分来访问。Kubernetes volume 构建在Docker Volumes之上,并且支持添加和配置volume目录或者其他存储设备。
+
 >Secret : A secret stores sensitive data, such as authentication tokens, which can be made available to containers upon request.
+
+Secret : Secret 存储了敏感数据，例如能允许容器接收请求的权限令牌。
 
 >Name : A user- or client-provided name for a resource.
 
+Name :  用户为资源定义的名字
 >Namespace : A namespace is like a prefix to the name of a resource. Namespaces help different projects, teams, or customers to share a cluster, such as by preventing name collisions between unrelated teams.
 
 >Annotation : A key/value pair that can hold larger (compared to a label), and possibly not human-readable, data, intended to store non-identifying auxiliary data, especially data manipulated by tools and system extensions. Efficient filtering by annotation values is not supported.
