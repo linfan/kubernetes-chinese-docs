@@ -4,7 +4,7 @@
 
 #步骤 0: 前提条件
 
-This example assumes you have a Kubernetes cluster installed and running, and that you have installed the kubectl command line tool somewhere in your path. Please see the getting started for installation instructions for your platform.
+This example assumes you have a Kubernetes cluster installed and running, and that you have installed the kubectl command line tool somewhere in your path. Please see the [getting started]() for installation instructions for your platform.
 
 #步骤 1: 创建一个pod
 
