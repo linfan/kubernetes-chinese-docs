@@ -32,7 +32,8 @@ spec:
         ports:
         - containerPort: 80
 ```
-This makes it accessible from any node in your cluster. Check the nodes the pod is running on:
+
+这使得它从集群中的任一节点都可以被访问到。检查一下供pod运行的节点：
 ```
 $ kubectl create -f ./nginxrc.yaml
 $ kubectl get pods -l app=nginx -o wide
