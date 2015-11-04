@@ -46,6 +46,7 @@ Table of Contents
 >Node : 一个node就是一个运行着Kubernetes的物理机或虚拟机，并且pod可以在其上面被调度。.
 
 >Pod : A pod is a co-located group of containers and volumes.
+pod是一个由一些相关容器和卷的组合
 
 >Label : A label is a key/value pair that is attached to a resource, such as a pod, to convey a user-defined identifying attribute. Labels can be used to organize and to select subsets of resources.
 
