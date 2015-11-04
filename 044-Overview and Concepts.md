@@ -21,7 +21,7 @@ Table of Contents
 
 ##进阶路线图
 
-If you don't have much familiarity with Kubernetes, we recommend you read the following sections in order:
+如果你对Kubernetes布什很熟悉的话, 我们建议你按顺序阅读下面的部分:
 
 * 1.Quick start: launch and expose an application
 * 2.Configuring and launching containers: configuring common     container parameters
