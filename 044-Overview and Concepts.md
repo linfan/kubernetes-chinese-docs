@@ -27,7 +27,7 @@ Table of Contents
 * 2.容器的配置与启动: 配置容器的公共参数
 * 3.部署可持续运行的容器
 * 4.链接应用程序: 将应用程序展示给客户和用户
-* 5.Working with containers in production
+* 5.在生产环境中是用容器
 * 6.Managing deployments
 * 7.Application introspection and debugging
     * 1.Using the Kubernetes web user interface
