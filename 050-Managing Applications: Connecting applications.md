@@ -10,7 +10,9 @@ Dokcer默认使用私有网络连接方式，所以只有在同一台物理机�
 这个指南中用了一个简单的nginx服务来演示验证这个概念（proof of concept）。同样的原理也在一个更完整的[Jenkins CI 应用](http://blog.kubernetes.io/2015/07/strong-simple-ssl-for-kubernetes.html)中体现了。
 
 ###Exposing pods to the cluster
-We did this in a previous example, but lets do it once again and focus on the networking perspective. Create an nginx pod, and note that it has a container port specification:
+
+在前面的例子中已经演示过，让我们把注意力集中在网络的视角在来一次。创建一个nginx的pod，请注意它定义了容器的端口：
+
 ```
 $ cat nginxrc.yaml
 apiVersion: v1
