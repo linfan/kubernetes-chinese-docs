@@ -43,3 +43,6 @@ git clone https://git.gitbook.com/linfan1/kubernetes-chinese-docs.git
 - ***Selector***
 - ***Volume***
 - ***Secret***
+- ***Name***
+- ***Namespace***
+- ***Annotation***
