@@ -32,3 +32,14 @@ git clone https://git.gitbook.com/linfan1/kubernetes-chinese-docs.git
 
 4. 内容格式按照DockOne的[文章规范](Fingerpost.txt)。
 
+##名词列表
+
+文档中出现的下列名词统一不翻译，而且文档中全部使用单数形式：
+
+- ***Pod***
+- ***Service***
+- ***Replication Controller***
+- ***Label***
+- ***Selector***
+- ***Volume***
+- ***Secret***
