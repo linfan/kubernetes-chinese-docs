@@ -18,17 +18,17 @@ Kubernetes 101 - Kubectl CLI and Pods
 
 Kubectl CLI
 
-The easiest way to interact with Kubernetes is via the kubectl command-line interface.
+同Kubernetes交互的最简单方法是通过kubectl命令行界面
 
-For more info about kubectl, including its usage, commands, and parameters, see the kubectl CLI reference.
+对于kubectl的更多信息，包括它的使用率，命令，参数，请阅读kubectl CLI参考手册
 
-If you haven't installed and configured kubectl, finish the prerequisites before continuing.
+如果你没有安装好或者配置好kubectl，在继续阅读之前把这件事完成。
 
 Pods
 
-In Kubernetes, a group of one or more containers is called a pod. Containers in a pod are deployed together, and are started, stopped, and replicated as a group.
+在Kubernetes，一组一个或者多个容器叫做pod。Pod中的容器是部署在一起的，并且作为一组来启动，停止和复制。
 
-See pods for more details.
+点击pods链接得到更多细节信息。
 
 Pod Definition
 
