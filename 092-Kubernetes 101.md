@@ -30,7 +30,7 @@ Pods
 
 点击pods链接得到更多细节信息。
 
-Pod Definition
+Pod定义
 
 The simplest pod definition describes the deployment of a single container. For example, an nginx web server pod might be defined as such:
 
