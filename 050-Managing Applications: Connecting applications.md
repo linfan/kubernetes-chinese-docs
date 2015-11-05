@@ -50,13 +50,15 @@ $ kubectl get pods -l app=nginx -o json | grep podIP
                 "podIP": "10.245.0.14",
 ```
 
-你应该可以ssh到集群里的任一节点，用curl命令也可以访问到这两个IP。请注意
-You should be able to ssh into any node in your cluster and curl both ips. Note that the containers are not using port 80 on the node, nor are there any special NAT rules to route traffic to the pod. This means you can run multiple nginx pods on the same node all using the same containerPort and access them from any other pod or node in your cluster using ip. Like Docker, ports can still be published to the host node's interface(s), but the need for this is radically diminished because of the networking model.
+你应该可以ssh到集群里的任何一个节点，而且用curl也能够访问这两个IP。要注意的是容器并没有用节点的80端口，也没用任何特殊的会把流量路由到pod的NAT规则。这意味着你可以在同一个节点上用同样的`containerPort`配置运行多个nginx pod，而且通过IP就可以在其他pod或者集群里的其他节点访问它们。和Docker类似，端口也可以在节点的网络接口中发布出来，但是在Kubernetes的这种网络模型下，这样的需求从根本上减少了。
 
-You can read more about [how we achieve this](http://kubernetes.io/v1.0/docs/admin/networking.html#how-to-achieve-this) if you’re curious.
-##Creating a Service
-So we have pods running nginx in a flat, cluster wide, address space. In theory, you could talk to these pods directly, but what happens when a node dies? The pods die with it, and the replication controller will create new ones, with different ips. This is the problem a Service solves.
+如果你很好奇，可以在[how we achieve this](http://kubernetes.io/v1.0/docs/admin/networking.html#how-to-achieve-this)读到更多细节。
 
+##创建服务
+
+现在我们有了运行态的nginx，它们运行在一个水平的，集群范围的地址空间内。理论上，我们已经可以和这些pod直接交互了，但是如果一个节点死掉了会发生什么？它里面的pod也会死掉，然后replication controller会创建一个新的pod，但是IP是不一样的。这就是服务可以解决的问题。
+
+Kubernetes的服务是对在集群中某处运行的一系列pod的逻辑集合的抽象定义。
 A Kubernetes Service is an abstraction which defines a logical set of Pods running somewhere in your cluster, that all provide the same functionality. When created, each Service is assigned a unique IP address (also called clusterIP). This address is tied to the lifespan of the Service, and will not change while the Service is alive. Pods can be configured to talk to the Service, and know that communication to the Service will be automatically load-balanced out to some pod that is a member of the Service.
 
 You can create a Service for your 2 nginx replicas with the following yaml:
@@ -337,3 +339,4 @@ $ curl https://104.197.68.43 -k
 ```
 ##What's next?
 [Learn about more Kubernetes features that will help you run containers reliably in production.](http://kubernetes.io/v1.0/docs/user-guide/production-pods.html)
+
