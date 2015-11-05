@@ -32,8 +32,7 @@ Pods
 
 Pod定义
 
-The simplest pod definition describes the deployment of a single container. For example, an nginx web server pod might be defined as such:
-
+最简单的pod定义描述了单个容器的部署。比如，一个nginx web服务器的pod可以定义如下：
 apiVersion: v1
 kind: Pod
 metadata:
@@ -45,11 +44,11 @@ spec:
     ports:
     - containerPort: 80
 
-A pod definition is a declaration of a desired state. Desired state is a very important concept in the Kubernetes model. Many things present a desired state to the system, and it is Kubernetes' responsibility to make sure that the current state matches the desired state. For example, when you create a Pod, you declare that you want the containers in it to be running. If the containers happen to not be running (e.g. program failure, ...), Kubernetes will continue to (re-)create them for you in order to drive them to the desired state. This process continues until the Pod is deleted.
+Pod的定义是一种需求状态（Desired State）的声明。需求状态是Kubernetes模型中非常重要的概念。很多事情在系统中体现为需求状态，而Kubernetes有责任确保当前状态匹配需求状态。举个例子，当你创建一个Pod，你指明其中的容器进入运行。如果容器没有运行（例如程序错误，...），为了驱使容器进入需求状态，Kubernetes将持续为你（再）创建这些容器。这个过程将一直持续到该Pod被删除。
 
-See the design document for more details.
+获取更多细节信息，请查阅设计文档。
 
-Pod Management
+Pod管理
 
 Create a pod containing an nginx server (pod-nginx.yaml):
 
