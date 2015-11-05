@@ -12,6 +12,8 @@
 
 Use the examples/downward-api/dapi-pod.yaml file to create a Pod with a container that consumes the downward API.
 
+我们使用examples/downward-api/dapi-pod.yaml来创建
+
 $ kubectl create -f docs/user-guide/downward-api/dapi-pod.yaml
 
 #检查日志
