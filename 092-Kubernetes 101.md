@@ -1,4 +1,5 @@
 # **Kubernetes 101 - Kubectl CLI和Pods**
+
 Kubernetes 101 - Kubectl CLI and Pods
 
 对于Kubernetes 101，我们将覆盖的内容包括kubectl, pods, volumes?, 以及多容器。
@@ -50,27 +51,27 @@ Pod的定义是一种需求状态（Desired State）的声明。需求状态是K
 
 Pod管理
 
-Create a pod containing an nginx server (pod-nginx.yaml):
+创建一个包含nginx server的pod（pod-nginx.yaml）:
 
 $ kubectl create -f docs/user-guide/walkthrough/pod-nginx.yaml
 
-List all pods:
+列出所有pods:
 
 $ kubectl get pods
 
-On most providers, the pod IPs are not externally accessible. The easiest way to test that the pod is working is to create a busybox pod and exec commands on it remotely. See the command execution documentation for details.
+在Pod部署的大部分环境里，Pod的IP都是外部不可接入的。最便捷的测试Pod是否工作的方法是创建一个busybox pod（？）并且在上面远程运行命令。请查看可执行命令文档以找到更多细节。
 
-Provided the pod IP is accessible, you should be able to access its http endpoint with curl on port 80:
+如果Pod IP可以访问，你应该可以利用curl访问在80端口访问http端点。
 
 $ curl http://$(kubectl get pod nginx -o=template -t={{.status.podIP}})
 
-Delete the pod by name:
+通过名字删除pod：
 
 $ kubectl delete pod nginx
 
-Volumes
+大容量存储
 
-That's great for a simple static web server, but what about persistent storage?
+这对于一个简单的静态网站服务器很不错，那么对于固态存储情况如何？
 
 The container file system only lives as long as the container does. So if your app's state needs to survive relocation, reboots, and crashes, you'll need to configure some persistent storage.
 
