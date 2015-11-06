@@ -1,32 +1,5 @@
 # Services in Kubernetes
 
-**Table of Contents**
-<!-- BEGIN MUNGE: GENERATED_TOC -->
-
-- [Services in Kubernetes](#services-in-kubernetes)
-  - [Overview](#overview)
-  - [Defining a service](#defining-a-service)
-    - [Services without selectors](#services-without-selectors)
-  - [Virtual IPs and service proxies](#virtual-ips-and-service-proxies)
-  - [Multi-Port Services](#multi-port-services)
-  - [Choosing your own IP address](#choosing-your-own-ip-address)
-    - [Why not use round-robin DNS?](#why-not-use-round-robin-dns)
-  - [Discovering services](#discovering-services)
-    - [Environment variables](#environment-variables)
-    - [DNS](#dns)
-  - [Headless services](#headless-services)
-  - [Publishing services - service types](#publishing-services---service-types)
-    - [Type NodePort](#type-nodeport)
-    - [Type LoadBalancer](#type-loadbalancer)
-    - [External IPs](#external-ips)
-  - [Shortcomings](#shortcomings)
-  - [Future work](#future-work)
-  - [The gory details of virtual IPs](#the-gory-details-of-virtual-ips)
-    - [Avoiding collisions](#avoiding-collisions)
-    - [IPs and VIPs](#ips-and-vips)
-  - [API Object](#api-object)
-
-<!-- END MUNGE: GENERATED_TOC -->
 
 ## Overview
 
