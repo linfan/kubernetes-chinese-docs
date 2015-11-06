@@ -174,6 +174,3 @@ fed-node          name=fed-node-label     Ready
 集群现在应该在运行了，跑一个用于测试pod吧。
 
 你应该有一个可用的集群，查看101节！
-
-
-
