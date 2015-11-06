@@ -83,6 +83,22 @@ Individual pods are not intended to run multiple instances of the same applicati
 
 For a longer explanation, see [The Distributed System ToolKit: Patterns for Composite Containers](http://blog.kubernetes.io/2015/06/the-distributed-system-toolkit-patterns.html).
 
+## Pod的使用
+
+Pod可以用来host垂直集成的应用栈，但是它们主要的动机还是在于支持同地安放，共同管理的助手程序，比如：
+
+- 内容管理系统，文件和数据加载器，本地缓存管理器等等
+- 日志和检查点备份，压缩，滚动和和快照等等
+- 数据更改监视者，日志尾部查看器，日志和监控适配器，事件发布器等等
+- 代理，桥，和适配器
+- 控制器，管理器，配置器，和更新器等等
+
+单独的pod总体来说不适合拿来运行同一应用的多个实例。
+
+要更详细的解释，请参看，分布式系统的工具包：组合容器的模式。
+
+
+
 ## Alternatives considered
 
 _Why not just run multiple programs in a single (Docker) container?_
@@ -95,6 +111,25 @@ _Why not just run multiple programs in a single (Docker) container?_
 _Why not support affinity-based co-scheduling of containers?_
 
 That approach would provide co-location, but would not provide most of the benefits of pods, such as resource sharing, IPC, guaranteed fate sharing, and simplified management.
+
+
+## 考虑过的其他方案
+
+_为什么不在一个单独的容器里面运行多个程序？_
+
+1. 透明度。让处在pod中的容器对于基础设施可见，使得基础设施能向这些容器提供服务，比如进程管理，和资源监控。这有助于为用户提供很多的便利。
+
+2. 解耦软件依赖。独立的容器可以单独的重建并重新部署。Kubernetes可能甚至支持在线更新单独的容器。
+
+3. 使用的容易度。用户不用运行他们自己的进程管理器，担心信号和退出代码的串升，等等。
+
+4. 效率。因为基础设施承担了更多的责任，容器可以做的更加轻量。
+
+
+_为什么不支持容器基于亲和力的共同调度？_
+
+这种方式可以提供共同安放的特性，但是不会提供pod的其他绝大部分的优点，例如资源共享，IPC，有保证的命运共享，和简化的管理。
+
 
 ## Durability of pods (or lack thereof)
 
@@ -115,9 +150,37 @@ Pod is exposed as a primitive in order to facilitate:
 
 The current best practice for pets is to create a replication controller with `replicas` equal to `1` and a corresponding service. If you find this cumbersome, please comment on [issue #260](http://issue.k8s.io/260).
 
+## pod的持久性
+
+Pod不想被当做持久化的宠物。他们无法幸免于调度错误，节点失效，或者其他的故障，比如资源的短缺，或者在节点处于维护状态时。
+
+总体来说，用户不应该直接的创建pod。他们绝大多数情况下只应该使用控制器，即使对于单例也如此。控制器在一个集群的范围累提供了自我修复的功能，和复制以及扩展开的管理。
+
+在集群管理系统中，使用一系列API作为主要的面对用户的原语是相对常见的做法，包含Borg，Marathon，Aurora和Tupperware。
+
+Pod作为原语暴露出来是为了有助于：
+
+- 调度器和控制器的插件性
+- 支持pod级别的操作，不用通过控制器API来对他们进行代理
+- 将pod的生命周期和控制器的生命周期解耦，比如为了启动
+- 将controller和service解耦 - 端点控制器只监视pod
+- 清理Kubelet级别的功能，取而代之集群级别的功能 - Kubelet是实际上的pod控制器
+- 高可用的应用，pod在被结束前会被取代，自然在删除之前也会被取代，比如在有计划的踢出，镜像预取，和在线的pod迁移的情况下。
+
+
+目前对于宠物的最佳实践是，创建一个副本等于1和有对应service的一个replication控制器。如果你觉得这太麻烦，请在这里留下你的意见。
+
+
+
+
+
 ## Termination of Pods
+## 容器的终止
 
 Because pods represent running processes on nodes in the cluster, it is important to allow those processes to gracefully terminate when they are no longer needed (vs being violently killed with a KILL signal and having no chance to clean up). Users should be able to request deletion and know when processes terminate, but also be able to ensure that deletes eventually complete. When a user requests deletion of a pod the system records the intended grace period before the pod is allowed to be forcefully killed, and a TERM signal is sent to the main process in each container. Once the grace period has expired the KILL signal is sent to those processes and the pod is then deleted from the API server. If the Kubelet or the container manager is restarted while waiting for processes to terminate, the termination will be retried with the full grace period.
+
+
+因为pod代表着一个集群中节点上运行的进程，让这些进程不再被需要，优雅的退出是很重要的（与粗暴的用一个KILL信号去结束，让应用没有机会进行清理操作）。用户应该能请求删除，并且在室进程终止的情况下能知道，而且也能保证删除最终完成。当一个用户请求删除pod，系统记录想要的优雅退出时间段，在这之前Pod不允许被强制的杀死，TERM信号会发送给容器主要的进程。一旦优雅退出的期限过了，KILL信号会送到这些进程，pod会从API服务器其中被删除。如果在等待进程结束的时候，Kubelet或者容器管理器重启了，结束的过程会带着完整的优雅退出时间段进行重试。
 
 An example flow:
 
@@ -133,9 +196,29 @@ An example flow:
 
 By default, all deletes are graceful within 30 seconds. The `kubectl delete` command supports the `--grace-period=<seconds>` option which allows a user to override the default and specify their own value. The value `0` indicates that delete should be immediate, and removes the pod in the API immediately so a new pod can be created with the same name. On the node pods that are set to terminate immediately will still be given a small grace period before being force killed.
 
+一个示例流程：
+
+1. 用户发送一个命令来删除Pod，默认的优雅退出时间是30秒
+2. API服务器中的Pod更新时间，超过该时间Pod被认为死亡
+3. 在客户端命令的的里面，Pod显示为"Terminating（退出中）"的状态
+4. （与第3同时）当Kubelet看到Pod标记为退出中的时候，因为第2步中时间已经设置了，它开始pod关闭的流程
+	1. 如果该Pod定义了一个停止前的钩子，其会在pod内部被调用。如果钩子在优雅退出时间段超时仍然在运行，第二步会意一个很小的优雅时间断被调用
+	2. 进程被发送TERM的信号
+	
+5. （与第三步同时进行）Pod从service的列表中被删除，不在被认为是运行着的pod的一部分。缓慢关闭的pod可以继续对外服务，当负载均衡器将他们轮流移除。
+6. 当优雅退出时间超时了，任何pod中正在运行的进程会被发送SIGKILL信号被杀死。
+7. Kubelet会完成pod的删除，将优雅退出的时间设置为0（表示立即删除）。pod从API中删除，不在对客户端可见。
+
+默认情况下，所有的删除操作的优雅退出时间都在30秒以内。kubectl delete命令支持--grace-period=<seconds>的选项，以运行用户来修改默认值。0表示删除立即执行，并且立即从API中删除pod这样一个新的pod会在同时被创建。在节点上，被设置了立即结束的的pod，仍然会给一个很短的优雅退出时间段，才会开始被强制杀死。
+
+
+
 ## Privileged mode for pod containers
+pod容器的特权模式
 
 From kubernetes v1.1, any container in a pod can enable privileged mode, using the `privileged` flag on the `SecurityContext` of the container spec. This is useful for containers that want to use linux capabilities like manipulating the network stack and accessing devices. Processes within the container get almost the same privileges that are available to processes outside a container. With privileged mode, it should be easier to write network and volume plugins as seperate pods that don't need to be compiled into the kubelet.
+
+
 
 If the master is running kubernetes v1.1 or higher, and the nodes are running a version lower than v1.1, then new privileged pods will be accepted by api-server, but will not be launched. They will be pending state.
 If user calls `kubectl describe pod FooPodName`, user can see the reason why the pod is in pending state. The events table in the describe command output will say:
@@ -146,8 +229,15 @@ If the master is running a version lower than v1.1, then privileged pods cannot 
 `The Pod "FooPodName" is invalid.
 spec.containers[0].securityContext.privileged: forbidden '<*>(0xc20b222db0)true'`
 
+对于kubernetes v1.1l来说，任何pod中的容器都可以启用特权模式，在容器定义的SecurityContext里设置privileged标记。这对于想使用linux能力的容器来说是有用，比如想利用网络栈并访问设备。容器之外的进程能获得的特权，容器中的进程会获得同样的特权。在特权模式下，编写网络和卷插件会更容易，因为单独的pod不需要被编译进kubelet。
+
+
 ## API Object
 
 Pod is a top-level resource in the kubernetes REST API. More details about the
 API object can be found at: [Pod API
 object](https://htmlpreview.github.io/?https://github.com/kubernetes/kubernetes/HEAD/docs/api-reference/v1/definitions.html#_v1_pod).
+
+## API对象
+
+在kubernetes的REST API中，pod是一个顶级的资源。更多的详情可以在这里找到。
