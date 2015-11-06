@@ -1,22 +1,5 @@
 # Labels
 
-**Table of Contents**
-<!-- BEGIN MUNGE: GENERATED_TOC -->
-
-- [Labels](#labels)
-  - [Motivation](#motivation)
-  - [Syntax and character set](#syntax-and-character-set)
-  - [Label selectors](#label-selectors)
-    - [_Equality-based_ requirement](#equality-based-requirement)
-    - [_Set-based_ requirement](#set-based-requirement)
-  - [API](#api)
-    - [LIST and WATCH filtering](#list-and-watch-filtering)
-    - [Set references in API objects](#set-references-in-api-objects)
-      - [Service and ReplicationController](#service-and-replicationcontroller)
-      - [Job and other new resources](#job-and-other-new-resources)
-
-<!-- END MUNGE: GENERATED_TOC -->
-
 _Labels_ are key/value pairs that are attached to objects, such as pods.
 Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to users, but which do not directly imply semantics to the core system.
 Labels can be used to organize and to select subsets of objects.  Labels can be attached to objects at creation time and subsequently added and modified at any time.
