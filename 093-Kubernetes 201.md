@@ -190,4 +190,4 @@ lockOne.Lock();
 
 可以在容器配置文件的`livenessProbe`部分配置你的容器的健康检查功能。你也可以指定`initialDelaySeconds`参数，这个参数指的是从容器启动到进行健康检查的宽松期。让你的容器有足够的时间进行任何初始化工作。
 
-Here is an example config for a pod with an HTTP health check (pod-with-http-healthcheck.yaml):
+这里Here is an example config for a pod with an HTTP health check (pod-with-http-healthcheck.yaml):
