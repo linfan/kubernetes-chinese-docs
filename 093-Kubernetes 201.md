@@ -53,3 +53,8 @@ $ kubectl create -f docs/user-guide/walkthrough/pod-nginx-with-label.yaml
 
 列出所有标签`app=nginx`为nginx的pod：
 
+```bash
+$ kubectl get pods -l app=nginx
+```
+
+
