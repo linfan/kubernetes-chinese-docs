@@ -44,3 +44,6 @@ spec:
     ports:
     - containerPort: 80
 ```
+
+创建一个标签过的pod [pod-nginx-with-label.yaml](http://kubernetes.io/v1.0/docs/user-guide/walkthrough/pod-nginx-with-label.yaml):
+
