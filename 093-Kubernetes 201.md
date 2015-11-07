@@ -146,3 +146,6 @@ $ kubectl delete service nginx-controller
 一旦服务被创建，就会分配一个唯一的IP地址。这个地址同服务的生命周期绑定，服务存活期间不会发生变化。通过配置Pods来和服务通信，并且能够同一些自动被负载均衡的pods进行通信，这些服务中的pod是由标签选择器识别出来的集合中的一员。
 
 更多信息，查看[服务](http://kubernetes.io/v1.0/docs/user-guide/services.html)。
+
+## **健康检查**
+
