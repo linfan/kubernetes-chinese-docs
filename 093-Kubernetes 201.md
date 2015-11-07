@@ -217,3 +217,4 @@ spec:
 
 更多关于健康检查信息，参考[容器探针](http://kubernetes.io/v1.0/docs/user-guide/pod-states.html#container-probes)。
 
+## **下一步是生命？**
