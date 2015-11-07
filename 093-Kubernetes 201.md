@@ -178,5 +178,5 @@ lockOne.Lock();
 
 这是计算机科学中典型的“死锁”问题。从Docker的角度看，你的应用仍然在进行操作并且进程仍然在运行，但是从应用程序角度来看，你的代码锁死了，再也会不正确响应了。
 
-为了解决这个问题，Kubernetes支持用户自己实现应用程序健康检查。这些检查通过Kubelet来确保应用程序按照你定义的“正确方式”来操作。To address this problem, Kubernetes supports user implemented application health-checks. These checks are performed by the Kubelet to ensure that your application is operating correctly for a definition of "correctly" that you provide.
+为了解决这个问题，Kubernetes支持用户自己实现应用程序健康检查。这些检查通过Kubelet来确保应用程序按照你定义的“正确方式”来操作。
 
