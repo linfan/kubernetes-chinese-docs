@@ -91,3 +91,5 @@ $ kubectl delete rc nginx-controller
 
 ## **服务**
 
+
+
