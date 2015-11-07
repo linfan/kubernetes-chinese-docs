@@ -20,7 +20,7 @@
 
 ## **步骤一：启动ZooKeeper服务**
 
-
+ZooKeeper是一个分布式协调者[服务](http://kubernetes.io/v1.0/docs/user-guide/services.html)，Storm使用它来作为引导程序和存储运行转态数据。
 
 
 
