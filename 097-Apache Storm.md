@@ -126,4 +126,5 @@ Node count: 13
 
 Nimbus服务和每个工作者都对应着一个客户端。理想情况下，应该可以在副本控制器创建前后从ZooKeeper获取`stat`输出。
 
-()
+（欢迎提交pull requests使用不同的方式来验证workers）
+
