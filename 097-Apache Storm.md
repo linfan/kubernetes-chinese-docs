@@ -11,7 +11,7 @@
 可以自由获取这些资源文件：
 
 * Docker镜像 - [https://github.com/mattf/docker-storm](https://github.com/mattf/docker-storm)
-* 
+* Docker受信的构建文件 - [https://registry.hub.docker.com/search?q=mattf/storm]()
 
 
 
