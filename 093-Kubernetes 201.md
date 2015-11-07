@@ -182,8 +182,8 @@ lockOne.Lock();
 
 目前，有三种应用程序健康检查机制你可以选择：
 
-* HTTP 检查检查 - Kubelet会调用web钩子。如果返回200到399之间的返回码，代表成功，反之代表失败，
-HTTP Health Checks - The Kubelet will call a web hook. If it returns between 200 and 399, it is considered success, failure otherwise. See health check examples here.
+* HTTP 检查检查 - Kubelet会调用web钩子。如果返回200到399之间的返回码，代表成功，反之代表失败，在[这里]()查看健康检查示例。
+* HTTP Health Checks - The Kubelet will call a web hook. If it returns between 200 and 399, it is considered success, failure otherwise. See health check examples here.
 Container Exec - The Kubelet will execute a command inside your container. If it exits with status 0 it will be considered a success. See health check examples here.
 TCP Socket - The Kubelet will attempt to open a socket to your container. If it can establish a connection, the container is considered healthy, if it can't it is considered a failure.
 
