@@ -19,6 +19,6 @@
   
 ## **标签**
 
-已经学习了Pods以及如何创建他们, 你可能会在紧急的情况下创建许多，许多pods。请做！但是最终你需要一个系统来通过组管理这些pods。为了实现这个功能，在Kubernetes系统中使用标签。 are key-value pairs that are attached to each object in Kubernetes. Label selectors can be passed along with a RESTful list request to the apiserver to retrieve a list of objects which match that label selector.
+已经学习了Pods以及如何创建他们, 你可能会在紧急的情况下创建许多，许多pods。请做！但是最终你需要一个系统来通过组管理这些pods。为了实现这个功能，在Kubernetes系统中使用标签。标签是一个键值对，在Kubernetes中会标记到每一个对象上。Label selectors can be passed along with a RESTful list request to the apiserver to retrieve a list of objects which match that label selector.
 
 To add a label, add a labels section under metadata in the pod definition:
