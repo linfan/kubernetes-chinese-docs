@@ -158,5 +158,6 @@ $ kubectl delete service nginx-controller
 最简单形式的健康检查是进程级别的健康检查。Kubelet不停的问Docker进程容器进程是不是还在运行，如果不在运行，容器进程就会被重启。至今为止，在你运行的全部Kubernetes示例中，这种健康检查已经开启。所有在Kubernetes中运行的单个容器都存在这种机制。
 
 
+### **应用程序健康检查**
 
 
