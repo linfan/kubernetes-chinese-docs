@@ -81,5 +81,11 @@ $ kubectl create -f docs/user-guide/walkthrough/replication-controller.yaml
 $ kubectl get rc
 ```
 
+通过名称删除副本控制器：
+
+```bash
+$ kubectl delete rc nginx-controller
+```
+
 
 
