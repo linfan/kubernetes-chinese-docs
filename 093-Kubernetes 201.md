@@ -128,7 +128,7 @@ $ kubectl create -f docs/user-guide/walkthrough/service.yaml
 $ kubectl get services
 ```
 
-对于大多数供应商，服务的IP地址外部无法访问。测试服务可以访问的最简单的方式为创建一个busybox pod在上面远程执行命令。详细内容查看[命令执行文档](http://kubernetes.io/v1.0/docs/user-guide/kubectl/kubectl_exec.html)。
+对于大多数供应商，服务的IP地址外部无法访问。测试服务可以访问的最简单的方式为创建一个busybox pod在上面远程执行命令。详细内容查看[命令执行文档](http://kubernetes.io/v1.0/docs/user-guide/kubectl/kubectl_exec.html).
 
 一旦提供的服务IP地址可以访问，你便可以通过80端口使用curl命令来访问http终端节点：
 
