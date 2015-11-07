@@ -19,3 +19,6 @@
   
 ## **标签**
 
+Having already learned about Pods and how to create them, you may be struck by an urge to create many, many pods. Please do! But eventually you will need a system to organize these pods into groups. The system for achieving this in Kubernetes is Labels. Labels are key-value pairs that are attached to each object in Kubernetes. Label selectors can be passed along with a RESTful list request to the apiserver to retrieve a list of objects which match that label selector.
+
+To add a label, add a labels section under metadata in the pod definition:
