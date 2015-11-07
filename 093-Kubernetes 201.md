@@ -91,6 +91,6 @@ $ kubectl delete rc nginx-controller
 
 ## **服务**
 
-一旦你拥有一个pods的副本集合，你需要在能够在应用程序层之间提供连接的抽象。例如，如果你已经有个一个副本控制器来管理后端任务，当你需要重新扩展你的后端应用的时候，你不需要重新配置你的前端应用。同样，如果后端的pods被调度（或者重新调度）到不同的机器上，你也不需要重新配置前端应用。在Kubernetes中,对服务的抽象能够达到这个目标。一个服务会提供一个指向pods集合（通过标签选择）的IP地址。如果支持的话，它同时能够提供负载均衡A service provides a way to refer to a set of pods (selected by labels) with a single static IP address. It may also provide load balancing, if supported by the provider.
+一旦你拥有一个pods的副本集合，你需要在能够在应用程序层之间提供连接的抽象。例如，如果你已经有个一个副本控制器来管理后端任务，当你需要重新扩展你的后端应用的时候，你不需要重新配置你的前端应用。同样，如果后端的pods被调度（或者重新调度）到不同的机器上，你也不需要重新配置前端应用。在Kubernetes中,对服务的抽象能够达到这个目标。一个服务会提供一个指向pods集合（通过标签选择）的IP地址。如果支持的话，它同时能够提供负载均衡功能。A service provides a way to refer to a set of pods (selected by labels) with a single static IP address. It may also provide load balancing, if supported by the provider.
 
 For example, here is a service that balances across the pods created in the previous nginx replication controller example (service.yaml):
