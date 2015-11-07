@@ -76,3 +76,16 @@ $ kubectl create -f examples/storm/storm-nimbus-service.json
 
 ### **查看Nimbus节点是否运行以及可以访问**
 
+```bash
+$ kubectl get services
+NAME                LABELS                                    SELECTOR            IP(S)               PORT(S)
+kubernetes          component=apiserver,provider=kubernetes   <none>              10.254.0.2          443
+zookeeper           name=zookeeper                            name=zookeeper      10.254.139.141      2181
+nimbus              name=nimbus                               name=nimbus         10.254.115.208      6627
+
+$ sudo docker run -it -w /opt/apache-storm mattf/storm-base sh -c '/configure.sh 10.254.139.141 10.254.115.208; ./bin/storm list'
+...
+No topologies running.
+```
+
+
