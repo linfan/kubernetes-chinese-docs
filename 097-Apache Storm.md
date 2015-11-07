@@ -104,3 +104,23 @@ $ kubectl create -f examples/storm/storm-worker-controller.json
 
 一种查看工作者信息的方式是，通过ZooKeeper服务查看有多少客户端在运行。
 
+```bash
+$  echo stat | nc 10.254.139.141 2181; echo
+Zookeeper version: 3.4.6--1, built on 10/23/2014 14:18 GMT
+Clients:
+ /192.168.48.0:44187[0](queued=0,recved=1,sent=0)
+ /192.168.45.0:39568[1](queued=0,recved=14072,sent=14072)
+ /192.168.86.1:57591[1](queued=0,recved=34,sent=34)
+ /192.168.8.0:50375[1](queued=0,recved=34,sent=34)
+ /192.168.45.0:39576[1](queued=0,recved=34,sent=34)
+
+Latency min/avg/max: 0/2/2570
+Received: 23199
+Sent: 23198
+Connections: 5
+Outstanding: 0
+Zxid: 0xa39
+Mode: standalone
+Node count: 13
+```
+
