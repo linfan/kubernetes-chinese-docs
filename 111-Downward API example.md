@@ -8,7 +8,7 @@
 
 #步骤 1: 创建一个pod
 
-容器可以通过环境变量来消费downward API，而且downward API允许容器使用所在pod的name和namespace来被注入
+容器可以通过环境变量来消费downward API，而且downward API允许容器通过被注入的方来式使用所在pod的name和namespace
 
 Use the examples/downward-api/dapi-pod.yaml file to create a Pod with a container that consumes the downward API.
 
