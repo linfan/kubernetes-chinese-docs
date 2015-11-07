@@ -116,7 +116,7 @@ spec:
 
 ### **服务管理**
 
-创建一个nginx服务[service.yaml](http://kubernetes.io/v1.0/docs/user-guide/walkthrough/service.yaml):
+创建一个nginx服务[service.yaml](http://kubernetes.io/v1.0/docs/user-guide/walkthrough/service.yaml)：
 
 $ kubectl create -f docs/user-guide/walkthrough/service.yaml
 List all services:
