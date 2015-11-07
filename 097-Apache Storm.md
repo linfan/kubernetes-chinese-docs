@@ -60,3 +60,5 @@ imok
 
 Nimbus服务是Storm集群的主节点(或者首要)服务。Nimbus依赖于多种功能的ZooKeeper服务。
 
+使用[examples/storm/storm-nimbus.json](http://kubernetes.io/v1.0/examples/storm/storm-nimbus.json)文件创建一个运行Nimbus服务的pod。
+
