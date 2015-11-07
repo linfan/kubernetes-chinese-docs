@@ -176,7 +176,7 @@ lockTwo.Lock();
 lockOne.Lock();
 ```
 
-这是计算机科学中典型的“死锁”问题。This is a classic example of a problem in computer science known as "Deadlock". From Docker's perspective your application is still operating and the process is still running, but from your application's perspective your code is locked up and will never respond correctly.
+这是计算机科学中典型的“死锁”问题。从Docker的角度看，This is a classic example of a problem in computer science known as "Deadlock". From Docker's perspective your application is still operating and the process is still running, but from your application's perspective your code is locked up and will never respond correctly.
 
 To address this problem, Kubernetes supports user implemented application health-checks. These checks are performed by the Kubelet to ensure that your application is operating correctly for a definition of "correctly" that you provide.
 
