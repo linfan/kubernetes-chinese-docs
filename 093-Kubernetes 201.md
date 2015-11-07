@@ -192,3 +192,25 @@ lockOne.Lock();
 
 这里有一个HTTP健康检查的pod配置示例[pod-with-http-healthcheck.yaml](http://kubernetes.io/v1.0/docs/user-guide/walkthrough/pod-with-http-healthcheck.yaml)：
 
+```json
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-with-healthcheck
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    # defines the health checking
+    livenessProbe:
+      # an http probe
+      httpGet:
+        path: /_status/healthz
+        port: 80
+      # length of time to wait for a pod to initialize
+      # after pod startup, before applying health checking
+      initialDelaySeconds: 30
+      timeoutSeconds: 1
+    ports:
+    - containerPort: 80
+```
