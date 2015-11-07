@@ -58,4 +58,5 @@ imok
 
 ## **步骤二：启动Nimbus服务**
 
-Nimbus服务是Storm集群的主节点(或者首要)服务。
+Nimbus服务是Storm集群的主节点(或者首要)服务。Nimbus依赖于多种功能的ZooKeeper服务。
+
