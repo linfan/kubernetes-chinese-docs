@@ -90,4 +90,6 @@ No topologies running.
 
 ## **步骤三：启动Storm工作者**
 
-在Storm集群中，Storm工作者（或者监督者）用来完成繁重的工作。
+在Storm集群中，Storm工作者（或者监督者）用来完成繁重的工作。Nimbus服务管理这些运行流处理拓扑应用工人。
+
+
