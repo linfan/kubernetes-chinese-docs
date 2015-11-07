@@ -130,7 +130,7 @@ $ kubectl get services
 
 对于大多数供应商，服务的IP地址外部无法访问。测试服务可以访问的最简单的方式为创建一个busybox pod在上面远程执行命令。详细内容查看命令执行文档。
 
-Provided the service IP is accessible, you should be able to access its http endpoint with curl on port 80:
+一旦提供的服务IP地址可以访问，你便可以通过80端口使用curl命令来访问http终端节点。Provided the service IP is accessible, you should be able to access its http endpoint with curl on port 80:
 
 $ export SERVICE_IP=$(kubectl get service nginx-service -o=template -t={{.spec.clusterIP}})
 $ export SERVICE_PORT=$(kubectl get service nginx-service -o=template '-t={{(index .spec.ports 0).port}}')
