@@ -24,7 +24,9 @@ ZooKeeper是一个分布式协调者[服务](http://kubernetes.io/v1.0/docs/user
 
 使用这个[examples/storm/zookeeper.json](http://kubernetes.io/v1.0/examples/storm/zookeeper.json)文件来创建一个运行ZooKeeper服务的[pod](http://kubernetes.io/v1.0/docs/user-guide/pods.html)。
 
-
+```json
+$ kubectl create -f examples/storm/zookeeper.json
+```
 
 
 
