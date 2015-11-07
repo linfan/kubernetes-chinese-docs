@@ -6,7 +6,7 @@
 
 如果你已经熟悉这个部分，请直接跳到[tl;dr](http://kubernetes.io/v1.0/examples/storm/README.html#tldr)章节。
 
-
+## 资源
 
 
 
