@@ -95,3 +95,8 @@ No topologies running.
 Storm工作者需要保证ZooKeeper和Nimbus服务处于运行态。
 
 使用[examples/storm/storm-worker-controller.json](http://kubernetes.io/v1.0/examples/storm/storm-worker-controller.json)文件来创建[副本控制器](http://kubernetes.io/v1.0/docs/user-guide/replication-controller.html)来管理工作者pods。
+
+```bash
+$ kubectl create -f examples/storm/storm-worker-controller.json
+```
+
