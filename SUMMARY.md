@@ -43,7 +43,7 @@
 * [Security](062-Security.md)
 * [Access Management](063-Access Management.md)
 * [Namespaces](064-Namespaces.md)
-* [Networking](079-Networking.md)
+* [Networking](079-networkingmd.md)
 * [Logging](090-Logging.md)
 * [Kubernetes Basics](091-Kubernetes Basics.md)
 * [Kubernetes 101](092-Kubernetes 101.md)
