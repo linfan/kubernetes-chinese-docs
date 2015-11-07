@@ -219,4 +219,4 @@ spec:
 
 ## **下一步是什么？**
 
-一个完整的应用程序，查看留言板的例子
+一个完整的应用程序，查看[留言板的例子](http://kubernetes.io/v1.0/examples/guestbook/)。
