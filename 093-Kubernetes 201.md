@@ -132,9 +132,14 @@ $ kubectl get services
 
 一旦提供的服务IP地址可以访问，你便可以通过80端口使用curl命令来访问http终端节点：
 
+```bash
 $ export SERVICE_IP=$(kubectl get service nginx-service -o=template -t={{.spec.clusterIP}})
 $ export SERVICE_PORT=$(kubectl get service nginx-service -o=template '-t={{(index .spec.ports 0).port}}')
 $ curl http://${SERVICE_IP}:${SERVICE_PORT}
-To delete the service by name:
+```
 
+通过名称删除服务：
+
+```bash
 $ kubectl delete service nginx-controller
+```
