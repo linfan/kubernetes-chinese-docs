@@ -44,3 +44,4 @@ NAME        READY     STATUS    RESTARTS   AGE
 zookeeper   1/1       Running   0          43s
 ```
 
+### 查看ZooKeeper是否可以访问
