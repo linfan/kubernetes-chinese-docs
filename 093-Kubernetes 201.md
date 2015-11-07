@@ -124,7 +124,10 @@ $ kubectl create -f docs/user-guide/walkthrough/service.yaml
 
 列出所有的服务：
 
+```bash
 $ kubectl get services
+```
+
 On most providers, the service IPs are not externally accessible. The easiest way to test that the service is working is to create a busybox pod and exec commands on it remotely. See the command execution documentation for details.
 
 Provided the service IP is accessible, you should be able to access its http endpoint with curl on port 80:
