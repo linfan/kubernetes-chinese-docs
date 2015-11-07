@@ -47,3 +47,7 @@ spec:
 
 创建一个标签过的pod [pod-nginx-with-label.yaml](http://kubernetes.io/v1.0/docs/user-guide/walkthrough/pod-nginx-with-label.yaml):
 
+```bash
+$ kubectl create -f docs/user-guide/walkthrough/pod-nginx-with-label.yaml
+```
+
