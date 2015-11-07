@@ -151,5 +151,5 @@ $ kubectl delete service nginx-controller
 
 我写的代码，永远不会崩溃，对不对？不幸的是，Kubernetes问题列表中另有说明...
 
-一个更好的方法是使用管理系统来进行定期的应用程序健康检查和修复工作，而不是尝试编写无bug的代码。你的应用程序之外本身有一套监控系统负责监控和修复工作。很重要的一点是这个系统必须放置在应用程序外部，应用程序一旦失败以及健康检查代理是应用程序的一部分，这个代理也会失败并且你永远不会知道。In Kubernetes, the health check monitor is the Kubelet agent.
+一个更好的方法是使用管理系统来进行定期的应用程序健康检查和修复工作，而不是尝试编写无bug的代码。你的应用程序之外本身有一套监控系统负责监控和修复工作。很重要的一点是这个系统必须放置在应用程序外部，应用程序一旦失败以及健康检查代理是应用程序的一部分，这个代理也会失败并且你永远不会知道。在Kubernetes中, the health check monitor is the Kubelet agent.
 
