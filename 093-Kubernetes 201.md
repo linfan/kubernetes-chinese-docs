@@ -87,5 +87,5 @@ $ kubectl get rc
 $ kubectl delete rc nginx-controller
 ```
 
-
+更多信息，请参考[副本控制器](http://kubernetes.io/v1.0/docs/user-guide/replication-controller.html)。
 
