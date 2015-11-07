@@ -149,7 +149,7 @@ $ kubectl delete service nginx-controller
 
 ## **健康检查**
 
-我写的代码，永远不会崩溃，对不对？不幸的是，Kubernetes问题列表中另有说明...
+When I write code it never crashes, right? Sadly the Kubernetes issues list indicates otherwise...
 
 Rather than trying to write bug-free code, a better approach is to use a management system to perform periodic health checking and repair of your application. That way a system outside of your application itself is responsible for monitoring the application and taking action to fix it. It's important that the system be outside of the application, since if your application fails and the health checking agent is part of your application, it may fail as well and you'll never know. In Kubernetes, the health check monitor is the Kubelet agent.
 
