@@ -56,3 +56,4 @@ $ echo ruok | nc 10.254.139.141 2181; echo
 imok
 ```
 
+## **步骤二：启动Nimbus服务**
