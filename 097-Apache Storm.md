@@ -100,3 +100,4 @@ Storm工作者需要保证ZooKeeper和Nimbus服务处于运行态。
 $ kubectl create -f examples/storm/storm-worker-controller.json
 ```
 
+### **查看工作者们是否在运行**
