@@ -17,19 +17,4 @@
      * [应用程序健康检查](http://kubernetes.io/v1.0/docs/user-guide/walkthrough/k8s201.html#application-health-checking)
    * [下面是什么？](http://kubernetes.io/v1.0/docs/user-guide/walkthrough/k8s201.html#whats-next)
   
-
-
-
-
-
-
-
-Labels
-Replication Controllers
-Replication Controller Management
-Services
-Service Management
-Health Checking
-Process Health Checking
-Application Health Checking
-What's Next?
+## **标签**
