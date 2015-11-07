@@ -77,7 +77,7 @@
 - [生命周期事件钩子](http://kubernetes.io/v1.0/docs/user-guide/container-environment.html)
 - [计算资源，例如cpu和内存](http://kubernetes.io/v1.0/docs/user-guide/compute-resources.html)
 - [指定命令和请求的能力](http://kubernetes.io/v1.0/docs/user-guide/containers.html)
-- [Downward API（用于向下支持各种容器的API,如Docker）: 从pod中访问系统配置](http://kubernetes.io/v1.0/docs/user-guide/downward-api.html)
+- [Downward API（用于向下支持容器访问集群的API,如Docker）: 从pod中访问系统配置](http://kubernetes.io/v1.0/docs/user-guide/downward-api.html)
 - [镜像和仓库](http://kubernetes.io/v1.0/docs/user-guide/images.html)
 - [从使用docker-cli转向kubectl](http://kubernetes.io/v1.0/docs/user-guide/docker-cli-to-kubectl.html)
 - [配置集群时的提示和技巧](http://kubernetes.io/v1.0/docs/user-guide/config-best-practices.html)
