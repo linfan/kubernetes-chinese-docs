@@ -90,4 +90,4 @@ No topologies running.
 
 ## **步骤三：启动Storm工作者**
 
-在Storm集群中，
+在Storm集群中，Storm工作者（或者监督者）
