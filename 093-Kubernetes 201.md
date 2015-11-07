@@ -143,3 +143,4 @@ $ curl http://${SERVICE_IP}:${SERVICE_PORT}
 ```bash
 $ kubectl delete service nginx-controller
 ```
+
