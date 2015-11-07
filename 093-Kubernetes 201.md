@@ -95,3 +95,22 @@ $ kubectl delete rc nginx-controller
 
 例如，这里有一个在之前例子中通过nginx副本控制器创建的pods之间提供负载均衡功能的服务[service.yaml](http://kubernetes.io/v1.0/docs/user-guide/walkthrough/service.yaml):
 
+```json
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  ports:
+  - port: 8000 # the port that this service should serve on
+    # the container on each pod to connect to, can be a name
+    # (e.g. 'www') or a number (e.g. 80)
+    targetPort: 80
+    protocol: TCP
+  # just like the selector in the replication controller,
+  # but this time it identifies the set of pods to load balance
+  # traffic to.
+  selector:
+    app: nginx
+```
+
