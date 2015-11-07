@@ -67,5 +67,29 @@ $ kubectl get pods -l app=nginx
 
 例如，下面是用副本控制器来初始化两个nginx pods[replication-controller.yaml)](http://kubernetes.io/v1.0/docs/user-guide/walkthrough/replication-controller.yaml):
 
-
-
+```json
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: nginx-controller
+spec:
+  replicas: 2
+  # selector identifies the set of Pods that this
+  # replication controller is responsible for managing
+  selector:
+    app: nginx
+  # podTemplate defines the 'cookie cutter' used for creating
+  # new pods when necessary
+  template:
+    metadata:
+      labels:
+        # Important: these labels need to match the selector above
+        # The api server enforces this constraint.
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+```
