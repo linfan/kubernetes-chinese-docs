@@ -162,7 +162,7 @@ $ kubectl delete service nginx-controller
 
 然而，多数情况下底层健康检查是不够的，例如，考虑下面的代码：
 
-```go
+```golang
 lockOne := sync.Mutex{}
 lockTwo := sync.Mutex{}
 
