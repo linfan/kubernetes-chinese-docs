@@ -143,6 +143,6 @@ $ curl http://${SERVICE_IP}:${SERVICE_PORT}
 $ kubectl delete service nginx-controller
 ```
 
-一旦服务被创建，就会分配一个唯一的IP地址。这个地址同服务的生命周期绑定，服务存活期间不会发生变化。Pods can be configured to talk to the service, and know that communication to the service will be automatically load-balanced out to some pod that is a member of the set identified by the label selector in the Service.
+一旦服务被创建，就会分配一个唯一的IP地址。这个地址同服务的生命周期绑定，服务存活期间不会发生变化。 Pods can be configured to talk to the service, and know that communication to the service will be automatically load-balanced out to some pod that is a member of the set identified by the label selector in the Service.
 
 For more information, see Services.
