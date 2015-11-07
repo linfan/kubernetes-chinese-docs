@@ -61,7 +61,7 @@ $ kubectl get pods -l app=nginx
 
 ## **副本控制器**
 
-好的，现在你已经知道如何创建许多，多容器，标签化的pods, 使用他们来构建应用程序， you might be tempted to just start building a whole bunch of individual pods, but if you do that, a whole host of operational concerns pop up. For example: how will you scale the number of pods up or down and how will you ensure that all pods are homogenous?
+好的，现在你已经知道如何创建许多，多容器，标签化的pods, 使用他们来构建应用程序， 你也许会很想开始构建一个完整的pod For example: how will you scale the number of pods up or down and how will you ensure that all pods are homogenous?
 
 Replication controllers are the objects to answer these questions. A replication controller combines a template for pod creation (a "cookie-cutter" if you will) and a number of desired replicas, into a single Kubernetes object. The replication controller also contains a label selector that identifies the set of objects managed by the replication controller. The replication controller constantly measures the size of this set relative to the desired size, and takes action by creating or deleting pods.
 
