@@ -116,4 +116,19 @@ spec:
 
 ### **服务管理**
 
+创建一个nginx服务[service.yaml](http://kubernetes.io/v1.0/docs/user-guide/walkthrough/service.yaml):
 
+$ kubectl create -f docs/user-guide/walkthrough/service.yaml
+List all services:
+
+$ kubectl get services
+On most providers, the service IPs are not externally accessible. The easiest way to test that the service is working is to create a busybox pod and exec commands on it remotely. See the command execution documentation for details.
+
+Provided the service IP is accessible, you should be able to access its http endpoint with curl on port 80:
+
+$ export SERVICE_IP=$(kubectl get service nginx-service -o=template -t={{.spec.clusterIP}})
+$ export SERVICE_PORT=$(kubectl get service nginx-service -o=template '-t={{(index .spec.ports 0).port}}')
+$ curl http://${SERVICE_IP}:${SERVICE_PORT}
+To delete the service by name:
+
+$ kubectl delete service nginx-controller
