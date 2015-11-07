@@ -66,3 +66,4 @@ Nimbus服务是Storm集群的主节点(或者首要)服务。Nimbus依赖于多�
 $ kubectl create -f examples/storm/storm-nimbus.json
 ```
 
+然后使用[examples/storm/storm-nimbus-service.json](http://kubernetes.io/v1.0/examples/storm/storm-nimbus-service.json)文件创建一个逻辑服务终端节点用来给Storm工作者访问Nimbus pod。
