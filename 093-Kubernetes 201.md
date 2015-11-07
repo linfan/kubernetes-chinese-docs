@@ -75,5 +75,11 @@ $ kubectl get pods -l app=nginx
 $ kubectl create -f docs/user-guide/walkthrough/replication-controller.yaml
 ```
 
+列出所有副本控制器：
+
+```bash
+$ kubectl get rc
+```
+
 
 
