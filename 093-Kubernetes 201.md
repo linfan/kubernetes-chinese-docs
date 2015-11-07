@@ -71,3 +71,9 @@ $ kubectl get pods -l app=nginx
 
 创建nginx副本控制器[replication-controller.yaml](http://kubernetes.io/v1.0/docs/user-guide/walkthrough/replication-controller.yaml):
 
+```bash
+$ kubectl create -f docs/user-guide/walkthrough/replication-controller.yaml
+```
+
+
+
