@@ -124,4 +124,4 @@ Mode: standalone
 Node count: 13
 ```
 
-Nimbus服务和每个工作者都对应着一个客户端。
+Nimbus服务和每个工作者都对应着一个客户端。理想情况下，应该可以在副本控制器创建前后从ZooKeeper获取`统计`输出。
