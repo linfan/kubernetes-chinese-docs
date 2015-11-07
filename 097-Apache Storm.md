@@ -18,6 +18,8 @@
 
 这个示例假设你已经安装运行了一个Kubernetes集群，环境路径下已经安装了`kubectl`命令行工具。请查看不同平台的安装说明[开始](http://kubernetes.io/v1.0/docs/getting-started-guides/)。
 
+## **步骤一：启动ZooKeeper服务**
+
 
 
 
