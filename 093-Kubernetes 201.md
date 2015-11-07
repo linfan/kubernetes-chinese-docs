@@ -180,7 +180,7 @@ lockOne.Lock();
 
 为了解决这个问题，Kubernetes支持用户自己实现应用程序健康检查。这些检查通过Kubelet来确保应用程序按照你定义的“正确方式”来操作。
 
-目前，有三种应用程序健康检查机制你可以选择：Currently, there are three types of application health checks that you can choose from:
+目前，有三种应用程序健康检查机制你可以选择：
 
 HTTP Health Checks - The Kubelet will call a web hook. If it returns between 200 and 399, it is considered success, failure otherwise. See health check examples here.
 Container Exec - The Kubelet will execute a command inside your container. If it exits with status 0 it will be considered a success. See health check examples here.
