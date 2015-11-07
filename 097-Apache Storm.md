@@ -4,6 +4,10 @@
 
 你将会设置一个[Apache ZooKeeper](http://zookeeper.apache.org/)服务，一个Storm master服务（又名Nimbus主机），以及一个Storm工作者集合（又名监管者）。
 
+如果你已经熟悉这个部分，请直接跳到[tl;dr](http://kubernetes.io/v1.0/examples/storm/README.html#tldr)章节。
+
+
+
 
 
 
