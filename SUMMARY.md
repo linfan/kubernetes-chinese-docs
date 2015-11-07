@@ -7,7 +7,6 @@
 * [Creating Kubernetes Clusters](003-Creating Kubernetes Clusters.md)
 * [Local](004-Local-machine Solutions.md)
 * [Vagrant](006-Vagrant.md)
-   * 079_Networking
 * [Turn](009-Turn-key Cloud Solutions.md)
 * [GCE](010-GCE.md)
 * [AWS](011-AWS.md)
