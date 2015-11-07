@@ -130,3 +130,16 @@ Nimbus服务和每个工作者都对应着一个客户端。理想情况下，�
 
 ### **tl;dr**
 
+kubectl create -f zookeeper.json
+
+kubectl create -f zookeeper-service.json
+
+请确保ZooKeeper Pod正在运行（使用：`kubectl get pods`）。
+
+kubectl create -f storm-nimbus.json
+
+kubectl create -f storm-nimbus-service.json
+
+Make sure the Nimbus Pod is running.
+
+kubectl create -f storm-worker-controller.json
