@@ -72,3 +72,4 @@ $ kubectl create -f examples/storm/storm-nimbus.json
 $ kubectl create -f examples/storm/storm-nimbus-service.json
 ```
 
+确保Nimbus服务运行正常：
