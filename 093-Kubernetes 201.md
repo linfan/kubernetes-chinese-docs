@@ -188,6 +188,6 @@ lockOne.Lock();
 
 所有情况下，如果Kubelet一旦发现失败，容器会被重启。
 
-The container health checks are configured in the livenessProbe section of your container config. There you can also specify an initialDelaySeconds that is a grace period from when the container is started to when health checks are performed, to enable your container to perform any necessary initialization.
+可以在容器配置文件的`livenessProbe`部分配置你的容器的健康检查功能。The container health checks are configured in the livenessProbe section of your container config. There you can also specify an initialDelaySeconds that is a grace period from when the container is started to when health checks are performed, to enable your container to perform any necessary initialization.
 
 Here is an example config for a pod with an HTTP health check (pod-with-http-healthcheck.yaml):
