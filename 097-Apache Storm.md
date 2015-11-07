@@ -36,7 +36,7 @@ $ kubectl create -f examples/storm/zookeeper-service.json
 
 在这之前，你需要确保ZooKeeper pod处于运行态并且可以被访问。
 
-### 查看ZooKeeper是否运行
+### **查看ZooKeeper是否运行**
 
 ```bash
 $ kubectl get pods
@@ -44,7 +44,7 @@ NAME        READY     STATUS    RESTARTS   AGE
 zookeeper   1/1       Running   0          43s
 ```
 
-### 查看ZooKeeper是否可以访问
+### **查看ZooKeeper是否可以访问**
 
 ```bash
 $ kubectl get services
@@ -72,4 +72,7 @@ $ kubectl create -f examples/storm/storm-nimbus.json
 $ kubectl create -f examples/storm/storm-nimbus-service.json
 ```
 
-确保Nimbus服务运行正常：
+确保Nimbus服务运行正常。
+
+### **查看Nimbus节点是否运行以及可以访问**
+
