@@ -134,12 +134,12 @@ kubectl create -f zookeeper.json
 
 kubectl create -f zookeeper-service.json
 
-请确保ZooKeeper Pod正在运行（使用：`kubectl get pods`）。
+确保ZooKeeper Pod正在运行（使用：`kubectl get pods`）。
 
 kubectl create -f storm-nimbus.json
 
 kubectl create -f storm-nimbus-service.json
 
-Make sure the Nimbus Pod is running.
+确保Nimbus Pod正在运行。
 
 kubectl create -f storm-worker-controller.json
