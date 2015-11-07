@@ -65,5 +65,5 @@ $ kubectl get pods -l app=nginx
 
 副本控制器对象可以给出这些问题的答案。Replication controllers are the objects to answer these questions.一个副本控制器可以将创建一个pod模板（一个饼干切割机如果你会的话）以及需要的一定数量的副本到单个Kubernetes对象。副本控制器也包含一个标签选择器来识别由副本控制器管理的对象集合。副本控制器通过不断的测量这个集合对象申请的容量大小来采取创建或者删除pods的动作。
 
-For example, here is a replication controller that instantiates two nginx pods (replication-controller.yaml):
+例如，下面是用副本控制器来初始化两个nginx pods[replication-controller.yaml)](http://kubernetes.io/v1.0/docs/user-guide/walkthrough/replication-controller.yaml):
 
