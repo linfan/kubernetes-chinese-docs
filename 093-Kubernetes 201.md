@@ -149,3 +149,4 @@ $ kubectl delete service nginx-controller
 
 ## **健康检查**
 
+
