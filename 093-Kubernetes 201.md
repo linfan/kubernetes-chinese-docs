@@ -160,5 +160,4 @@ $ kubectl delete service nginx-controller
 
 ### **应用程序健康检查**
 
-
-
+然而，所有的底层健康检查是不够的，
