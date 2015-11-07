@@ -29,3 +29,4 @@ labels:
 ```
 
 例如，下面是一个带标签的nginx pod定义[pod-nginx-with-label.yaml](http://kubernetes.io/v1.0/docs/user-guide/walkthrough/pod-nginx-with-label.yaml):
+
