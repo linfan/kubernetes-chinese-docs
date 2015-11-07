@@ -176,9 +176,13 @@ lockTwo.Lock();
 lockOne.Lock();
 ```
 
-这是计算机科学中典型的“死锁”问题。从Docker的角度看，你的应用仍然在进行操作并且进程仍然在运行，但是从应用程序角度来看，你的代码锁死了，再也会不正确响应了。
+这是计算机科学中典型的[“死锁”](https://en.wikipedia.org/wiki/Deadlock)问题。从Docker的角度看，你的应用仍然在进行操作并且进程仍然在运行，但是从应用程序角度来看，你的代码锁死了，再也会不正确响应了。
 
 为了解决这个问题，Kubernetes支持用户自己实现应用程序健康检查。这些检查通过Kubelet来确保应用程序按照你定义的“正确方式”来操作。
 
+Currently, there are three types of application health checks that you can choose from:
 
+HTTP Health Checks - The Kubelet will call a web hook. If it returns between 200 and 399, it is considered success, failure otherwise. See health check examples here.
+Container Exec - The Kubelet will execute a command inside your container. If it exits with status 0 it will be considered a success. See health check examples here.
+TCP Socket - The Kubelet will attempt to open a socket to your container. If it can establish a connection, the container is considered healthy, if it can't it is considered a failure.
 
