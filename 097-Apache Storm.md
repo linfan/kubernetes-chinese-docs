@@ -58,4 +58,4 @@ imok
 
 ## **步骤二：启动Nimbus服务**
 
-Nimbus服务是Storm集群的主节点(或者首)服务
+Nimbus服务是Storm集群的主节点(或者首要)服务
