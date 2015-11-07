@@ -58,3 +58,4 @@ $ kubectl get pods -l app=nginx
 ```
 
 更多信息，参考[标签](http://kubernetes.io/v1.0/docs/user-guide/labels.html)。他们是其他两个Kubernetes构建部分：副本控制和服务使用的核心概念。
+
