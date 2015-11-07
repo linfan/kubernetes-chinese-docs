@@ -21,4 +21,4 @@
 
 已经学习了Pods以及如何创建他们, 你可能会在紧急的情况下创建许多，许多pods。请做！但是最终你需要一个系统来通过组管理这些pods。为了实现这个功能，在Kubernetes系统中使用标签。标签是一个键值对，在Kubernetes中会标记到每一个对象上。标签选择器将RESTful `list`请求传递给apiserver来获取和标签选择器匹配的对象列表。
 
-增加一个标签， add a labels section under metadata in the 在pod定义文件中的元数据下增加一个标签部分 :
+增加一个标签， add a labels section under metadata in the 在pod定义文件中的元数据下增加一个标签部分：
