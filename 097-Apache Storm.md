@@ -45,3 +45,14 @@ zookeeper   1/1       Running   0          43s
 ```
 
 ### 查看ZooKeeper是否可以访问
+
+```json
+$ kubectl get services
+NAME                LABELS                                    SELECTOR            IP(S)               PORT(S)
+kubernetes          component=apiserver,provider=kubernetes   <none>              10.254.0.2          443
+zookeeper           name=zookeeper                            name=zookeeper      10.254.139.141      2181
+
+$ echo ruok | nc 10.254.139.141 2181; echo
+imok
+```
+
