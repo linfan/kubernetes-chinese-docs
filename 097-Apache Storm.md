@@ -28,5 +28,7 @@ ZooKeeper是一个分布式协调者[服务](http://kubernetes.io/v1.0/docs/user
 $ kubectl create -f examples/storm/zookeeper.json
 ```
 
-然后使用[examples/storm/zookeeper-service.json](http://kubernetes.io/v1.0/examples/storm/zookeeper-service.json)
+然后使用[examples/storm/zookeeper-service.json](http://kubernetes.io/v1.0/examples/storm/zookeeper-service.json)文件创建一个逻辑服务终端节点用来给Storm访问ZooKeeper pod。
+
+
 
