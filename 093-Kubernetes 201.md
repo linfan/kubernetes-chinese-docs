@@ -67,3 +67,5 @@ $ kubectl get pods -l app=nginx
 
 例如，下面是用副本控制器来初始化两个nginx pods[replication-controller.yaml)](http://kubernetes.io/v1.0/docs/user-guide/walkthrough/replication-controller.yaml):
 
+
+
