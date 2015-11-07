@@ -124,4 +124,4 @@ Mode: standalone
 Node count: 13
 ```
 
-Nimbus服务和每个工作者都有一个客户端。
+Nimbus服务和每个工作者都对应着一个客户端。
