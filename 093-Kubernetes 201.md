@@ -186,7 +186,7 @@ lockOne.Lock();
 * 容器执行 - Kubelet会在容器里执行一条命令，如果返回值为0认为是成功。在[这里](http://kubernetes.io/v1.0/docs/user-guide/liveness/)查看健康检查示例。
 * TCP套接字 - Kubelet将会尝试打开一个套接字连接到容器。如果可以建立连接，认为容器是健康 的，否则认为是失败的。
 
-所有情况下，如果Kubelet一旦发现失败，容器会被重启。In all cases, if the Kubelet discovers a failure the container is restarted.
+所有情况下，如果Kubelet一旦发现失败，容器会被重启。
 
 The container health checks are configured in the livenessProbe section of your container config. There you can also specify an initialDelaySeconds that is a grace period from when the container is started to when health checks are performed, to enable your container to perform any necessary initialization.
 
