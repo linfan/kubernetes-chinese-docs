@@ -57,4 +57,4 @@ $ kubectl create -f docs/user-guide/walkthrough/pod-nginx-with-label.yaml
 $ kubectl get pods -l app=nginx
 ```
 
-
+更多信息，参考[标签](http://kubernetes.io/v1.0/docs/user-guide/labels.html)。
