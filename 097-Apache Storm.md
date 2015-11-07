@@ -36,5 +36,4 @@ $ kubectl create -f examples/storm/zookeeper-service.json
 
 在这之前，你需要确保ZooKeeper pod处于运行态并且可以被访问。
 
-
-
+### 
