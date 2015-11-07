@@ -101,3 +101,6 @@ $ kubectl create -f examples/storm/storm-worker-controller.json
 ```
 
 ### **查看工作者们是否在运行**
+
+一种查看工作者信息的方式是，通过ZooKeeper服务查看有多少客户端在运行。
+
