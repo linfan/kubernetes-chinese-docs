@@ -22,6 +22,6 @@
 
 ZooKeeper是一个分布式协调者[服务](http://kubernetes.io/v1.0/docs/user-guide/services.html)，Storm使用它来作为引导程序和存储运行转态数据。
 
-使用这个``
+使用这个[examples/storm/zookeeper.json](http://kubernetes.io/v1.0/examples/storm/zookeeper.json)文件来创建一个运行zookeeper的pod。
 
 
