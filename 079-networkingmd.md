@@ -19,25 +19,48 @@ Kubernetes从默认的Docker网络模型中脱离出来（尽管和Docker 1.8的
 
 所有容器在一个pod中表现为它们在同一个主机上并且不受网络限制。它们可以通过端口在本地实现互相通信。这提供了简单（已知静态端口），安全（端口绑定在localhost，可以被pod中其他容器发现但不会被外部看到），还有性能提升。这同样减少了物理机获虚拟机上非容器化应用的迁移。人们运行应用都堆砌到统一个主机上，它已经解决了如何让端口不冲突和已经安排了如何让客户端去找到它。
 
-这个方法确实减少了一个pod中容器的隔离性（端口可能冲突），并且，可以没有容器私有化端口，但这些看起来都是未来才会面对的相对比较小的问题。另外，本地化pod是容器在pod中共享同样的资源（如volumes，cpu，内存等），所以希望并且可以容忍隔离性的减少。通常情况，用户可以控制哪些容器属于同一个pod，而不能控制哪些pod一起运行在一个主机上。
+这个方法确实减少了一个pod中容器的隔离性（端口可能冲突），并且可以没有容器私有化端口，但这些看起来都是未来才会面对的相对比较小的问题。另外，本地化pod是容器在pod中共享同样的资源（如volumes，cpu，内存等），所以希望并且可以容忍隔离性的减少。通常情况，用户可以控制哪些容器属于同一个pod，而不能控制哪些pod一起运行在一个主机上。
 
 
 ## Pod到Pod
 
-因为每个pod都有一个“真”（非机器私有的）的IP地址，pods间可以相互通信，不依赖于代理和翻译。Pod可以使用一个常见的端口号，还可以防止更高层次的服务发现系统像DNS-SD，Consul或者Etcd。
+因为每个pod都有一个“真”（非机器私有的）的IP地址，pods间可以相互通信，不依赖于代理和转换。Pod可以使用一个常见的端口号，还可以防止更高层次的服务发现系统像DNS-SD，Consul或者Etcd。
 
 当任何容器调用ioctl（SIOCGIFADDR）（获取接口的地址），可以看到相同的IP，任何同级别的容器都可以看到这个IP，就是说每一个pod有自己的IP地址，并且这个IP地址其他pods也可以知道。在容器内外通过生成相同IP地址和端口，我们创造了一个非NAT模式，扁平化的地址空间。运行```ip addr show```应该可以看到期待的值。这会让所有现在的命名或发现机制到盒子外面去实现，包括自注册机制和应用分发IP地址。我们应该对pod间网络通信持乐观态度。在一个pod内，容器间更像是通过volumes（如tmpfs）或者IPC来通信。
 
+这种方式和标准的Docker模式有所不同。在Docker模式下，每一个容器有一个IP，IP是在172.x.x.x的网段内，并且只能从SIOCGIFADDR看到172.x.x.x的地址。如果这些容器连接了另一个容器，那同级别容器会看到这个连接来自于一个不同的IP而不是容器自己知道的IP。简而言之，永远不能自注册同一个容器内的任何东西，因为一个容器不能被自己私有的IP获取到。
 
-This is different from the standard Docker model. In that mode, each container gets an IP in the 172-dot space and would only see that 172-dot address from SIOCGIFADDR. If these containers connect to another container the peer would see the connect coming from a different IP than the container itself knows. In short — you can never self-register anything from a container, because a container can not be reached on its private IP.
+另一个解决方案我们考虑增加一个寻址层：每个容器一个中心化pod的IP。每个容器有自己本地的IP地址，这个IP只在pod内可见。这种方案可能会让在物理机或虚拟机上的容器化应用移动到pod中更容易，但会使实现变得更复杂（如需要每个pod一个桥，水平分割的DNS）。造成额外的地址转换，而且会破话自注册和IP分配机制。
 
-这种方式和标准的Docker模式有所不同。在这种模式下，每一个容器有一个IP
+像Docker，端口仍可以向主机节点的接口公开，但这样的需求应该从根本上减少。
 
-An alternative we considered was an additional layer of addressing: pod-centric IP per container. Each container would have its own local IP address, visible only within that pod. This would perhaps make it easier for containerized applications to move from physical/virtual hosts to pods, but would be more complex to implement (e.g., requiring a bridge per pod, split-horizon/VP DNS) and to reason about, due to the additional layer of address translation, and would break self-registration and IP distribution mechanisms.
+## 实现
 
-Like Docker, ports can still be published to the host node's interface(s), but the need for this is radically diminished.
+For the Google Compute Engine cluster configuration scripts, we use advanced routing rules and ip-forwarding-enabled VMs so that each VM has an extra 256 IP addresses that get routed to it. This is in addition to the 'main' IP address assigned to the VM that is NAT-ed for Internet access. The container bridge (called cbr0 to differentiate it from docker0) is set up outside of Docker proper.
+
+例如，GCE的高级路由规则：
+```
+gcloud compute routes add "${MINION_NAMES[$i]}" \
+  --project "${PROJECT}" \
+  --destination-range "${MINION_IP_RANGES[$i]}" \
+  --network "${NETWORK}" \
+  --next-hop-instance "${MINION_NAMES[$i]}" \
+  --next-hop-instance-zone "${ZONE}" &
+```
 
 
+GCE itself does not know anything about these IPs, though. This means that when a pod tries to egress beyond GCE's project the packets must be SNAT'ed (masqueraded) to the VM's IP, which GCE recognizes and allows.
+
+
+### 其他实现
+
+With the primary aim of providing IP-per-pod-model, other implementations exist to serve the purpose outside of GCE.
+
+OpenVSwitch with GRE/VxLAN
+Flannel
+L2 networks ("With Linux Bridge devices" section)
+Weave is yet another way to build an overlay network, primarily aiming at Docker integration.
+Calico uses BGP to enable real container IPs.
 
 
 
