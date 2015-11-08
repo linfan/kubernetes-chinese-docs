@@ -19,9 +19,7 @@ $ kubectl create -f docs/user-guide/downward-api/dapi-pod.yaml
 ```
 
 #检查日志
-
-This pod runs the env command in a container that consumes the downward API. You can grep through the pod logs to see that the pod was injected with the correct values:
-这个pod在一个容器中运行env命令，来调用downward API。 接下来你就能通过过滤pod的日志来看到这个pod被注入的确切的值
+这个pod在一个容器中运行env命令，来调用downward API。 接下来你就能通过过滤pod的日志来看到这个pod被注入的确切的值：
 
 ```
 $ kubectl logs dapi-test-pod | grep POD_
