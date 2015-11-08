@@ -10,7 +10,7 @@ Kubernetes 101 - Kubectl CLI and Pods
 •Kubernetes 101 - Kubectl CLI 和 Pods •Kubectl CLI
 •Pods •Pod 定义
 •Pod 管理
-•Volumes？
+•Volumes
 •Volume 类型
 •Multiple Containers多容器
 
@@ -45,7 +45,7 @@ spec:
     ports:
     - containerPort: 80
 
-Pod的定义是一种需求状态（Desired State）的声明。需求状态是Kubernetes模型中非常重要的概念。很多事情在系统中体现为需求状态，而Kubernetes有责任确保当前状态匹配需求状态。举个例子，当你创建一个Pod，你指明其中的容器进入运行。如果容器没有运行（例如程序错误，...），为了驱使容器进入需求状态，Kubernetes将持续为你（再）创建这些容器。这个过程将一直持续到该Pod被删除。
+Pod的定义是一种预期状态（Desired State）的声明。预期状态是Kubernetes模型中非常重要的概念。很多事情在系统中体现为预期状态，而Kubernetes有责任确保当前状态匹配预期状态。举个例子，当你创建一个Pod，你指明其中的容器进入运行。如果容器没有运行（例如程序错误，...），为了驱使容器进入预期状态，Kubernetes将持续为你（再）创建这些容器。这个过程将一直持续到该Pod被删除。
 
 获取更多细节信息，请查阅设计文档。
 
@@ -69,19 +69,20 @@ $ curl http://$(kubectl get pod nginx -o=template -t={{.status.podIP}})
 
 $ kubectl delete pod nginx
 
-大容量存储
+Volumes
 
-这对于一个简单的静态网站服务器很不错，那么对于固态存储情况如何？
+这对于一个简单的静态网站服务器很不错，那么对于需要持续存储情况如何？
 
-The container file system only lives as long as the container does. So if your app's state needs to survive relocation, reboots, and crashes, you'll need to configure some persistent storage.
+容器文件系统仅仅存在于容器的生存周期。所以，如果你的应用状态需要忍受迁移、重启和崩溃，你需要配置一些持续性存储。
 
 For this example we'll be creating a Redis pod with a named volume and volume mount that defines the path to mount the volume.
 1.Define a volume:
-
+在下面的例子中，我们将创建一个Redis Pod，这个Pod包括一个已命名的Volume和包含Volume安装路径的Volume安装点。
 volumes:
     - name: redis-persistent-storage
       emptyDir: {}
-1.Define a volume mount within a container definition:
+      
+1. 在容器定义内定义一个Volume安装点
 
 volumeMounts:
     # name must match the volume name below
