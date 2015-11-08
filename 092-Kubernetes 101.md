@@ -90,7 +90,7 @@ volumeMounts:
       # mount path within the container
       mountPath: /data/redis
 
-Example Redis pod definition with a persistent storage volume (pod-redis.yaml):
+带有持续存储Volume的Redis Pod定义举例（pod-redis.yaml）：
 
 apiVersion: v1
 kind: Pod
