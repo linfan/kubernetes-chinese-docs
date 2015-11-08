@@ -14,7 +14,9 @@ Use the examples/downward-api/dapi-pod.yaml file to create a Pod with a containe
 
 下面我们使用examples/downward-api/dapi-pod.yaml来创建一个pod,并让它其中的容器通过downward API获取了所属pod的信息
 
+```
 $ kubectl create -f docs/user-guide/downward-api/dapi-pod.yaml
+```
 
 #检查日志
 
