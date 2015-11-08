@@ -108,20 +108,22 @@ spec:
     emptyDir: {}
 
 Notes:
-•The volume mount name is a reference to a specific empty dir volume.
-•The volume mount path is the path to mount the empty dir volume within the container.
+注：
+•volume安装点名字是一个纸箱一个特定空目录volume的指针。
+•volume安装目录是容器内安装特定空目录volume的路径。
 
-Volume Types
-•EmptyDir: Creates a new directory that will persist across container failures and restarts.
-•HostPath: Mounts an existing directory on the node's file system (e.g. /var/logs).
+Volume 类型
+•EmptyDir：创建一个在容器失效和重启情况下可以持续的新目录
+•HostPath：将已经存在的目录安装在节点文件系统上 （e.g. /var/logs）.
 
-See volumes for more details.
+查阅 volumes 可以得到更多细节。
 
-Multiple Containers
+多容器
 
-Note: The examples below are syntactically correct, but some of the images (e.g. kubernetes/git-monitor) don't exist yet. We're working on turning these into working examples.
+注：下面的例子在语义上正确，但是某些图片（比如 kubernetes/git-monitor）目前还不存在。我们正在努力将这些内容加入到可以工作的例子中。
 
 However, often you want to have two different containers that work together. An example of this would be a web server, and a helper job that polls a git repository for new updates:
+然而，通常你会希望存在两种容器在一起工作。一个例子是网站服务器，和一个可以从git仓库中拉出更新的帮助任务。
 
 apiVersion: v1
 kind: Pod
@@ -148,9 +150,13 @@ spec:
     emptyDir: {}
 
 Note that we have also added a volume here. In this case, the volume is mounted into both containers. It is marked readOnly in the web server's case, since it doesn't need to write to the directory.
+注意我们也在这里增加了一个volume。在这个例子里，这个volume同时被安装在两个容器中。在网页服务器容器中，由于并不需要写这个目录，因此被标注为只读。
 
 Finally, we have also introduced an environment variable to the git-monitor container, which allows us to parameterize that container with the particular git repository that we want to track.
+最后，我们也引入了一个给git-monitor容器使用的环境变量，这个变量允许我们将我们希望跟踪的特定git仓库作为参数使用
 
 What's Next?
+下面是什么？
 
 Continue on to Kubernetes 201 or for a complete application see the guestbook example
+继续学习Kubernetes 201或者阅读guestbook example，这可以得到一个完整的用例。
