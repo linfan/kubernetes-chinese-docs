@@ -24,9 +24,18 @@ Kubernetes从默认的Docker网络模型中脱离出来（尽管和Docker 1.8的
 
 ## Pod到Pod
 
+因为每个pod都有一个“真”（非机器私有的）的IP地址，pods间可以相互通信，不依赖于代理和翻译。Pod可以使用一个常见的端口号，还可以防止更高层次的服务发现系统像DNS-SD，Consul或者Etcd。
+
+当任何容器调用ioctl（SIOCGIFADDR）（获取接口的地址），可以看到相同的IP，任何同级别的容器都可以看到这个IP，就是说每一个pod有自己的IP地址，并且这个IP地址其他pods也可以知道。在容器内外通过生成相同IP地址和端口，我们创造了一个非NAT模式，扁平化的地址空间。运行```ip addr show```应该可以看到期待的值。这会让所有现在的命名或发现机制到盒子外面去实现，包括自注册机制和应用分发IP地址。我们应该对pod间网络通信持乐观态度。在一个pod内，容器间更像是通过volumes（如tmpfs）或者IPC来通信。
 
 
+This is different from the standard Docker model. In that mode, each container gets an IP in the 172-dot space and would only see that 172-dot address from SIOCGIFADDR. If these containers connect to another container the peer would see the connect coming from a different IP than the container itself knows. In short — you can never self-register anything from a container, because a container can not be reached on its private IP.
 
+这种方式和标准的Docker模式有所不同。在这种模式下，每一个容器有一个IP
+
+An alternative we considered was an additional layer of addressing: pod-centric IP per container. Each container would have its own local IP address, visible only within that pod. This would perhaps make it easier for containerized applications to move from physical/virtual hosts to pods, but would be more complex to implement (e.g., requiring a bridge per pod, split-horizon/VP DNS) and to reason about, due to the additional layer of address translation, and would break self-registration and IP distribution mechanisms.
+
+Like Docker, ports can still be published to the host node's interface(s), but the need for this is radically diminished.
 
 
 
