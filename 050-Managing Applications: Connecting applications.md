@@ -9,9 +9,9 @@ Dokcer默认使用私有网络连接方式，所以只有在同一台物理机�
 
 这个指南中用了一个简单的nginx服务来演示验证这个概念（proof of concept）。同样的原理也在一个更完整的[Jenkins CI 应用](http://blog.kubernetes.io/2015/07/strong-simple-ssl-for-kubernetes.html)中体现了。
 
-###Exposing pods to the cluster
+###在集群中暴露Pod
 
-在前面的例子中已经演示过，让我们把注意力集中在网络的视角在来一次。创建一个nginx的pod，请注意它定义了容器的端口：
+在前面的例子中已经演示过，让我们把注意力集中在网络的视角在来一次。创建一个nginx的`Pod`，请注意它定义了容器的端口：
 
 ```
 $ cat nginxrc.yaml
@@ -54,14 +54,14 @@ $ kubectl get pods -l app=nginx -o json | grep podIP
 
 如果你很好奇，可以在[how we achieve this](http://kubernetes.io/v1.0/docs/admin/networking.html#how-to-achieve-this)读到更多细节。
 
-##创建服务
+##创建Service
 
-现在我们有了运行态的nginx，它们运行在一个水平的，集群范围的地址空间内。理论上，我们已经可以和这些pod直接交互了，但是如果一个节点死掉了会发生什么？它里面的pod也会死掉，然后replication controller会创建一个新的pod，但是IP是不一样的。这就是服务可以解决的问题。
+现在我们有了运行态的nginx，它们运行在一个水平的，集群范围的地址空间内。理论上，我们已经可以和这些pod直接交互了，但是如果一个节点死掉了会发生什么？它里面的Pod也会死掉，然后Replication Controller会创建一个新的Pod，但是IP是不一样的。这就是Service可以解决的问题。
 
-Kubernetes的服务是对在集群中某处运行的一系列pod的逻辑集合的抽象定义。
-A Kubernetes Service is an abstraction which defines a logical set of Pods running somewhere in your cluster, that all provide the same functionality. When created, each Service is assigned a unique IP address (also called clusterIP). This address is tied to the lifespan of the Service, and will not change while the Service is alive. Pods can be configured to talk to the Service, and know that communication to the Service will be automatically load-balanced out to some pod that is a member of the Service.
+Kubernetes Service是对在集群中某处运行的一系列Pod的逻辑集合的抽象定义，这些Pod提供的功能是一样的。每个Service被创建的时候会被分配一个唯一的IP地址（也叫`clusterIP`）。这个地址和Service绑定，只要Service活着就不会改变。Pod可以配置成和Service交互，并且知道和Service的通信会被自动地负载均衡到Service成员中的某个Pod。
 
-You can create a Service for your 2 nginx replicas with the following yaml:
+可以用下面的yaml为两个nginx副本创建一个Service：
+
 ```
 $ cat nginxsvc.yaml
 apiVersion: v1
@@ -77,14 +77,21 @@ spec:
   selector:
     app: nginx
 ```
-This specification will create a Service which targets TCP port 80 on any Pod with the **app=nginx** label, and expose it on an abstracted Service port (**targetPort**: is the port the container accepts traffic on, **port**: is the abstracted Service port, which can be any port other pods use to access the Service). View [service API object](https://htmlpreview.github.io/?https://github.com/GoogleCloudPlatform/kubernetes/v1.0.1/docs/api-reference/definitions.html#_v1_service) to see the list of supported fields in service definition. Check your Service:
+
+这个定义会创建一个Service，这个Service会把带有**app=nginx** Label的Pod的TCP 80端口暴露到Service的抽象端口（**targetPort**：是容器可以接收流量的端口，**port**：是Service的抽象端口，可以是除用来访问Service的端口之外的任何端口）。在Service定义中支持的所有的域可以在[Service API 对象](https://htmlpreview.github.io/?https://github.com/GoogleCloudPlatform/kubernetes/v1.0.1/docs/api-reference/definitions.html#_v1_service)中查看。
+
+查看Service：
+
 ```
 $ kubectl get svc
 NAME         LABELS        SELECTOR    IP(S)          PORT(S)
 nginxsvc     app=nginx     app=nginx   10.0.116.146   80/TCP
 
 ```
+
+在前面提到过，Service是由一组Pod支撑的。这些Pod通过**endpoints**暴露出来。Service会持续评估Selector，并把结果发送给Endpoint对象（也叫做**nginxsvc**）。当一个Pod死了之后，它就会被自动地从Endpoint里面删掉，能够匹配Service的Selector的新Pod会被自动加到Endpoint里。检查Endpoint的时候也会看到IP和前一步里创建的Pod是一样的：
 As mentioned previously, a Service is backed by a group of pods. These pods are exposed through **endpoints**. The Service's selector will be evaluated continuously and the results will be POSTed to an Endpoints object also named **nginxsvc**. When a pod dies, it is automatically removed from the endpoints, and new pods matching the Service’s selector will automatically get added to the endpoints. Check the endpoints, and note that the ips are the same as the pods created in the first step:
+
 ```
 $ kubectl describe svc nginxsvc
 Name:          nginxsvc
@@ -102,17 +109,29 @@ $ kubectl get ep
 NAME         ENDPOINTS
 nginxsvc     10.245.0.14:80,10.245.0.15:80
 ```
+
+现在你应该可以从集群里的任一节点上用curl命令访问**10.0.116.146:80**上的nginx Service了。要注意的是Service的IP完全是虚拟的，跟物理网络没有关系，如果你对它的工作原理有兴趣，可以去看看[service proxy](http://kubernetes.io/v1.0/docs/user-guide/services.html#virtual-ips-and-service-proxies)。
 You should now be able to curl the nginx Service on **10.0.116.146:80** from any node in your cluster. Note that the Service ip is completely virtual, it never hits the wire, if you’re curious about how this works you can read more about the [service proxy](http://kubernetes.io/v1.0/docs/user-guide/services.html#virtual-ips-and-service-proxies).
-##Accessing the Service
+
+##访问Service
+
+Kubernetes支持两种主要的模式来发现Service：环境变量和DNS。环境变量在安装之后就可以直接使用，DNS模式需要[kube-dns 集群插件](http://releases.k8s.io/v1.0.6/cluster/addons/dns/README.md)。
 Kubernetes supports 2 primary modes of finding a Service - environment variables and DNS. The former works out of the box while the latter requires the [kube-dns cluster addon](http://releases.k8s.io/v1.0.6/cluster/addons/dns/README.md).
-###Environment Variables
+
+###环境变量
+
+当一个Pod在某个节点上运行的时候，`kubelet`为每个活跃的Service添加一系列的环境变量。这会引入环境变量排序的问题。想知道为什么，检查一下运行中的nginx Pod的环境：
 When a Pod is run on a Node, the kubelet adds a set of environment variables for each active Service. This introduces an ordering problem. To see why, inspect the environment of your running nginx pods:
+
 ```
 $ kubectl exec my-nginx-6isf4 -- printenv | grep SERVICE
 KUBERNETES_SERVICE_HOST=10.0.0.1
 KUBERNETES_SERVICE_PORT=443
 ```
+
+注意这里并没有提到Service，这是因为这些副本是在Service之前创建的。这样做的另一个缺点是，调度器也许会把两个Pod放到相同的机器上，如果机器出问题，整个Service就不工作了。正确的方式是把这两个Pod杀掉，然后等Replication Controller重新创建它们。现在Service是在Pod副本之前存在了，因此Service获得了调度器级别的Pod扩散能力（只要所有的节点的容量是一样的），而且环境变量也是正确的：
 Note there’s no mention of your Service. This is because you created the replicas before the Service. Another disadvantage of doing this is that the scheduler might put both pods on the same machine, which will take your entire Service down if it dies. We can do this the right way by killing the 2 pods and waiting for the replication controller to recreate them. This time around the Service exists before the replicas. This will given you scheduler level Service spreading of your pods (provided all your nodes have equal capacity), as well as the right environment variables:
+
 ```
 $ kubectl scale rc my-nginx --replicas=0; kubectl scale rc my-nginx --replicas=2;
 $ kubectl get pods -l app=nginx -o wide
@@ -126,14 +145,20 @@ NGINXSVC_SERVICE_HOST=10.0.116.146
 KUBERNETES_SERVICE_HOST=10.0.0.1
 NGINXSVC_SERVICE_PORT=80
 ```
+
 ###DNS
+
+Kubernetes提供了一个DNS集群插件Service，这个Service使用`skydns`自动给其他Service分配DNS。可以用下面的命令检查它是否在集群中运行：
 Kubernetes offers a DNS cluster addon Service that uses skydns to automatically assign dns names to other Services. You can check if it’s running on your cluster:
+
 ```
 $ kubectl get services kube-dns --namespace=kube-system
 NAME       LABELS       SELECTOR             IP(S)       PORT(S)
 kube-dns   <none>       k8s-app=kube-dns     10.0.0.10   53/UDP
                                                          53/TCP
 ```
+
+如果它没有运行，你可以[启用它](http://releases.k8s.io/v1.0.6/cluster/addons/dns/README.md#how-do-i-configure-it)。 本篇的剩余部分假设你已经有一个长期IP（nginxsvc）的Service，以及一个DNS服务器
 If it isn’t running, you can [enable it](http://releases.k8s.io/v1.0.6/cluster/addons/dns/README.md#how-do-i-configure-it). The rest of this section will assume you have a Service with a long lived ip (nginxsvc), and a dns server that has assigned a name to that ip (the kube-dns cluster addon), so you can talk to the Service from any pod in your cluster using standard methods (e.g. gethostbyname). Let’s create another pod to test this:
 ```
 $ cat curlpod.yaml
