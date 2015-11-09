@@ -5,6 +5,7 @@
 
 ##通过pod的配置文件来运营容器
 
+```
 $ cd kubernetes
 $ kubectl create -f ./pod.yaml
 Where pod.yaml contains something like:
@@ -21,17 +22,22 @@ spec:
     image: nginx
     ports:
     - containerPort: 80
+```   
+
 You can see your cluster's pods:
 
+```
 $ kubectl get pods
 and delete the pod you just created:
 
 $ kubectl delete pods nginx
+```
 
 ##Running a replicated set of containers from a configuration file
 
 To run replicated containers, you need a Replication Controller. A replication controller is responsible for ensuring that a specific number of pods exist in the cluster.
 
+```
 $ cd kubernetes
 $ kubectl create -f ./replication.yaml
 Where replication.yaml contains:
@@ -55,6 +61,11 @@ spec:
         image: nginx
         ports:
         - containerPort: 80
+        
+```
+
 To delete the replication controller (and the pods it created):
 
+```
 $ kubectl delete rc nginx
+```
