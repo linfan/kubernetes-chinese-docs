@@ -67,7 +67,7 @@
 
 ##阅读延伸
 
-###API resources
+###API 相关资源
 
 >[更多可使用的API资源](http://kubernetes.io/v1.0/docs/user-guide/working-with-resources.html)
 
