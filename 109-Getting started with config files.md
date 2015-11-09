@@ -66,7 +66,7 @@ spec:
         
 ```
 
-删除Replication Controller品（而且pod也是它创建的）
+删除Replication Controller品（还包括她所创建的pod）
 
 ```
 $ kubectl delete rc nginx
