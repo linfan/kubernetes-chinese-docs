@@ -2,7 +2,7 @@
 
 Kubernetes 101 - Kubectl CLI and Pods
 
-对于Kubernetes 101，我们将覆盖的内容包括kubectl, pods, volumes?, 以及多容器。
+对于Kubernetes 101，我们将覆盖的内容包括kubectl, pods, volumes, 以及多容器。
 
 为了kubectl使用率示例可以正常运行，请确保你已经在本地有示例目录，可以从release中或者从代码中得到的。
 
