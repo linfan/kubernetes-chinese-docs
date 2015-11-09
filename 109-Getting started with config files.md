@@ -42,7 +42,7 @@ $ cd kubernetes
 $ kubectl create -f ./replication.yaml
 ```
 
-Where replication.yaml contains:
+一般replication.yaml会包含:
 ```
 apiVersion: v1
 kind: ReplicationController
