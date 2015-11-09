@@ -10,8 +10,6 @@
 
 容器可以通过环境变量来消费downward API，而且downward API允许容器通过被注入的方来式使用所在pod的name和namespace等信息
 
-Use the examples/downward-api/dapi-pod.yaml file to create a Pod with a container that consumes the downward API.
-
 下面我们使用examples/downward-api/dapi-pod.yaml来创建一个pod,并让它其中的容器通过downward API获取了所属pod的信息:
 
 ```
