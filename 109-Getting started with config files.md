@@ -35,7 +35,7 @@ $ kubectl delete pods nginx
 
 ##通过配置文件来运行容器的复制集
 
-要让被复制的容器运行，你需要一个Controller的复制品。一个Replication Controller的复制品负责保证规定数量的pod会一直存在于集群当中
+要让被复制的容器运行，你需要一Replication Controller品。一个Replication Controller负责保证规定数量的pod会一直存在于集群当中
 
 ```
 $ cd kubernetes
