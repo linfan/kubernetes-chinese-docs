@@ -24,7 +24,7 @@ spec:
     - containerPort: 80
 ```   
 
-You can see your cluster's pods:
+通过以下命令来查看集群中pod的信息:
 
 ```
 $ kubectl get pods
