@@ -66,7 +66,7 @@ spec:
         
 ```
 
-删除controller的复制品（pod也是它创建的）
+删除controller的复制品（而且pod也是它创建的）
 
 ```
 $ kubectl delete rc nginx
