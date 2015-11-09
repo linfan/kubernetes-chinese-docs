@@ -1,5 +1,7 @@
 # Labels
 
+
+
 _Labels_ are key/value pairs that are attached to objects, such as pods.
 Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to users, but which do not directly imply semantics to the core system.
 Labels can be used to organize and to select subsets of objects.  Labels can be attached to objects at creation time and subsequently added and modified at any time.
@@ -15,7 +17,21 @@ Each object can have a set of key/value labels defined.  Each Key must be unique
 We'll eventually index and reverse-index labels for efficient queries and watches, use them to sort and group in UIs and CLIs, etc. We don't want to pollute labels with non-identifying, especially large and/or structured, data. Non-identifying information should be recorded using [annotations](annotations.md).
 
 
+Labels是附加到如pod等对象的键值对。Label旨在用来指定对象那些用于辨识性目的的属性，这些属性与用户相关性大，他们来说具有意义，但是这些属性却对于不直接表达核心系统的语义（sematics）。Label可以用来组织并且选择对象的子集。Label可以在对象创建的时候依附到对象上，随后可以在任意时间被添加和修改。每一个对象可以定义一组键值对label。每一个键对于一个给定的对象必须是唯一不可重复。
+
+```json
+"labels": {
+  "key1" : "value1",
+  "key2" : "value2"
+}
+```
+
+
+我们最终会索引并且反向索引（reverse-index）labels，以获得更高效的查询和监视，把他们用到UI或者CLI中用来排序或者分组等等。我们不想用那些不具有指认效果的label来污染label，特别是那些体积较大和结构型的的数据。不具有指认效果的信息应该使用annotation来记录。
+
+
 ## Motivation
+## 目标
 
 Labels enable users to map their own organizational structures onto system objects in a loosely coupled fashion, without requiring clients to store these mappings.
 
@@ -31,12 +47,35 @@ Example labels:
 
 These are just examples; you are free to develop your own conventions.
 
+
+Label可以让用户将他们自己的有组织目的的结构以一种松耦合的方式应用到系统的对象上，且不需要客户端存放这些对应关系（mappings）。
+
+服务部署和批处理管道通常是多维的实体（例如多个分区或者部署，多个发布轨道，多层，每层多微服务）。管理通常需要跨越式的切割操作，这会打破有严格层级展示关系的封装，特别对那些是由基础设施而非用户决定的很死板的层级关系。
+
+一些示例label:
+
+   * `"发行版本（release）" : "（稳定版）stable"`, `"（发行版）release" : "canary"`
+   * `"环境（environment）" : "（开发）dev"`, `"environment" : "qa"`, `"environment" : "（生产）production"`
+   * `"tier" : "frontend"`, `"tier" : "backend"`, `"tier" : "cache"`
+   * `"分区（partition）" : "（客户A）customerA"`, `"partition" : "customerB"`
+   * `"track" : "daily"`, `"track" : "weekly"`
+
+
 ## Syntax and character set
+## 语法和字符集
+
 
 _Labels_ are key value pairs. Valid label keys have two segments: an optional prefix and name, separated by a slash (`/`).  The name segment is required and must be 63 characters or less, beginning and ending with an alphanumeric character (`[a-z0-9A-Z]`) with dashes (`-`), underscores (`_`), dots (`.`), and alphanumerics between.  The prefix is optional.  If specified, the prefix must be a DNS subdomain: a series of DNS labels separated by dots (`.`), not longer than 253 characters in total, followed by a slash (`/`).
 If the prefix is omitted, the label key is presumed to be private to the user. Automated system components (e.g. `kube-scheduler`, `kube-controller-manager`, `kube-apiserver`, `kubectl`, or other third-party automation) which add labels to end-user objects must specify a prefix.  The `kubernetes.io/` prefix is reserved for Kubernetes core components.
 
 Valid label values must be 63 characters or less and must be empty or begin and end with an alphanumeric character (`[a-z0-9A-Z]`) with dashes (`-`), underscores (`_`), dots (`.`), and alphanumerics between.
+
+
+Labels是键值对。合法的键值对有两个部分：一个可选的前缀和名字，由“/”分隔。名字部分是必须，长度一定是64个字符或者更短，首位字符必须是字母数字型（`[a-z0-9A-Z]`），其他地方的字符必须是横线，下划线，点，或者其他字母数字字符。前缀是可选的。如果没有指定，前缀必须是一个dns的子域：一系列有点分隔的DNS label，总长度不能超过253个字符，以下划线“/”结尾。如果前缀被省略掉了，label的键会被认为是对于用户私有的。系统自动的组件（如kube-scheduler，kube-controller-manager，kube-apiserver，kubectl或者其他第三方自动工具）如要向用户最终的对象添加label，必须指定前缀。前缀`kubernetes.io/`是保留给Kubernetes核心组件用的。
+
+合法的label值必须是63个或者更短的字符。要么是空，要么首位字符必须为字母数字字符，中间必须是横线，下划线，点或者数字字母。
+
+
 
 ## Label selectors
 
@@ -50,6 +89,8 @@ A label selector can be made of multiple _requirements_ which are comma-separate
 An empty label selector (that is, one with zero requirements) selects every object in the collection.
 
 A null label selector (which is only possible for optional selector fields) selects no objects.
+
+
 
 ### _Equality-based_ requirement
 
