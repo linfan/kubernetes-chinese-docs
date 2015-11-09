@@ -2,6 +2,9 @@
 
 >In addition to the imperative style commands described elsewhere, Kubernetes supports declarative YAML or JSON configuration files. Often times config files are preferable to imperative commands, since they can be checked into version control and changes to the files can be code reviewed, producing a more robust, reliable and archival system.
 
+除了其他地方所描述的命令行式风格的命令以外，
+
+
 ##Running a container from a pod configuration file
 
 $ cd kubernetes
