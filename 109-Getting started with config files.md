@@ -33,7 +33,7 @@ and delete the pod you just created:
 $ kubectl delete pods nginx
 ```
 
-##Running a replicated set of containers from a configuration file
+##通过配置文件来运行容器的复制集
 
 To run replicated containers, you need a Replication Controller. A replication controller is responsible for ensuring that a specific number of pods exist in the cluster.
 
