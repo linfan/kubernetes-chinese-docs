@@ -37,11 +37,15 @@ $ kubectl delete pods nginx
 
 To run replicated containers, you need a Replication Controller. A replication controller is responsible for ensuring that a specific number of pods exist in the cluster.
 
+要运行复制的容器，你需要一个Controller的复制品。一个Controller的复制品负责保证规定数量的pod会一直存在于集群当中
+
 ```
 $ cd kubernetes
 $ kubectl create -f ./replication.yaml
-Where replication.yaml contains:
+```
 
+Where replication.yaml contains:
+```
 apiVersion: v1
 kind: ReplicationController
 metadata:
@@ -65,6 +69,7 @@ spec:
 ```
 
 To delete the replication controller (and the pods it created):
+删除controller的复制品
 
 ```
 $ kubectl delete rc nginx
