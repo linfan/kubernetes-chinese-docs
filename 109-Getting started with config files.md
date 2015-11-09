@@ -35,8 +35,6 @@ $ kubectl delete pods nginx
 
 ##通过配置文件来运行容器的复制集
 
-To run replicated containers, you need a Replication Controller. A replication controller is responsible for ensuring that a specific number of pods exist in the cluster.
-
 要运行复制的容器，你需要一个Controller的复制品。一个Replication Controller的复制品负责保证规定数量的pod会一直存在于集群当中
 
 ```
