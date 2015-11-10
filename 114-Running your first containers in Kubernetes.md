@@ -6,6 +6,8 @@
 
 From this point onwards, it is assumed that kubectl is on your path from one of the getting started guides.
 
+从这时开始，我假设你已经根据其它入门指南安装了kubectl。
+
 The kubectl run line below will create two nginx pods listening on port 80. It will also create a replication controller named my-nginx to ensure that there are always two pods running.
 
 kubectl run my-nginx --image=nginx --replicas=2 --port=80
