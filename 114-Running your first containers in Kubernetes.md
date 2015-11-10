@@ -24,13 +24,13 @@ kubectl get pods
 kubectl get rc
 ```
 To stop the two replicated containers, stop the replication controller:
-如果要停止这两个replicated containers
+如果要停止这两个被复制的容器，你可以通过停止replication： controller
 
 ```
 kubectl stop rc my-nginx
 ```
 
-##Exposing your pods to the internet.
+##让你的的pod可以被外网方位.
 
 On some platforms (for example Google Compute Engine) the kubectl command can integrate with your cloud provider to add a public IP address for the pods, to do this run:
 
