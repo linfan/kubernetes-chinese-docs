@@ -90,6 +90,15 @@ An empty label selector (that is, one with zero requirements) selects every obje
 
 A null label selector (which is only possible for optional selector fields) selects no objects.
 
+与name和UID不同，label不提供唯一性。通常，我们会看到很多对象有着一样的label。
+
+通过label选择器，客户端/用户能方便辨识出一组对象。label选择器是kubernetes中核心的组织原语。
+
+API目前支持两种选择器：基于相等的和基于集合的。一个label选择器一可以由多个必须条件组成，由逗号分隔。在多个必须条件指定的情况下，所有的条件都必须满足，因而逗号起着AND逻辑运算符的作用。
+
+一个空的label选择器（即有0个必须条件的选择器）会选择集合中的每一个对象。
+
+ 一个null型label选择器（仅对于可选的选择器字段才可能）不会返回任何对象。
 
 
 
