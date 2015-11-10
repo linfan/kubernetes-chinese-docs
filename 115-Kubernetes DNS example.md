@@ -4,8 +4,6 @@
 
 ##第0步: 前提条件
 
-This example assumes that you have forked the repository and turned up a Kubernetes cluster. Make sure DNS is enabled in your setup, see DNS doc.
-
 当前例子会假设你已经从仓库获取并启动了一个Kubernetes集群。请确保已经在设置中启动了DNS, 具体请移步[DNS 文档](https://releases.k8s.io/v1.0.6/cluster/addons/dns)
 
 ```
