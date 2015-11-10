@@ -2,7 +2,7 @@
 
 这是一个好玩的例子来演示如何使用kubernetes DNS
 
-##Step Zero: Prerequisites
+##第0步: 前提条件
 
 This example assumes that you have forked the repository and turned up a Kubernetes cluster. Make sure DNS is enabled in your setup, see DNS doc.
 
