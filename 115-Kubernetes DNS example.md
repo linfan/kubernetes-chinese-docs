@@ -95,24 +95,31 @@ dns-backend   <none>    name=dns-backend   10.0.35.246   8000/TCP
 
 Use the file examples/cluster-dns/dns-frontend-pod.yaml to create a client pod in dev namespace. The client pod will make a connection to backend and exit. Specifically, it tries to connect to address http://dns-backend.development.cluster.local:8000.
 
+```
 $ kubectl config use-context dev
-$ kubectl create -f examples/cluster-dns/dns-frontend-pod.yaml
+$ kubectl create -f
+examples/cluster-dns/dns-frontend-pod.yaml
+```
 Once that's up you can list the pod in the cluster:
-
+```
 $ kubectl get pods dns-frontend
 NAME           READY     STATUS       RESTARTS   AGE
 dns-frontend   0/1       ExitCode:0   0          1m
-Wait until the pod succeeds, then we can see the output from the client pod:
+```
 
+Wait until the pod succeeds, then we can see the output from the client pod:
+```
 $ kubectl logs dns-frontend
 2015-05-07T20:13:54.147664936Z 10.0.236.129
 2015-05-07T20:13:54.147721290Z Send request to: http://dns-backend.development.cluster.local:8000
 2015-05-07T20:13:54.147733438Z <Response [200]>
 2015-05-07T20:13:54.147738295Z Hello World!
+```
 Please refer to the source code about the log. First line prints out the ip address associated with the service in dev namespace; remaining lines print out our request and server response.
 
 If we switch to prod namespace with the same pod config, we'll see the same result, i.e. dns will resolve across namespace.
 
+```
 $ kubectl config use-context prod
 $ kubectl create -f examples/cluster-dns/dns-frontend-pod.yaml
 $ kubectl logs dns-frontend
@@ -120,6 +127,7 @@ $ kubectl logs dns-frontend
 2015-05-07T20:13:54.147721290Z Send request to: http://dns-backend.development.cluster.local:8000
 2015-05-07T20:13:54.147733438Z <Response [200]>
 2015-05-07T20:13:54.147738295Z Hello World!
+```
 Note about default namespace
 If you prefer not using namespace, then all your services can be addressed using default namespace, e.g. http://dns-backend.default.cluster.local:8000, or shorthand version http://dns-backend:8000
 
@@ -127,6 +135,7 @@ If you prefer not using namespace, then all your services can be addressed using
 
 For those of you who are impatient, here is the summary of the commands we ran in this tutorial. Remember to set first $CLUSTER_NAME and $USER_NAME to the values found in ~/.kube/config.
 
+```
 # create dev and prod namespaces
 kubectl create -f examples/cluster-dns/namespace-dev.yaml
 kubectl create -f examples/cluster-dns/namespace-prod.yaml
@@ -155,3 +164,4 @@ kubectl logs dns-frontend
 kubectl config use-context prod
 kubectl create -f examples/cluster-dns/dns-frontend-pod.yaml
 kubectl logs dns-frontend
+```
