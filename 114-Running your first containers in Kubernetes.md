@@ -52,7 +52,7 @@ In order to access your nginx landing page, you also have to make sure that traf
 
 为了访问你的nginx初始页面,你还不得不保证通过外部IP的通信是被允许的。那么就要通过让防火墙允许80端口通信才可以做到
 
-##Next: Configuration files
+##接下来: 配置文件
 
 Most people will eventually want to use declarative configuration files for creating/modifying their applications. A simplified introduction is given in a different document.
 
