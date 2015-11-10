@@ -42,7 +42,10 @@ kubectl expose rc my-nginx --port=80 --type=LoadBalancer
 
 This should print the service that has been created, and map an external IP address to the service. Where to find this external IP address will depend on the environment you run in. For instance, for Google Compute Engine the external IP address is listed as part of the newly created service and can be retrieved by running
 
+```
 kubectl get services
+```
+
 In order to access your nginx landing page, you also have to make sure that traffic from external IPs is allowed. Do this by opening a firewall to allow traffic on port 80.
 
 ##Next: Configuration files
