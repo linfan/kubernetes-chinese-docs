@@ -50,4 +50,4 @@ kubectl get services
 
 Most people will eventually want to use declarative configuration files for creating/modifying their applications. A simplified introduction is given in a different document.
 
-大多数人最终都会响使用声明式的配置文件来创建或修改他们的应用程勋。另外一个文档给出了一个简单的介绍。
+大多数人最终都会响使用声明式的配置文件来创建或修改他们的应用程勋。另外一个文档给出了一个[简单介绍](http://kubernetes.io/v1.0/docs/user-guide/simple-yaml.html)。
