@@ -1,6 +1,5 @@
 #Kubernetes DNS 实例实战
 
-This is a toy example demonstrating how to use kubernetes DNS.
 这是一个好玩的例子来演示如何使用kubernetes DNS
 
 ##Step Zero: Prerequisites
