@@ -1,4 +1,4 @@
-#Kubernetes DNS 实例
+#Kubernetes DNS 实例实战
 
 This is a toy example demonstrating how to use kubernetes DNS.
 
