@@ -4,8 +4,6 @@
 
 ##运行一个容器 (简单版)
 
->From this point onwards, it is assumed that kubectl is on your path from one of the getting started guides.
-
 >从这时开始，我假设你已经根据其它入门指南安装了kubectl。
 
 >下面这行kubectl命令会穿件两个监听80端口的nginx pod. 还会创建一名为my-nginx个replication controller,用来保证始终会有两个pod在运行。
@@ -14,17 +12,19 @@
 kubectl run my-nginx --image=nginx --replicas=2 --port=80
 ```
 
->一旦这个两个pod被创建好了， 你可以列出他们并查看他们的启动和运行。
+>一旦这些pod被创建好了， 你可以列出他们并查看他们的启动和运行。
 
 ```
 kubectl get pods
 ```
-You can also see the replication controller that was created:
+
+>你也能够看见replication controller被创建了：
 
 ```
 kubectl get rc
 ```
 To stop the two replicated containers, stop the replication controller:
+如果要停止这两个replicated containers
 
 ```
 kubectl stop rc my-nginx
