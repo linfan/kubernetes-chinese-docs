@@ -42,7 +42,7 @@ kubectl expose rc my-nginx --port=80 --type=LoadBalancer
 
 This should print the service that has been created, and map an external IP address to the service. Where to find this external IP address will depend on the environment you run in. For instance, for Google Compute Engine the external IP address is listed as part of the newly created service and can be retrieved by running
 
-这个命令会打印出被创建了的service,以及一个外部IP地址映射到service. 对外的IP地址根你实际运行环境有关。例如，对于Google Compute Engine的外部IP地址会被列为新创建的服务的一部分，还可以通过运行检索
+这个命令会打印出被创建了的service,以及一个外部IP地址映射到service. 对外的IP地址根你实际运行环境有关。例如，对于Google Compute Engine的外部IP地址会被列为新创建的服务的一部分，还可以通过运行检索。
 
 ```
 kubectl get services
