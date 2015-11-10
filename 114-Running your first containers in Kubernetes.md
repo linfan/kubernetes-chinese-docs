@@ -40,17 +40,13 @@ On some platforms (for example Google Compute Engine) the kubectl command can in
 kubectl expose rc my-nginx --port=80 --type=LoadBalancer
 ```
 
-This should print the service that has been created, and map an external IP address to the service. Where to find this external IP address will depend on the environment you run in. For instance, for Google Compute Engine the external IP address is listed as part of the newly created service and can be retrieved by running
-
-这个命令会打印出被创建了的service,以及一个外部IP地址映射到service. 对外的IP地址根你实际运行环境有关。例如，对于Google Compute Engine的外部IP地址会被列为新创建的服务的一部分，还可以通在运行时检索。
+>这个命令会打印出被创建了的service,以及一个外部IP地址映射到service. 对外的IP地址根你实际运行环境有关。例如，对于Google Compute Engine的外部IP地址会被列为新创建的服务的一部分，还可以通在运行时检索。
 
 ```
 kubectl get services
 ```
 
-In order to access your nginx landing page, you also have to make sure that traffic from external IPs is allowed. Do this by opening a firewall to allow traffic on port 80.
-
-为了访问你的nginx初始页面,你还不得不保证通过外部IP的通信是被允许的。那么就要通过让防火墙允许80端口通信才可以做到
+>为了访问你的nginx初始页面,你还不得不保证通过外部IP的通信是被允许的。那么就要通过让防火墙允许80端口通信才可以做到
 
 ##接下来: 配置文件
 
