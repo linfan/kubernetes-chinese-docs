@@ -50,7 +50,7 @@ kubectl get services
 
 In order to access your nginx landing page, you also have to make sure that traffic from external IPs is allowed. Do this by opening a firewall to allow traffic on port 80.
 
-为了访问你的nginx初始页面,你还不得不保证通过外部IP的通信是被允许的。那么通过让防火墙允许80端口通信就可以做到
+为了访问你的nginx初始页面,你还不得不保证通过外部IP的通信是被允许的。那么就要通过让防火墙允许80端口通信就可以做到
 
 ##Next: Configuration files
 
