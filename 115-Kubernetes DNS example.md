@@ -43,39 +43,54 @@ You can view your cluster name and user name in kubernetes config at ~/.kube/con
 
 Use the file examples/cluster-dns/dns-backend-rc.yaml to create a backend server replication controller in each namespace.
 
+```
 $ kubectl config use-context dev
 $ kubectl create -f examples/cluster-dns/dns-backend-rc.yaml
+```
+
 Once that's up you can list the pod in the cluster:
 
+```
 $ kubectl get rc
 CONTROLLER    CONTAINER(S)   IMAGE(S)              SELECTOR           REPLICAS
 dns-backend   dns-backend    ddysher/dns-backend   name=dns-backend   1
+```
+
 Now repeat the above commands to create a replication controller in prod namespace:
 
+```
 $ kubectl config use-context prod
 $ kubectl create -f examples/cluster-dns/dns-backend-rc.yaml
 $ kubectl get rc
 CONTROLLER    CONTAINER(S)   IMAGE(S)              SELECTOR           REPLICAS
 dns-backend   dns-backend    ddysher/dns-backend   name=dns-backend   1
+```
 
 ##Step Three: Create backend service
 
 Use the file examples/cluster-dns/dns-backend-service.yaml to create a service for the backend server.
-
+```
 $ kubectl config use-context dev
-$ kubectl create -f examples/cluster-dns/dns-backend-service.yaml
+$ kubectl create -f
+examples/cluster-dns/dns-backend-service.yaml
+```
 Once that's up you can list the service in the cluster:
 
+```
 $ kubectl get service dns-backend
 NAME          LABELS    SELECTOR           IP(S)          PORT(S)
 dns-backend   <none>    name=dns-backend   10.0.236.129   8000/TCP
+```
 Again, repeat the same process for prod namespace:
 
+```
 $ kubectl config use-context prod
 $ kubectl create -f examples/cluster-dns/dns-backend-service.yaml
 $ kubectl get service dns-backend
 NAME          LABELS    SELECTOR           IP(S)         PORT(S)
 dns-backend   <none>    name=dns-backend   10.0.35.246   8000/TCP
+```
+
 ##Step Four: Create client pod in one namespace
 
 Use the file examples/cluster-dns/dns-frontend-pod.yaml to create a client pod in dev namespace. The client pod will make a connection to backend and exit. Specifically, it tries to connect to address http://dns-backend.development.cluster.local:8000.
