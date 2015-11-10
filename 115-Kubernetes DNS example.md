@@ -22,16 +22,22 @@ $ kubectl create -f examples/cluster-dns/namespace-prod.yaml
 
 Now list all namespaces:
 
+```
 $ kubectl get namespaces
 NAME          LABELS             STATUS
 default       <none>             Active
 development   name=development   Active
 production    name=production    Active
+```
+
 For kubectl client to work with each namespace, we define two contexts:
 
+```
 $ kubectl config set-context dev --namespace=development --cluster=${CLUSTER_NAME} --user=${USER_NAME}
 $ kubectl config set-context prod --namespace=production --cluster=${CLUSTER_NAME} --user=${USER_NAME}
 You can view your cluster name and user name in kubernetes config at ~/.kube/config.
+
+```
 
 ##Step Two: Create backend replication controller in each namespace
 
