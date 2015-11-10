@@ -104,6 +104,7 @@ API目前支持两种选择器：基于相等的和基于集合的。一个label
 
 
 ### _Equality-based_ requirement
+### 基于相等性的条件
 
 _Equality-_ or _inequality-based_ requirements allow filtering by label keys and values. Matching objects must satisfy all of the specified label constraints, though they may have additional labels as well.
 Three kinds of operators are admitted `=`,`==`,`!=`. The first two represent _equality_ (and are simply synonyms), while the latter represents _inequality_. For example:
