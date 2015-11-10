@@ -1,7 +1,5 @@
 #在Kubernetes上运行你的第一个容器
 
-Ok, you've run one of the getting started guides and you have successfully turned up a Kubernetes cluster. Now what? This guide will help you get oriented to Kubernetes and running your first containers on the cluster.
-
 好了，如果你已经开始了任何一个入门指南，并且启动了一个Kubernetes集群。那么接下来呢？ 这个片指南会帮助你正对KUbernetes,在其集群上运行第一个容器。
 
 ##Running a container (simple version)
