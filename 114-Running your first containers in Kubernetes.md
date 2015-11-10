@@ -36,7 +36,10 @@ On some platforms (for example Google Compute Engine) the kubectl command can in
 
 在一些平台上（例如Google Compute Engine），kubectl命令能够集成云端提供的API来给pod条件公有IP地址，可以通过以下命令来实现：
 
+```
 kubectl expose rc my-nginx --port=80 --type=LoadBalancer
+```
+
 This should print the service that has been created, and map an external IP address to the service. Where to find this external IP address will depend on the environment you run in. For instance, for Google Compute Engine the external IP address is listed as part of the newly created service and can be retrieved by running
 
 kubectl get services
