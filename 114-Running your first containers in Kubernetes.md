@@ -32,8 +32,6 @@ kubectl stop rc my-nginx
 
 ##让你的的pod可以被外网方位.
 
-On some platforms (for example Google Compute Engine) the kubectl command can integrate with your cloud provider to add a public IP address for the pods, to do this run:
-
 在一些平台上（例如Google Compute Engine），kubectl命令能够集成云端提供的API来给pod条件公有IP地址，可以通过以下命令来实现：
 
 ```
