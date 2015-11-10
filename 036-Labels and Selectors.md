@@ -77,7 +77,7 @@ Labels是键值对。合法的键值对有两个部分：一个可选的前缀�
 
 
 
-## Label selectors
+## Label选择器
 
 Unlike [names and UIDs](identifiers.md), labels do not provide uniqueness. In general, we expect many objects to carry the same label(s).
 
@@ -89,6 +89,8 @@ A label selector can be made of multiple _requirements_ which are comma-separate
 An empty label selector (that is, one with zero requirements) selects every object in the collection.
 
 A null label selector (which is only possible for optional selector fields) selects no objects.
+
+
 
 
 
