@@ -109,6 +109,7 @@ API目前支持两种选择器：基于相等的和基于集合的。一个label
 _Equality-_ or _inequality-based_ requirements allow filtering by label keys and values. Matching objects must satisfy all of the specified label constraints, though they may have additional labels as well.
 Three kinds of operators are admitted `=`,`==`,`!=`. The first two represent _equality_ (and are simply synonyms), while the latter represents _inequality_. For example:
 
+
 ```
 environment = production
 tier != frontend
@@ -118,8 +119,18 @@ The former selects all resources with key equal to `environment` and value equal
 The latter selects all resources with key equal to `tier` and value distinct from `frontend`, and all resources with no labels with the `tier` key.
 One could filter for resources in `production` excluding `frontend` using the comma operator: `environment=production,tier!=frontend`
 
+基于相等性或者不相等性的条件允许用label的键或者值进行过滤。匹配的对象必须满足所有指定的label约束，尽管他们可能也有额外的label。有三种运算符是允许的，“=”，“==”和“!=”。前两种代表相等性（他们是同义运算符），后一种代表非相等性。例如：
 
-### _Set-based_ requirement
+```
+environment = production
+tier != frontend
+```
+
+第一个选择所有键等于`environment`值为`production`的资源。后一种选择所有键为`tier`值不等于`frontend`的资源，和那些没有键为`tier`的label的资源。
+
+要过滤所有处于`production`但不是`frontend`的资源，可以使用逗号操作符，`environment=production,tier!=frontend`。
+
+
 ### 基于set的条件
 
 _Set-based_ label requirements allow filtering keys according to a set of values. Three kinds of operators are supported: `in`,`notin` and exists (only the key identifier). For example:
@@ -141,22 +152,55 @@ The _set-based_ label selector is a general form of equality since `environment=
 _Set-based_ requirements can be mixed with _equality-based_ requirements. For example: `partition in (customerA, customerB),environment!=qa`.
 
 
+基于集合的label条件允许用一组值来过滤键。支持三种操作符:`in`，`notin`,和`exists(仅针对于key符号)`。例如：
+
+```
+environment in (production, qa)
+tier notin (frontend, backend)
+partition
+!partitio
+
+```
+
+第一个例子，选择所有键等于`environment`，且value等于`production`或者`qa`的资源。
+第二个例子，选择所有键等于`tier`且值是除了`frontend`和`backend`之外的资源，和那些没有label的键是`tier`的资源。
+第三个例子，选择所有所有有一个label的键为partition的资源；值是什么不会被检查。
+第四个例子，选择所有的没有lable的键名为`partition`的资源；值是什么不会被检查。
+
+类似的，逗号操作符相当于一个__AND__操作符。因而要使用一个`partition`键（不管值是什么），并且`environment`不是`qa`过滤资源可以用`partition,environment notin (qa)`。
+
+基于集合的选择器是一个相等性的宽泛的形式，因为`environment=production`相当于 `environment in (production)`，与`!=` and `notin`类似。
+
+基于集合的条件可以与基于相等性 的条件混合。例如，`partition in (customerA, customerB),environment!=qa`。
+
+
 ## API
 
 ### LIST and WATCH filtering
+### LIST 和WATCH过滤
 
 LIST and WATCH operations may specify label selectors to filter the sets of objects returned using a query parameter. Both requirements are permitted:
 
     * _equality-based_ requirements: `?labelSelector=environment%3Dproduction,tier%3Dfrontend`
     * _set-based_ requirements: `?labelSelector=environment+in+%28production%2Cqa%29%2Ctier+in+%28frontend%29`
 
+LIST和WATCH操作，可以使用query参数来指定label选择器来过滤返回对象的集合。两种条件都可以使用：
+	*基于相等性条件：`?labelSelector=environment%3Dproduction,tier%3Dfrontend`
+	*基于集合条件的：`?labelSelector=environment+in+%28production%2Cqa%29%2Ctier+in+%28frontend%29`
+
+
 Both label selector styles can be used to list or watch resources via a REST client. For example targetting `apiserver` with `kubectl` and using _equality-based_ one may write:
 
+
+两种label选择器风格都可以用来通过REST客户端来列表或者监视资源。比如使用`kubectl`来针对`apiserver`，并且使用基于相等性的条件，可以用：
+
+·
 ```console
 $ kubectl get pods -l environment=production,tier=frontend
 ```
 
 or using _set-based_ requirements:
+或者使用基于集合的条件：
 
 ```console
 $ kubectl get pods -l 'environment in (production),tier in (frontend)'
@@ -164,19 +208,27 @@ $ kubectl get pods -l 'environment in (production),tier in (frontend)'
 
 As already mentioned _set-based_ requirements are more expressive.  For instance, they can implement the _OR_ operator on values:
 
+如以上已经提到的，基于集合的条件表达性更强。例如，他们可以实现值上的OR操作：
+
 ```console
 $ kubectl get pods -l 'environment in (production, qa)'
 ```
 
 or restricting negative matching via _exists_ operator:
 
+或者通过exists操作符进行否定限制匹配：
+
 ```console
 $ kubectl get pods -l 'environment,environment notin (frontend)'
 ```
 
+
+
 ### Set references in API objects
 
 Some Kubernetes objects, such as [`service`s](services.md) and [`replicationcontroller`s](replication-controller.md), also use label selectors to specify sets of other resources, such as [pods](pods.md).
+
+一些Kubernetes对象，比如service和replication controlle的，也使用label选择器来指定其他资源的集合，比如pods。
 
 #### Service and ReplicationController
 
@@ -199,7 +251,34 @@ selector:
 
 this selector (respectively in `json` or `yaml` format) is equivalent to `component=redis` or `component in (redis)`.
 
+
+一个service针对的pods的集合是用label选择器来定义的。类似的，一个replicationcontroller管理的pods的群体也是用label选择器来定义的。
+
+对于这两种对象的Label选择器是用map定义在json或者yaml文件中的，并且只支持基于相等性的条件：
+
+
+
+```json
+"selector": {
+    "component" : "redis",
+}
+```
+
+或者
+
+```yaml
+selector:
+    component: redis
+```
+
+
+这个选择器（分别是位于json或者yaml格式的）相等于`component=redis` 或者 `component in (redis)`。
+
+
 #### Job and other new resources
+
+### Job和其他新的资源
+
 
 Newer resources, such as [job](jobs.md), support _set-based_ requirements as well.
 
@@ -213,3 +292,16 @@ selector:
 ```
 
 `matchLabels` is a map of `{key,value}` pairs. A single `{key,value}` in the `matchLabels` map is equivalent to an element of `matchExpressions`, whose `key` field is "key", the `operator` is "In", and the `values` array contains only "value". `matchExpressions` is a list of pod selector requirements. Valid operators include In, NotIn, Exists, and DoesNotExist. The values set must be non-empty in the case of In and NotIn. All of the requirements, from both `matchLabels` and `matchExpressions` are ANDed together -- they must all be satisfied in order to match.
+
+
+较新的资源，如job，也支持基于集合的条件。
+
+```yaml
+selector:
+  matchLabels:相当于一个
+    component: redis
+  matchExpressions:
+    - {key: tier, operator: In, values: [cache]}
+    - {key: environment, operator: NotIn, values: [dev]}
+```
+`matchLabels`是一个键值对的映射。一个单独的`{key,value}`相当于`matchExpressions`的一个元素，它的键字段是"key",操作符是`In`，并且值数组值包含"value"。`matchExpressions`是一个pod的选择器条件的列表。合法的操作符包含In, NotIn, Exists, and DoesNotExist。在In和NotIn的情况下，值的组必须不能为空。所有的条件，包含`matchLabels` and `matchExpressions`中的，会用AND符号连接，他们必须都被满足以完成匹配。
