@@ -2,7 +2,7 @@
 
 好了，如果你已经开始了任何一个入门指南，并且启动了一个Kubernetes集群。那么接下来呢？ 这个片指南会帮助你正对KUbernetes,在其集群上运行第一个容器。
 
-##Running a container (simple version)
+##运行一个容器 (simple version)
 
 From this point onwards, it is assumed that kubectl is on your path from one of the getting started guides.
 
