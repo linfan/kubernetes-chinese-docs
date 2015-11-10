@@ -15,8 +15,11 @@ $ hack/dev-build-and-up.sh
 
 We'll see how cluster DNS works across multiple namespaces, first we need to create two namespaces:
 
+```
 $ kubectl create -f examples/cluster-dns/namespace-dev.yaml
 $ kubectl create -f examples/cluster-dns/namespace-prod.yaml
+```
+
 Now list all namespaces:
 
 $ kubectl get namespaces
