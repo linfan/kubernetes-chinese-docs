@@ -14,6 +14,7 @@ $ hack/dev-build-and-up.sh
 ##第一步: 创建两个namespace
 
 We'll see how cluster DNS works across multiple namespaces, first we need to create two namespaces:
+接下来我们会明白集群的DNS如何在跨多个namespace的情况下工作，首先我们需要创建两个namespace:
 
 ```
 $ kubectl create -f examples/cluster-dns/namespace-dev.yaml
