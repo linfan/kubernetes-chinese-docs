@@ -31,6 +31,7 @@ production    name=production    Active
 ```
 
 For kubectl client to work with each namespace, we define two contexts:
+让kubectl客户端操作每一个不同的namespace
 
 ```
 $ kubectl config set-context dev --namespace=development --cluster=${CLUSTER_NAME} --user=${USER_NAME}
