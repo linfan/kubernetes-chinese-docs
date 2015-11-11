@@ -11,7 +11,7 @@ $ cd kubernetes
 $ hack/dev-build-and-up.sh
 ```
 
-##Step One: Create two namespaces
+##第一步: 创建两个namespace
 
 We'll see how cluster DNS works across multiple namespaces, first we need to create two namespaces:
 
