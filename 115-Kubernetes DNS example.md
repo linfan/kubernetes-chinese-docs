@@ -31,14 +31,16 @@ production    name=production    Active
 ```
 
 For kubectl client to work with each namespace, we define two contexts:
-让kubectl客户端操作每一个不同的namespace
+为了让kubectl客户端操作每一个不同的namespace，我们定义了两个上下文环境：
 
 ```
 $ kubectl config set-context dev --namespace=development --cluster=${CLUSTER_NAME} --user=${USER_NAME}
 $ kubectl config set-context prod --namespace=production --cluster=${CLUSTER_NAME} --user=${USER_NAME}
+```
+
 You can view your cluster name and user name in kubernetes config at ~/.kube/config.
 
-```
+
 
 ##Step Two: Create backend replication controller in each namespace
 
