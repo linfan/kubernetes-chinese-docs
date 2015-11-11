@@ -20,7 +20,7 @@ $ kubectl create -f examples/cluster-dns/namespace-dev.yaml
 $ kubectl create -f examples/cluster-dns/namespace-prod.yaml
 ```
 
-Now list all namespaces:
+现在我们列出所有的 namespaces:
 
 ```
 $ kubectl get namespaces
