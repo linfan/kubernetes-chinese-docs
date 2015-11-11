@@ -41,7 +41,6 @@ $ kubectl config set-context prod --namespace=production --cluster=${CLUSTER_NAM
 You can view your cluster name and user name in kubernetes config at ~/.kube/config.
 
 
-
 ##Step Two: Create backend replication controller in each namespace
 
 Use the file examples/cluster-dns/dns-backend-rc.yaml to create a backend server replication controller in each namespace.
