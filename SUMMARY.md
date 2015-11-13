@@ -9,6 +9,7 @@
 * [Local](004-Local-machine Solutions.md)
 * [Vagrant](006-Vagrant.md)
 * [Turn](009-Turn-key Cloud Solutions.md)
+   * 007-Local (No VM).md
 * [GCE](010-GCE.md)
 * [AWS](011-AWS.md)
 * [Azure](012-Azure.md)
