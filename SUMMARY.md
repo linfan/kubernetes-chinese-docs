@@ -4,7 +4,6 @@
    * 007-Local (No VM).md
 * [About This Doc](000-About This Doc.md)
 * [Version 1.0](001-Version 1.0.md)
-   * 007-Local (No VM).md
 * [whatisk8s](002-whatisk8s.md)
 * [Creating Kubernetes Clusters](003-Creating Kubernetes Clusters.md)
 * [Local](004-Local-machine Solutions.md)
