@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+   * 007-Local (No VM).md
 * [About This Doc](000-About This Doc.md)
 * [Version 1.0](001-Version 1.0.md)
 * [whatisk8s](002-whatisk8s.md)
