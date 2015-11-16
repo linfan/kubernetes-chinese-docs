@@ -69,10 +69,9 @@ unset的属性同类型设置为zero的属性（如，空串，0，false），�
 ### **服务账户的快速标记**
 
 一个服务账户会自动生成一个用户。该用户的名字生成是根据如下命名规范：
-‘’’
+```
 system:serviceaccount:<namespace>:<serviceaccountname>
-
-‘’’
+```
 创建一个新的Namespace，也会附带创建一个新的服务账户，格式如下：
 ```
 system:serviceaccount:<namespace>:default
@@ -80,7 +79,9 @@ system:serviceaccount:<namespace>:default
 ```
 例如，如果你想要在Kube系统授予API默认账户的所有权限，你需要在规则文件中添加如下一行：
 ```
+
 {"user":"system:serviceaccount:kube-system:default"}
+
 ```
 重启apiserver使新添加的规则生效。
 
