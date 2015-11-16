@@ -181,3 +181,21 @@ Kubernets安装版本包包含所有Kuberentes的二进制发行版本和所对�
   * 这个配置在实现中，目前还不支持。
 
 为了生成这个文件，你可以参照“cluster/gce/configure-vm.sh”中的代码直接从“$HOME/.kube/config”拷贝过去或者参考以下模版：
+'''yaml
+apiVersion: v1
+kind: Config
+users:
+- name: kubelet
+  user:
+    token: ${KUBELET_TOKEN}
+clusters:
+- name: local
+  cluster:
+    certificate-authority-data: ${CA_CERT_BASE64_ENCODED}
+contexts:
+- context:
+    cluster: local
+    user: kubelet
+  name: service-account-context
+current-context: service-account-context
+'''
