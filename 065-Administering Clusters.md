@@ -10,7 +10,7 @@
 即便在未来，如果Kubernetes完全自托管，将只允许主组件调度节点的子集，以限制和运行用户Pod的合作运行，减少节点损害安全漏洞的可能范围。
 
 ### **Kube-apiserver**
-[Kube-apiserver](066-kube-apiserver Binary.md)展示了Kubernetes API；它是Kubernetes控制面的前端，可以横向扩展（i.e., one scales it by running more of them-- [high-availability.md](083-High Availability Clusters.md)）。
+[Kube-apiserver](http://kubernetes.io/v1.1/docs/admin/kube-apiserver.html)暴漏出Kubernetes API；它是Kubernetes控制面的前端，可以横向扩展（如，可以通过运行多个API检测一个apiserver-- [high-availability.md](http://kubernetes.io/v1.1/docs/admin/high-availability.html)）。
 
 ### **Etcd**
 [Etcd](187-etcd.md)作为Kubernetes的后备存储。所有的集群数据都存储在这里。一个Kubernetes集群的适当管理包括对ETCD的数据备份计划。
