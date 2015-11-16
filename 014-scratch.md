@@ -181,7 +181,7 @@ Kubernets安装版本包包含所有Kuberentes的二进制发行版本和所对�
   * 这个配置在实现中，目前还不支持。
 
 为了生成这个文件，你可以参照“cluster/gce/configure-vm.sh”中的代码直接从“$HOME/.kube/config”拷贝过去或者参考以下模版：
-'''yaml
+```yaml
 apiVersion: v1
 kind: Config
 users:
@@ -198,4 +198,89 @@ contexts:
     user: kubelet
   name: service-account-context
 current-context: service-account-context
-'''
+```
+把kubeconfig文件放置到每一个节点上。本章节之后的事例会假设kubeconfig文件已经放置在“/var/lib/kube-proxy/kubeconfig”和“/var/lib/kubelet/kubeconfig”里。
+
+
+## 在节点上配置和安装基础软件
+这个章节讨论的是如歌配置Kubernetes节点。
+你应该在每个节点运行三个后台进程：
+ * docker or rkt
+ * kubelet
+ *kube-proxy
+
+
+### Docker容器
+对最低Docker版本的要求是随着kubelet的版本变化的。最新的稳定版本通常是个好选择。如果版本太低，Kubelet记录下警报并拒绝运行pod，所以你可以选择个版本试一下。
+
+如果你之前安装Docker的节点没有Kubernetes相关的配置，你可能已经有Docker新建的网桥和iptables的规则。所以你或许希望在为Kubernetes配置Docker前根据以下命令移除之前的配置。
+
+```sh
+iptables -t nat -F 
+ifconfig docker0 down
+brctl delbr docker0
+```
+如何配置Docker取决于你网络是基于routable-vip还是overlay-network。
+这里有一些建议的Docker选项：
+ * 为每一个节点的CIDR网断建立你自己的网桥，命名为cbr0并为docker设置`--bridge=cbr0`。
+ * 配置`--iptables=false`，所以docker不会为host-port设置iptables(这个控制在docker旧版本不够细致，以后会在新版本里修复) 
+
+所以kube-proxy可以代替docker来设置iptables。
+ * `--ip-masq=false`
+  * 如果你将PodIP设置为可路由寻址，你会希望将这个选项设置为false。否则，docker会将NodeIP重写为PodIP的源地址。
+  * 一些环境(例如,GCE)下需要伪装(masquerade)离开这个云环境的流量。这个配置是取决于具体的云环境的。
+  * 如果你在使用overlay网络，请参考其他资料。
+ * `--mtu=`
+  * 但使用Flannel的时候，需要这个选项。 因为UDP包封装造成过大的数据包。
+ * `--insecure-registry $CLUSTER_SUBNET`
+  * 为链接没有SSL安全链接的私有registry。
+
+
+你或许希望为Docker提高可以打开文件的数目：
+ * `DOCKER_NOFILE=1000000`
+这里的设置取决于你的节点的操作系统。比如，GCE上基于Debian的发行版本使用`/etc/default/docker`这个配置文件。
+
+在进行下一步安装前，可以参考Docker文档里的实例来确保docker在你的系统上正常工作。
+
+### rkt
+[rkt](https://github.com/coreos/rkt)是类似Docker的技术。你只需要二选一安装Docker或者rkt。最低的版本是[v0.5.6](https://github.com/coreos/rkt/releases/tag/v0.5.6)。
+
+[systemd](http://www.freedesktop.org/wiki/Software/systemd/)是在节点上运行rkt必须的。与rkt v0.5.6所对应的最低版本是[systemd 215](http://lists.freedesktop.org/archives/systemd-devel/2014-July/020903.html)。
+
+[rkt metadata service](https://github.com/coreos/rkt/blob/master/Documentation/networking.md)也是必须安装的，来支持rtk的网络部分。你可以用以下命令来运行rkt的metadata服务
+`sudo systemd-run rkt metadata-service`
+
+接下来你需要来设置kubelet的标记：
+ * `--container-runtime=rkt`
+
+### kubelet
+所有的节点都要运行kubelet。参考[选择安装镜像](#选择安装镜像)
+
+可参考的参数：
+ * 如果选择HTTPS的安全配置：
+  * `--api-servers=https://$MASTER_IP`
+  * `--kubeconfig=/var/lib/kubelet/kubeconfig`
+ * 否则，使用防火墙的安全配置：
+  * `--api-servers=http://$MASTER_IP`
+ * `--config=/etc/kubernetes/manifests`
+ * `--cluster-dns=` 是用来配置DNS服务器的地址(参考[Starting Addons](#starting-addons).)
+ * `--cluster-domain=`是为DNS集群地址使用的DNS域名前缀。
+ * `--docker-root=`
+ * `--root-dir=`
+ * `--configure-cbr0=` (参考之前的介绍)
+ * `--register-node` (参考章节[节点](../admin/node.md).)
+
+### kube-proxy
+所有的节点都要运行kube-proxy。(并不一定要在主节点上运行kube-proxy，但最好还是与其它节点保持一致) 可参考如何获得kubelet二进制运行包来获得kube-proxy二进制运行包。
+
+可参考的参数
+ * 如果选择HTTPS的安全配置
+  * `--api-servers=https://$MASTER_IP`
+  * `--kubeconfig=/var/lib/kube-proxy/kubeconfig`
+* 否则，使用防火墙的安全配置：
+ * `--api-servers=http://$MASTER_IP`
+
+### 网络
+为了pod的网络通信，需要给每一个节点分配一个自己的CIDR网段。这个叫做`NODE_X_POD_CIDR`。
+
+需要给每一个节点新建一个叫`cbr0`网桥。网桥会在[networking documentation](../admin/networking.md)里做详细介绍。约定俗成，`$NODE_X_POD_CIDR`里的第一个IP地址作为这个网桥的IP地址。这个地址叫做`NODE_X_BRIDGE_ADDR`。比如，`NODE_X_POD_CIDR`是`10.0.0.0/16`，那么`NODE_X_BRIDGE_ADDR`是`10.0.0.1/16`。注意：这里用`/16`这个后缀是因为之后也会这么使用。
