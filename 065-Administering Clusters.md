@@ -5,12 +5,12 @@
 ## 主组件
 主组件可以提供集群的控制面板。例如，主组件负责对有关集群做全局性的决策（如，调度），以及探测和对集群事件的相应（如，当Replication Controller的‘replicas’字段不满足时，启动一个新的Pod）。
 
-理论上，主组件可以运行在集群的任何节点上。但是，为了简单化，当前设置的脚本通常在同样的VM上启动所有的主组件，而且不会在该VM上运行用户容器。参考[High-availability.md](083-High Availability Clusters.md)，有关Multi-Master-VM设置的实例。
+理论上，主组件可以运行在集群的任何节点上。但是，为了简单化，当前设置的脚本通常在同样的VM上启动所有的主组件，而且不会在该VM上运行用户容器。参考[high-availability.md](083-High Availability Clusters.md)，有关Multi-Master-VM设置的实例。
 
 即便在未来，如果Kubernetes完全自托管，将只允许主组件调度节点的子集，以限制具有用户Pod的共同运行，减少节点损害安全漏洞的可能范围。
 
 ### Kube-apiserver
-Kube-apiserver展示了Kubernetes API；它是Kubernetes控制面的前端，可以横向扩展（i.e., one scales it by running more of them-- high-availability.md）。
+[Kube-apiserver](066-kube-apiserver Binary.md)展示了Kubernetes API；它是Kubernetes控制面的前端，可以横向扩展（i.e., one scales it by running more of them-- [high-availability.md](083-High Availability Clusters.md)）。
 
 ### Etcd
 Etcd作为Kubernetes的后备存储。所有的集群数据都存储在这里。一个Kubernetes集群的适当管理包括对ETCD的数据备份计划。
