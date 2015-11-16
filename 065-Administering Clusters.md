@@ -9,8 +9,8 @@
 
 即便在未来，如果Kubernetes完全自托管，将只允许主组件调度节点的子集，以限制和运行用户Pod的合作运行，减少节点损害安全漏洞的可能范围。
 
-### **kube-apiserver**
-[kube-apiserver](http://kubernetes.io/v1.1/docs/admin/kube-apiserver.html)暴漏出Kubernetes API；它是Kubernetes控制面的前端，可以横向扩展（如，可以通过运行多个API检测一个apiserver-- [high-availability.md](http://kubernetes.io/v1.1/docs/admin/high-availability.html)）。
+### **Kube-apiserver**
+[Kube-apiserver](http://kubernetes.io/v1.1/docs/admin/kube-apiserver.html)暴漏出Kubernetes API；它是Kubernetes控制面的前端，可以横向扩展（如，可以通过运行多个API检测一个apiserver-- [high-availability.md](http://kubernetes.io/v1.1/docs/admin/high-availability.html)）。
 
 ### **etcd**
 [etcd](http://kubernetes.io/v1.1/docs/admin/etcd.html)作为Kubernetes的后备存储。所有的集群数据都存储在这里。一个Kubernetes集群的适当管理包括对ETCD的数据备份计划。
@@ -29,9 +29,9 @@
  - 为新的Namespace创建默认账户和API接入的Token。
 - …等等。
 
-### **kube调度**
+### **Kube调度**
 
-[kube调度](http://kubernetes.io/v1.1/docs/admin/kube-scheduler.html)观察新创建、还没有分配节点的Pod，并且从中选择一个节点运行。
+[Kube调度](http://kubernetes.io/v1.1/docs/admin/kube-scheduler.html)观察新创建、还没有分配节点的Pod，并且从中选择一个节点运行。
 
 ### **扩展插件**
 扩展插件属于Pod和Service，实现了集群功能。它们不能在主VM上运行，但是目前能够调用API创建这些Pod和Service的默认启动脚本可以在主VM上运行。可参考[kube-master-addons](kube-master-addons.sh)
@@ -49,18 +49,18 @@
 Node组件运行在每一个节点上，维护运行Pod，并给它们提供Kubernetes运行环境。
 
 ### **Kubelet**
-[Kubelet](076-kubelet Binary.md)是主节点代理。它：
+[Kubelet](http://kubernetes.io/v1.1/docs/admin/kubelet.html)是主节点代理。它：
 - 监督已经分配到节点的Pod（或者被apiserver分配，或者通过本地配置文件）：
- - 挂载Pod需要的空间
- - 下载Pod的秘钥
- - 通过Docker（或，experimentally，rkt）运行Pod的容器
+ - 挂载Pod需要的Volume
+ - 下载Pod的Secret
+ - 通过Docker（或，rkt）运行Pod容器
  - 定期执行任何请求的容器活性探针（container liveness probes）
  - 给系统的其它部分报告Pod的状态，如果有必要，可以创建“mirror pod”
 - 返回节点的状态给系统的其它部分。
 
-### **Kube-proxy**
+### **Kube代理**
 
-[Kube-proxy](077-kube-proxy Binary.md)使得Kubernetes服务抽象化，在主机上维护网络规则，并且执行连接转发。
+[Kube代理](http://kubernetes.io/v1.1/docs/admin/kube-proxy.html)使得Kubernetes服务抽象化，在主机上维护网络规则，并且执行连接转发。
 
 ### **Docker**
 
