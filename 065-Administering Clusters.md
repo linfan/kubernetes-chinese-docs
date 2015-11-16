@@ -40,27 +40,27 @@ Addon对象在“kube-system”空间被创建。
 
 Addons实例：
 - [DNS](https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/dns/)提供集群本地DNS。
-- [Kube-ui]()为集群提供图形用户界面。
-- [Fluentd-elasticsearch]()提供日志存储。参考gcp version。
-- [Cluster-monitoring]()监控集群。
+- [Kube-ui](https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/kube-ui/)为集群提供图形用户界面。
+- [Fluentd-elasticsearch](https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/fluentd-elasticsearch/)提供日志存储。参考[gcp version](https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/fluentd-gcp/)。
+- [Cluster-monitoring](https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/cluster-monitoring/)监控集群。
 
 ## **Node components** 节点组件
 
 节点组件运行在每一个节点上，维护运行Pod，并给它们提供Kubernetes运行环境。
 
 ### **Kubelet**
-Kubelet是主节点代理。它，
+[Kubelet](076-kubelet Binary.md)是主节点代理。它：
 - 监督已经分配到节点的Pod（或者被apiserver分配，或者通过本地配置文件）：
-		挂载Pod需要的空间
-		下载Pod的秘钥
-		通过Docker（或，experimentally，rkt）运行Pod的容器
-		定期执行任何请求的容器活性探针（container liveness probes）
-		给系统的其它部分报告Pod的状态，如果有必要，可以创建“mirror pod”
+ - 挂载Pod需要的空间
+ - 下载Pod的秘钥
+ - 通过Docker（或，experimentally，rkt）运行Pod的容器
+ - 定期执行任何请求的容器活性探针（container liveness probes）
+ - 给系统的其它部分报告Pod的状态，如果有必要，可以创建“mirror pod”
 - 返回节点的状态给系统的其它部分。
 
 ### **Kube-proxy**
 
-Kube-proxy使得Kubernetes服务抽象化，在主机上维护网络规则，并且执行连接转发。
+[Kube-proxy](077-kube-proxy Binary.md)使得Kubernetes服务抽象化，在主机上维护网络规则，并且执行连接转发。
 
 ### **Docker**
 

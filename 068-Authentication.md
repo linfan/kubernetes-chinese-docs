@@ -1,0 +1,61 @@
+# **认证插件**
+
+Kubernetes使用客户端证书，令牌，或者HTTP基本身份验证用户的API调用。
+
+在API服务器中配置—client_ca_file=SOMEFILE选项，就会启动客户端证书认证。引用文件必须包含一个或多个认证机制，通过认证机制验证传给API服务器的客户端证书。当一个客户端证书通过认证，该证书主题的公共名字被作为该请求的用户名。
+
+在API服务器中配置选项：--token_auth_file=SOMEFILE, 启动令牌认证。目前，令牌没有有效期，并且必须重启API服务，令牌列表的更改才会生效。在未来，令牌将会是短期的，并且会根据需要产生，而不是存储在一个文件中。
+
+令牌文件格式路径：plugin/pkg/auth/authenticator/token/tokenfile/...，该文件是一个CSV文件，含有三行：令牌，用户名，用户uid。
+
+当http客户端使用令牌认证，apiserver需要含有Bearer Sometoken值的一个Authorization头。 
+
+OpenID Connect ID Token is enabled by passing the following options to the apiserver:
+
+- oidc-issuer-url (required) tells the apiserver where to connect to the OpenID provider. Only HTTPS scheme will be accepted.
+- oidc-client-id (required) is used by apiserver to verify the audience of the token. A valid ID token MUST have this client-id in its aud claims.
+- oidc-ca-file (optional) is used by apiserver to establish and verify the secure connection to the OpenID provider.
+- oidc-username-claim (optional, experimental) specifies which OpenID claim to use as the user name. By default, sub will be used, which should be unique and immutable under the issuer's domain. Cluster administrator can choose other claims such as email to use as the user name, but the uniqueness and immutability is not guaranteed.
+
+Please note that this flag is still experimental until we settle more on how to handle the mapping of the OpenID user to the Kubernetes user. Thus further changes are possible.
+
+Currently, the ID token will be obtained by some third-party app. This means the app and apiserver MUST share the--oidc-client-id.
+Like Token File, when using token authentication from an http client the apiserver expects an Authorization header with a value of Bearer SOMETOKEN.
+
+
+启动基本认证，需要在apiserver配置选项—basic_auth_file=SOMEFILE。当前，基本认证凭据是无限期的，而且重启apiserver，密码的修改才会生效。需要注意，基本认证方式是更安全的模式，更容易使用，更通用。
+
+基本认证文件格式，plugin/pkg/auth/authenticator/password/passwordfile/...，该文件是一个CSV文件，含有三个值，密码，用户名和用户id。
+如果在http客户端使用基本认证，apiserver需要一个值是Basic BASE64ENCODEDUSER:PASSWOR的Authorization头。
+
+Keystone authentication is enabled by passing the --experimental-keystone-url=<AuthURL> option to the apiserver during startup. The plugin is implemented in plugin/pkg/auth/authenticator/request/keystone/keystone.go. For details on how to use keystone to manage projects and users, refer to the Keystone documentation. Please note that this plugin is still experimental which means it is subject to changes. Please refer to the discussion and the blueprint for more details
+
+## **插件开发** 
+
+We plan for the Kubernetes API server to issue tokens after the user has been (re)authenticated by a bedrockauthentication provider external to Kubernetes. We plan to make it easy to develop modules that interface between Kubernetes and a bedrock authentication provider (e.g. github.com, google.com, enterprise directory, kerberos, etc.)
+
+## **附录**
+
+### **创建证书 **
+When using client certificate authentication, you can generate certificates manually or using an existing deployment script.
+
+Deployment script is implemented at cluster/saltbase/salt/generate-cert/make-ca-cert.sh. Execute this script with two parameters. First is the IP address of apiserver, the second is a list of subject alternate names in the formIP:<ip-address> or DNS:<dns-name>. The script will generate three files:ca.crt, server.crt and server.key. Finally, add these parameters --client-ca-file=/srv/kubernetes/ca.crt --tls-cert-file=/srv/kubernetes/server.cert--tls-private-key-file=/srv/kubernetes/server.key into apiserver start parameters.
+
+easyrsa can be used to manually generate certificates for your cluster.
+
+1.	Download, unpack, and initialize the patched version of easyrsa3.
+curl -L -O https://storage.googleapis.com/kubernetes-release/easy-rsa/easy-rsa.tar.gz tar xzf easy-rsa.tar.gz cd easy-rsa-master/easyrsa3 ./easyrsa init-pki
+2.	Generate a CA. (--batch set automatic mode. --req-cn default CN to use.)
+./easyrsa --batch "--req-cn=${MASTER_IP}@date +%s" build-ca nopass
+3.	Generate server certificate and key. (build-server-full [filename]: Generate a keypair and sign locally for a client or server)
+./easyrsa --subject-alt-name="IP:${MASTER_IP}" build-server-full kubernetes-master nopass
+4.	Copy pki/ca.crt pki/issued/kubernetes-master.crt pki/private/kubernetes-master.key to your directory.
+5.	Remember fill the parameters --client-ca-file=/yourdirectory/ca.crt --tls-cert-file=/yourdirectory/server.cert--tls-private-key-file=/yourdirectory/server.key and add these into apiserver start parameters.
+
+openssl can also be use to manually generate certificates for your cluster.
+1.	Generate a ca.key with 2048bit openssl genrsa -out ca.key 2048
+2.	According to the ca.key generate a ca.crt. (-days set the certificate effective time). openssl req -x509 -new -nodes -key ca.key -subj "/CN=${MASTER_IP}" -days 10000 -out ca.crt
+3.	Generate a server.key with 2048bit openssl genrsa -out server.key 2048
+4.	According to the server.key generate a server.csr. openssl req -new -key server.key -subj "/CN=${MASTER_IP}" -out server.csr
+5.	According to the ca.key, ca.crt and server.csr generate the server.crt. openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 10000
+6.	View the certificate. openssl x509 -noout -text -in ./server.crt Finally, do not forget fill the same parameters and add parameters into apiserver start parameters.
