@@ -40,8 +40,8 @@ kube-apiserver
   --kubelet-port=10250: Kubelet端口
   --kubelet-timeout=5s: Kubelet操作Timeout
   --log-flush-frequency=5s: 日志缓冲秒数的最大值
-  --long-running-request-regexp="(/|^)((watch|proxy)(/|$)|(logs?|portforward|exec|attach)/?$)": A regular expression matching long running requests which should be excluded from maximum inflight request handling.
-      --master-service-namespace="default": The namespace from which the kubernetes master services should be injected into pods
+  --long-running-request-regexp="(/|^)((watch|proxy)(/|$)|(logs?|portforward|exec|attach)/?$)": 匹配长时间运行请求的正则表达式，该请求不属于最大机请求处理。
+  --master-service-namespace="default": The namespace from which the kubernetes master services should be injected into pods
       --max-connection-bytes-per-sec=0: If non-zero, throttle each user connection to this number of bytes/sec.  Currently only applies to long-running requests
       --max-requests-inflight=400: The maximum number of requests in flight at a given time.  When the server exceeds this, it rejects requests.  Zero for no limit.
       --min-request-timeout=1800: An optional field indicating the minimum number of seconds a handler must keep a request open before timing it out. Currently only honored by the watch request handler, which picks a randomized value above this number as the connection timeout, to spread out load.
