@@ -29,7 +29,7 @@
  - 为新的Namespace创建默认账户和API接入的Token。
 - …等等。
 
-### **Kube-scheduler**
+### **kube调度**
 
 [Kube-scheduler](073-kube-scheduler Binary.md)观察新创建、还没有分配节点的Pod，并且从中选择一个节点运行。
 
