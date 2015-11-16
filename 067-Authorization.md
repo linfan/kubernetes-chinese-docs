@@ -79,7 +79,6 @@ system:serviceaccount:<namespace>:default
 ```
 例如，如果你想要在Kube系统授予API默认账户的所有权限，你需要在规则文件中添加如下一行：
 ```
-
 {"user":"system:serviceaccount:kube-system:default"}
 
 ```
