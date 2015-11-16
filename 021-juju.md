@@ -5,7 +5,7 @@ Kubernetes by provisioning, installing and configuring all the systems in
 the cluster.  Once deployed the cluster can easily scale up with one command
 to increase the cluster size.
 
-## Prerequisites
+## 环境准备
 
 > Note: If you're running kube-up, on Ubuntu - all of the dependencies
 > will be handled for you. You may safely skip to the section:
