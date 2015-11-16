@@ -31,7 +31,7 @@
 
 ### **kube调度**
 
-[Kube-scheduler](073-kube-scheduler Binary.md)观察新创建、还没有分配节点的Pod，并且从中选择一个节点运行。
+[kube调度](073-kube-scheduler Binary.md)观察新创建、还没有分配节点的Pod，并且从中选择一个节点运行。
 
 ### **Addons**
 Addons是实现了集群功能的Pod和服务。它们不能在主VM上运行，但是目前能够调用API创建这些Pod和服务的默认启动脚本可以在主VM上运行。可参考[kube-master-addons](kube-master-addons.sh)
