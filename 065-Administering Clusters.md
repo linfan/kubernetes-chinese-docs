@@ -41,7 +41,7 @@
 扩展插件实例：
 - [DNS](https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/dns/)提供集群本地DNS。
 - [kube-ui](https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/kube-ui/)为集群提供图形用户界面。
-- [Fluentd-elasticsearch](https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/fluentd-elasticsearch/)提供日志存储。参考[gcp version](https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/fluentd-gcp/)。
+- [fluentd-elasticsearch](https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/fluentd-elasticsearch/)提供日志存储。参考[gcp version](https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/fluentd-gcp/)。
 - [cluster-monitoring](https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/cluster-monitoring/)监控集群。
 
 ## **Node components** 节点组件
