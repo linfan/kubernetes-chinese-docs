@@ -19,14 +19,14 @@
 [Kube控制器管理者](http://kubernetes.io/v1.1/docs/admin/kube-controller-manager.html)是运行控制器的一个二进制文件，处理集群中日常事务的后端进程。 逻辑上，每个控制器是独立的进程，但是为了减少系统中移动片的数量，它们都被编译成一个独立的二进制，并且运行在一个单一的进程中。
 
 这些控制器包括：
-- Node控制器
+- Node Controller
  - 当节点异常时，负责查看和响应。
-- Replication Controller – 复制控制器
+- Replication Controller
  - 负责对系统中的每一个控制器对象，保持Pod的正确值。
-- Endpoints Controller – 端点控制器
+- Endpoints Controller
  - 填充端点对象（即加入Service & Pod）
-- Service Account & Token Controllers （服务账户 & ）
- - 为新的Namespace创建默认账户和API接入Token。
+- Service Account & Token Controllers
+ - 为新的Namespace创建默认账户和API接入的Token。
 - …等等。
 
 ### **Kube-scheduler**
