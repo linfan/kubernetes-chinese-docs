@@ -1,26 +1,9 @@
 ＃ 从juju开始
--------------------------
 
 [Juju](https://jujucharms.com/docs/stable/about-juju)实现安装，配置集群内的系统 makes it easy to deploy
 Kubernetes by provisioning, installing and configuring all the systems in
 the cluster.  Once deployed the cluster can easily scale up with one command
 to increase the cluster size.
-
-
-**Table of Contents**
-
-- [Prerequisites](#prerequisites)
-   - [On Ubuntu](#on-ubuntu)
-   - [With Docker](#with-docker)
-- [Launch Kubernetes cluster](#launch-kubernetes-cluster)
-- [Exploring the cluster](#exploring-the-cluster)
-- [Run some containers!](#run-some-containers)
-- [Scale out cluster](#scale-out-cluster)
-- [Launch the "k8petstore" example app](#launch-the-k8petstore-example-app)
-- [Tear down cluster](#tear-down-cluster)
-- [More Info](#more-info)
-    - [Cloud compatibility](#cloud-compatibility)
-
 
 ## Prerequisites
 
@@ -33,9 +16,9 @@ to increase the cluster size.
 [Install the Juju client](https://jujucharms.com/get-started) on your
 local Ubuntu system:
 
-    sudo add-apt-repository ppa:juju/stable
-    sudo apt-get update
-    sudo apt-get install juju-core juju-quickstart
+    `sudo add-apt-repository ppa:juju/stable`
+    `sudo apt-get update`
+    `sudo apt-get install juju-core juju-quickstart`
 
 
 ### With Docker
@@ -116,7 +99,8 @@ No pods will be available before starting a container:
 
 We'll follow the aws-coreos example. Create a pod manifest: `pod.json`
 
-```json
+```
+json
 {
   "apiVersion": "v1",
   "kind": "Pod",
