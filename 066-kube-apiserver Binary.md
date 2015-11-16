@@ -32,7 +32,7 @@ kube-apiserver
   --external-hostname="": 为Master生成外部URLs使用的主机名。
   --google-json-key="": 用户Google Cloud Platform Service Account JSON Key认证。
   --insecure-bind-address=127.0.0.1：非安全端口（所有接口都设置为0.0.0.0）的服务IP地址。默认是本地地址。
-  --insecure-port=8080: 
+  --insecure-port=8080: 不安全且没有认证的进程访问端口，默认8080。假设防火墙规则设置该端口从集群外部禁止访问，并且在集群的公共地址区，443端口是该端口的代理。这是nginx的默认配置。
       --kubelet-certificate-authority="": Path to a cert. file for the certificate authority.
       --kubelet-client-certificate="": Path to a client cert file for TLS.
       --kubelet-client-key="": Path to a client key file for TLS.
