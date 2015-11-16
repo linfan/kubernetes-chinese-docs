@@ -9,14 +9,14 @@
 
 即便在未来，如果Kubernetes完全自托管，将只允许主组件调度节点的子集，以限制和运行用户Pod的合作运行，减少节点损害安全漏洞的可能范围。
 
-### **Kube-apiserver**
-[Kube-apiserver](http://kubernetes.io/v1.1/docs/admin/kube-apiserver.html)暴漏出Kubernetes API；它是Kubernetes控制面的前端，可以横向扩展（如，可以通过运行多个API检测一个apiserver-- [high-availability.md](http://kubernetes.io/v1.1/docs/admin/high-availability.html)）。
+### **kube-apiserver**
+[kube-apiserver](http://kubernetes.io/v1.1/docs/admin/kube-apiserver.html)暴漏出Kubernetes API；它是Kubernetes控制面的前端，可以横向扩展（如，可以通过运行多个API检测一个apiserver-- [high-availability.md](http://kubernetes.io/v1.1/docs/admin/high-availability.html)）。
 
-### **Etcd**
-[Etcd](187-etcd.md)作为Kubernetes的后备存储。所有的集群数据都存储在这里。一个Kubernetes集群的适当管理包括对ETCD的数据备份计划。
+### **etcd**
+[etcd](http://kubernetes.io/v1.1/docs/admin/etcd.html)作为Kubernetes的后备存储。所有的集群数据都存储在这里。一个Kubernetes集群的适当管理包括对ETCD的数据备份计划。
 
 ### **Kube-Controller-Manager**
-[Kube-Controller-Manager]()是运行控制器的一个二进制文件，处理集群中日常任务的后端进程。 逻辑上，每个控制器是独立的进程，但是为了减少系统中移动片（moving pieces）的数量，他们都被编译成一个独立的二进制，并且运行在一个单一的进程中。
+[Kube-Controller-Manager](http://kubernetes.io/v1.1/docs/admin/kube-controller-manager.html)是运行控制器的一个二进制文件，处理集群中日常任务的后端进程。 逻辑上，每个控制器是独立的进程，但是为了减少系统中移动片（moving pieces）的数量，他们都被编译成一个独立的二进制，并且运行在一个单一的进程中。
 
 这些控制器包括：
 - Node Controller
