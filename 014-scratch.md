@@ -180,3 +180,4 @@ Kubernets安装版本包包含所有Kuberentes的二进制发行版本和所对�
  3. 为每一个kubelet，kube-proxy和管理员准备不同的登陆账号。
   * 这个配置在实现中，目前还不支持。
 
+为了生成这个文件，你可以参照“cluster/gce/configure-vm.sh”中的代码直接从“$HOME/.kube/config”拷贝过去或者参考以下模版：
