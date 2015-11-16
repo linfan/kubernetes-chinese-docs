@@ -1,4 +1,4 @@
-# Kubernetes集群管理指南：集群组件
+# ****
 
 本文概述了各种二进制组件，这些组件运行可以提供一个有效的Kubernetes集群。
 
@@ -13,20 +13,21 @@
 [Kube-apiserver](066-kube-apiserver Binary.md)展示了Kubernetes API；它是Kubernetes控制面的前端，可以横向扩展（i.e., one scales it by running more of them-- [high-availability.md](083-High Availability Clusters.md)）。
 
 ### Etcd
-Etcd作为Kubernetes的后备存储。所有的集群数据都存储在这里。一个Kubernetes集群的适当管理包括对ETCD的数据备份计划。
+[Etcd](187-etcd.md)作为Kubernetes的后备存储。所有的集群数据都存储在这里。一个Kubernetes集群的适当管理包括对ETCD的数据备份计划。
 
-### Kube-Controller-Manager
-Kube-Controller-Manager是运行控制器的一个二进制文件，处理集群中日常任务的后端进程。 逻辑上，每个控制器是独立的进程，但是为了减少系统中移动片（moving pieces）的数量，他们都被编译成一个独立的二进制，并且运行在一个单一的进程中。
+### **Kube-Controller-Manager**
+[Kube-Controller-Manager]()是运行控制器的一个二进制文件，处理集群中日常任务的后端进程。 逻辑上，每个控制器是独立的进程，但是为了减少系统中移动片（moving pieces）的数量，他们都被编译成一个独立的二进制，并且运行在一个单一的进程中。
+
 这些控制器包括：
-	Node Controller – 节点控制器
-		当节点异常时，负责查看和响应。
-	Replication Controller – 复制控制器
-		负责对系统中的每一个控制器对象，保持Pod的正确值。
-	Endpoints Controller – 端点控制器
-		填充端点对象（即加入Service & Pod）
-	Service Account & Token Controllers （服务账户 & ）
-		为新的Namespace创建默认账户和API接入Token。
-	…等等。
+- Node Controller
+	-当节点异常时，负责查看和响应。
+- Replication Controller – 复制控制器
+	负责对系统中的每一个控制器对象，保持Pod的正确值。
+- Endpoints Controller – 端点控制器
+	填充端点对象（即加入Service & Pod）
+- Service Account & Token Controllers （服务账户 & ）
+	为新的Namespace创建默认账户和API接入Token。
+- …等等。
 
 ### Kube-scheduler
 
