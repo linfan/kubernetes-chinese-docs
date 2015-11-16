@@ -17,5 +17,14 @@ kube-apiserver
   --authorization-policy-file="":
   --basic-auth-file="":
   --bind-address=0.0.0.0:
+  --cert-dir="/var/run/kubernetes":
+  --client-ca-file="":
+  --cloud-config="":
+  --cloud-provider="": 
+  --cluster-name="kubernetes":
+  --cors-allowed-origins=[]:
+  --etcd-config="":
+  --etcd-prefix="/registry": 
+  --etcd-servers=[]:
+  --etcd-servers-overrides=[]:
   
-```
