@@ -30,9 +30,9 @@ kube-apiserver
   --event-ttl=1h0m0s: 保留事件的时间值，默认1小时。
   --experimental-keystone-url="": 如果Passed，激活Keystone认证插件。
   --external-hostname="": 为Master生成外部URLs使用的主机名。
-  --google-json-key="": 
-      --insecure-bind-address=127.0.0.1: The IP address on which to serve the --insecure-port (set to 0.0.0.0 for all interfaces). Defaults to localhost.
-      --insecure-port=8080: The port on which to serve unsecured, unauthenticated access. Default 8080. It is assumed that firewall rules are set up such that this port is not reachable from outside of the cluster and that port 443 on the cluster's public address is proxied to this port. This is performed by nginx in the default setup.
+  --google-json-key="": 用户Google Cloud Platform Service Account JSON Key认证。
+  --insecure-bind-address=127.0.0.1：非安全端口（所有接口都设置为0.0.0.0）的服务IP地址。默认是本地地址。
+  --insecure-port=8080: 
       --kubelet-certificate-authority="": Path to a cert. file for the certificate authority.
       --kubelet-client-certificate="": Path to a client cert file for TLS.
       --kubelet-client-key="": Path to a client key file for TLS.
