@@ -36,9 +36,9 @@
 ### **扩展插件**
 扩展插件属于Pod和Service，实现了集群功能。它们不能在主VM上运行，但是目前能够调用API创建这些Pod和Service的默认启动脚本可以在主VM上运行。可参考[kube-master-addons](kube-master-addons.sh)
 
-Addon对象在“kube-system”空间被创建。
+扩展插件对象创建在“kube-system”空间。
 
-Addons实例：
+扩展插件实例：
 - [DNS](https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/dns/)提供集群本地DNS。
 - [Kube-ui](https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/kube-ui/)为集群提供图形用户界面。
 - [Fluentd-elasticsearch](https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/fluentd-elasticsearch/)提供日志存储。参考[gcp version](https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/fluentd-gcp/)。
