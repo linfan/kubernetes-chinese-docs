@@ -44,9 +44,9 @@
 - [fluentd-elasticsearch](https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/fluentd-elasticsearch/)提供日志存储。参考[gcp version](https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/fluentd-gcp/)。
 - [cluster-monitoring](https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/cluster-monitoring/)监控集群。
 
-## **Node components** 节点组件
+## **Node组件**
 
-节点组件运行在每一个节点上，维护运行Pod，并给它们提供Kubernetes运行环境。
+Node组件运行在每一个节点上，维护运行Pod，并给它们提供Kubernetes运行环境。
 
 ### **Kubelet**
 [Kubelet](076-kubelet Binary.md)是主节点代理。它：
