@@ -199,9 +199,7 @@ github.com:
 
 
 ### Cloud compatibility
-
-Juju runs natively against a variety of public cloud providers. Juju currently
-works with [Amazon Web Service](https://jujucharms.com/docs/stable/config-aws),
+Juju已经在不同的公有云测试过了。目前Juju测试过的云平台是[Amazon Web Service](https://jujucharms.com/docs/stable/config-aws),
 [Windows Azure](https://jujucharms.com/docs/stable/config-azure),
 [DigitalOcean](https://jujucharms.com/docs/stable/config-digitalocean),
 [Google Compute Engine](https://jujucharms.com/docs/stable/config-gce),
@@ -212,14 +210,16 @@ works with [Amazon Web Service](https://jujucharms.com/docs/stable/config-aws),
 [Vagrant](https://jujucharms.com/docs/stable/config-vagrant), and
 [Vmware vSphere](https://jujucharms.com/docs/stable/config-vmware).
 
+如果你没有发现合适你的
+
+
 If you do not see your favorite cloud provider listed many clouds can be
 configured for [manual provisioning](https://jujucharms.com/docs/stable/config-manual).
+
+Kubernetes
 
 The Kubernetes bundle has been tested on GCE and AWS and found to work with
 version 1.0.0.
 
 
-<!-- BEGIN MUNGE: GENERATED_ANALYTICS -->
-[![Analytics](https://kubernetes-site.appspot.com/UA-36037335-10/GitHub/docs/getting-started-guides/juju.md?pixel)]()
-<!-- END MUNGE: GENERATED_ANALYTICS -->
 
