@@ -41,8 +41,8 @@ kube-apiserver
   --kubelet-timeout=5s: Kubelet操作Timeout
   --log-flush-frequency=5s: 日志缓冲秒数的最大值
   --long-running-request-regexp="(/|^)((watch|proxy)(/|$)|(logs?|portforward|exec|attach)/?$)": 匹配长时间运行请求的正则表达式，该请求不属于最大机请求处理。
-  --master-service-namespace="default": The namespace from which the kubernetes master services should be injected into pods
-      --max-connection-bytes-per-sec=0: If non-zero, throttle each user connection to this number of bytes/sec.  Currently only applies to long-running requests
+  --master-service-namespace="default": Namespace，该Namespace的Kubernetes主服务应该注入Pod。
+  --max-connection-bytes-per-sec=0: 如果非零，表示每个用户连接的最大值，字节数/秒，当前只适用于长时间运行的请求。
       --max-requests-inflight=400: The maximum number of requests in flight at a given time.  When the server exceeds this, it rejects requests.  Zero for no limit.
       --min-request-timeout=1800: An optional field indicating the minimum number of seconds a handler must keep a request open before timing it out. Currently only honored by the watch request handler, which picks a randomized value above this number as the connection timeout, to spread out load.
       --oidc-ca-file="": If set, the OpenID server's certificate will be verified by one of the authorities in the oidc-ca-file, otherwise the host's root CA set will be used
