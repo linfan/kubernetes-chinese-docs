@@ -1,15 +1,16 @@
 ＃ 从juju开始
 
-[Juju](https://jujucharms.com/docs/stable/about-juju)实现安装，配置集群内的系统 makes it easy to deploy
-Kubernetes by provisioning, installing and configuring all the systems in
-the cluster.  Once deployed the cluster can easily scale up with one command
+[Juju](https://jujucharms.com/docs/stable/about-juju)实现安装，配置集群内的系统 
+
+makes it easy to deploy
+Kubernetes by provisioning, installing and configuring all the systems in the cluster.  Once deployed the cluster can easily scale up with one command
 to increase the cluster size.
 
 ## 环境准备
 
 > Note: If you're running kube-up, on Ubuntu - all of the dependencies
 > will be handled for you. You may safely skip to the section:
-> [Launch Kubernetes Cluster](#launch-kubernetes-cluster)
+> [运行Kubernetes集群](#运行Kubernetes集群)
 
 ### On Ubuntu
 
@@ -44,7 +45,7 @@ bootstrap the juju root node and setup the juju web based user
 interface.
 
 
-## Launch Kubernetes cluster
+## 运行Kubernetes集群
 
 You will need to export the `KUBERNETES_PROVIDER` environment variable before
 bringing up the cluster.
