@@ -1,50 +1,6 @@
-<!-- BEGIN MUNGE: UNVERSIONED_WARNING -->
+在Ubuntu物理节点上部署Kubernets
 
-<!-- BEGIN STRIP_FOR_RELEASE -->
-
-<img src="http://kubernetes.io/img/warning.png" alt="WARNING"
-     width="25" height="25">
-<img src="http://kubernetes.io/img/warning.png" alt="WARNING"
-     width="25" height="25">
-<img src="http://kubernetes.io/img/warning.png" alt="WARNING"
-     width="25" height="25">
-<img src="http://kubernetes.io/img/warning.png" alt="WARNING"
-     width="25" height="25">
-<img src="http://kubernetes.io/img/warning.png" alt="WARNING"
-     width="25" height="25">
-
-<h2>PLEASE NOTE: This document applies to the HEAD of the source tree</h2>
-
-If you are using a released version of Kubernetes, you should
-refer to the docs that go with that version.
-
-<strong>
-The latest 1.0.x release of this document can be found
-[here](http://releases.k8s.io/release-1.0/docs/getting-started-guides/ubuntu.md).
-
-Documentation for other releases can be found at
-[releases.k8s.io](http://releases.k8s.io).
-</strong>
---
-
-<!-- END STRIP_FOR_RELEASE -->
-
-<!-- END MUNGE: UNVERSIONED_WARNING -->
-Kubernetes Deployment On Bare-metal Ubuntu Nodes
-------------------------------------------------
-
-- [Introduction](#introduction)
-- [Prerequisites](#prerequisites)
-- [Starting a Cluster](#starting-a-cluster)
-    - [Set up working directory](#set-up-working-directory)
-    - [Configure and start the kubernetes cluster](#configure-and-start-the-kubernetes-cluster)
-    - [Test it out](#test-it-out)
-    - [Deploy addons](#deploy-addons)
-    - [Trouble shooting](#trouble-shooting)
-- [Upgrading a Cluster](#upgrading-a-cluster)
-    - [Test it out](#test-it-out-ii)
-
-## Introduction
+## 介绍
 
 This document describes how to deploy kubernetes on ubuntu nodes, 1 master and 3 nodes involved
 in the given examples. You can scale to **any number of nodes** by changing some settings with ease.
