@@ -1,6 +1,6 @@
 # **服务账户集群管理指南**
 
-*这是对服务账号的集群管理指南，详情User Guide to Service Accounts.*
+*这是对服务账号的集群管理指南，详情[User Guide to Service Accounts]().*
 
 *用户授权和用户账户在计划中，还没有完全支持。有时候，不完整的一些特性，以便可以更好的描述服务账户。*
 
@@ -41,7 +41,7 @@ TokenController做为controller-manager的一部分异步运行。
 #### 创建额外的API标记
 
 一个控制循坏要确保每一个服务账户存在一个API标记。为一个服务账户创建一个额外的API标记，类型是ServiceAccountToken，含有一个注释去引用到对应的服务账户。该控制器使用如下的标记去更新：
-
+```Json
 secret.json:
 {
     "kind": "Secret",
@@ -54,13 +54,14 @@ secret.json:
     },
     "type": "kubernetes.io/service-account-token"
 }
+
 kubectl create -f ./secret.json
 kubectl describe secret mysecretname
-
+```
 #### 去删除、废弃一个服务账户标记
-
+```
 kubectl delete secret mysecretname
-
+```
 ### **服务账户控制器**
 
 Service Account Controller管理Namespace中的ServiceAccount，确保每一个“default”的ServiceAccount存在于每一个活动空间中。
