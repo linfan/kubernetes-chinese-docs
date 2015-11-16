@@ -13,7 +13,7 @@ to increase the cluster size.
 
 ### On Ubuntu
 
-在你的本地Ubuentu系统上安装[安装Juju客户端](https://jujucharms.com/get-started):
+在你的本地Ubuntu系统上安装[安装Juju客户端](https://jujucharms.com/get-started):
 
     `sudo add-apt-repository ppa:juju/stable`
     `sudo apt-get update`
