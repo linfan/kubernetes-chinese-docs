@@ -7,7 +7,7 @@
 
 理论上，主组件可以运行在集群的任何节点上。但是，为了简单化，当前的设置脚本通常在同样的VM上启动所有的主组件，而且不会在该VM上运行用户容器。参考[high-availability.md](http://kubernetes.io/v1.1/docs/admin/high-availability.html)，一个Multi-Master-VM设置的实例。
 
-即便在未来，如果Kubernetes完全自托管，将只允许主组件调度节点的子集，以限制具有用户Pod的共同运行，减少节点损害安全漏洞的可能范围。
+即便在未来，如果Kubernetes完全自托管，将只允许主组件调度节点的子集，以限制和运行用户Pod的合作运行，减少节点损害安全漏洞的可能范围。
 
 ### **Kube-apiserver**
 [Kube-apiserver](066-kube-apiserver Binary.md)展示了Kubernetes API；它是Kubernetes控制面的前端，可以横向扩展（i.e., one scales it by running more of them-- [high-availability.md](083-High Availability Clusters.md)）。
