@@ -2,9 +2,9 @@
 # 配置kubernetes
 
 
-除了像kubectl run和kubectl expose这些必要的命令，kubernetes也支持可声明式的配置。配置文件也需要必要的命令，这样就可以在代码审查中检查版本控制和文件改动，而代码审查对复杂的具有鲁棒性的可靠生产系统是非常重要的。
+除了像`kubectl run`和`kubectl expose`这些必要的命令，kubernetes也支持可声明式的配置。配置文件也需要必要的命令，这样就可以在代码审查中检查版本控制和文件改动，而代码审查对复杂的具有鲁棒性的可靠生产系统是非常重要的。
 
-在声明式风格中，所有的配置都保存在YAML或者JSON配置文件中，使用Kubernetes的API资源模式（schema）作为配置的模式（schema）。Kubectl命令可以创建、更新、删除以及获取API资源。kubectl命令用ApiVersion（目前是“v1”），kind资源，name资源去创建合适的API路径来执行特殊的操作。
+在声明式风格中，所有的配置都保存在YAML或者JSON配置文件中，使用Kubernetes的API资源模式（schema）作为配置的模式（schema）。`kubectl`命令可以创建、更新、删除以及获取API资源。`kubectl`命令用`ApiVersion`（目前是“v1”），`kind`资源，`name`资源去创建合适的API路径来执行特殊的操作。
 
 
 # 使用配置文件创建一个容器
@@ -24,39 +24,39 @@ spec:  # specification of the pod’s contents
 ```
 
 
-metadata.name的值hello-world，将会成为创建成功后Pod的名称，这个名称必须在集群中唯一，而container[0].name只是容器在Pod中的昵称。image就是Docker image的名称且Kubernetes默认会从Docker Hub中拉取镜像。
+`metadata.name的`值`hello-world`，将会成为创建成功后Pod的名称，这个名称必须在集群中唯一，而`container[0].name`只是容器在Pod中的昵称。`image`就是Docker image的名称且Kubernetes默认会从Docker Hub中拉取镜像。
 
-restartPolicy: Never指明了我们只是想运行容器一次然后就终止Pod。
+`restartPolicy`: `Never`指明了我们只是想运行容器一次然后就终止Pod。
 
-Command覆盖了docker容器的Entrypoint。命令的参数（相当于Docker的Cmd）可以指定为args参数，如下所示：
+`Command`覆盖了docker容器的`Entrypoint`。命令的参数（相当于Docker的`Cmd`）可以指定`args`参数，如下所示：
 
 ```
 command: ["/bin/echo"]
 args: ["hello","world"]
 ```
-创建这个pod就可以使用create命令了
+创建这个pod就可以使用`create`命令了
 
 ```
 $ kubectl create -f ./hello-world.yaml
 pods/hello-world
 ```
-当成功创建时，kubectl打印出资源类型和资源名称。
+当成功创建时，`kubectl`打印出资源类型和资源名称。
 
 
 # 配置验证
 
-如果你不确定指定的资源是否正确，你可以用kubectl –validate帮你验证。
+如果你不确定指定的资源是否正确，你可以`kubectl`帮你验证。
 ```
 $ kubectl create -f ./hello-world.yaml --validate
 ```
-假设我们指定的是entrypoint而不是command，你会看到如下输出：
+假设我们指定的是`entrypoint`而不是`command`，你会看到如下输出：
 ```
 I0709 06:33:05.600829   14160 schema.go:126] unknown field: entrypoint
 I0709 06:33:05.600988   14160 schema.go:129] this may be a false alarm, 
 see https://github.com/GoogleCloudPlatform/kubernetes/issues/6842
 pods/hello-world
 ```
-kubectl create –validate会警告已经检测出问题，除非缺少必须的字段或者字段值不合法，最后kubectl还是会创建出资源。一定要小心，未知的API字段会被忽略。这个pod没有command字段而被创建，command字段是一个可选字段，因为image镜像可以指定Entrypoint。访问Pod API object来查看合法字段列表。
+`kubectl create –validate`会警告已经检测出问题，除非缺少必须的字段或者字段值不合法，最后kubectl还是会创建出资源。一定要小心，未知的API字段会被忽略。这个pod没有`command`字段而被创建，command字段是一个可选字段，因为image镜像可以指定`Entrypoint`。访问Pod API object来查看合法字段列表。
 
 
 # 环境变量和增加变量
