@@ -108,3 +108,32 @@ NAME          READY     STATUS       RESTARTS   AGE
 hello-world   0/1       ExitCode:0   0          15s
 
 ```
+
+# 查看pod输出
+
+你会想要查看你运行命令的输出。像docker logs一样，kubectl logs也会显示输出：
+```
+$ kubectl logs hello-world
+hello world
+
+```
+
+# 删除pods
+
+当你看完的输出，你应该删除pod：
+```
+$ kubectl delete pod hello-world
+pods/hello-world
+
+```
+就像create一样，删除成功时kubectl也会打印出资源类型和资源名称。
+
+你也可以使用 资源/名称格式指定一个pod：
+```
+$ kubectl delete pods/hello-world
+pods/hello-world
+
+```
+终止pods不会自动的删除，你可以观察他们的最终状态，所以请确定清理了你的已经结束的pods。
+
+在另一方面，为了在节点中释放磁盘空间容器和他们的日志也会被自动删除。
