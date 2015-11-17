@@ -20,4 +20,50 @@
 9. 你可以运行多种组件构成的集群来使你自己变成更加熟练。
 
 
+## 创建一个集群
+
+从列表中挑选一个入门手册然后按它指导。如果没有入门指南适合你，你也可以参考入门手册中的一部分指导。
+
+一种可选的网络模型就是OpenVSwitch GRE/VxLAN 网络（ovs-networking.md），使用OpenVSwitch设置的网络可以使Kubernetes不同节点之间的pod通信。
+
+如果你正在使用Salt修改已经存在指南，这篇文档会告诉你Salt如何应用于Kubernetes项目。
+
+
+## 管理一个集群以及升级
+
+
+管理集群
+
+
+## 管理节点
+
+
+管理节点
+
+
+## 可选的集群服务
+
+
+使用SkyDNS（dns.md）整合DNS：为Kubernetes服务解析DNS名字。
+使用Kibana记录日志。
+
+
+## 多租户支持
+
+
+资源配额（resource-quota.md）
+
+
+## 安全
+
+
+Kubernetes容器环境（docs/user-guide/container-environment.md）:阐述了Kubelet在管理Kubernetes节点上的容器时的环境。
+
+安全访问API Server：访问api
+
+认证：authentication
+
+授权：authorization
+
+接纳控制：admission_controllers
 
