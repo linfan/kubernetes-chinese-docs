@@ -3,7 +3,7 @@
 [Juju](https://jujucharms.com/docs/stable/about-juju)可以通过扩展，安装和配置集群内的所有系统从而实现简易部署Kubernetes。
 一旦部署完毕，集群可以轻松支持单命令扩展集群大小。
 
-## 环境准备
+## 前提条件
 
 > 注意: 如果你在Ubuntu上运行kube-up，所有的相关依赖的安装都会被相对应处理。你可以放心越过章节[运行
 > Kubernetes集群](#运行Kubernetes集群)
