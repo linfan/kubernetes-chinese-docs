@@ -6,7 +6,7 @@
 ## 前提条件
 
 > 注意: 如果你在Ubuntu上运行kube-up，所有的相关依赖的安装都会被相对应处理。你可以放心越过章节[运行
-> Kubernetes集群](#运行Kubernetes集群)
+> Kubernetes集群](#运行Kubernetes集群)的阅读。
 
 ### Ubuntu上
 
