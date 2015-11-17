@@ -5,7 +5,7 @@
 
 [浙江大学云团队](https://github.com/ZJU-SEL)会维护这项工作。
 
-## 环境准备
+## 前提条件
 1. 所有节点上已经安装docker版本1.2+和用来控制Linux网桥的bridge-utils。
 2. 所有的机器可相互通信。主节点需要连接到Interent去下载必须的文件。
 3. 本指南介绍的步骤已经在Ubuntu 14.04 LTS 64bit server上测试过了。但在Ubuntu 15不能正常工作，这是因为Ubuntu 15使用systemd代替了upstart。
