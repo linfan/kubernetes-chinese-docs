@@ -10,7 +10,7 @@
 # 使用配置文件创建一个容器
 
 Kubernetes是在Pod中来运行容器的。一个包含了一个简单的HellWorld容器的Pod可以被如下的YAML文件指定：
-
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -21,14 +21,23 @@ spec:  # specification of the pod’s contents
   - name: hello
     image: "ubuntu:14.04"
     command: ["/bin/echo","hello”,”world"]
+```
 
 
 metadata.name的值hello-world，将会成为创建成功后Pod的名称，这个名称必须在集群中唯一，而container[0].name只是容器在Pod中的昵称。image就是Docker image的名称且Kubernetes默认会从Docker Hub中拉取镜像。
+
 restartPolicy: Never指明了我们只是想运行容器一次然后就终止Pod。
+
 Command覆盖了docker容器的Entrypoint。命令的参数（相当于Docker的Cmd）可以指定为args参数，如下所示：
+
+```
 command: ["/bin/echo"]
-    args: ["hello","world"]
+args: ["hello","world"]
+```
 创建这个pod就可以使用create命令了
+
+```
 $ kubectl create -f ./hello-world.yaml
 pods/hello-world
+```
 当成功创建时，kubectl打印出资源类型和资源名称。
