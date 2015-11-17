@@ -1,72 +1,27 @@
-<!-- BEGIN MUNGE: UNVERSIONED_WARNING -->
+# 如何在Mesos上运行Kubernetes
 
-<!-- BEGIN STRIP_FOR_RELEASE -->
+## 关于在Mesos上运行Kubernetes
 
-<img src="http://kubernetes.io/img/warning.png" alt="WARNING"
-     width="25" height="25">
-<img src="http://kubernetes.io/img/warning.png" alt="WARNING"
-     width="25" height="25">
-<img src="http://kubernetes.io/img/warning.png" alt="WARNING"
-     width="25" height="25">
-<img src="http://kubernetes.io/img/warning.png" alt="WARNING"
-     width="25" height="25">
-<img src="http://kubernetes.io/img/warning.png" alt="WARNING"
-     width="25" height="25">
+Mesos允许Kubernetes和其他Mesos构架，例如：[Hadoop][1],[Spark][2]和[Chronos][3]来动态分享集群资源。
 
-<h2>PLEASE NOTE: This document applies to the HEAD of the source tree</h2>
+Mesos确保同一集群上的运行的不同架构上的应用之间相互隔离，和较公平资源的分配。
 
-If you are using a released version of Kubernetes, you should
-refer to the docs that go with that version.
-
-<strong>
-The latest 1.0.x release of this document can be found
-[here](http://releases.k8s.io/release-1.0/docs/getting-started-guides/mesos.md).
-
-Documentation for other releases can be found at
-[releases.k8s.io](http://releases.k8s.io).
-</strong>
---
-
-<!-- END STRIP_FOR_RELEASE -->
-
-<!-- END MUNGE: UNVERSIONED_WARNING -->
-Getting started with Kubernetes on Mesos
-----------------------------------------
-
-**Table of Contents**
-
-- [About Kubernetes on Mesos](#about-kubernetes-on-mesos)
-    - [Prerequisites](#prerequisites)
-    - [Deploy Kubernetes-Mesos](#deploy-kubernetes-mesos)
-    - [Deploy etcd](#deploy-etcd)
-    - [Start Kubernetes-Mesos Services](#start-kubernetes-mesos-services)
-        - [Validate KM Services](#validate-km-services)
-- [Spin up a pod](#spin-up-a-pod)
-- [Run the Example Guestbook App](#run-the-example-guestbook-app)
-        - [Test Guestbook App](#test-guestbook-app)
-
-## About Kubernetes on Mesos
-
-<!-- TODO: Update, clean up. -->
-
-Mesos allows dynamic sharing of cluster resources between Kubernetes and other first-class Mesos frameworks such as [Hadoop][1], [Spark][2], and [Chronos][3].
-Mesos also ensures applications from different frameworks running on your cluster are isolated and that resources are allocated fairly among them.
 
 Mesos clusters can be deployed on nearly every IaaS cloud provider infrastructure or in your own physical datacenter. Kubernetes on Mesos runs on-top of that and therefore allows you to easily move Kubernetes workloads from one of these environments to the other.
 
 This tutorial will walk you through setting up Kubernetes on a Mesos cluster.
 It provides a step by step walk through of adding Kubernetes to a Mesos cluster and starting your first pod with an nginx webserver.
 
-**NOTE:** There are [known issues with the current implementation][7] and support for centralized logging and monitoring is not yet available.
+**注意:** There are [known issues with the current implementation][7] and support for centralized logging and monitoring is not yet available.
 Please [file an issue against the kubernetes-mesos project][8] if you have problems completing the steps below.
 
 Further information is available in the Kubernetes on Mesos [contrib directory][13].
 
-### Prerequisites
+### 前提条件
 
-* Understanding of [Apache Mesos][6]
-* A running [Mesos cluster on Google Compute Engine][5]
-* A [VPN connection][10] to the cluster
+* 理解[Apache Mesos][6]
+* 一个运行的[Mesos cluster on Google Compute Engine][5]
+* 一个[VPN connection][10] to the cluster
 * A machine in the cluster which should become the Kubernetes *master node* with:
   * GoLang > 1.2
   * make (i.e. build-essential)
@@ -264,13 +219,13 @@ The kube-dns addon runs as a pod inside the cluster. The pod consists of three c
 - the [skydns][11] DNS server
 - the kube2sky process to glue skydns to the state of the Kubernetes cluster.
 
-The skydns container offers DNS service via port 53 to the cluster. The etcd communication works via local 127.0.0.1 communication
+skydns容器通过53端口向集群提供DNS服务。 etcd communication works via local 127.0.0.1 communication
 
-We assume that kube-dns will use
-- the service IP `10.10.10.10`
-- and the `cluster.local` domain.
+我们假设 kube-dns会使用
+ * service IP `10.10.10.10`
+ * 和`cluster.local`域名。
 
-Note that we have passed these two values already as parameter to the apiserver above.
+注意 that we have passed these two values already as parameter to the apiserver above.
 
 A template for an replication controller spinning up the pod with the 3 containers can be found at [cluster/addons/dns/skydns-rc.yaml.in][11] in the repository. The following steps are necessary in order to get a valid replication controller yaml file:
 
@@ -282,7 +237,7 @@ In addition the service template at [cluster/addons/dns/skydns-svc.yaml.in][12] 
 
 - `{{ pillar['dns_server'] }}` with `10.10.10.10`.
 
-To do this automatically:
+自动化这一步:
 
 ```bash
 sed -e "s/{{ pillar\['dns_replicas'\] }}/1/g;"\
@@ -293,7 +248,7 @@ sed -e "s/{{ pillar\['dns_server'\] }}/10.10.10.10/g" \
   cluster/addons/dns/skydns-svc.yaml.in > skydns-svc.yaml
 ```
 
-Now the kube-dns pod and service are ready to be launched:
+现在kube-dns pod和service已经启动了:
 
 ```bash
 kubectl create -f ./skydns-rc.yaml
@@ -326,11 +281,13 @@ spec:
 EOF
 ```
 
-Then start the pod:
+之后启动pod:
 
 ```bash
 kubectl create -f ./busybox.yaml
 ```
+
+当pod
 
 When the pod is up and running, start a lookup for the Kubernetes master service, made available on 10.10.10.1 by default:
 
@@ -338,7 +295,7 @@ When the pod is up and running, start a lookup for the Kubernetes master service
 kubectl  exec busybox -- nslookup kubernetes
 ```
 
-If everything works fine, you will get this output:
+如果一切运行正常，你会看到一下显示:
 
 ```console
 Server:    10.10.10.10
@@ -348,16 +305,15 @@ Name:      kubernetes
 Address 1: 10.10.10.1
 ```
 
-## What next?
+## 下一步?
 
-Try out some of the standard [Kubernetes examples][9].
+试着运行一下[Kubernetes examples][9].
 
-Read about Kubernetes on Mesos' architecture in the [contrib directory][13].
+阅读在Mesos上运行Kubernetes的架构[contrib directory][13].
 
-**NOTE:** Some examples require Kubernetes DNS to be installed on the cluster.
-Future work will add instructions to this guide to enable support for Kubernetes DNS.
+**注意:** 一些示例需要在集群上安装Kubernetes DNS。我们未来会在本指南里加入如何支持Kubernetes DNS的介绍的。
 
-**NOTE:** Please be aware that there are [known issues with the current Kubernetes-Mesos implementation][7].
+**注意:** 请注意这里有一些[known issues with the current Kubernetes-Mesos implementation][7].
 
 [1]: http://mesosphere.com/docs/tutorials/run-hadoop-on-mesos-using-installer
 [2]: http://mesosphere.com/docs/tutorials/run-spark-on-mesos
@@ -373,8 +329,4 @@ Future work will add instructions to this guide to enable support for Kubernetes
 [12]: ../../cluster/addons/dns/skydns-svc.yaml.in
 [13]: ../../contrib/mesos/README.md
 
-
-<!-- BEGIN MUNGE: GENERATED_ANALYTICS -->
-[![Analytics](https://kubernetes-site.appspot.com/UA-36037335-10/GitHub/docs/getting-started-guides/mesos.md?pixel)]()
-<!-- END MUNGE: GENERATED_ANALYTICS -->
 
