@@ -25,7 +25,7 @@ Kubectl CLI
 
 对于kubectl的更多信息，包括它的使用率，命令，参数，请阅读kubectl CLI参考手册http://kubernetes.io/v1.1/docs/user-guide/kubectl/kubectl.html。
 
-如果你没有安装好或者配置好kubectl，在继续阅读之前把这件事完成。
+如果你没有安装好或者配置好kubectl，在继续阅读之前按照http://kubernetes.io/v1.1/docs/user-guide/prereqs.html把预置条件完成。
 
 Pods
 
