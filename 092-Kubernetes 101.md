@@ -152,7 +152,6 @@ spec:
   - name: www-data
     emptyDir: {}
 
-Note that we have also added a volume here. In this case, the volume is mounted into both containers. It is marked readOnly in the web server's case, since it doesn't need to write to the directory.
 注意我们也在这里增加了一个volume。在这个例子里，这个volume同时被安装在两个容器中。在网页服务器容器中，由于并不需要写这个目录，因此被标注为只读。
 
 Finally, we have also introduced an environment variable to the git-monitor container, which allows us to parameterize that container with the particular git repository that we want to track.
