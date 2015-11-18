@@ -1,7 +1,7 @@
 
 # 使用kubectl exec检查容器中的环境变量
 
-Kubernetes通过服务来暴露services。使用kubectl exec去检查环境变量会很方便。
+Kubernetes通过服务来暴露services。使`用kubectl exec`去检查环境变量会很方便。
 
 首先我们创建一个pod和一个service，
 ```
@@ -28,7 +28,7 @@ REDIS_MASTER_SERVICE_HOST=10.0.0.219
 
 # 使用kubectl exec检查挂载的数据卷（volume）
 
-使用kubectl exec检查你希望挂载的数据卷（volume）同样很方便。首先还是创建一个pod并且挂载一个数据卷到这个pod的/data/redis目录，
+使用`kubectl exec`检查你希望挂载的数据卷（volume）同样很方便。首先还是创建一个pod并且挂载一个数据卷到这个pod的/data/redis目录，
 ```
 kubectl create -f docs/user-guide/walkthrough/pod-redis.yaml
 ```
@@ -39,7 +39,7 @@ NAME      READY     REASON    RESTARTS   AGE
 storage   1/1       Running   0          1m
 
 ```
-然后我们就可以使用kubectl exec去验证数据卷已经挂载到了/data/redis目录，
+然后我们就可以使用`kubectl exec`去验证数据卷已经挂载到了/data/redis目录，
 ```
 $ kubectl exec storage ls /data
 redis
