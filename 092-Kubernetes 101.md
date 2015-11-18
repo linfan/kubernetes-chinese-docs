@@ -78,6 +78,7 @@ Volumes
 容器文件系统仅仅存在于容器的生存周期。所以，如果你的应用状态需要忍受迁移、重启和崩溃，你需要配置一些持续性存储。
 
 在下面的例子中，我们将创建一个Redis Pod，这个Pod包括一个named Volume和包含Volume安装路径的Volume安装点。
+1、定义一个Volume：
 volumes:
     - name: redis-persistent-storage
       emptyDir: {}
