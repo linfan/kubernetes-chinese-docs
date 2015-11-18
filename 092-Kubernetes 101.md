@@ -53,7 +53,7 @@ Pod的定义声明了某个预期状态。预期状态是Kubernetes模型中非�
 
 Pod管理
 
-创建一个包含nginx server的pod（pod-nginx.yaml）:
+创建一个包含nginx server的pod（pod-nginx.yaml http://kubernetes.io/v1.1/docs/user-guide/walkthrough/pod-nginx.yaml）:
 
 $ kubectl create -f docs/user-guide/walkthrough/pod-nginx.yaml
 
