@@ -7,14 +7,16 @@ Kubernetes 101 - Kubectl CLI and Pods
 为了kubectl使用率示例可以正常运行，请确保你已经在本地有示例目录，可以从https://github.com/kubernetes/kubernetes/releases中或者从https://github.com/kubernetes/kubernetes中得到的。
 
 内容列表
-•Kubernetes 101 - Kubectl CLI 和 Pods •Kubectl CLI
-•Pods •Pod 定义
-•Pod 管理
-•Volumes
-•Volume 类型
-•Multiple Containers多容器
+•Kubernetes 101 - Kubectl CLI 和 Pods 
+    •Kubectl CLI
+    •Pods 
+        •Pod 定义
+        •Pod 管理
+    •Volumes
+        •Volume 类型
+    •Multiple Containers多容器
 
-•下面是什么?
+    •下面是什么?
 
 
 Kubectl CLI
