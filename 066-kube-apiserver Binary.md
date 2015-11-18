@@ -44,7 +44,7 @@ kube-apiserver
   --master-service-namespace="default": Namespace，该Namespace的Kubernetes主服务应该注入Pod。
   --max-connection-bytes-per-sec=0: 如果非零，表示每个用户连接的最大值，字节数/秒，当前只适用于长时间运行的请求。
   --max-requests-inflight=400: 给定时间内运行的请求的最大值。如果超过最大值，该请求就会被拒绝。零表示没有限制。
-  --min-request-timeout=1800: An optional field indicating the minimum number of seconds a handler must keep a request open before timing it out. Currently only honored by the watch request handler, which picks a randomized value above this number as the connection timeout, to spread out load.
+  --min-request-timeout=1800: 这是个可选字段，表示一个请求处理的最短时间，单位是秒。在超时之前，这个请求必须是激活的。目前，请求处理程序会选择一个高于该数值的随机值作为连接超时的值进行分散负载。
   --oidc-ca-file="": If set, the OpenID server's certificate will be verified by one of the authorities in the oidc-ca-file, otherwise the host's root CA set will be used
   --oidc-client-id="": The client ID for the OpenID Connect client, must be set if oidc-issuer-url is set
   --oidc-issuer-url="": The URL of the OpenID issuer, only HTTPS scheme will be accepted. If set, it will be used to verify the OIDC JSON Web Token (JWT)
