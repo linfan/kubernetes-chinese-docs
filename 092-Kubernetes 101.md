@@ -77,9 +77,7 @@ Volumes
 
 容器文件系统仅仅存在于容器的生存周期。所以，如果你的应用状态需要忍受迁移、重启和崩溃，你需要配置一些持续性存储。
 
-For this example we'll be creating a Redis pod with a named volume and volume mount that defines the path to mount the volume.
-1.Define a volume:
-在下面的例子中，我们将创建一个Redis Pod，这个Pod包括一个已命名的Volume和包含Volume安装路径的Volume安装点。
+在下面的例子中，我们将创建一个Redis Pod，这个Pod包括一个named Volume和包含Volume安装路径的Volume安装点。
 volumes:
     - name: redis-persistent-storage
       emptyDir: {}
@@ -92,7 +90,7 @@ volumeMounts:
       # mount path within the container
       mountPath: /data/redis
 
-带有持续存储Volume的Redis Pod定义举例（pod-redis.yaml）：
+带有持续存储Volume的Redis Pod定义举例（pod-redis.yamlhttp://kubernetes.io/v1.1/docs/user-guide/walkthrough/pod-redis.yaml）：
 
 apiVersion: v1
 kind: Pod
@@ -109,9 +107,8 @@ spec:
   - name: redis-persistent-storage
     emptyDir: {}
 
-Notes:
 注：
-•volume安装点名字是一个纸箱一个特定空目录volume的指针。
+•volume安装点名字是一个指向一个特定空目录volume的指针。
 •volume安装目录是容器内安装特定空目录volume的路径。
 
 Volume 类型
