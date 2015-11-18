@@ -55,7 +55,7 @@ kube-apiserver
   --service-account-key-file="": 该文件包含RPM-encoded x509 RSA的私钥和公钥，用于验证ServiceAccount的Token。如果没有指定，会使用该配置--tls-private-key-file。
   --service-account-lookup[=false]: If true, validate ServiceAccount tokens exist in etcd as part of authentication.
   --service-cluster-ip-range=<nil>: A CIDR notation IP range from which to assign service cluster IPs. This must not overlap with any IP ranges assigned to nodes for pods.
-  --service-node-port-range=: Example: '30000-32767'.  Inclusive at both ends of the range.
+  --service-node-port-range=: NodePort可见性服务的端口范围，包含范围的两端。如'30000-32767'，包含30000和32767端口。
   --ssh-keyfile="": 如果非空，使用安全SSH代理到该节点，用该秘钥文件。
   --ssh-user="": 如果非空，使用安全SSH代理到该节点，用该用户名。
   --storage-versions="extensions/v1beta1,v1": 存储资源的版本。不同的组存储在不同的版本里面，指定格式"group1/version1,group2/version2..."。该标志预计出注册在服务器中的所有组的存储版本的完整列表。它默认是所有注册组的首选版本列表，来自KUBE_API_VERSIONS变量。
