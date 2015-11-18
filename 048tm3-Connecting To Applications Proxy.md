@@ -1,19 +1,19 @@
 
 # 应用：kubectl proxy和apiserver proxy
 
-你已经看过了`kubectl proxy`和`apiserver proxy`的基本知识。本页将为你展示如何一起使用它们去访问运行在你的工作站上的Kubernetes集群提供的服务（kube-ui）。
+你已经看过了`kubectl proxy`和`apiserver proxy`的[基本知识](http://kubernetes.io/v1.0/docs/user-guide/accessing-the-cluster.html)。本页将为你展示如何一起使用它们去访问运行在你的工作站上的Kubernetes集群提供的服务（[kube-ui](http://kubernetes.io/v1.0/docs/user-guide/ui.html)）。
 
 
 # 获取kube-ui的apiserver proxy URL
 
 
-Kube-ui是作为一个集群的插件进行部署的。想要找到他的apiserver proxy URL：
+kube-ui是作为一个集群的插件进行部署的。想要找到他的apiserver proxy URL：
 ```
 $ kubectl cluster-info | grep "KubeUI"
 KubeUI is running at https://173.255.119.104/api/v1/proxy/namespaces/kube-system/services/kube-ui
 
 ```
-如果这条命令不能找到URL，试试这些步骤。
+如果这条命令不能找到URL，试试[这些步骤](http://kubernetes.io/v1.0/docs/user-guide/ui.html#accessing-the-ui)。
 
 # 从你的本地工作站连接到kube-ui服务
 
