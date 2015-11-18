@@ -109,7 +109,7 @@ spec:
   - name: redis-persistent-storage
     emptyDir: {}
 
-案例下载
+案例下载http://kubernetes.io/v1.1/docs/user-guide/walkthrough/pod-redis.yaml
 
 注：
 •volume安装点名字是一个指向一个特定空目录volume的指针。
