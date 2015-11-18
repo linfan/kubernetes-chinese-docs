@@ -1,7 +1,7 @@
 
 # 应用：kubectl port-forward
 
-kubectl port-forward命令转发了本地端口到pod端口的连接。它的手册现在这里可以查看。相比于kubectl proxy，kubectl port-forward也可以转发TCP流量而kubectl proxy只能转发HTTP流量。本页阐述了如何使用kubectl port-forward去连接Redis 数据库，这在数据库查错中很有用。
+kubectl port-forward命令转发了本地端口到pod端口的连接。它的手册现在这里可以查看。相比于kubectl proxy，`kubectl port-forward`也可以转发TCP流量而`kubectl proxy`只能转发HTTP流量。本页阐述了如何使用`kubectl port-forward`去连接Redis 数据库，这在数据库查错中很有用。
 
 # 创建一个Redis主服务
 
