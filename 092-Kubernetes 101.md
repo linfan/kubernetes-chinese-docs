@@ -31,7 +31,7 @@ Pods
 
 在Kubernetes，一组单个或者多个容器叫做pod。Pod中的容器是部署在一起的，并且作为一组来启动，停止和复制。
 
-点击pods链接得到更多细节信息。
+点击pods链接http://kubernetes.io/v1.1/docs/user-guide/pods.html得到更多细节信息。
 
 Pod定义
 
