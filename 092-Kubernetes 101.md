@@ -109,6 +109,8 @@ spec:
   - name: redis-persistent-storage
     emptyDir: {}
 
+案例下载
+
 注：
 •volume安装点名字是一个指向一个特定空目录volume的指针。
 •volume安装目录是容器内安装特定空目录volume的路径。
