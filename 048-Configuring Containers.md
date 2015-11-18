@@ -2,7 +2,7 @@
 # 配置kubernetes
 
 
-除了像`kubectl run`和`kubectl expose`这些必要的命令，kubernetes也支持可声明式的配置。配置文件也需要必要的命令，这样就可以在代码审查中检查版本控制和文件改动，而代码审查对复杂的具有鲁棒性的可靠生产系统是非常重要的。
+除了像`kubectl run`和`kubectl expose`这些必要的命令，它们在[各种地方](http://kubernetes.io/v1.0/docs/user-guide/quick-start.html)都有介绍kubernetes也支持可声明式的配置。配置文件也需要必要的命令，这样就可以在代码审查中检查版本控制和文件改动，而代码审查对复杂的具有鲁棒性的可靠生产系统是非常重要的。
 
 在声明式风格中，所有的配置都保存在YAML或者JSON配置文件中，使用Kubernetes的API资源模式（schema）作为配置的模式（schema）。`kubectl`命令可以创建、更新、删除以及获取API资源。`kubectl`命令用`ApiVersion`（目前是“v1”），`kind`资源，`name`资源去创建合适的API路径来执行特殊的操作。
 
