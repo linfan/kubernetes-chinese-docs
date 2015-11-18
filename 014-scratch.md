@@ -284,3 +284,405 @@ brctl delbr docker0
 为了pod的网络通信，需要给每一个节点分配一个自己的CIDR网段。这个叫做`NODE_X_POD_CIDR`。
 
 需要给每一个节点新建一个叫`cbr0`网桥。网桥会在[networking documentation](../admin/networking.md)里做详细介绍。约定俗成，`$NODE_X_POD_CIDR`里的第一个IP地址作为这个网桥的IP地址。这个地址叫做`NODE_X_BRIDGE_ADDR`。比如，`NODE_X_POD_CIDR`是`10.0.0.0/16`，那么`NODE_X_BRIDGE_ADDR`是`10.0.0.1/16`。注意：这里用`/16`这个后缀是因为之后也会这么使用。
+
+
+- Recommended, automatic approach:
+  1. Set `--configure-cbr0=true` option in kubelet init script and restart kubelet service.  Kubelet will configure cbr0 automatically.
+     It will wait to do this until the node controller has set Node.Spec.PodCIDR.  Since you have not setup apiserver and node controller
+     yet, the bridge will not be setup immediately.
+- Alternate, manual approach:
+  1. Set `--configure-cbr0=false` on kubelet and restart.
+  1. Create a bridge
+  - e.g. `brctl addbr cbr0`.
+  1. Set appropriate MTU
+  - `ip link set dev cbr0 mtu 1460` (NOTE: the actual value of MTU will depend on your network environment)
+  1. Add the clusters network to the bridge (docker will go on other side of bridge).
+  - e.g. `ip addr add $NODE_X_BRIDGE_ADDR dev cbr0`
+  1. Turn it on
+  - e.g. `ip link set dev cbr0 up`
+
+If you have turned off Docker's IP masquerading to allow pods to talk to each
+other, then you may need to do masquerading just for destination IPs outside
+the cluster network.  For example:
+
+```sh
+iptables -t nat -A POSTROUTING ! -d ${CLUSTER_SUBNET} -m addrtype ! --dst-type LOCAL -j MASQUERADE
+```
+
+This will rewrite the source address from
+the PodIP to the Node IP for traffic bound outside the cluster, and kernel
+[connection tracking](http://www.iptables.info/en/connection-state.html)
+will ensure that responses destined to the node still reach
+the pod.
+
+NOTE: This is environment specific.  Some environments will not need
+any masquerading at all.  Others, such as GCE, will not allow pod IPs to send
+traffic to the internet, but have no problem with them inside your GCE Project.
+
+### 其他
+
+- Enable auto-upgrades for your OS package manager, if desired.
+- Configure log rotation for all node components (e.g. using [logrotate](http://linux.die.net/man/8/logrotate)).
+- Setup liveness-monitoring (e.g. using [monit](http://linux.die.net/man/1/monit)).
+- Setup volume plugin support (optional)
+  - Install any client binaries for optional volume types, such as `glusterfs-client` for GlusterFS
+    volumes.
+
+### 使用配置管理工具
+
+The previous steps all involved "conventional" system administration techniques for setting up
+machines.  You may want to use a Configuration Management system to automate the node configuration
+process.  There are examples of [Saltstack](../admin/salt.md), Ansible, Juju, and CoreOS Cloud Config in the
+various Getting Started Guides.
+
+## 引导安装集群
+
+While the basic node services (kubelet, kube-proxy, docker) are typically started and managed using
+traditional system administration/automation approaches, the remaining *master* components of Kubernetes are
+all configured and managed *by Kubernetes*:
+  - their options are specified in a Pod spec (yaml or json) rather than an /etc/init.d file or
+    systemd unit.
+  - they are kept running by Kubernetes rather than by init.
+
+### etcd
+
+You will need to run one or more instances of etcd.
+  - Recommended approach: run one etcd instance, with its log written to a directory backed
+    by durable storage (RAID, GCE PD)
+  - Alternative: run 3 or 5 etcd instances.
+    - Log can be written to non-durable storage because storage is replicated.
+    - run a single apiserver which connects to one of the etc nodes.
+ See [cluster-troubleshooting](../admin/cluster-troubleshooting.md) for more discussion on factors affecting cluster
+availability.
+
+To run an etcd instance:
+
+1. copy `cluster/saltbase/salt/etcd/etcd.manifest`
+1. make any modifications needed
+1. start the pod by putting it into the kubelet manifest directory
+
+### Apiserver, Controller Manager, and Scheduler
+
+The apiserver, controller manager, and scheduler will each run as a pod on the master node.
+
+For each of these components, the steps to start them running are similar:
+
+1. Start with a provided template for a pod.
+1. Set the `HYPERKUBE_IMAGE` to the values chosen in [Selecting Images](#selecting-images).
+1. Determine which flags are needed for your cluster, using the advice below each template.
+1. Set the flags to be individual strings in the command array (e.g. $ARGN below)
+1. Start the pod by putting the completed template into the kubelet manifest directory.
+1. Verify that the pod is started.
+
+#### Apiserver pod模版
+
+```json
+{
+  "kind": "Pod",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "kube-apiserver"
+  },
+  "spec": {
+    "hostNetwork": true,
+    "containers": [
+      {
+        "name": "kube-apiserver",
+        "image": "${HYPERKUBE_IMAGE}",
+        "command": [
+          "/hyperkube",
+          "apiserver",
+          "$ARG1",
+          "$ARG2",
+          ...
+          "$ARGN"
+        ],
+        "ports": [
+          {
+            "name": "https",
+            "hostPort": 443,
+            "containerPort": 443
+          },
+          {
+            "name": "local",
+            "hostPort": 8080,
+            "containerPort": 8080
+          }
+        ],
+        "volumeMounts": [
+          {
+            "name": "srvkube",
+            "mountPath": "/srv/kubernetes",
+            "readOnly": true
+          },
+          {
+            "name": "etcssl",
+            "mountPath": "/etc/ssl",
+            "readOnly": true
+          }
+        ],
+        "livenessProbe": {
+          "httpGet": {
+            "path": "/healthz",
+            "port": 8080
+          },
+          "initialDelaySeconds": 15,
+          "timeoutSeconds": 15
+        }
+      }
+    ],
+    "volumes": [
+      {
+        "name": "srvkube",
+        "hostPath": {
+          "path": "/srv/kubernetes"
+        }
+      },
+      {
+        "name": "etcssl",
+        "hostPath": {
+          "path": "/etc/ssl"
+        }
+      }
+    ]
+  }
+}
+```
+可选设置的apiserver的选项：
+
+* `--cloud-provider=` 参见 [cloud providers](#cloud-providers)
+* `--cloud-config=` 参见 [cloud providers](#cloud-providers)
+* `--address=${MASTER_IP}` *or* `--bind-address=127.0.0.1` and `--address=127.0.0.1` if you want to run a proxy on the master node.
+* `--cluster-name=$CLUSTER_NAME`
+* `--service-cluster-ip-range=$SERVICE_CLUSTER_IP_RANGE`
+* `--etcd-servers=http://127.0.0.1:4001`
+* `--tls-cert-file=/srv/kubernetes/server.cert`
+* `--tls-private-key-file=/srv/kubernetes/server.key`
+* `--admission-control=$RECOMMENDED_LIST`
+  - 参考 [admission controllers](../admin/admission-controllers.md).
+* `--allow-privileged=true`, only if you trust your cluster user to run pods as root.
+
+If you are following the firewall-only security approach, then use these arguments:
+
+- `--token-auth-file=/dev/null`
+- `--insecure-bind-address=$MASTER_IP`
+- `--advertise-address=$MASTER_IP`
+
+If you are using the HTTPS approach, then set:
+- `--client-ca-file=/srv/kubernetes/ca.crt`
+- `--token-auth-file=/srv/kubernetes/known_tokens.csv`
+- `--basic-auth-file=/srv/kubernetes/basic_auth.csv`
+
+This pod mounts several node file system directories using the  `hostPath` volumes.  Their purposes are:
+- The `/etc/ssl` mount allows the apiserver to find the SSL root certs so it can
+  authenticate external services, such as a cloud provider.
+  - This is not required if you do not use a cloud provider (e.g. bare-metal).
+- The `/srv/kubernetes` mount allows the apiserver to read certs and credentials stored on the
+  node disk.  These could instead be stored on a persistent disk, such as a GCE PD, or baked into the image.
+- Optionally, you may want to mount `/var/log` as well and redirect output there (not shown in template).
+  - Do this if you prefer your logs to be accessible from the root filesystem with tools like journalctl.
+
+*TODO* document proxy-ssh setup.
+
+##### Cloud Providers
+
+Apiserver supports several cloud providers.
+
+- options for `--cloud-provider` flag are `aws`, `gce`, `mesos`, `openshift`, `ovirt`, `rackspace`, `vagrant`, or unset.
+- unset used for e.g. bare metal setups.
+- support for new IaaS is added by contributing code [here](../../pkg/cloudprovider/providers/)
+
+Some cloud providers require a config file. If so, you need to put config file into apiserver image or mount through hostPath.
+
+- `--cloud-config=` set if cloud provider requires a config file.
+- Used by `aws`, `gce`, `mesos`, `openshift`, `ovirt` and `rackspace`.
+- You must put config file into apiserver image or mount through hostPath.
+- Cloud config file syntax is [Gcfg](https://code.google.com/p/gcfg/).
+- AWS format defined by type [AWSCloudConfig](../../pkg/cloudprovider/providers/aws/aws.go)
+- There is a similar type in the corresponding file for other cloud providers.
+- GCE example: search for `gce.conf` in [this file](../../cluster/gce/configure-vm.sh)
+
+#### Scheduler pod template
+
+Complete this template for the scheduler pod:
+
+```json
+
+{
+  "kind": "Pod",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "kube-scheduler"
+  },
+  "spec": {
+    "hostNetwork": true,
+    "containers": [
+      {
+        "name": "kube-scheduler",
+        "image": "$HYBERKUBE_IMAGE",
+        "command": [
+          "/hyperkube",
+          "scheduler",
+          "--master=127.0.0.1:8080",
+          "$SCHEDULER_FLAG1",
+          ...
+          "$SCHEDULER_FLAGN"
+        ],
+        "livenessProbe": {
+          "httpGet": {
+            "host" : "127.0.0.1",
+            "path": "/healthz",
+            "port": 10251
+          },
+          "initialDelaySeconds": 15,
+          "timeoutSeconds": 15
+        }
+      }
+    ]
+  }
+}
+
+```
+通常，不需要额外设置scheduler。
+
+Optionally, you may want to mount `/var/log` as well and redirect output there.
+
+#### Controller Manager Template
+
+Template for controller manager pod:
+
+```json
+
+{
+  "kind": "Pod",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "kube-controller-manager"
+  },
+  "spec": {
+    "hostNetwork": true,
+    "containers": [
+      {
+        "name": "kube-controller-manager",
+        "image": "$HYPERKUBE_IMAGE",
+        "command": [
+          "/hyperkube",
+          "controller-manager",
+          "$CNTRLMNGR_FLAG1",
+          ...
+          "$CNTRLMNGR_FLAGN"
+        ],
+        "volumeMounts": [
+          {
+            "name": "srvkube",
+            "mountPath": "/srv/kubernetes",
+            "readOnly": true
+          },
+          {
+            "name": "etcssl",
+            "mountPath": "/etc/ssl",
+            "readOnly": true
+          }
+        ],
+        "livenessProbe": {
+          "httpGet": {
+            "host": "127.0.0.1",
+            "path": "/healthz",
+            "port": 10252
+          },
+          "initialDelaySeconds": 15,
+          "timeoutSeconds": 15
+        }
+      }
+    ],
+    "volumes": [
+      {
+        "name": "srvkube",
+        "hostPath": {
+          "path": "/srv/kubernetes"
+        }
+      },
+      {
+        "name": "etcssl",
+        "hostPath": {
+          "path": "/etc/ssl"
+        }
+      }
+    ]
+  }
+}
+
+```
+
+Flags to consider using with controller manager:
+ - `--cluster-name=$CLUSTER_NAME`
+ - `--cluster-cidr=`
+   - *TODO*: explain this flag.
+ - `--allocate-node-cidrs=`
+   - *TODO*: explain when you want controller to do this and when you want to do it another way.
+ - `--cloud-provider=` and `--cloud-config` as described in apiserver section.
+ - `--service-account-private-key-file=/srv/kubernetes/server.key`, used by the [service account](../user-guide/service-accounts.md) feature.
+ - `--master=127.0.0.1:8080`
+
+#### Starting and Verifying Apiserver, Scheduler, and Controller Manager
+
+Place each completed pod template into the kubelet config dir
+(whatever `--config=` argument of kubelet is set to, typically
+`/etc/kubernetes/manifests`).  The order does not matter: scheduler and
+controller manager will retry reaching the apiserver until it is up.
+
+Use `ps` or `docker ps` to verify that each process has started.  For example, verify that kubelet has started a container for the apiserver like this:
+
+```console
+$ sudo docker ps | grep apiserver:
+5783290746d5        gcr.io/google_containers/kube-apiserver:e36bf367342b5a80d7467fd7611ad873            "/bin/sh -c '/usr/lo'"    10 seconds ago      Up 9 seconds                              k8s_kube-apiserver.feb145e7_kube-apiserver-kubernetes-master_default_eaebc600cf80dae59902b44225f2fc0a_225a4695
+```
+
+Then try to connect to the apiserver:
+
+```console
+$ echo $(curl -s http://localhost:8080/healthz)
+ok
+$ curl -s http://localhost:8080/api
+{
+  "versions": [
+    "v1"
+  ]
+}
+```
+
+If you have selected the `--register-node=true` option for kubelets, they will now begin self-registering with the apiserver.
+You should soon be able to see all your nodes by running the `kubectl get nodes` command.
+Otherwise, you will need to manually create node objects.
+
+### 日志
+
+**TODO** 如何开启日志。
+
+### 监控
+
+**TODO** 如何开启监控。
+
+### DNS
+
+**TODO** 如何运行DNS。
+
+## 故障排除
+
+### 运行validate-cluster
+
+**TODO** 解释如何运行“cluster/validate-cluster.sh”。
+
+### 检查pods和services
+你可以尝试这阅读“检查的集群”这一节，例如[GCE](gce.md#inspect-your-cluster)。你应该检查Service。通过“mirro pods”去检查apiserver，scehduler和controller-manager以及运行的插件。
+
+### 例子
+到这里你应该能够运行一些基本的实例了，例如[nginx example](../../examples/simple-nginx.md)。
+
+### 运行测试
+你可以试着运行[一致性测试](http://releases.k8s.io/HEAD/hack/conformance-test.sh).  测试失败的结果可能会给你些排除故障的线索。
+
+### 网络
+节点之间必须用私有IP链接。可以通过ping或者SSH来确定节点之间的联通。
+
+### 获得帮助
