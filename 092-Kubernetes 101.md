@@ -45,7 +45,7 @@ Pod定义
       - name: nginx
         image: nginx
         ports:
-    - containerPort: 80
+        - containerPort: 80
 
 Pod的定义是一种预期状态（Desired State）的声明。预期状态是Kubernetes模型中非常重要的概念。很多事情在系统中体现为预期状态，而Kubernetes有责任确保当前状态匹配预期状态。举个例子，当你创建一个Pod，你指明其中的容器进入运行。如果容器没有运行（例如程序错误，...），为了驱使容器进入预期状态，Kubernetes将持续为你（再）创建这些容器。这个过程将一直持续到该Pod被删除。
 
