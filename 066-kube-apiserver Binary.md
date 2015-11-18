@@ -59,7 +59,7 @@ kube-apiserver
   --ssh-keyfile="": If non-empty, use secure SSH proxy to the nodes, using this user keyfile
   --ssh-user="": If non-empty, use secure SSH proxy to the nodes, using this user name
   --storage-versions="extensions/v1beta1,v1": The versions to store resources with. Different groups may be stored in different versions. Specified in the format "group1/version1,group2/version2...". This flag expects a complete list of storage versions of ALL groups registered in the server. It defaults to a list of preferred versions of all registered groups, which is derived from the KUBE_API_VERSIONS environment variable.
-  --tls-cert-file="": File containing x509 Certificate for HTTPS.  (CA cert, if any, concatenated after server cert). If HTTPS serving is enabled, and --tls-cert-file and --tls-private-key-file are not provided, a self-signed certificate and key are generated for the public address and saved to /var/run/kubernetes.
+  --tls-cert-file="": 该文件包含HTTPS的x509证书。(CA cert, if any, concatenated after server cert)。如果支持HTTPS，且没有配置--tls-cert-file和 --tls-private-key-file，会给公共地址生成一个自签的证书和对应的秘钥，保存在/var/run/kubernetes。
   --tls-private-key-file="": 该文件包含x509私钥匹配项--tls-cert-file.
   --token-auth-file="": 该文件使用Token验证保护API Server的安全端口。
   --watch-cache[=true]: 可以在apiserver看缓存。
