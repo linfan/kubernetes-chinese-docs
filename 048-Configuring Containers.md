@@ -61,7 +61,7 @@ pods/hello-world
 
 # 环境变量和增加变量
 
-Kubernetes没有自动的在shell中的运行命令（不是所有镜像都有shell）。如果你想在shell中运行你的命令，例如增加环境便令（使用env字段），你可以按如下做法：
+Kubernetes没有自动的在shell中的运行命令（不是所有镜像都有shell）。如果你想在shell中运行你的命令，例如增加环境便令（使用`env`字段），你可以按如下做法：
 ```
 apiVersion: v1
 kind: Pod
@@ -79,11 +79,11 @@ spec:  # specification of the pod’s contents
     args: ["/bin/echo \"${MESSAGE}\""]
 
 ```
-然而，一个shell需要的不仅是增加环境变量。如果你使用$(ENVVAR) 语法Kubernetes将会为你做这些事。
+然而，一个shell需要的不仅是增加环境变量。如果你使用`$(ENVVAR)` 语法Kubernetes将会为你做这些事。
 
 # 查看pod状态
 
-使用get命令，你可以看到你已经创建的pod（事实上是集群中你的所有pod）。如果你在创建后用足够快的速度输入get命令，你会看到下面的内容：
+使用get命令，你可以看到你已经创建的pod（事实上是集群中你的所有pod）。如果你在创建后用足够快的速度输入`get`命令，你会看到下面的内容：
 ```
 $ kubectl get pods
 NAME          READY     STATUS    RESTARTS   AGE
@@ -99,9 +99,9 @@ NAME          READY     STATUS    RESTARTS   AGE
 hello-world   1/1       Running   0          5s
 
 ```
-Ready列指示正在运行在pod中的容器数量。
+`Ready`列指示正在运行在pod中的容器数量。
 
-而开始运行后很快这个容器将会被终止。Kubectl会显示容器已经不再运行以及推出状态：
+而开始运行后很快这个容器将会被终止。`kubectl`会显示容器已经不再运行以及推出状态：
 ```
 $ kubectl get pods
 NAME          READY     STATUS       RESTARTS   AGE
@@ -111,7 +111,7 @@ hello-world   0/1       ExitCode:0   0          15s
 
 # 查看pod输出
 
-你会想要查看你运行命令的输出。像docker logs一样，kubectl logs也会显示输出：
+你会想要查看你运行命令的输出。像`docker logs`一样，`kubectl logs`也会显示输出：
 ```
 $ kubectl logs hello-world
 hello world
@@ -126,7 +126,7 @@ $ kubectl delete pod hello-world
 pods/hello-world
 
 ```
-就像create一样，删除成功时kubectl也会打印出资源类型和资源名称。
+就像`create`一样，删除成功时`kubectl`也会打印出资源类型和资源名称。
 
 你也可以使用 资源/名称格式指定一个pod：
 ```
