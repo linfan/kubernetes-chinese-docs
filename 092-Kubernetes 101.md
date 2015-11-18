@@ -152,7 +152,7 @@ spec:
   - name: www-data
     emptyDir: {}
 
-注意我们也在这里增加了一个volume。在这个例子里，这个volume同时被安装在两个容器中。在网页服务器容器中，由于并不需要写这个目录，因此被标注为只读。
+注意我们也在这里增加了一个volume。在这个例子里，这个volume同时被安装在两个容器中。在网页服务器容器中，由于并不需要写这个目录，因此被标注为**只读**。
 
 Finally, we have also introduced an environment variable to the git-monitor container, which allows us to parameterize that container with the particular git repository that we want to track.
 最后，我们也引入了一个给git-monitor容器使用的环境变量，这个变量允许我们将我们希望跟踪的特定git仓库作为参数使用
