@@ -51,7 +51,7 @@ kube-apiserver
   --oidc-username-claim="sub": 。默认值之外的那些值，可能是不唯一的，可变的。这个标志还在尝试中，详情请参考验证部分的文档。
   --profiling[=true]: 通过web接口进行分析 host:port/debug/pprof/
   --runtime-config=: key=value键值对集，描述运行时配置，也会回传输到apiserver。apis/<groupVersion>键值用于打开或者关闭指定的api版本。apis/<groupVersion>/<resource>用于打开、关闭指定的资源。api/all和api/legacy是特殊的值，分别控制所有和遗留的api版本。
-  --secure-port=6443: The port on which to serve HTTPS with authentication and authorization. If 0, don't serve HTTPS at all.
+  --secure-port=6443: 用于HTTPS的认证和授权。0表示不支持HTTPS服务。
   --service-account-key-file="": File containing PEM-encoded x509 RSA private or public key, used to verify ServiceAccount tokens. If unspecified, --tls-private-key-file is used.
   --service-account-lookup[=false]: If true, validate ServiceAccount tokens exist in etcd as part of authentication.
   --service-cluster-ip-range=<nil>: A CIDR notation IP range from which to assign service cluster IPs. This must not overlap with any IP ranges assigned to nodes for pods.
