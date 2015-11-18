@@ -47,7 +47,7 @@ kube-apiserver
   --min-request-timeout=1800: 这是个可选字段，表示一个请求处理的最短时间，单位是秒。在超时之前，这个请求必须是激活的。目前，请求处理程序会选择一个高于该数值的随机值作为连接超时的值进行分散负载。（An optional field indicating the minimum number of seconds a handler must keep a request open before timing it out. Currently only honored by the watch request handler, which picks a randomized value above this number as the connection timeout, to spread out load.-----翻译有待考虑）
   --oidc-ca-file="": 如果设置该选项，Oidc-ca-file中的相关机构会验证OpenID服务的证书。否则，会使用主机的根证书。
   --oidc-client-id="": 如果设置了oidc-issuer-url字段，该字段，OpenID连接客户端的客户ID也必须设置。
-  --oidc-issuer-url="": The URL of the OpenID issuer, only HTTPS scheme will be accepted. If set, it will be used to verify the OIDC JSON Web Token (JWT)
+  --oidc-issuer-url="": OpenID发行的URL，只接受HTTPS协议。如果设置该字段，将被用来验证OIDC JSON Web Token（JWT）。
   --oidc-username-claim="sub": The OpenID claim to use as the user name. Note that claims other than the default ('sub') is not guaranteed to be unique and immutable. This flag is experimental, please see the authentication documentation for further details.
   --profiling[=true]: Enable profiling via web interface host:port/debug/pprof/
   --runtime-config=: A set of key=value pairs that describe runtime configuration that may be passed to apiserver. apis/<groupVersion> key can be used to turn on/off specific api versions. apis/<groupVersion>/<resource> can be used to turn on/off specific resources. api/all and api/legacy are special keys to control all and legacy api versions respectively.
