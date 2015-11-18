@@ -48,7 +48,7 @@ kube-apiserver
   --oidc-ca-file="": 如果设置该选项，Oidc-ca-file中的相关机构会验证OpenID服务的证书。否则，会使用主机的根证书。
   --oidc-client-id="": 如果设置了oidc-issuer-url字段，该字段，OpenID连接客户端的客户ID也必须设置。
   --oidc-issuer-url="": OpenID发行的URL，只接受HTTPS协议。如果设置该字段，将被用来验证OIDC JSON Web Token（JWT）。
-  --oidc-username-claim="sub": The OpenID claim to use as the user name. Note that claims other than the default ('sub') is not guaranteed to be unique and immutable. This flag is experimental, please see the authentication documentation for further details.
+  --oidc-username-claim="sub": OpenID声称作为用户名。默认值之外的那些值，可能是不唯一的，可变的。这个标志还在尝试中，详情请参考验证部分的文档。
   --profiling[=true]: Enable profiling via web interface host:port/debug/pprof/
   --runtime-config=: A set of key=value pairs that describe runtime configuration that may be passed to apiserver. apis/<groupVersion> key can be used to turn on/off specific api versions. apis/<groupVersion>/<resource> can be used to turn on/off specific resources. api/all and api/legacy are special keys to control all and legacy api versions respectively.
   --secure-port=6443: The port on which to serve HTTPS with authentication and authorization. If 0, don't serve HTTPS at all.
