@@ -119,7 +119,7 @@ Volume 类型
 •EmptyDir：创建一个在容器失效和重启情况下可以持续的新目录
 •HostPath：将已经存在的目录安装在节点文件系统上 （e.g. /var/logs）.
 
-查阅 volumes 可以得到更多细节。
+查阅 volumes http://kubernetes.io/v1.1/docs/user-guide/volumes.html可以得到更多细节。
 
 多容器
 
