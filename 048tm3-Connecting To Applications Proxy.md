@@ -1,7 +1,7 @@
 
 # 应用：kubectl proxy和apiserver proxy
 
-你已经看过了kubectl proxy和apiserver proxy的基本知识。本页将为你展示如何一起使用它们去访问运行在你的工作站上的Kubernetes集群提供的服务（kube-ui）。
+你已经看过了`kubectl proxy`和`apiserver proxy`的基本知识。本页将为你展示如何一起使用它们去访问运行在你的工作站上的Kubernetes集群提供的服务（kube-ui）。
 
 
 # 获取kube-ui的apiserver proxy URL
@@ -17,7 +17,7 @@ KubeUI is running at https://173.255.119.104/api/v1/proxy/namespaces/kube-system
 
 # 从你的本地工作站连接到kube-ui服务
 
-上面说的proxy URL是由apiserver提供来访问kube-ui服务的。你要是在本地想访问它仍然需要用apiserver认证。Kubectl proxy可以处理认证。
+上面说的proxy URL是由apiserver提供来访问kube-ui服务的。你要是在本地想访问它仍然需要用apiserver认证。`kubectl proxy`可以处理认证。
 ```
 $ kubectl proxy --port=8001
 Starting to serve on localhost:8001
