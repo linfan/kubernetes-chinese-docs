@@ -57,7 +57,7 @@ kube-apiserver
   --service-cluster-ip-range=<nil>: A CIDR notation IP range from which to assign service cluster IPs. This must not overlap with any IP ranges assigned to nodes for pods.
   --service-node-port-range=: A port range to reserve for services with NodePort visibility.  Example: '30000-32767'.  Inclusive at both ends of the range.
   --ssh-keyfile="": If non-empty, use secure SSH proxy to the nodes, using this user keyfile
-  --ssh-user="": If non-empty, use secure SSH proxy to the nodes, using this user name
+  --ssh-user="": 如果非空，使用安全SSH代理到该节点，用该用户名。
   --storage-versions="extensions/v1beta1,v1": 存储资源的版本。不同的组存储在不同的版本里面，指定格式"group1/version1,group2/version2..."。该标志预计出注册在服务器中的所有组的存储版本的完整列表。它默认是所有注册组的首选版本列表，来自KUBE_API_VERSIONS变量。
   --tls-cert-file="": 该文件包含HTTPS的x509证书。(CA cert, if any, concatenated after server cert)。如果支持HTTPS，且没有配置--tls-cert-file和 --tls-private-key-file，会给公共地址生成一个自签的证书和对应的秘钥，保存在/var/run/kubernetes。
   --tls-private-key-file="": 该文件包含x509私钥匹配项--tls-cert-file.
