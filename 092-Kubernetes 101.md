@@ -61,7 +61,7 @@ $ kubectl create -f docs/user-guide/walkthrough/pod-nginx.yaml
 
 $ kubectl get pods
 
-在Pod部署的大部分环境里，Pod的IP都是外部不可接入的。最便捷的测试Pod是否工作的方法是创建一个busybox pod（？）并且在上面远程运行命令。请查看可执行命令文档以找到更多细节。
+在Pod部署的大部分环境里，Pod的IP都是外部不可见的。最便捷的测试Pod是否工作的方法是创建一个BusyBoxPod并且在上面远程运行命令。请查看可执行命令文档http://kubernetes.io/v1.1/docs/user-guide/kubectl/kubectl_exec.html以找到更多细节。
 
 如果Pod IP可以访问，你应该可以利用curl访问在80端口访问http端点。
 
