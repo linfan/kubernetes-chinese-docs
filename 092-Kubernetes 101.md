@@ -14,7 +14,7 @@ Kubernetes 101 - Kubectl CLI and Pods
         •Pod 管理
     •Volumes
         •Volume 类型
-    •Multiple Containers多容器
+    •多容器
 
     •下面是什么?
 
@@ -23,7 +23,7 @@ Kubectl CLI
 
 同Kubernetes交互的最简单方法是通过kubectl命令行界面
 
-对于kubectl的更多信息，包括它的使用率，命令，参数，请阅读kubectl CLI参考手册
+对于kubectl的更多信息，包括它的使用率，命令，参数，请阅读kubectl CLI参考手册http://kubernetes.io/v1.1/docs/user-guide/kubectl/kubectl.html
 
 如果你没有安装好或者配置好kubectl，在继续阅读之前把这件事完成。
 
