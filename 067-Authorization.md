@@ -37,7 +37,8 @@ ABAC模式，也可以指定参数：--authorization-policy-file=SOME_FILENAME
 
 每行是一个“策略对象”。一个策略对象是包含以下属性的一个映射：
 
-- user， 字符型；源于—token_auth_file
+- user， 字符型；来自--token-auth-file，如果指定用户，必须匹配认证用户的用户名。
+- group，字符型；
 - readonly，布尔型，true表示该策略仅适用于GET操作
 - resource，字符型；一个资源来自一个URL，比如pods
 - namespace，字符型；命名空间字符串
