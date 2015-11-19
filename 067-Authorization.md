@@ -61,7 +61,7 @@ ABAC模式，也可以指定参数：--authorization-policy-file=SOME_FILENAME
 
 ###  **示例**
 
-1.	Alice能够做任何事情： {“user”:”Alice”}
+1.	Alice能够做任何事情： {“user”:”alice”}
 2.	Kubelet能够读任何pods：{"user":"kubelet", "resource": "pods", "readonly": true}
 3.	Kubelet能够读写事件：{“user”: "kubelet", "resource": "events"}
 4.	Bob只能在”projectCaribou”命名空间中读pods：{"user":"bob", "resource": "pods", "readonly": true, "ns": "projectCaribou"}
