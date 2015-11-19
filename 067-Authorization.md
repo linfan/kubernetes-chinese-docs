@@ -31,7 +31,7 @@ AlwaysDeny会阻止所有的请求（测试中使用的）。AlwaysAllow允许�
 
 ### **策略文件格式**
 
-ABAC模式，也可以指定参数：authorization_policy_file=SOME_FILENAME
+ABAC模式，也可以指定参数：--authorization-policy-file=SOME_FILENAME
 
 该文件格式每行有[一个JSON对象]( http://jsonlines.org/)，不会有封闭列表或者映射，而仅仅每行有一个映射。
 
