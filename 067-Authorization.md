@@ -6,11 +6,11 @@
 
 任何请求的授权检查都会通过访问策略比较该请求上下文的属性，（比如用户，资源和Namespace）。API的调用必须符合一些规则，按顺序执行。
 
-下面的都是可行的，可通过标志选择：
+下面的选项都是可行的，可通过标志位选择：
 
--	authorization_mode=AlwaysDeny
--	authorization_mode=AlwaysAllow
--	authorization_mode=ABAC
+-	--authorization_mode=AlwaysDeny
+-	--authorization_mode=AlwaysAllow
+-	--authorization_mode=ABAC
 
 AlwaysDeny会阻止所有的请求（测试中使用的）。AlwaysAllow允许所有请求，如果不需要授权，可以使用这个参数。ABAC（Attribute-Based Access Control）用于已经配置的用户授权规则。
 
