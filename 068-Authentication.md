@@ -11,13 +11,10 @@ Kubernetes使用客户端证书，令牌，或者HTTP基本身份验证用户的
 当http客户端使用Token认证，apiserver需要含有Bearer Sometoken值的一个Authorization头。
 
 OpenID Connect ID Token，传递下面的参数给apiserver：
-
-OpenID Connect ID Token is enabled by passing the following options to the apiserver:
-
-- oidc-issuer-url (required) tells the apiserver where to connect to the OpenID provider. Only HTTPS scheme will be accepted.
-- oidc-client-id (required) is used by apiserver to verify the audience of the token. A valid ID token MUST have this client-id in its aud claims.
-- oidc-ca-file (optional) is used by apiserver to establish and verify the secure connection to the OpenID provider.
-- oidc-username-claim (optional, experimental) specifies which OpenID claim to use as the user name. By default, sub will be used, which should be unique and immutable under the issuer's domain. Cluster administrator can choose other claims such as email to use as the user name, but the uniqueness and immutability is not guaranteed.
+- --oidc-issuer-url (必须) tells the apiserver where to connect to the OpenID provider. Only HTTPS scheme will be accepted.
+- --oidc-client-id (必须) is used by apiserver to verify the audience of the token. A valid ID token MUST have this client-id in its aud claims.
+- --oidc-ca-file (可选) is used by apiserver to establish and verify the secure connection to the OpenID provider.
+- --oidc-username-claim (可选, experimental) specifies which OpenID claim to use as the user name. By default, sub will be used, which should be unique and immutable under the issuer's domain. Cluster administrator can choose other claims such as email to use as the user name, but the uniqueness and immutability is not guaranteed.
 
 Please note that this flag is still experimental until we settle more on how to handle the mapping of the OpenID user to the Kubernetes user. Thus further changes are possible.
 
