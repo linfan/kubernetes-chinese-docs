@@ -18,7 +18,7 @@ AlwaysDeny会阻止所有的请求（测试中使用的）。AlwaysAllow允许�
 
 ### **请求属性**
 
-一个请求需要授权五个参数：
+一个授权请求可配置五个参数：
 
 - 用户（用户是否是用户串, the user-string which a user was authenticated as）
 - 请求只读性(GETs是只读的)
