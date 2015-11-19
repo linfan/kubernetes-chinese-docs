@@ -55,7 +55,7 @@ ABAC模式，也可以指定参数：--authorization-policy-file=SOME_FILENAME
 
 未设置的属性将匹配相应属性的任何值。
 
-检查属性的元组，在每一个策略文件中每个策略的匹配正确性。至少有一行匹配到该请求属性，则授权该请求（但之后的验证也许会失败）。
+检查属性的元组在每一个策略文件中每个策略的匹配正确性。至少有一行匹配到该请求属性，则授权该请求（但之后的验证也许会失败）。
 
 为了让每个用户都做些事情，编写一个策略用于用户未设置的属性。（To permit any user to do something, write a policy with the user property unset. To permit an action Policy with an unset namespace applies regardless of namespace.）
 
