@@ -8,9 +8,9 @@
 
 下面的选项都是可行的，可通过标志位选择：
 
--	--authorization_mode=AlwaysDeny
--	--authorization_mode=AlwaysAllow
--	--authorization_mode=ABAC
+-	--authorization-mode=AlwaysDeny
+-	--authorization-mode=AlwaysAllow
+-	--authorization-mode=ABAC
 
 AlwaysDeny会阻止所有的请求（测试中使用的）。AlwaysAllow允许所有请求，如果不需要授权，可以使用这个参数。ABAC（Attribute-Based Access Control）用于已经配置的用户授权规则。
 
