@@ -4,11 +4,13 @@ Kubernetes使用客户端证书，令牌，或者HTTP基本身份验证用户的
 
 在API服务器中配置—client-ca-file=SOMEFILE选项，就会启动客户端证书认证。引用文件必须包含一个或多个认证机制，通过认证机制验证传给API服务器的客户端证书。当一个客户端证书通过认证，该证书主题的名字就被作为该请求的用户名。
 
-在API服务器中配置选项：--token_auth_file=SOMEFILE, 启动令牌认证。目前，令牌没有有效期，并且必须重启API服务，令牌列表的更改才会生效。在未来，令牌将会是短期的，并且会根据需要产生，而不是存储在一个文件中。
+在API服务器中配置选项：--token-auth-file=SOMEFILE, 启动Token认证。目前，Token没有有效期，必须重启API服务，Token列表的更改才会生效。
 
-令牌文件格式路径：plugin/pkg/auth/authenticator/token/tokenfile/...，该文件是一个CSV文件，含有三行：令牌，用户名，用户uid。
+令牌文件格式路径：plugin/pkg/auth/authenticator/token/tokenfile/...，该文件是一个CSV文件，含有三行：Token，用户名，用户uid。
 
-当http客户端使用令牌认证，apiserver需要含有Bearer Sometoken值的一个Authorization头。 
+当http客户端使用Token认证，apiserver需要含有Bearer Sometoken值的一个Authorization头。
+
+OpenID Connect ID Token，传递下面的参数给apiserver：
 
 OpenID Connect ID Token is enabled by passing the following options to the apiserver:
 
