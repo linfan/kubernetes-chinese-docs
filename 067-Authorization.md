@@ -89,7 +89,7 @@ system:serviceaccount:<namespace>:default
 ## **插件开发**
 
 其余实现的开发相对容易，API服务会调用Authorizer接口：
-```
+```sh
 type Authorizer interface {
   Authorize(a Attributes) error
 }
