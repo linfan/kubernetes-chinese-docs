@@ -24,7 +24,7 @@ AlwaysDeny会阻止所有的请求（测试中使用的）。AlwaysAllow允许�
 - 组（用户所属组名的列表）
 - 请求只读性(GETs是只读的)
 - 资源权限
- - 仅适用于API端点，例如/api/v1/namespaces/default/pods。对于杂端点（miscellaneous endpoints），如/version，资源是空字符串。
+ - 仅适用于API端点，例如/api/v1/namespaces/default/pods。对于杂端点（miscellaneous endpoints，翻译有待考虑），如/version，是空串。
 - 可访问对象的命名空间，空串的命名空间，该空串端点不支持命名对象
 
 我们期望增加更多的属性，允许更细粒度的访问控制，并协助策略管理。
