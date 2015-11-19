@@ -29,7 +29,7 @@ AlwaysDeny会阻止所有的请求（测试中使用的）。AlwaysAllow允许�
 
 我们期望增加更多的属性，允许更细粒度的访问控制，并协助策略管理。
 
-### **策略文件的格式**
+### **策略文件格式**
 
 ABAC模式，也可以指定参数：authorization_policy_file=SOME_FILENAME
 
