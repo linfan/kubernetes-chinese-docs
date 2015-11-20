@@ -1,5 +1,4 @@
 # **认证插件**
-
 Kubernetes使用客户端证书，令牌，或者HTTP基本身份验证用户的API调用。
 
 在API服务器中配置—client-ca-file=SOMEFILE选项，就会启动客户端证书认证。引用文件必须包含一个或多个认证机制，通过认证机制验证传给API服务器的客户端证书。当一个客户端证书通过认证，该证书主题的名字就被作为该请求的用户名。
@@ -30,11 +29,9 @@ Like Token File, when using token authentication from an http client the apiserv
 Keystone authentication is enabled by passing the --experimental-keystone-url=<AuthURL> option to the apiserver during startup. The plugin is implemented in plugin/pkg/auth/authenticator/request/keystone/keystone.go. For details on how to use keystone to manage projects and users, refer to the Keystone documentation. Please note that this plugin is still experimental which means it is subject to changes. Please refer to the discussion and the blueprint for more details
 
 ## **插件开发** 
-
 We plan for the Kubernetes API server to issue tokens after the user has been (re)authenticated by a bedrockauthentication provider external to Kubernetes. We plan to make it easy to develop modules that interface between Kubernetes and a bedrock authentication provider (e.g. github.com, google.com, enterprise directory, kerberos, etc.)
 
 ## **附录**
-
 ### **创建证书 **
 When using client certificate authentication, you can generate certificates manually or using an existing deployment script.
 
