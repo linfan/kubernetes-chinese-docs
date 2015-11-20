@@ -14,7 +14,7 @@ OpenID Connect ID Token，传递下面的参数给apiserver：
 - --oidc-issuer-url (必须) apiserver连接到OpenID提供者的URL， 只接受HTTPS协议。
 - --oidc-client-id (必须) apiserver用于验证Token用户，合法的[ID Token](http://openid.net/specs/openid-connect-core-1_0.html#IDToken)在它的aud参数（aud claims 翻译待考虑）中包含该client-id。
 - --oidc-ca-file (可选) apiserver用于和OpenID提供者建立和验证安全连接。
-- --oidc-username-claim (可选, experimental) specifies which OpenID claim to use as the user name. By default, sub will be used, which should be unique and immutable under the issuer's domain. Cluster administrator can choose other claims such as email to use as the user name, but the uniqueness and immutability is not guaranteed.
+- --oidc-username-claim (可选, 实验性参数) specifies which OpenID claim to use as the user name. By default, sub will be used, which should be unique and immutable under the issuer's domain. Cluster administrator can choose other claims such as email to use as the user name, but the uniqueness and immutability is not guaranteed.
 
 Please note that this flag is still experimental until we settle more on how to handle the mapping of the OpenID user to the Kubernetes user. Thus further changes are possible.
 
