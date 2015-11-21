@@ -1,7 +1,7 @@
 #在Azure上使用CoreOS和[Weave](http://weave.works/)的Kubernetes
 ##介绍
 在本指南中我将演示如何在Azure云端部署Kubernetes集群。您将使用CoreOS与Weave，Weave以透明而可靠的方式实现了简单、安全的网络。本指南的目的是提供一个即开即装即用的实现方法，以便最终可以稍加改变就可以投入到生产环境中。本文将演示如何提供一个专门的Kubernetes主节点和ETCD节点，并展示如何轻松地扩展集群。
-###必备条件
+###前提条件
 1.您需要一个Azure账号。
 ###开始吧！
 开始之前，您需要checkout下代码：
