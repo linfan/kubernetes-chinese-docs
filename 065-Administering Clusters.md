@@ -30,7 +30,6 @@
 - …等等。
 
 ### **Kube调度**
-
 [Kube调度](http://kubernetes.io/v1.1/docs/admin/kube-scheduler.html)观察新创建、还没有分配节点的Pod，并且从中选择一个节点运行。
 
 ### **扩展插件**
@@ -45,7 +44,6 @@
 - [cluster-monitoring](https://github.com/kubernetes/kubernetes/tree/release-1.1/cluster/addons/cluster-monitoring/)监控集群。
 
 ## **Node组件**
-
 Node组件运行在每一个节点上，维护运行Pod，并给它们提供Kubernetes运行环境。
 
 ### **Kubelet**
@@ -59,11 +57,9 @@ Node组件运行在每一个节点上，维护运行Pod，并给它们提供Kube
 - 返回节点的状态给系统的其它部分。
 
 ### **Kube代理**
-
 [Kube代理](http://kubernetes.io/v1.1/docs/admin/kube-proxy.html)使得Kubernetes服务抽象化，在主机上维护网络规则，并且执行连接转发。
 
 ### **Docker**
-
 Docker主要用于运行容器。
 
 ### **Rkt**

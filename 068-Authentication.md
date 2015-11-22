@@ -1,5 +1,4 @@
 # **认证插件**
-
 Kubernetes使用客户端证书，令牌，或者HTTP基本身份验证用户的API调用。
 
 在API服务器中配置—client-ca-file=SOMEFILE选项，就会启动客户端证书认证。引用文件必须包含一个或多个认证机制，通过认证机制验证传给API服务器的客户端证书。当一个客户端证书通过认证，该证书主题的名字就被作为该请求的用户名。
@@ -11,10 +10,10 @@ Kubernetes使用客户端证书，令牌，或者HTTP基本身份验证用户的
 当http客户端使用Token认证，apiserver需要含有Bearer Sometoken值的一个Authorization头。
 
 OpenID Connect ID Token，传递下面的参数给apiserver：
-- --oidc-issuer-url (必须) tells the apiserver where to connect to the OpenID provider. Only HTTPS scheme will be accepted.
-- --oidc-client-id (必须) is used by apiserver to verify the audience of the token. A valid ID token MUST have this client-id in its aud claims.
-- --oidc-ca-file (可选) is used by apiserver to establish and verify the secure connection to the OpenID provider.
-- --oidc-username-claim (可选, experimental) specifies which OpenID claim to use as the user name. By default, sub will be used, which should be unique and immutable under the issuer's domain. Cluster administrator can choose other claims such as email to use as the user name, but the uniqueness and immutability is not guaranteed.
+- --oidc-issuer-url (必须) apiserver连接到OpenID提供者的URL， 只接受HTTPS协议。
+- --oidc-client-id (必须) apiserver用于验证Token用户，合法的[ID Token](http://openid.net/specs/openid-connect-core-1_0.html#IDToken)在它的aud参数（aud claims 翻译待考虑）中包含该client-id。
+- --oidc-ca-file (可选) apiserver用于和OpenID提供者建立和验证安全连接。
+- --oidc-username-claim (可选, 实验性参数) 指定用户名对应的OpenID。默认设置为sub参数，在指定域中是唯一的，不可变的。集群管理员可以选择其它参数如email，作为用户名，但不保证其唯一性和不变性。
 
 Please note that this flag is still experimental until we settle more on how to handle the mapping of the OpenID user to the Kubernetes user. Thus further changes are possible.
 
@@ -30,11 +29,9 @@ Like Token File, when using token authentication from an http client the apiserv
 Keystone authentication is enabled by passing the --experimental-keystone-url=<AuthURL> option to the apiserver during startup. The plugin is implemented in plugin/pkg/auth/authenticator/request/keystone/keystone.go. For details on how to use keystone to manage projects and users, refer to the Keystone documentation. Please note that this plugin is still experimental which means it is subject to changes. Please refer to the discussion and the blueprint for more details
 
 ## **插件开发** 
-
 We plan for the Kubernetes API server to issue tokens after the user has been (re)authenticated by a bedrockauthentication provider external to Kubernetes. We plan to make it easy to develop modules that interface between Kubernetes and a bedrock authentication provider (e.g. github.com, google.com, enterprise directory, kerberos, etc.)
 
 ## **附录**
-
 ### **创建证书 **
 When using client certificate authentication, you can generate certificates manually or using an existing deployment script.
 

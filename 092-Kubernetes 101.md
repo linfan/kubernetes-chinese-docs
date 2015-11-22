@@ -123,7 +123,7 @@ Volume 类型
 
 多容器
 
-*注：下面的例子在语义上正确，但是某些图片（比如 kubernetes/git-monitor）目前还不存在。我们正在努力将这些内容加入到可以工作的例子中。*
+*注：下面的例子在语义上正确，但是某些镜像（比如 kubernetes/git-monitor）目前还不存在。我们正在努力将这些内容加入到可以工作的例子中。*
 
 However, often you want to have two different containers that work together. An example of this would be a web server, and a helper job that polls a git repository for new updates:
 然而，通常你会希望存在两种容器在一起工作。一个例子是网站服务器，和一个可以从git仓库中拉出更新的帮助任务。
