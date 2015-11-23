@@ -26,11 +26,16 @@ git clone https://git.gitbook.com/linfan1/kubernetes-chinese-docs.git
 
 3. 不论原本内容有没有标题，麻烦大家在每个小节的**第一行**都写个标题，方便后期整理目录。可以参考已有的文件内容。
 
-4. 内容格式按照DockOne的[文章规范](Fingerpost.txt)。
+4. 内容格式按照DockOne的[文章规范](Fingerpost.txt)，基本规范列举如下：
+    - 中文部分统一使用中文全角字符，如『』、“”、（）等
+    - Markdown格式统一使用英文字符，如[]、()、#等
+    - 英文单词前后不需要留空格
+    - 注意专用词汇的大小写，如Pod、ReplicationControllers
 
 5. 内容中的链接引用，分为以下两种情况处理：
     - **引用到同一篇文档其他位置的链接**：可以改为叙述方式，例如『参见下文XXX部分内容』
     - **引用到文档以外地址，包括引用另一篇文档的链接**：统一保留原始链接地址，后续再统一进行处理
+   所有引用统一采用Markdown的[引用格式](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)，不应该写成上标的方式。
 
 ##名词列表
 
