@@ -524,7 +524,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Most recently observed status of the node. Populated by the system. Read-only. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">当前节点的最新状态。由系统生成，只读。详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_nodestatus">v1.NodeStatus</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -536,7 +536,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_persistentvolumeclaimlist">v1.PersistentVolumeClaimList</h3>
 <div class="paragraph">
-<p>PersistentVolumeClaimList is a list of PersistentVolumeClaim items.</p>
+<p>PersistentVolumeClaimList是一个列表，包含多个 PersistentVolumeClaim条目。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -549,37 +549,37 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">metadata</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Standard list metadata. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">标准列表的元数据。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_unversioned_listmeta">unversioned.ListMeta</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">items</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A list of persistent volume claims. More info: <a href="http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#persistentvolumeclaims">http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#persistentvolumeclaims</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">一组持久存储卷声明。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#persistentvolumeclaims">http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#persistentvolumeclaims</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_persistentvolumeclaim">v1.PersistentVolumeClaim</a> array</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -591,7 +591,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_objectfieldselector">v1.ObjectFieldSelector</h3>
 <div class="paragraph">
-<p>ObjectFieldSelector selects an APIVersioned field of an object.</p>
+<p>ObjectFieldSelector 用来选择对象的某个APIVersioned字段。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -604,23 +604,23 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Version of the schema the FieldPath is written in terms of, defaults to "v1".</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">我们用某个类型去呈现FieldPath，apiVersion指类型的版本号，默认是"v1"。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">fieldPath</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Path of the field to select in the specified API version.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">针对某个特定的版本的API，要选择的字段的路径。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -632,7 +632,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_selinuxoptions">v1.SELinuxOptions</h3>
 <div class="paragraph">
-<p>SELinuxOptions are the labels to be applied to the container</p>
+<p>SELinuxOptions是指要赋给容器的标签(labels)。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -645,37 +645,37 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User is a SELinux user label that applies to the container.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User是指要赋给容器的SELinux用户标签。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">role</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Role is a SELinux role label that applies to the container.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Role是指要赋给容器的SELinux角色标签。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">type</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Type is a SELinux type label that applies to the container.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type是指要赋给容器的SELinux类型标签。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Level is SELinux level label that applies to the container.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Level是指要赋给容器的SELinux级别标签。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -687,7 +687,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_containerstaterunning">v1.ContainerStateRunning</h3>
 <div class="paragraph">
-<p>ContainerStateRunning is a running state of a container.</p>
+<p>ContainerStateRunning指容器"运行中"的状态</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -700,16 +700,16 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">startedAt</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Time at which the container was last (re-)started</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">容器上一次启动或者重启的时间</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -721,7 +721,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_volumemount">v1.VolumeMount</h3>
 <div class="paragraph">
-<p>VolumeMount describes a mounting of a Volume within a container.</p>
+<p>VolumeMount用来描述一个容器数据卷的挂载。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -734,30 +734,30 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This must match the Name of a Volume.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">这个字段必须与数据卷的名字相匹配。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">readOnly</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">如果挂载时设置为只读，则该字段为true，否则为可读写(false或者unspecified)。默认值为false。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">mountPath</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Path within the container at which the volume should be mounted.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mountPath(挂载路径)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">指定数据卷在容器内的挂载路径。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -769,7 +769,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_persistentvolumeclaimspec">v1.PersistentVolumeClaimSpec</h3>
 <div class="paragraph">
-<p>PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes</p>
+<p>PersistentVolumeClaimSpec用来描述存储设备的常见属性，允许针对某个特定供应商的设备自定义属性。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -782,16 +782,16 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">accessModes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AccessModes contains the desired access modes the volume should have. More info: <a href="http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#access-modes-1">http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#access-modes-1</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">accessModes (访问模式)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccessModes 包含了数据卷应具备的访问模式。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#access-modes-1">http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#access-modes-1</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_persistentvolumeaccessmode">v1.PersistentVolumeAccessMode</a> array</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -830,10 +830,10 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -892,10 +892,10 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -926,10 +926,10 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -981,10 +981,10 @@ Examples:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -1036,10 +1036,10 @@ Examples:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -1070,10 +1070,10 @@ Examples:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -1104,10 +1104,10 @@ Examples:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -1138,23 +1138,23 @@ Examples:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1200,10 +1200,10 @@ Examples:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -1248,30 +1248,30 @@ Examples:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">metadata</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Standard list metadata. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">标准列表的元数据。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_unversioned_listmeta">unversioned.ListMeta</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1303,10 +1303,10 @@ Examples:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -1344,10 +1344,10 @@ Examples:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -1385,30 +1385,30 @@ Examples:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">metadata</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Standard list metadata. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">标准列表的元数据。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_unversioned_listmeta">unversioned.ListMeta</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1440,10 +1440,10 @@ Examples:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -1509,10 +1509,10 @@ Examples:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -1543,10 +1543,10 @@ Examples:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -1584,10 +1584,10 @@ Examples:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -1618,10 +1618,10 @@ Examples:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -1743,10 +1743,10 @@ Populated by the system when a graceful deletion is requested. Read-only. More i
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -1777,10 +1777,10 @@ Populated by the system when a graceful deletion is requested. Read-only. More i
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -1839,10 +1839,10 @@ Populated by the system when a graceful deletion is requested. Read-only. More i
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -1873,30 +1873,30 @@ Populated by the system when a graceful deletion is requested. Read-only. More i
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">metadata</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Standard list metadata. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">标准列表的元数据。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_unversioned_listmeta">unversioned.ListMeta</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1934,23 +1934,23 @@ Populated by the system when a graceful deletion is requested. Read-only. More i
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1996,30 +1996,30 @@ Populated by the system when a graceful deletion is requested. Read-only. More i
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">metadata</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Standard list metadata. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">标准列表的元数据。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_unversioned_listmeta">unversioned.ListMeta</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2051,23 +2051,23 @@ Populated by the system when a graceful deletion is requested. Read-only. More i
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2113,10 +2113,10 @@ Populated by the system when a graceful deletion is requested. Read-only. More i
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -2154,23 +2154,23 @@ Populated by the system when a graceful deletion is requested. Read-only. More i
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2216,10 +2216,10 @@ Populated by the system when a graceful deletion is requested. Read-only. More i
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -2250,10 +2250,10 @@ Populated by the system when a graceful deletion is requested. Read-only. More i
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -2291,10 +2291,10 @@ Populated by the system when a graceful deletion is requested. Read-only. More i
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -2332,30 +2332,30 @@ Populated by the system when a graceful deletion is requested. Read-only. More i
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">metadata</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Standard list metadata. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">标准列表的元数据。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_unversioned_listmeta">unversioned.ListMeta</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2387,10 +2387,10 @@ Populated by the system when a graceful deletion is requested. Read-only. More i
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -2442,10 +2442,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -2490,10 +2490,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -2524,10 +2524,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -2558,10 +2558,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -2599,23 +2599,23 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2661,30 +2661,30 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">metadata</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Standard list metadata. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">标准列表的元数据。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_unversioned_listmeta">unversioned.ListMeta</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2716,30 +2716,30 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">metadata</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Standard list metadata. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">标准列表的元数据。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_unversioned_listmeta">unversioned.ListMeta</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2782,23 +2782,23 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2837,23 +2837,23 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2885,10 +2885,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -3035,10 +3035,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -3118,23 +3118,23 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -3184,23 +3184,23 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -3239,10 +3239,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -3280,10 +3280,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -3363,10 +3363,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -3495,10 +3495,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -3557,23 +3557,23 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -3619,30 +3619,30 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">metadata</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Standard list metadata. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">标准列表的元数据。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_unversioned_listmeta">unversioned.ListMeta</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -3674,10 +3674,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -3715,10 +3715,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -3763,10 +3763,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -3832,10 +3832,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -3880,10 +3880,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -3928,10 +3928,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -3969,10 +3969,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -4038,10 +4038,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -4121,23 +4121,23 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -4176,10 +4176,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -4210,10 +4210,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -4258,10 +4258,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -4313,10 +4313,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -4361,10 +4361,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -4395,10 +4395,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -4450,10 +4450,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -4505,10 +4505,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -4539,30 +4539,30 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">metadata</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Standard list metadata. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">标准列表的元数据。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_unversioned_listmeta">unversioned.ListMeta</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -4594,10 +4594,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -4747,10 +4747,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -4879,10 +4879,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -4943,10 +4943,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -4988,10 +4988,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -5050,10 +5050,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -5105,30 +5105,30 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">metadata</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Standard list metadata. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">标准列表的元数据。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_unversioned_listmeta">unversioned.ListMeta</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -5160,10 +5160,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -5191,10 +5191,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -5232,23 +5232,23 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -5287,10 +5287,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -5363,10 +5363,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -5411,10 +5411,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -5473,10 +5473,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -5524,10 +5524,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -5579,10 +5579,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -5662,30 +5662,30 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">metadata</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Standard list metadata. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">标准列表的元数据。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_unversioned_listmeta">unversioned.ListMeta</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -5717,10 +5717,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -5751,23 +5751,23 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -5813,23 +5813,23 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -5910,10 +5910,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -5958,10 +5958,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -6003,23 +6003,23 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -6058,10 +6058,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -6127,10 +6127,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -6168,30 +6168,30 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">metadata</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Standard list metadata. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">标准列表的元数据。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_unversioned_listmeta">unversioned.ListMeta</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -6223,30 +6223,30 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">metadata</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Standard list metadata. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">标准列表的元数据。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_unversioned_listmeta">unversioned.ListMeta</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -6278,30 +6278,30 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">metadata</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Standard list metadata. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">标准列表的元数据。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_unversioned_listmeta">unversioned.ListMeta</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -6333,10 +6333,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -6409,30 +6409,30 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">metadata</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Standard list metadata. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">标准列表的元数据。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_unversioned_listmeta">unversioned.ListMeta</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -6492,10 +6492,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -6533,10 +6533,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -6616,10 +6616,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -6699,23 +6699,23 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">kind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看：Kind 是指当前对象代表的REST资源类型。client端向endpoint提交请求时，server端可以根据client提交到的endpoint来推断出这个字段的值。该字段的值是不可变的，以驼峰风格显示。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">apiVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">APIVersion定义了表征方式的版本信息，apiVersion不同意味着当前对象表述出来可能是不一样的。server端会自动识别该字段并将其转换为内部可识别的类型，如果无法识别该字段，则可能拒绝接收该对象。详情查看： <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -6761,10 +6761,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -6816,10 +6816,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
@@ -6857,10 +6857,10 @@ The resulting set of endpoints can be viewed as:<br>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Schema</th>
-<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Description (描述)</th>
+<th class="tableblock halign-left valign-top">Required(是否必须)</th>
+<th class="tableblock halign-left valign-top">Schema (类型)</th>
+<th class="tableblock halign-left valign-top">Default (默认值)</th>
 </tr>
 </thead>
 <tbody>
