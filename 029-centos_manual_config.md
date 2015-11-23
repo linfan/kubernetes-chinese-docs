@@ -1,4 +1,4 @@
-从[CentOS][1]入门Kubernetes
+# 从CentOS入门Kubernetes
 -------------------------
 本节内容
 
@@ -6,12 +6,12 @@
 - [启动一个集群](#启动一个集群)
 
 ## 前提条件 ##
-你需要2台或以上安装有CentOS的机器
+你需要2台或以上安装有[CentOS](http://centos.org/)的机器
 
 ## 启动一个集群 ##
 本文是针对CentOS系统的Kubernetes入门教程。通过手动配置，你将会理解所有底层的包、服务、端口等。
 
-本文只会让一个节点工作。多节点需要在Kubernetes之外配置一个可用的的[网络环境][2]，尽管这个额外的配置条件是显而易见的，（本节也不会去配置）。
+本文只会让一个节点工作。多节点需要在Kubernetes之外配置一个可用的的[网络环境](http://kubernetes.io/v1.0/docs/admin/networking.html)，尽管这个额外的配置条件是显而易见的，（本节也不会去配置）。
 
 Kubernetes包提供了一些服务：kube-apiserver, kube-scheduler, kube-controller-manager, kubelet, kube-proxy。这些服务通过systemd进行管理，配置信息都集中存放在一个地方：/etc/kubernetes。我们将会把这些服务运行到不同的主机上。第一台主机，centos-master，将是Kubernetes 集群的master主机。这台机器上将运行kube-apiserver, kube-controller-manager和kube-scheduler这几个服务，此外，master主机上还将运行etcd。其余的主机，fed-minion，将是从节点，将会运行kubelet, proxy和docker。
 
@@ -164,9 +164,5 @@ centos-minion          <none>            Ready
 
 集群现在应该在运行了，启动一个用于测试的pod吧。
 
-你应该有一个功能正常的集群，查看[101][3]节！
+你应该有一个功能正常的集群，查看[101](http://kubernetes.io/v1.0/docs/user-guide/walkthrough/README.html)节！
 
-
-  [1]: http://centos.org/
-  [2]: http://kubernetes.io/v1.0/docs/admin/networking.html
-  [3]: http://kubernetes.io/v1.0/docs/user-guide/walkthrough/README.html
