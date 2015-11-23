@@ -1,4 +1,4 @@
-从[Ferdora][1]入门Kubernetes
+# 从Ferdora入门Kubernetes
 --------------------------
 本节内容
 
@@ -10,9 +10,9 @@
  1. 你需要2台或以上安装有Fedora的机器
  
 ## 说明
-本文是针对Fedora系统的Kubernetes入门教程。通过手动配置，你将会理解所有底层的包、服务、端口等。
+本文是针对[Fedora](http://fedoraproject.org/)系统的Kubernetes入门教程。通过手动配置，你将会理解所有底层的包、服务、端口等。
 
-本文只会让一个节点（之前称从节点）工作。多节点需要在Kubernetes之外配置一个可用的[网络环境][2]，尽管这个额外的配置条件是显而易见的，（本节也不会去配置）。
+本文只会让一个节点（之前称从节点）工作。多节点需要在Kubernetes之外配置一个可用的[网络环境](http://kubernetes.io/v1.0/docs/admin/networking.html)，尽管这个额外的配置条件是显而易见的，（本节也不会去配置）。
 
 Kubernetes包提供了一些服务：kube-apiserver,kube-scheduler,kube-controller-manager,kubelet,kube-proxy。这些服务通过systemd进行管理，配置信息都集中存放在一个地方：/etc/kubernetes。我们将会把这些服务运行到不同的主机上。第一台主机，fed-master，将是Kubernetes的master主机。这台机器上将运行kube-apiserver,kube-controller-manager和kube-scheduler这几个服务，此外，master主机上还将运行etcd（如果etcd运行在另一台主机上，那就不需要了，本文假设etcd和Kubernetesmaster运行在同一台主机上）。其余的主机，fed-node，将是从节点，上面运行kubelet, proxy和docker。
 
@@ -28,9 +28,8 @@ fed-node = 192.168.121.65
 准备主机：
 
 - 在所有主机上（fed-master和fed-node）都安装Kubernetes，。这对docker也适用。在fed-master上安装etcd。本文在kubernetes-0.18及之后版本上通过测试。
-
-- yum命令之后的 [--enablerepo=update-testing][3] 参数可以保证安装最新的Kubernetes预览版。如果不加这个参数，你安装的版本将是Fedora提供的较旧的稳定版。
-- 如果你想获取最新的版本，你可以[从Fedora Koji上下载最新的RPM包][4]，然后yum install安装。而不是用下面的命令。
+- yum命令之后的 [--enablerepo=update-testing](https://fedoraproject.org/wiki/QA:Updates_Testing) 参数可以保证安装最新的Kubernetes预览版。如果不加这个参数，你安装的版本将是Fedora提供的较旧的稳定版。
+- 如果你想获取最新的版本，你可以[从Fedora Koji上下载最新的RPM包](http://koji.fedoraproject.org/koji/packageinfo?packageID=19202)，然后yum install安装。而不是用下面的命令。
 
 ```sh
 yum -y install --enablerepo=updates-testing kubernetes
@@ -187,13 +186,7 @@ kubectl delete -f ./node.json
 
 你应该完成了吧！
 
-集群现在应该在运行了，启动一个用于测试pod吧。
+集群现在应该在运行了，启动一个用于测试的Pod吧。
 
-你应该有一个可用的集群，查看[101][5]节！
+你应该有一个可用的集群，查看[101](http://kubernetes.io/v1.0/docs/user-guide/walkthrough/README.html)节！
 
-
-  [1]: http://fedoraproject.org/
-  [2]: http://kubernetes.io/v1.0/docs/admin/networking.html
-  [3]: https://fedoraproject.org/wiki/QA:Updates_Testing
-  [4]: http://koji.fedoraproject.org/koji/packageinfo?packageID=19202
-  [5]: http://kubernetes.io/v1.0/docs/user-guide/walkthrough/README.html
