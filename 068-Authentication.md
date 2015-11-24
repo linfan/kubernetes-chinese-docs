@@ -26,7 +26,7 @@ OpenID Connect ID Token，传递下面的参数给apiserver：
 基本认证文件格式，plugin/pkg/auth/authenticator/password/passwordfile/...，该文件是一个CSV文件，含有三个值，密码，用户名和用户id。
 如果在HTTP客户端使用基本认证，API Server需要一个值是Basic BASE64ENCODEDUSER:PASSWOR的Authorization头。
 
-Keystone authentication is enabled by passing the --experimental-keystone-url=<AuthURL> option to the apiserver during startup. The plugin is implemented in plugin/pkg/auth/authenticator/request/keystone/keystone.go. For details on how to use keystone to manage projects and users, refer to the Keystone documentation. Please note that this plugin is still experimental which means it is subject to changes. Please refer to the discussion and the blueprint for more details
+Keystone认证会在API Server启动的时候把--experimental-keystone-url=<AuthURL>参数传给API Server，该认证就会生效。该插件在plugin/pkg/auth/authenticator/request/keystone/keystone.go文件中实现。 For details on how to use keystone to manage projects and users, refer to the Keystone documentation. Please note that this plugin is still experimental which means it is subject to changes. Please refer to the discussion and the blueprint for more details
 
 ## **插件开发** 
 We plan for the Kubernetes API server to issue tokens after the user has been (re)authenticated by a bedrockauthentication provider external to Kubernetes. We plan to make it easy to develop modules that interface between Kubernetes and a bedrock authentication provider (e.g. github.com, google.com, enterprise directory, kerberos, etc.)
