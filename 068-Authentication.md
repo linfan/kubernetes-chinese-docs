@@ -17,7 +17,8 @@ OpenID Connect ID Token，传递下面的参数给apiserver：
 
 请注意，这个标志仍然处于试验阶段，如果我们可以处理更多关于OpenID用户和Kubernetes用户的映射关系，便可以开始使用。因此，未来的变化还是很有可能的。
 
-Currently, the ID token will be obtained by some third-party app. This means the app and apiserver MUST share the--oidc-client-id.
+目前，该ID Token会通过一些第三方应用程序获取。这意味着应用程序必须和API Server共享该配置--oidc-client-id。
+
 Like Token File, when using token authentication from an http client the apiserver expects an Authorization header with a value of Bearer SOMETOKEN.
 
 
