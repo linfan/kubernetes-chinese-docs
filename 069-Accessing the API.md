@@ -29,6 +29,10 @@ Kubernets apiserver进程提供Kuvernetes API。通常情况下，有一个进�
 ## **代理和防火墙规则**
 此外，在某些配置文件中有一个代理（nginx）作为API Server进程运行在同一台机器上。该代理是HTTPS服务，认证端口是443，访问API Server是本地主机8080端口。在这些配置文件里，Secure Port通常设置为6443。
 
+防火墙规则，通常配置运行外部HTTPS通过443端口访问。
+
+上面的都是默认配置，反应了Kubernetes使用kube-up.sh如何部署到Google Compute Engine。
+
 ## **用例和IP:Ports**
 有关服务端口，有三种不同的配置，有各自的应用场景。
 1. Kubernetes集群之外的客户端，例如在台式机上运行kubectl命令的人员。目前，通过运行在kubernetes-master机器上面的代理（nginx）访问本地主机端口。该代理可以使用证书认证或者Token认证方式。
