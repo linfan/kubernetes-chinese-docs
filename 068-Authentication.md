@@ -15,7 +15,7 @@ OpenID Connect ID Token，传递下面的参数给apiserver：
 - --oidc-ca-file (可选) API Server用于和OpenID提供者建立和验证安全连接。
 - --oidc-username-claim (可选, 实验性参数) 指定用户名对应的OpenID。默认设置为sub参数，在指定域中是唯一的，不可变的。集群管理员可以选择其它参数如email，作为用户名，但不保证其唯一性和不变性。
 
-请注意，这个标志仍然处于试验阶段，如果我们可以解决OpenID用户和Kubernetes用户的映射关系，便可以开始使用。未来的很有能还会变化。
+请注意，这个标志仍然处于试验阶段，如果我们可以处理更多关于OpenID用户和Kubernetes用户的映射关系，便可以开始使用。因此，未来的变化还是很有可能的。
 
 Currently, the ID token will be obtained by some third-party app. This means the app and apiserver MUST share the--oidc-client-id.
 Like Token File, when using token authentication from an http client the apiserver expects an Authorization header with a value of Bearer SOMETOKEN.
