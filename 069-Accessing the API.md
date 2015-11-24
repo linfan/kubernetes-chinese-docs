@@ -25,6 +25,7 @@ Kubernets apiserver进程提供Kuvernetes API。通常情况下，有一个进�
 
 3.移除：只读端口
  - 基于安全考虑，会移除只读端口，使用[Service Account](http://kubernetes.io/v1.1/docs/user-guide/service-accounts.html)代替。
+
 ## **代理和防火墙规则**
 
 ## **用例和IP:Ports**
