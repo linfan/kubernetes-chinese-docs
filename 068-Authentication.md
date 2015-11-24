@@ -57,7 +57,7 @@ cd easy-rsa-master/easyrsa3
 4.	复制pki/ca.crt，pki/issued/kubernetes-master.crt，pki/private/kubernetes-master.key到你的目录。
 5.	记得填写参数--client-ca-file=/yourdirectory/ca.crt，--tls-cert-file=/yourdirectory/server.cert，--tls-private-key-file=/yourdirectory/server.key，并作为API Server的启动参数。
 
-openssl can also be use to manually generate certificates for your cluster.
+Openssl也可以用来给你的集群手动生成证书。
 1.	Generate a ca.key with 2048bit openssl genrsa -out ca.key 2048
 2.	According to the ca.key generate a ca.crt. (-days set the certificate effective time). openssl req -x509 -new -nodes -key ca.key -subj "/CN=${MASTER_IP}" -days 10000 -out ca.crt
 3.	Generate a server.key with 2048bit openssl genrsa -out server.key 2048
