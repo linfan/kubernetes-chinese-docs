@@ -50,10 +50,12 @@ cd easy-rsa-master/easyrsa3
 ```
 ./easyrsa --batch "--req-cn=${MASTER_IP}@date +%s" build-ca nopass
 ```
-3.	Generate server certificate and key. (build-server-full [filename]: Generate a keypair and sign locally for a client or server)
+3.	产生服务器证书和秘钥。（build-server-full [文件名]：给客户端和服务器生成一个本地的秘钥对和信号）
+```
 ./easyrsa --subject-alt-name="IP:${MASTER_IP}" build-server-full kubernetes-master nopass
-4.	Copy pki/ca.crt pki/issued/kubernetes-master.crt pki/private/kubernetes-master.key to your directory.
-5.	Remember fill the parameters --client-ca-file=/yourdirectory/ca.crt --tls-cert-file=/yourdirectory/server.cert--tls-private-key-file=/yourdirectory/server.key and add these into apiserver start parameters.
+```
+4.	复制pki/ca.crt，pki/issued/kubernetes-master.crt，pki/private/kubernetes-master.key到你的目录。
+5.	记得填写参数--client-ca-file=/yourdirectory/ca.crt，--tls-cert-file=/yourdirectory/server.cert，--tls-private-key-file=/yourdirectory/server.key，并作为API Server的启动参数。
 
 openssl can also be use to manually generate certificates for your cluster.
 1.	Generate a ca.key with 2048bit openssl genrsa -out ca.key 2048
