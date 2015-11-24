@@ -5,7 +5,7 @@
 有关集群访问的更多问题，在[Accessing the cluster](http://kubernetes.io/v1.1/docs/user-guide/accessing-the-cluster.html)都有覆盖。
 
 ## **服务的Ports和IPs**
-Kubernets apiserver进程提供Kuvernetes API。通常情况下，有一个进程运行在单一kubernetes-master节点上。
+Kubernets API Server进程提供Kuvernetes API。通常情况下，有一个进程运行在单一kubernetes-master节点上。
 
 默认情况，Kubernetes API Server提供HTTP的两个端口：
 
@@ -16,7 +16,7 @@ Kubernets apiserver进程提供Kuvernetes API。通常情况下，有一个进�
  - 在HTTP中没有认证和授权检查
  - 主机访问受保护
  
-2.安全端口
+2.Secure Port
  - 默认端口6443，修改标识—secure-port
  - 默认IP是首个非本地主机的网络接口，修改标识—bind-address
  - HTTPS服务。设置证书和秘钥的标识，--tls-cert-file，--tls-private-key-file
