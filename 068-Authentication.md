@@ -21,11 +21,10 @@ OpenID Connect ID Token，传递下面的参数给apiserver：
 
 如Token文件，当从HTTP客户端使用Token认证方式，API Server希望在Authorization头添加一个Bearer SOMETOKEN的值。
 
-
-启动基本认证，需要在apiserver配置选项—basic_auth_file=SOMEFILE。当前，基本认证凭据是无限期的，而且重启apiserver，密码的修改才会生效。需要注意，基本认证方式是更安全的模式，更容易使用，更通用。
+启动基本认证，需要在API Server配置选项—basic_auth_file=SOMEFILE。当前，基本认证凭据是无限期的，而且重启API Server，密码的修改才会生效。需要注意，基本认证方式是更安全的模式，更容易使用，更通用。
 
 基本认证文件格式，plugin/pkg/auth/authenticator/password/passwordfile/...，该文件是一个CSV文件，含有三个值，密码，用户名和用户id。
-如果在http客户端使用基本认证，apiserver需要一个值是Basic BASE64ENCODEDUSER:PASSWOR的Authorization头。
+如果在HTTP客户端使用基本认证，API Server需要一个值是Basic BASE64ENCODEDUSER:PASSWOR的Authorization头。
 
 Keystone authentication is enabled by passing the --experimental-keystone-url=<AuthURL> option to the apiserver during startup. The plugin is implemented in plugin/pkg/auth/authenticator/request/keystone/keystone.go. For details on how to use keystone to manage projects and users, refer to the Keystone documentation. Please note that this plugin is still experimental which means it is subject to changes. Please refer to the discussion and the blueprint for more details
 
