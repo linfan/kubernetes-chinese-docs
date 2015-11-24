@@ -29,6 +29,7 @@ OpenID Connect ID Token，传递下面的参数给apiserver：
 Keystone认证会在API Server启动的时候把--experimental-keystone-url='AuthURL'参数传给API Server，该认证就会生效。该插件在plugin/pkg/auth/authenticator/request/keystone/keystone.go文件中实现。有关如何使用Keystone去管理项目和用户的详细信息，请参考[Keystone文档](http://docs.openstack.org/developer/keystone/)。请注意，该插件还处于试验阶段，很可能还会变化。请参考有关该插件的[讨论](https://github.com/kubernetes/kubernetes/pull/11798#issuecomment-129655212)和[计划](https://github.com/kubernetes/kubernetes/issues/11626)了解更多细节。
 
 ## **插件开发** 
+
 We plan for the Kubernetes API server to issue tokens after the user has been (re)authenticated by a bedrockauthentication provider external to Kubernetes. We plan to make it easy to develop modules that interface between Kubernetes and a bedrock authentication provider (e.g. github.com, google.com, enterprise directory, kerberos, etc.)
 
 ## **附录**
