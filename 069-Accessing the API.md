@@ -28,6 +28,7 @@ Kubernets apiserver进程提供Kuvernetes API。通常情况下，有一个进�
 
 ## **代理和防火墙规则**
 
+
 ## **用例和IP:Ports**
 有关服务端口，有三种不同的配置，有各自的应用场景。
 1. Kubernetes集群之外的客户端，例如在台式机上运行kubectl命令的人员。目前，通过运行在kubernetes-master机器上面的代理（nginx）访问本地主机端口。该代理可以使用证书认证或者Token认证方式。
