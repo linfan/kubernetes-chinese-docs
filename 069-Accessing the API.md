@@ -27,7 +27,7 @@ Kubernets apiserver进程提供Kuvernetes API。通常情况下，有一个进�
  - 基于安全考虑，会移除只读端口，使用[Service Account](http://kubernetes.io/v1.1/docs/user-guide/service-accounts.html)代替。
 
 ## **代理和防火墙规则**
-此外，在某些配置文件中有一个代理（nginx）作为API Server进程运行在同一台机器上。该代理是HTTPS服务，认证端口是443。
+此外，在某些配置文件中有一个代理（nginx）作为API Server进程运行在同一台机器上。该代理是HTTPS服务，认证端口是443，访问API Server是本地主机8080端口。在这些配置文件里，Secure Port通常设置为6443。
 
 ## **用例和IP:Ports**
 有关服务端口，有三种不同的配置，有各自的应用场景。
