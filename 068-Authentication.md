@@ -40,10 +40,16 @@ Keystone认证会在API Server启动的时候把--experimental-keystone-url='Aut
 Easyrsa可以用来为你的集群手动生成证书。
 
 1.	下载，解压，初始化Easyrsa3的补丁版本。
-2.	
-curl -L -O https://storage.googleapis.com/kubernetes-release/easy-rsa/easy-rsa.tar.gz tar xzf easy-rsa.tar.gz cd easy-rsa-master/easyrsa3 ./easyrsa init-pki
-2.	Generate a CA. (--batch set automatic mode. --req-cn default CN to use.)
+```	
+curl -L -O https://storage.googleapis.com/kubernetes-release/easy-rsa/easy-rsa.tar.gz 
+tar xzf easy-rsa.tar.gz 
+cd easy-rsa-master/easyrsa3 
+./easyrsa init-pki
+```
+2.	产生一个CA. (--batch设置自动模式。--req-cn使用默认CN。)
+```
 ./easyrsa --batch "--req-cn=${MASTER_IP}@date +%s" build-ca nopass
+```
 3.	Generate server certificate and key. (build-server-full [filename]: Generate a keypair and sign locally for a client or server)
 ./easyrsa --subject-alt-name="IP:${MASTER_IP}" build-server-full kubernetes-master nopass
 4.	Copy pki/ca.crt pki/issued/kubernetes-master.crt pki/private/kubernetes-master.key to your directory.
