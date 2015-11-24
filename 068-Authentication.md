@@ -10,9 +10,9 @@ Kubernetes使用客户端证书，令牌，或者HTTP基本身份验证用户的
 当http客户端使用Token认证，apiserver需要含有Bearer Sometoken值的一个Authorization头。
 
 OpenID Connect ID Token，传递下面的参数给apiserver：
-- --oidc-issuer-url (必须) apiserver连接到OpenID提供者的URL， 只接受HTTPS协议。
-- --oidc-client-id (必须) apiserver用于验证Token用户，合法的[ID Token](http://openid.net/specs/openid-connect-core-1_0.html#IDToken)在它的aud参数（aud claims 翻译待考虑）中包含该client-id。
-- --oidc-ca-file (可选) apiserver用于和OpenID提供者建立和验证安全连接。
+- --oidc-issuer-url (必须) API Server连接到OpenID提供者的URL， 只接受HTTPS协议。
+- --oidc-client-id (必须) API Server用于验证Token用户，合法的[ID Token](http://openid.net/specs/openid-connect-core-1_0.html#IDToken)在它的aud参数（aud claims 翻译待考虑）中包含该client-id。
+- --oidc-ca-file (可选) API Server用于和OpenID提供者建立和验证安全连接。
 - --oidc-username-claim (可选, 实验性参数) 指定用户名对应的OpenID。默认设置为sub参数，在指定域中是唯一的，不可变的。集群管理员可以选择其它参数如email，作为用户名，但不保证其唯一性和不变性。
 
 Please note that this flag is still experimental until we settle more on how to handle the mapping of the OpenID user to the Kubernetes user. Thus further changes are possible.
