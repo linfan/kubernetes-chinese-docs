@@ -34,4 +34,6 @@ Kubernets apiserver进程提供Kuvernetes API。通常情况下，有一个进�
 2. 运行在Kuvernetes的Container里面的进程需要从API Server中读取。目前，这些进程都是用[Service Account](http://kubernetes.io/v1.1/docs/user-guide/service-accounts.html)
 3. 调度器和Controller管理进程，需要对API做读写操作。目前，这些都必须运行在API Server同样的主机上面，使用本地主机。未来，这些进程将会使用Service Account服务，避免共存的必要。
 4. Kubelets，需要对API做读写操作，并且同API Server相比，它必须运行在不同的机器上面。Kubelet使用安全端口获取Pod，发现Pod可以看到的服务，并且记录这些事件。在集群启动事件内，分布设置Kubelet凭证。Kubelet和Kube-proxy可以使用证书认证和Token认证方式。
-5. 
+
+## **预期变化**
+- 
