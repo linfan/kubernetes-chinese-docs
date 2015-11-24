@@ -33,7 +33,7 @@ Keystone认证会在API Server启动的时候把--experimental-keystone-url='Aut
 
 ## **附录**
 ### **创建证书 **
-When using client certificate authentication, you can generate certificates manually or using an existing deployment script.
+客户端证书认证，用户可以手动产生证书，也可以使用已经存在的脚本部署。
 
 Deployment script is implemented at cluster/saltbase/salt/generate-cert/make-ca-cert.sh. Execute this script with two parameters. First is the IP address of apiserver, the second is a list of subject alternate names in the formIP:<ip-address> or DNS:<dns-name>. The script will generate three files:ca.crt, server.crt and server.key. Finally, add these parameters --client-ca-file=/srv/kubernetes/ca.crt --tls-cert-file=/srv/kubernetes/server.cert--tls-private-key-file=/srv/kubernetes/server.key into apiserver start parameters.
 
