@@ -19,7 +19,7 @@ OpenID Connect ID Token，传递下面的参数给apiserver：
 
 目前，该ID Token会通过一些第三方应用程序获取。这意味着应用程序必须和API Server共享该配置--oidc-client-id。
 
-Like Token File, when using token authentication from an http client the apiserver expects an Authorization header with a value of Bearer SOMETOKEN.
+如Token文件，当从HTTP客户端使用Token认证方式，API Server希望在Authorization头添加一个Bearer SOMETOKEN的值。
 
 
 启动基本认证，需要在apiserver配置选项—basic_auth_file=SOMEFILE。当前，基本认证凭据是无限期的，而且重启apiserver，密码的修改才会生效。需要注意，基本认证方式是更安全的模式，更容易使用，更通用。
