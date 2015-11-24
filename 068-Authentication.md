@@ -35,7 +35,7 @@ Keystone认证会在API Server启动的时候把--experimental-keystone-url='Aut
 ### **创建证书 **
 客户端证书认证，用户可以手动产生证书，也可以使用已经存在的脚本部署。
 
-部署脚本路径在cluster/saltbase/salt/generate-cert/make-ca-cert.sh。执行该脚本需要两个参数，一个是API Server的IP地址，另一个是IP：<ip-address>或者DNS：<dns-name>主题备用名称的列表。The script will generate three files:ca.crt, server.crt and server.key. Finally, add these parameters --client-ca-file=/srv/kubernetes/ca.crt --tls-cert-file=/srv/kubernetes/server.cert--tls-private-key-file=/srv/kubernetes/server.key into apiserver start parameters.
+部署脚本路径在cluster/saltbase/salt/generate-cert/make-ca-cert.sh。执行该脚本需要两个参数，一个是API Server的IP地址，另一个是IP：<ip-address>或者DNS：<dns-name>主题备用名称的列表。该脚本会产生三个文件，ca.crt，server.crt和server.key。最后，添加下面的参数作为API Server的启动参数， --client-ca-file=/srv/kubernetes/ca.crt，--tls-cert-file=/srv/kubernetes/server.cert，--tls-private-key-file=/srv/kubernetes/server.key。
 
 easyrsa can be used to manually generate certificates for your cluster.
 
