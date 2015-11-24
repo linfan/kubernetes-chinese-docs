@@ -7,9 +7,9 @@
 ## **服务的Ports和IPs**
 Kubernets apiserver进程提供Kuvernetes API。通常情况下，有一个进程运行在单一kubernetes-master节点上。
 
-默认情况，Kubernetes API Server提供HTTP上的两个端口：
+默认情况，Kubernetes API Server提供HTTP的两个端口：
 
- 1.本地host端口（Localhost Port）
+ 1.本地主机端口
  - HTTP服务
  - 默认端口8080，修改标--insecure-port
  - 默认IP，localhost，修改标识—insecure-bind-address
