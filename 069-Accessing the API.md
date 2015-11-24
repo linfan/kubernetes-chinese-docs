@@ -1,7 +1,8 @@
 # **API Server端口配置**
 
 本文档介绍Kubernetes apiserver服务的端口以及如何访问这些端口。观众都是集群管理员，都想定制他们自己的集群或者了解细节。
-有关集群访问的更多问题，在Accessing the cluster都有覆盖。
+
+有关集群访问的更多问题，在[Accessing the cluster](http://kubernetes.io/v1.1/docs/user-guide/accessing-the-cluster.html)都有覆盖。
 ## **服务的Ports和IPs**
 
 Kubernets apiserver进程提供Kuvernetes API。通常情况下，有一个进程运行在单一kubernetes-master节点上。
