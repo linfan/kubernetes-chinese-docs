@@ -59,9 +59,17 @@ cd easy-rsa-master/easyrsa3
 
 Openssl也可以用来给你的集群手动生成证书。
 1.	使用2048bit生成ca.key：openssl genrsa -out ca.key 2048
-2.	根据ca.key生成ca.crt。（）
-3.	According to the ca.key generate a ca.crt. (-days set the certificate effective time). openssl req -x509 -new -nodes -key ca.key -subj "/CN=${MASTER_IP}" -days 10000 -out ca.crt
-3.	Generate a server.key with 2048bit openssl genrsa -out server.key 2048
-4.	According to the server.key generate a server.csr. openssl req -new -key server.key -subj "/CN=${MASTER_IP}" -out server.csr
-5.	According to the ca.key, ca.crt and server.csr generate the server.crt. openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 10000
-6.	View the certificate. openssl x509 -noout -text -in ./server.crt Finally, do not forget fill the same parameters and add parameters into apiserver start parameters.
+2.	根据ca.key生成ca.crt。(-days设置证书的有效时间)。
+```
+openssl req -x509 -new -nodes -key ca.key -subj "/CN=${MASTER_IP}" -days 10000 -out ca.crt
+```
+3.	使用2048bit生成server.key：openssl genrsa -out server.key 2048
+4.	根据server.key生成server.csr。
+```
+openssl req -new -key server.key -subj "/CN=${MASTER_IP}" -out server.csr
+```
+5.	根据ca.key，ca.crt和server.csr生成server.crt。
+```
+openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 10000
+```
+6.	查看证书：openssl x509 -noout -text -in ./server.crt。 最后，记得填写参数，并作为API Server的启动参数。
