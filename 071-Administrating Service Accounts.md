@@ -20,15 +20,14 @@
 - Token控制器
 - Service Accounts控制器
 
-### **服务账户Admission Controller**
-
-Pod的修改是[Admission Controller]()插件实现的，该插件是apiserver的一部分。插件的创建和更新，会同步修改Pod。当插件状态是active（大多版本中，默认是active），创建或者修改Pod会遵循以下流程：
+### **Service Accounts Admission Controller**
+Pod的修改是[Admission Controller](http://kubernetes.io/v1.1/docs/admin/admission-controllers.html)插件实现的，该插件是apiserver的一部分。插件的创建和更新，会同步修改Pod。当插件状态是active（大多版本中，默认是active），创建或者修改Pod会遵循以下流程：
 
 1.	如果该Pod没有ServiceAccount集，将ServiceAccount设为default
 2.	ServiceAccount必须有存在的Pod引用，否则拒绝该ServiceAccount
 3.	如果该Pod不包含任何ImagePullSecrets，然后该ServiceAccount的ImagesPullSecrets会被加入Pod。
 4.	添加一个volume到该Pod，包含API访问的令牌。
-5.	添加一个volume到该Pod的每一个容器，挂载/var/run/secrets/kubernetes.io/serviceaccount
+5.	添加一个volume到该Pod的每一个容器，挂载在/var/run/secrets/kubernetes.io/serviceaccount
 
 ###** Token Controller**
 
