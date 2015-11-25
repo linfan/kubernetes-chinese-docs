@@ -60,6 +60,6 @@ kubectl describe secret mysecretname
 ```
 kubectl delete secret mysecretname
 ```
-### **服务账户控制器(Service Account Controller)**
+### **服务账户控制器(Service Account Controller)（考虑可以不翻译）**
 
 Service Account Controller管理Namespace中的ServiceAccount，确保每一个“default”的ServiceAccount存在于每一个活动空间中。
