@@ -4,7 +4,7 @@
 
 *对用户授权和用户账户的支持正在计划中，还没有完全完成。有时候，不完整的一些特性，可以更好的描述Service Accounts。*
 
-## **User Accounts&Service Accounts**
+## **User Accounts和Service Accounts**
 
 基于以下原因，Kubernetes区分了用户账户和服务账户：
 - 用户账户针对人，服务账户针对运行在Pod的进程；
