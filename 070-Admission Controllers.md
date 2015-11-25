@@ -79,7 +79,7 @@ Admission Controller的该功能已经并入NamespaceLifecycle插件。
 
 该插件会检查所有传入的请求，尝试在Kubernetes Namespace中创建资源，如果Namespace不存在，会创建一个新的Namespace。
 
-我们强烈建议NamespaceExists优先级高于NamespaceAutoProvision。
+我们强烈建议NamespaceExists插件优先级高于NamespaceAutoProvision插件。
 
 ### ****NamespaceLifecycle插件****
 如果Namespace已经终止，则不能在其中创建新的Namespace，该插件会强制该操作。
