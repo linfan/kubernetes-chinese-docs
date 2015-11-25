@@ -88,4 +88,6 @@ Admission Controller的该功能已经并入NamespaceLifecycle插件。
 是的。
 
 Kubernetes1.0，我们强烈建议使用如下的许可控制插件集合（order matters）：
+```
 --admission_control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota
+```
