@@ -1,7 +1,7 @@
 # **Admission Controller**
 目录
-- [Admission Controller]()
- - [Admission Controller是什么？]()
+- [Admission Controller](http://kubernetes.io/v1.1/docs/admin/admission-controllers.html#admission-controllers)
+ - [Admission Controller是什么？](http://kubernetes.io/v1.1/docs/admin/admission-controllers.html#what-are-they)
  - [为什么使用Admission Controller？]()
  - [如何使用接入控制插件？]()
  - [AlwaysAdmit]()
