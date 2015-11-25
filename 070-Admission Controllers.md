@@ -39,11 +39,11 @@ Kubernetes API 服务器提供了一个参数，admission-control，用逗号分
 拒绝所有请求，主要用于测试。
 
 ### ****DenyExecOnPrivileged (废弃)插件****
-如果一个Pod有一个特权容器（privileged container），插件就会拦截所有的请求，在该Pod中执行一个命令。
+如果一个Pod有一个特权Container，该插件就会拦截所有的请求，在该Pod中执行一个命令。
 
-如果你的集群支持特权容器，而且你想要限制终端用户在那些容器中执行命令的权限，我们强烈建议使用该插件。
+如果你的集群支持特权Container，而且你想要限制终端用户在那些Container中执行命令的权限，我们强烈建议使用该插件。
 
-该功能已经合并到[DenyEscalatingExec]()
+该功能已经合并到DenyEscalatingExec插件『参见下文“DenyEscalatingExec插件”』)
 
 ### ****DenyEscalatingExec插件****
 This plug-in will deny exec and attach commands to pods that run with escalated privileges that allow host access. This includes pods that run as privileged, have access to the host IPC namespace, and have access to the host PID namespace.
