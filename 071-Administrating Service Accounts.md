@@ -34,8 +34,8 @@ Pod的修改是[Admission Controller](http://kubernetes.io/v1.1/docs/admin/admis
 TokenController做为controller-manager的一部分异步运行。
 - 检查serviceAccount的创建，并且创建一个关联的Secret，允许API访问。
 - 检查serviceAccount的删除，并且删除所有相关ServiceAccountToken Secrets
-- 检查额外秘钥，and ensures the referenced ServiceAccount exists, and adds a token to the secret if needed
-- 检查秘钥的删除，如果有必要，从相关的ServiceAccount中移除参考信息。
+- 检查额外Secret，确保引用的ServiceAccount的存在，并且如果有必要则添加一个Token到该Secret。
+- 检查Secret的删除，如果有必要，从相关的ServiceAccount中移除参考信息。
 
 #### 创建额外的API标记
 
