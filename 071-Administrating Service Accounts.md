@@ -1,8 +1,8 @@
-# **Service Accunts集群管理指南**
+# **Service Accounts集群管理指南**
 
 *这是对服务账号的集群管理指南，详情[Service Accounts用户指南](http://kubernetes.io/v1.1/docs/user-guide/service-accounts.html).*
 
-*用户授权和用户账户在计划中，还没有完全支持。有时候，不完整的一些特性，以便可以更好的描述服务账户。*
+*用户授权和用户账户在计划中，还没有完全支持。有时候，不完整的一些特性，可以更好的描述Service Accounts。*
 
 ## **用户账户&服务账户**
 
