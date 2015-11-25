@@ -4,7 +4,7 @@
 **内容列表**
 
 - [介绍](#introduction)
-- [先决条件](#prerequisites)
+- [前提条件](#prerequisites)
 - [克隆脚本](#clone-the-playbook)
 - [创建一个 Kubernetes 集群](#create-a-kubernetes-cluster)
 
@@ -20,7 +20,7 @@ CloudStack的[ CoreOS ](http://coreos.com)模版会[每日](http://stable.releas
 
  [Ansible](http://ansibleworks.com) 脚本基于 coreOS 镜像将 Kubernetes 部署到 CloudStack 基础云上。 该脚本创建一个SSH密钥对、一个安全组和相关规则并最终通过云初始化配置来启动coreOS实例。
 
-### 先决条件
+### 前提条件
 
     $ sudo apt-get install -y python-pip
     $ sudo pip install ansible
