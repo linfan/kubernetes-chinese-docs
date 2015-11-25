@@ -63,7 +63,7 @@ Kubernetes API 服务器提供了一个参数，admission-control，用逗号分
 
 查看[resourceQuota设计文档](http://kubernetes.io/v1.1/docs/design/admission_control_resource_quota.html)和[Resource Quota示例](http://kubernetes.io/v1.1/docs/admin/resourcequota/README.html)了解更多细节。
 
-强烈建议配置该插件在Admission Controller插件的序列中。This is so that quota is not prematurely incremented only for the request to be rejected later in admission control。
+强烈建议配置该插件在Admission Controller插件的序列中。This is so that quota is not prematurely incremented only for the request to be rejected later in admission control。（该句话翻译有待考虑）
 
 ### ****LimitRanger插件****
 该插件会检查传入的请求，确保其不违反任何Namespace中LimitRange对象枚举的约束条件。如果你在Kubernetes开发中正在使用LimitRange对象，你必须使用该插件实现约束条件。LimitRange也经常用于Pod中默认资源请求，不会指定哪一个请求。目前，默认LimitRange，在默认的Namespace中对所有的Pod，需要0.1CPU。
