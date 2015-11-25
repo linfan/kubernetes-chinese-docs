@@ -54,7 +54,7 @@ If your cluster supports containers that run with escalated privileges, and you 
 
 ### ****SecurityContextDeny插件****
 
-SecurityContext定义了一些不适用于Container的选项，这个插件将会拒绝任何含有该SecurityContext的Pod。
+[SecurityContext](http://kubernetes.io/v1.1/docs/user-guide/security-context.html)定义了一些不适用于Container的选项，这个插件将会拒绝任何含有该SecurityContext的Pod。
 
 ### ****ResourceQuota插件****
 
