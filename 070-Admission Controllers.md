@@ -9,12 +9,12 @@
  - AlwaysDeny『参见下文“AlwaysDeny插件”』
  - DenyExecOnPrivileged (废弃)『参见下文“DenyExecOnPrivileged (废弃)插件”』
  - DenyEscalatingExec『参见下文“DenyEscalatingExec插件”』
- - ServiceAccount『参见下文“”』
- - SecurityContextDeny『参见下文“”』
- - ResourceQuota『参见下文“”』
- - LimitRanger『参见下文“”』
- - NamespaceExists (废弃)『参见下文“”』
- - NamespaceAutoProvision (废弃)『参见下文“”』
+ - ServiceAccount『参见下文“ServiceAccount插件”』
+ - SecurityContextDeny『参见下文“SecurityContextDeny插件”』
+ - ResourceQuota『参见下文“ResourceQuota插件”』
+ - LimitRanger『参见下文“LimitRanger插件”』
+ - NamespaceExists (废弃)『参见下文“NamespaceExists（废弃）插件”』
+ - NamespaceAutoProvision (废弃)『参见下文“NamespaceAutoProvision (废弃)插件”』
  - NamespaceLifecycle『参见下文“NamespaceLifecycle插件”』
  - 是否有推荐的插件集合？『参见下文“是否有推荐的插件集合”』
 
