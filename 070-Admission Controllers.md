@@ -48,6 +48,7 @@ Kubernetes API 服务器提供了一个参数，admission-control，用逗号分
 ### ****DenyEscalatingExec插件****
 This plug-in will deny exec and attach commands to pods that run with escalated privileges that allow host access. This includes pods that run as privileged, have access to the host IPC namespace, and have access to the host PID namespace.
 If your cluster supports containers that run with escalated privileges, and you want to restrict the ability of end-users to exec commands in those containers, we strongly encourage enabling this plug-in.
+
 ### ****ServiceAccount插件****
 这个插件实现了serviceAccounts的自动化。如果你打算使用Kubernetes ServiceAccount对象，我们强烈建议使用该插件。
 
