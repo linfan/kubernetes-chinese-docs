@@ -13,10 +13,10 @@
  - SecurityContextDeny『参见下文“”』
  - ResourceQuota『参见下文“”』
  - LimitRanger『参见下文“”』
- - NamespaceExists (deprecated)『参见下文“”』
- - NamespaceAutoProvision (deprecated)『参见下文“”』
- - NamespaceLifecycle『参见下文“”』
- - 是否有推荐的插件集合？『参见下文“”』
+ - NamespaceExists (废弃)『参见下文“”』
+ - NamespaceAutoProvision (废弃)『参见下文“”』
+ - NamespaceLifecycle『参见下文“NamespaceLifecycle插件”』
+ - 是否有推荐的插件集合？『参见下文“是否有推荐的插件集合”』
 
 ## **什么是Admission Controller？**
 
