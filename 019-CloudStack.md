@@ -8,7 +8,7 @@
 - [克隆脚本](#clone-the-playbook)
 - [创建一个 Kubernetes 集群](#create-a-kubernetes-cluster)
 
-### Introduction
+### 简介
 
 [CloudStack](http://cloudstack.apache.org)是一个用于构建基于硬件虚拟化的公有云和私有云（传统IaaS）的软件。在 CloudStack 上部署 Kubernetes 有好几种方法，需要根据 CloudStack 所使用的哪种云和有哪些可用镜像来决定。 例如[ Exoscale ](http://exoscale.ch)就提供了一个[ coreOS ](http://coreos.com)的可用模版，因此也可以使用在 coreOS 部署 Kubernetes 的指令来部署。 CloudStack 同样也提供了一个 Vagrant 插件，因此也可以用 Vagrant 来部署 Kubernetes ，既可以选择原有的基于 shell 脚本的部署方式，也可以选择新的基于 Salt 的部署方式。
 
