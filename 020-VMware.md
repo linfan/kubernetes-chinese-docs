@@ -5,12 +5,12 @@ vSphere的入门指南
 
 **内容列表**
 
-- [先决条件](#prerequisites)
+- [前提条件](#prerequisites)
 - [安装](#setup)
 - [启动集群](#starting-a-cluster)
 - [其他：部署失败调试](#extra-debugging-deployment-failure)
 
-### 先决条件
+### 前提条件
 
 1. 需要有一台ESXi机器或vCenter实例的管理员权限。 
 2. 需要先安装Go（1.2或以上版本）。下载地址： [www.golang.org](http://www.golang.org).
