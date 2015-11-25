@@ -7,10 +7,10 @@
 ## **User Accounts和Service Accounts**
 
 基于以下原因，Kubernetes区分了User Accounts和Service Accounts：
-- 用户账户针对人，服务账户针对运行在Pod的进程；
-- 用户账户是全局的，其名字必须在一个集群的所有Namespace中是唯一的。未来的用户资源将不被命令，但是服务账户是可以被命名的。
-- 通常情况下，集群的用户账户可以从一个企业数据库同步。在企业数据库中，新建的账户需要特殊权限，而且绑定到复杂业务流程。新建服务账户可以更加轻量级，允许集群用户为特殊任务创建服务账户（比如，最小权限规则）。
-- Auditing considerations for humans and service accounts may differ.
+- User Accounts针对人，Service Accounts针对运行在Pod的进程；
+- User Accounts是全局的，其名字必须在一个集群的所有Namespace中是唯一的。未来的用户资源将不被命令，但是Service Accounts是可以被命名的。
+- 通常情况下，集群的User Accounts可以从一个企业数据库同步。在企业数据库中，新建的账户需要特殊权限，而且绑定到复杂业务流程。新建Service Accounts可以更加轻量级，允许集群用户为特殊任务创建Service Accounts（比如，最小权限规则）。
+- 对人类和Service Accounts的审核注意事项是不同的。
 - 复杂系统的配置包包含对系统组件的各种服务账户的定义。因为服务账户可以创建ad-hoc，可以命名，配置是便携式的。
 
 ## **服务账户自动化**
