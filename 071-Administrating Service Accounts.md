@@ -1,4 +1,4 @@
-# **服务账户（Service Accunts）集群管理指南**
+# **Service Accunts集群管理指南**
 
 *这是对服务账号的集群管理指南，详情[User Guide to Service Accounts]().*
 
