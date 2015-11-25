@@ -65,7 +65,6 @@ If your cluster supports containers that run with escalated privileges, and you 
 强烈建议配置该插件在Admission Controller插件的序列中。This is so that quota is not prematurely incremented only for the request to be rejected later in admission control。
 
 ### ****LimitRanger插件****
-
 该插件会检查传入的请求，确保其不违反任何Namespace中LimitRange对象枚举的约束条件。如果你在Kubernetes开发中正在使用LimitRange对象，你必须使用该插件实现约束条件。LimitRange也经常用于Pod中默认资源请求，不会指定哪一个请求。目前，默认LimitRange，在默认的Namespace中对所有的Pod，需要0.1CPU。
 
 查阅[LimitRange设计文档](http://kubernetes.io/v1.1/docs/design/admission_control_limit_range.html)和[用例](http://kubernetes.io/v1.1/docs/admin/limitrange/)，了解更多详细信息。
@@ -76,7 +75,6 @@ If your cluster supports containers that run with escalated privileges, and you 
 Admission Controller的该功能已经并入NamespaceLifecycle插件。
 
 ### ****NamespaceAutoProvision (废弃)插件****
-
 该插件会检查所有传入的请求，尝试在Kubernetes Namespace中创建资源，如果Namespace不存在，会创建一个新的Namespace。
 
 我们强烈建议NamespaceExists插件优先级高于NamespaceAutoProvision插件。
@@ -87,7 +85,7 @@ Admission Controller的该功能已经并入NamespaceLifecycle插件。
 删除一个Namespace会终止一系列操作，移除该Namespace中所有对象（Pod，服务等等）。为了加强该过程的完整性，我们建议使用该插件。
 
 ## **是否有推荐的插件集合？**
+是的。
 
-是的
 Kubernetes1.0，我们强烈建议使用如下的许可控制插件集合（order matters）：
 --admission_control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota
