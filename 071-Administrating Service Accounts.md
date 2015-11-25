@@ -38,7 +38,7 @@ TokenController做为controller-manager的一部分异步运行。
 - 检查Secret的删除，如果有必要，从相关的ServiceAccount中移除参考信息。
 
 #### 创建额外的API Token
-一个控制循坏要确保每一个服务账户存在一个API标记。为一个服务账户创建一个额外的API标记，类型是ServiceAccountToken，含有一个注释去引用到对应的服务账户。该控制器使用如下的标记去更新：
+一个控制循坏要确保每一个Service Accounts存在一个API Token。为一个Service Accounts创建一个额外的API Token，类型是ServiceAccountToken，含有一个注释去引用到对应的个Service Accounts。该控制器使用如下的标记去更新：
 ```Json
 secret.json:
 {
