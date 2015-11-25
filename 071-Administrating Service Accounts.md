@@ -13,12 +13,12 @@
 - 对人类和Service Accounts的审核注意事项是不同的。
 - 复杂系统的配置包含对系统组件的各种Service Accounts的定义。因为Service Accounts可以创建ad-hoc，可以命名，配置是便携式的。
 
-## **服务账户自动化**
+## **Service Accounts自动化**
 
-三个独立的组件合作实现对服务账户的自动化。
-- Service账户接入控制器
+三个独立的组件合作实现对Service Accounts的自动化。
+- Service账户Admission Controller
 - Token控制器
-- Service账户控制器
+- Service Accounts控制器
 
 ### **服务账户Admission Controller**
 
