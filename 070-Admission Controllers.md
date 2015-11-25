@@ -68,12 +68,12 @@ If your cluster supports containers that run with escalated privileges, and you 
 
 该插件会检查传入的请求，确保其不违反任何Namespace中LimitRange对象枚举的约束条件。如果你在Kubernetes开发中正在使用LimitRange对象，你必须使用该插件实现约束条件。LimitRange也经常用于Pod中默认资源请求，不会指定哪一个请求。目前，默认LimitRange，在默认的Namespace中对所有的Pod，需要0.1CPU。
 
-查阅[LimitRange设计文档]()和[用例]()，了解更多详细信息。
+查阅[LimitRange设计文档](http://kubernetes.io/v1.1/docs/design/admission_control_limit_range.html)和[用例](http://kubernetes.io/v1.1/docs/admin/limitrange/)，了解更多详细信息。
 
 ### ****NamespaceExists（废弃）插件****
 该插件会检查所有传入的请求，尝试在Kubernetes Namespace中创建资源，如果该Namespace不是当前创建的，该插件会拒绝这个请求。我们强烈建议使用该插件，确保数据的完整性。
 
-接入控制器的该功能已经并入NamespaceLifecycle。
+Admission Controller的该功能已经并入NamespaceLifecycle插件。
 
 ### ****NamespaceAutoProvision (废弃)插件****
 
