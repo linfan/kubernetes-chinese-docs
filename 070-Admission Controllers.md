@@ -29,12 +29,10 @@ Admission Controller插件在某些情况下也许会改变传进来的对象，
 Kubernetes中许多高级功能需要激活Admission Controller插件，以便更好的支持该功能。总之，没有正确配置Admission Controller插件的Kubernetes API服务是不完整的服务，很多用户期望的服务是不支持的。
 
 ## **如何接入该插件？**
-Kubernetes API 服务器提供了一个参数，admission_control，用逗号分隔，在集群中修改对象之前，调用许可控制选项的有序列表。
+Kubernetes API 服务器提供了一个参数，admission-control，用逗号分隔，在集群中修改对象之前，调用许可控制选项的有序列表。
 
 ## **每个插件的功能是什么？**
-
 ### ****AlwaysAdmin插件****
-
 使用插件本身处理所有请求。
 
 ### ****AlwaysDeny插件****
