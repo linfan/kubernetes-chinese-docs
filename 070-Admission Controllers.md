@@ -36,7 +36,6 @@ Kubernetes API 服务器提供了一个参数，admission-control，用逗号分
 使用插件本身处理所有请求。
 
 ### ****AlwaysDeny插件****
-
 拒绝所有请求，主要用于测试。
 
 ### ****DenyExecOnPrivileged (废弃)插件****
