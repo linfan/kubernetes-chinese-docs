@@ -19,7 +19,6 @@
  - 是否有推荐的插件集合？『参见下文“是否有推荐的插件集合”』
 
 ## **什么是Admission Controller？**
-
 Admission Controller插件是一段代码，其拦截Kubernetes API服务的请求早于对象的持久性，但是在请求的认证和授权之后。插件代码位于API服务进程中，会编译成二进制以便此时使用。
 
 集群在接受一个请求之前，每一个Admission Controller插件都会按序运行。如果这个序列中的某个插件拒绝该请求，则整个的请求都会被立刻拒绝，返回一个错误给用户。
@@ -27,11 +26,9 @@ Admission Controller插件是一段代码，其拦截Kubernetes API服务的请�
 Admission Controller插件在某些情况下也许会改变传进来的对象，配置系统默认值。此外，Admission Controller插件也许会改变请求处理中的部分相关资源去做些事情，比如增量配额的使用。
 
 ## **为什么使用Admission Controller？**
-
 Kubernetes中许多高级功能需要激活Admission Controller插件，以便更好的支持该功能。总之，没有正确配置Admission Controller插件的Kubernetes API服务是不完整的服务，很多用户期望的服务是不支持的。
 
 ## **如何接入该插件？**
-
 Kubernetes API 服务器提供了一个参数，admission_control，用逗号分隔，在集群中修改对象之前，调用许可控制选项的有序列表。
 
 ## **每个插件的功能是什么？**
