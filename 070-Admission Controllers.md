@@ -50,7 +50,7 @@ This plug-in will deny exec and attach commands to pods that run with escalated 
 If your cluster supports containers that run with escalated privileges, and you want to restrict the ability of end-users to exec commands in those containers, we strongly encourage enabling this plug-in.
 
 ### ****ServiceAccount插件****
-这个插件实现了serviceAccounts的自动化。如果你打算使用Kubernetes ServiceAccount对象，我们强烈建议使用该插件。
+这个插件实现了[serviceAccounts](http://kubernetes.io/v1.1/docs/user-guide/service-accounts.html)的自动化。如果你打算使用Kubernetes ServiceAccount对象，我们强烈建议使用该插件。
 
 ### ****SecurityContextDeny插件****
 
