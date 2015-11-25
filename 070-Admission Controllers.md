@@ -48,7 +48,7 @@ Kubernetes API 服务器提供了一个参数，admission-control，用逗号分
 ### ****DenyEscalatingExec插件****
 该插件拒绝执行和附加令到允许主机访问的Pod。包含含有运行特权的Pod，有访问主机PID Namespace的权限。
 
-If your cluster supports containers that run with escalated privileges, and you want to restrict the ability of end-users to exec commands in those containers, we strongly encourage enabling this plug-in.
+如果你的集群支持含有升级特权的Container，而且你想要限制终端用户在这些Container中执行命令的能力，我们强烈建议使用该插件。
 
 ### ****ServiceAccount插件****
 这个插件实现了[serviceAccounts](http://kubernetes.io/v1.1/docs/user-guide/service-accounts.html)的自动化。如果你打算使用Kubernetes ServiceAccount对象，我们强烈建议使用该插件。
