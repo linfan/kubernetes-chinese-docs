@@ -60,9 +60,9 @@ If your cluster supports containers that run with escalated privileges, and you 
 
 该插件会检查传入的请求，确保其不违反任何Namespace中ResourceQuota对象枚举的约束条件。如果你在Kubernetes开发中正在使用ResourceQuota对象，你必须使用该插件实现配额约束条件。
 
-查看[resourceQuota设计文档]()和[Resource Quota示例]()了解更多细节。
+查看[resourceQuota设计文档](http://kubernetes.io/v1.1/docs/design/admission_control_resource_quota.html)和[Resource Quota示例](http://kubernetes.io/v1.1/docs/admin/resourcequota/README.html)了解更多细节。
 
-强烈建议配置该插件在许可控制插件的序列中。This is so that quota is not prematurely incremented only for the request to be rejected later in admission control。
+强烈建议配置该插件在Admission Controller插件的序列中。This is so that quota is not prematurely incremented only for the request to be rejected later in admission control。
 
 ### ****LimitRanger插件****
 
