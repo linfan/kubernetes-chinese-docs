@@ -11,7 +11,7 @@
 - User Accounts是全局的，其名字必须在一个集群的所有Namespace中是唯一的。未来的用户资源将不被命令，但是Service Accounts是可以被命名的。
 - 通常情况下，集群的User Accounts可以从一个企业数据库同步。在企业数据库中，新建的账户需要特殊权限，而且绑定到复杂业务流程。新建Service Accounts可以更加轻量级，允许集群用户为特殊任务创建Service Accounts（比如，最小权限规则）。
 - 对人类和Service Accounts的审核注意事项是不同的。
-- 复杂系统的配置包包含对系统组件的各种服务账户的定义。因为服务账户可以创建ad-hoc，可以命名，配置是便携式的。
+- 复杂系统的配置包含对系统组件的各种Service Accounts的定义。因为Service Accounts可以创建ad-hoc，可以命名，配置是便携式的。
 
 ## **服务账户自动化**
 
