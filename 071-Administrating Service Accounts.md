@@ -56,7 +56,7 @@ secret.json:
 kubectl create -f ./secret.json
 kubectl describe secret mysecretname
 ```
-#### 删除、废弃一个服务账户标记
+#### 删除、废弃一个个Service Accounts Token
 ```
 kubectl delete secret mysecretname
 ```
