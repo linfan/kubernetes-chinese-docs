@@ -24,7 +24,7 @@ Admission Controller插件是一段代码，其拦截Kubernetes API服务的请�
 
 集群在接受一个请求之前，每一个Admission Controller插件都会按序运行。如果这个序列中的某个插件拒绝该请求，则整个的请求都会被立刻拒绝，返回一个错误给用户。
 
-接入控制插件在某些情况下也许会改变传进来的对象，配置系统默认值。此外，接入控制插件也许会改变请求处理中的部分相关资源去做些事情，比如增量配额的使用。
+Admission Controller插件在某些情况下也许会改变传进来的对象，配置系统默认值。此外，Admission Controller插件也许会改变请求处理中的部分相关资源去做些事情，比如增量配额的使用。
 
 ## **为什么使用Admission Controller？**
 
