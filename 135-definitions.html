@@ -1023,7 +1023,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_resourcequotaspec">v1.ResourceQuotaSpec</h3>
 <div class="paragraph">
-<p>ResourceQuotaSpec defines the desired hard limits to enforce for Quota.</p>
+<p>ResourceQuotaSpec定义了资源限额上的硬性限制。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -1045,7 +1045,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hard</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hard is the set of desired hard limits for each named resource. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota">http://releases.k8s.io/HEAD/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hard 是指对于每一个已命名资源的硬性限制。详情查看：<a href="http://releases.k8s.io/HEAD/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota">http://releases.k8s.io/HEAD/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_any">any</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1057,7 +1057,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_namespacestatus">v1.NamespaceStatus</h3>
 <div class="paragraph">
-<p>NamespaceStatus is information about the current status of a Namespace.</p>
+<p>NamespaceStatus指一个命名空间的当前状态信息。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -1079,7 +1079,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">phase</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Phase is the current lifecycle phase of the namespace. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/design/namespaces.md#phases">http://releases.k8s.io/HEAD/docs/design/namespaces.md#phases</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Phase是指命名空间在整个生命周期中所处的阶段。 详情查看：<a href="http://releases.k8s.io/HEAD/docs/design/namespaces.md#phases">http://releases.k8s.io/HEAD/docs/design/namespaces.md#phases</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1091,7 +1091,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_namespacespec">v1.NamespaceSpec</h3>
 <div class="paragraph">
-<p>NamespaceSpec describes the attributes on a Namespace.</p>
+<p>NamespaceSpec描述了一个命名空间的属性。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -1113,7 +1113,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">finalizers</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Finalizers is an opaque list of values that must be empty to permanently remove object from storage. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/design/namespaces.md#finalizers">http://releases.k8s.io/HEAD/docs/design/namespaces.md#finalizers</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Finalizers是一组变量，如果一个对象要从存储中删除，那么对应的变量必须被先置为空。详情查看：<a href="http://releases.k8s.io/HEAD/docs/design/namespaces.md#finalizers">http://releases.k8s.io/HEAD/docs/design/namespaces.md#finalizers</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_finalizername">v1.FinalizerName</a> array</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1125,7 +1125,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_persistentvolume">v1.PersistentVolume</h3>
 <div class="paragraph">
-<p>PersistentVolume (PV) is a storage resource provisioned by an administrator. It is analogous to a node. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md">http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md</a></p>
+<p>PersistentVolume (PV)是由管理员设置的存储资源，这些存储资源对于不同的节点来说并没有太大差别(跨节点)。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md">http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md</a></p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -1161,21 +1161,21 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">metadata</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Standard object&#8217;s metadata. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">标准对象的元数据。 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_objectmeta">v1.ObjectMeta</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">spec</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Spec defines a specification of a persistent volume owned by the cluster. Provisioned by an administrator. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#persistent-volumes">http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#persistent-volumes</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spec定义了集群拥有的持久存储卷的规格，是由管理员提供的。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#persistent-volumes">http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#persistent-volumes</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_persistentvolumespec">v1.PersistentVolumeSpec</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Status represents the current information/status for the persistent volume. Populated by the system. Read-only. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#persistent-volumes">http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#persistent-volumes</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status表示持久存储卷的当前状态和信息。它是由系统生成的，是只读字段。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#persistent-volumes">http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#persistent-volumes</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_persistentvolumestatus">v1.PersistentVolumeStatus</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1187,7 +1187,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_persistentvolumestatus">v1.PersistentVolumeStatus</h3>
 <div class="paragraph">
-<p>PersistentVolumeStatus is the current status of a persistent volume.</p>
+<p>PersistentVolumeStatus表示一个持久存储卷的当前状态。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -1209,21 +1209,21 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">phase</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Phase indicates if a volume is available, bound to a claim, or released by a claim. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#phase">http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#phase</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Phase表示存储卷处于哪个阶段。比如"可用 (available)"、"绑定到一个持久存储卷声明 (bound to a claim)"和"已释放 (released by a claim)"。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#phase">http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#phase</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A human-readable message indicating details about why the volume is in this state.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">人可读写的一段信息，用于显示储存卷之所以处于当前状态的原因。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">reason</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Reason is a brief CamelCase string that describes any failure and is meant for machine parsing and tidy display in the CLI.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reason是一个简单的驼峰式字符串，用于显示在命令行中，它用于描述出现的任何错误。程序可解析该字段的值。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1235,7 +1235,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_endpointslist">v1.EndpointsList</h3>
 <div class="paragraph">
-<p>EndpointsList is a list of endpoints.</p>
+<p>EndpointsList是一组endpoints。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -1278,7 +1278,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">items</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List of endpoints.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> endpoint列表。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_endpoints">v1.Endpoints</a> array</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1290,7 +1290,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_gitrepovolumesource">v1.GitRepoVolumeSource</h3>
 <div class="paragraph">
-<p>GitRepoVolumeSource represents a volume that is pulled from git when the pod is created.</p>
+<p>GitRepoVolumeSource是pod创建时从git仓库下载的一个存储卷。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -1319,7 +1319,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">revision</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Commit hash for the specified revision.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">特定版本代码提交的hash值。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1331,7 +1331,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_capabilities">v1.Capabilities</h3>
 <div class="paragraph">
-<p>Adds and removes POSIX capabilities from running containers.</p>
+<p>从运行中的容器添加和删除POSIX capabilities。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -1353,14 +1353,14 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">add</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Added capabilities</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">已添加的capabilities</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_capability">v1.Capability</a> array</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">drop</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Removed capabilities</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">已删除的capabilities</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_capability">v1.Capability</a> array</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1372,7 +1372,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_podtemplatelist">v1.PodTemplateList</h3>
 <div class="paragraph">
-<p>PodTemplateList is a list of PodTemplates.</p>
+<p>PodTemplateList是一组Pod模板 (PodTemplates)。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -1415,7 +1415,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">items</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List of pod templates</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">一组Pod模板</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_podtemplate">v1.PodTemplate</a> array</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1427,7 +1427,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_nodecondition">v1.NodeCondition</h3>
 <div class="paragraph">
-<p>NodeCondition contains condition infromation for a node.</p>
+<p>NodeCondition表示一个节点的状态信息。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -1449,42 +1449,42 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">type</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Type of node condition, currently only Ready.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">节点状态信息的类型，目前只有 Ready</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Status of the condition, one of True, False, Unknown.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">节点状态的状态值，与状态类型(type)一一对应，可以是True, False或Unknown。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">lastHeartbeatTime</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Last time we got an update on a given condition.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">最后一次状态更新的时间。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">lastTransitionTime</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Last time the condition transit from one status to another.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">最后一次状态切换的时间。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">reason</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">(brief) reason for the condition&#8217;s last transition.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(简单表述)最后一次状态切换的原因。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Human readable message indicating details about last transition.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">人可阅读的一段信息，显示最后一次状态切换的详细信息。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1496,7 +1496,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_localobjectreference">v1.LocalObjectReference</h3>
 <div class="paragraph">
-<p>LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.</p>
+<p>LocalObjectReference包含了一些寻址信息，通过这个字段的值你可以在相同的namespace下找到它指向的对象。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -1518,7 +1518,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the referent. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/identifiers.md#names">http://releases.k8s.io/HEAD/docs/user-guide/identifiers.md#names</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">被指向对象的名字。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/identifiers.md#names">http://releases.k8s.io/HEAD/docs/user-guide/identifiers.md#names</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1530,7 +1530,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_resourcequotastatus">v1.ResourceQuotaStatus</h3>
 <div class="paragraph">
-<p>ResourceQuotaStatus defines the enforced hard limits and observed use.</p>
+<p>ResourceQuotaStatus定义了资源的硬性限制和使用率。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -1552,14 +1552,14 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hard</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hard is the set of enforced hard limits for each named resource. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota">http://releases.k8s.io/HEAD/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hard是一组应用到每个已命名资源的硬性限制。详情查看：<a href="http://releases.k8s.io/HEAD/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota">http://releases.k8s.io/HEAD/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_any">any</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">used</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Used is the current observed total usage of the resource in the namespace.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used是当前命名空间下总的资源使用率。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_any">any</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1571,7 +1571,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_execaction">v1.ExecAction</h3>
 <div class="paragraph">
-<p>ExecAction describes a "run in container" action.</p>
+<p>ExecAction描述了一个"run in container"的动作。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -1593,8 +1593,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">command</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Command is the command line to execute inside the container, the working directory for the command  is root (<em>/</em>) in the container&#8217;s filesystem. The command is simply exec&#8217;d, it is not run inside a shell, so traditional shell instructions ('</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">', etc) won&#8217;t work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Command是一个要在容器中运行的命令，运行的当前目录为容器文件系统的根目录(<em>/</em>)。命令并不是在shell中执行的，所以传统的shell命令可能不好用。如果需要的话，你必须显式地调用shell。返回值0表示live/healthy，非零表示unhealthy。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string array</p></td>
 </tr>
@@ -1605,7 +1604,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_objectmeta">v1.ObjectMeta</h3>
 <div class="paragraph">
-<p>ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.</p>
+<p>ObjectMeta表示所有持久资源必须有的元数据，它包含了用户必须创建的所有对象。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -1627,43 +1626,43 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/identifiers.md#names">http://releases.k8s.io/HEAD/docs/user-guide/identifiers.md#names</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name在一个命名空间内必须是唯一的。虽然在创建资源时，有些允许客户端请求自动生成名字，但也必须填写这个字段。Name最初是为了保证创建操作的幂等性和保证配置可定义设计的。它一旦确定便无法更改。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/identifiers.md#names">http://releases.k8s.io/HEAD/docs/user-guide/identifiers.md#names</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">generateName</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GenerateName是一个可选的前缀名字，当Name字段没有填写时，server使用它生成一个唯一的Name。如果使用这个字段，客户端传过来的名字将会失效，因为server会返回一个不同的Name。这个值也会和唯一的后缀一起使用。这个字段的检查规则与Name字段一致，由于suffix的长度限制，可能被截断，以保证在server端的唯一性<br>
 <br>
-If this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).<br>
+如果这个字段已经被指定，generated name存在，server不会返回409错误，而是返回201 created或者500 server timeout。500错误意味着在允许的时间内无法确定唯一名字，client端应该重试(这是一个可选操作，只有在Retry-After header中设置了时间才会触发)。<br>
 <br>
-Applied only if Name is not specified. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#idempotency">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#idempotency</a></p></td>
+只有没有指定Name字段时，该字段才有效。详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#idempotency">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#idempotency</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">namespace</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Namespace defines the space within each name must be unique. An empty namespace is equivalent to the "default" namespace, but "default" is the canonical representation. Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty.<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Namespace定义了一个空间，在该空间内，名字(Name)必须是唯一的。一个空("")的命名空间和"default"命名空间是等价的，然而"default"命名空间是标准命名空间，并不是所有的对象都被必须放到该命名空间内。"default"命名空间中的对象的该字段为空。<br>
 <br>
-Must be a DNS_LABEL. Cannot be updated. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/namespaces.md">http://releases.k8s.io/HEAD/docs/user-guide/namespaces.md</a></p></td>
+必须是DNS_LABEL。该字段一旦确定不能修改。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/namespaces.md">http://releases.k8s.io/HEAD/docs/user-guide/namespaces.md</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">selfLink</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SelfLink is a URL representing this object. Populated by the system. Read-only.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SelfLink是一个代表这个对象本身的URL。该字段由系统自动生成，是一个只读字段。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">uid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UID表示当前对象在任何时间和空间中都是唯一的。该字段在资源创建成功后由系统自动生成，PUT操作不会改变该字段的值。<br>
 <br>
-Populated by the system. Read-only. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/identifiers.md#uids">http://releases.k8s.io/HEAD/docs/user-guide/identifiers.md#uids</a></p></td>
+该字段由系统生成的，是一个只读字段。 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/identifiers.md#uids">http://releases.k8s.io/HEAD/docs/user-guide/identifiers.md#uids</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1672,14 +1671,14 @@ Populated by the system. Read-only. 详情查看：<a href="http://releases.k8s.
 <td class="tableblock halign-left valign-top"><p class="tableblock">resourceVersion</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.<br>
 <br>
-Populated by the system. Read-only. Value must be treated as opaque by clients and . 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency</a></p></td>
+该字段由系统生成的，是一个只读字段。 Value must be treated as opaque by clients and . 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">generation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A sequence number representing a specific generation of the desired state. Currently only implemented by replication controllers. Populated by the system. Read-only.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A sequence number representing a specific generation of the desired state. Currently only implemented by replication controllers. 该字段由系统生成的，是一个只读字段。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer (int64)</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1688,7 +1687,7 @@ Populated by the system. Read-only. Value must be treated as opaque by clients a
 <td class="tableblock halign-left valign-top"><p class="tableblock">creationTimestamp</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CreationTimestamp is a timestamp representing the server time when this object was created. It is not guaranteed to be set in happens-before order across separate operations. Clients may not set this value. It is represented in RFC3339 form and is in UTC.<br>
 <br>
-Populated by the system. Read-only. Null for lists. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata</a></p></td>
+该字段由系统生成的，是一个只读字段。 Null for lists. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2300,14 +2299,14 @@ Populated by the system when a graceful deletion is requested. Read-only. 详情
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">selfLink</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SelfLink is a URL representing this object. Populated by the system. Read-only.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SelfLink is a URL representing this object. 该字段由系统生成的，是一个只读字段。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">resourceVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String that identifies the server&#8217;s internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String that identifies the server&#8217;s internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients and passed unmodified back to the server. 该字段由系统生成的，是一个只读字段。 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2636,7 +2635,7 @@ The resulting set of endpoints can be viewed as:<br>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Most recently observed status of the service. Populated by the system. Read-only. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Most recently observed status of the service. 该字段由系统生成的，是一个只读字段。 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_servicestatus">v1.ServiceStatus</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -3155,7 +3154,7 @@ The resulting set of endpoints can be viewed as:<br>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Status is the most recently observed status of the replication controller. This data may be out of date by some window of time. Populated by the system. Read-only. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status is the most recently observed status of the replication controller. This data may be out of date by some window of time. 该字段由系统生成的，是一个只读字段。 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_replicationcontrollerstatus">v1.ReplicationControllerStatus</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -6736,7 +6735,7 @@ The resulting set of endpoints can be viewed as:<br>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Most recently observed status of the pod. This data may not be up to date. Populated by the system. Read-only. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Most recently observed status of the pod. This data may not be up to date. 该字段由系统生成的，是一个只读字段。 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_podstatus">v1.PodStatus</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
