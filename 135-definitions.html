@@ -1669,55 +1669,55 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">resourceVersion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">用来表示当前对象的内部版本号，client端根据这个字段来判断对象是否已经发生变化。它也能用在optimistic concurrency，变化检测和监控外界对一个或者一组资源做了哪些操作。client端必须显式地对待这些值，并且不做任何修改地传递给server端。这个字段可能只对特定资源有效。<br>
 <br>
-该字段由系统生成的，是一个只读字段。 Value must be treated as opaque by clients and . 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency</a></p></td>
+该字段由系统生成的，是一个只读字段。客户端必须显式地(opaque)对待该字段(tbd)。详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#concurrency-control-and-consistency</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">generation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A sequence number representing a specific generation of the desired state. Currently only implemented by replication controllers. 该字段由系统生成的，是一个只读字段。</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">一个序列号，它表示期望状态的一次生成(generation)。目前只有replication controllers支持。该字段由系统生成的，是一个只读字段。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer (int64)</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">creationTimestamp</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CreationTimestamp is a timestamp representing the server time when this object was created. It is not guaranteed to be set in happens-before order across separate operations. Clients may not set this value. It is represented in RFC3339 form and is in UTC.<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CreationTimestamp代表该对象在server端生成的时间。前后独立的两次创建操作并不能保证该字段也是有序的。client端不能设置这个字段。显示格式遵循RFC3339规范，以UTC方式显示。<br>
 <br>
-该字段由系统生成的，是一个只读字段。 Null for lists. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata</a></p></td>
+该字段由系统生成的，是一个只读字段。 对于列表类型，该字段为空。详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">deletionTimestamp</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DeletionTimestamp is RFC 3339 date and time at which this resource will be deleted. This field is set by the server when a graceful deletion is requested by the user, and is not directly settable by a client. The resource will be deleted (no longer visible from resource lists, and not reachable by name) after the time in this field. Once set, this value may not be unset or be set further into the future, although it may be shortened or the resource may be deleted prior to this time. For example, a user may request that a pod is deleted in 30 seconds. The Kubelet will react by sending a graceful termination signal to the containers in the pod. Once the resource is deleted in the API, the Kubelet will send a hard termination signal to the container. If not set, graceful deletion of the object has not been requested.<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DeletionTimestamp是只资源(要)被删除的时间，由遵循RFC3339格式。用户请求删除资源时，服务器端生成该字段，生成以后client端不能直接修改。到该字段指定的时间以后，资源会被删除，删除以后 资源列表中将看不到该资源，也无法通过名字检索该资源。该字段一旦设置，该字段只能被修改为已指定时间之前的某个时间，也可以在已指定时间之前删除该资源，而不能取消或者修改为已指定时间之后的时间。举个例子，一个用户请求在30s内删除一个pod，对应的kubelet会向pod内的所有容器发送一个优雅的termination信号，一旦pod资源被删除，kubelet会发送强制的termination信号。如果不设置该字段，将不向容器发送termination信号而是直接终止。<br>
 <br>
-Populated by the system when a graceful deletion is requested. Read-only. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata</a></p></td>
+当server接收到优雅删除的请求时，系统会自动生成该字段。该字段是只读的。详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">deletionGracePeriodSeconds</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of seconds allowed for this object to gracefully terminate before it will be removed from the system. Only set when deletionTimestamp is also set. May only be shortened. Read-only.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">在被系统删除之前，该对象允许被优雅删除的时间，以秒为单位。只有设置deletionTimestamp字段后，该字段才生效。该字段只能被缩短，不能取消设置或者延长。该字段是只读字段。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer (int64)</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">labels</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/labels.md">http://releases.k8s.io/HEAD/docs/user-guide/labels.md</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">labels用来对对象进行组织和分类，类型为map[string]string。它与replication controller和services的选择器(selectors)检查匹配。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/labels.md">http://releases.k8s.io/HEAD/docs/user-guide/labels.md</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_any">any</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">annotations</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/annotations.md">http://releases.k8s.io/HEAD/docs/user-guide/annotations.md</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Annotations是一种非结构化的map[string]string，可以通过kubernetes系统外的工具对其进行修改和读取。不能根据这个字段执行查询操作，在修改对象时，也必须带上该字段。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/annotations.md">http://releases.k8s.io/HEAD/docs/user-guide/annotations.md</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_any">any</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1729,7 +1729,7 @@ Populated by the system when a graceful deletion is requested. Read-only. 详情
 <div class="sect2">
 <h3 id="_v1_limitrangespec">v1.LimitRangeSpec</h3>
 <div class="paragraph">
-<p>LimitRangeSpec defines a min/max usage limit for resources that match on kind.</p>
+<p>LimitRangeSpec定义了一类资源的限制，包括最小和最大可用范围。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -1751,7 +1751,7 @@ Populated by the system when a graceful deletion is requested. Read-only. 详情
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">limits</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Limits is the list of LimitRangeItem objects that are enforced.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Limits是一组LimitRangeItem对象。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_limitrangeitem">v1.LimitRangeItem</a> array</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -1763,7 +1763,7 @@ Populated by the system when a graceful deletion is requested. Read-only. 详情
 <div class="sect2">
 <h3 id="_v1_iscsivolumesource">v1.ISCSIVolumeSource</h3>
 <div class="paragraph">
-<p>ISCSIVolumeSource describes an ISCSI Disk can only be mounted as read/write once.</p>
+<p>ISCSIVolumeSource 是一种ISCSI磁盘，它可以以read/write模式挂载，但只能挂载一次</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
