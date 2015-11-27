@@ -2373,7 +2373,7 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_persistentvolumeclaimstatus">v1.PersistentVolumeClaimStatus</h3>
 <div class="paragraph">
-<p>PersistentVolumeClaimStatus is the current status of a persistent volume claim.</p>
+<p>PersistentVolumeClaimStatus是一个持久存储卷声明的当前状态。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -2395,21 +2395,21 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">phase</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Phase represents the current phase of PersistentVolumeClaim.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Phase代表一个PersistentVolumeClaim处于哪个阶段。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">accessModes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AccessModes contains the actual access modes the volume backing the PVC has. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#access-modes-1">http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#access-modes-1</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AccessModes包含了支持当前PVC声明的存储卷的访问模式。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#access-modes-1">http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#access-modes-1</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_persistentvolumeaccessmode">v1.PersistentVolumeAccessMode</a> array</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">capacity</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Represents the actual resources of the underlying volume.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">底层存储卷的实际资源量。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_any">any</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2421,12 +2421,12 @@ span.icon > [class^="icon-"], span.icon > [class*=" icon-"] { cursor: default; }
 <div class="sect2">
 <h3 id="_v1_endpointsubset">v1.EndpointSubset</h3>
 <div class="paragraph">
-<p>EndpointSubset is a group of addresses with a common set of ports. The expanded set of endpoints is the Cartesian product of Addresses x Ports. For example, given:<br>
+<p>EndpointSubset是一组带有端口号的地址。扩展endpoint集是由地址和端口号构成的坐标集。举个例子：<br>
   {<br>
     Addresses: [{"ip": "10.10.1.1"}, {"ip": "10.10.2.2"}],<br>
     Ports:     [{"name": "a", "port": 8675}, {"name": "b", "port": 309}]<br>
   }<br>
-The resulting set of endpoints can be viewed as:<br>
+上面的endpoint集最终可以写成如下形式：<br>
     a: [ 10.10.1.1:8675, 10.10.2.2:8675 ],<br>
     b: [ 10.10.1.1:309, 10.10.2.2:309 ]</p>
 </div>
@@ -2450,21 +2450,21 @@ The resulting set of endpoints can be viewed as:<br>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">addresses</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">IP addresses which offer the related ports that are marked as ready. These endpoints should be considered safe for load balancers and clients to utilize.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">拥有端口号的IP地址，ip和对应的端口号构成可访问的endpoints (系统标记为ready)，这些endpoints可以用来做负载均衡，以供client端使用。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_endpointaddress">v1.EndpointAddress</a> array</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">notReadyAddresses</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">IP addresses which offer the related ports but are not currently marked as ready because they have not yet finished starting, have recently failed a readiness check, or have recently failed a liveness check.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">拥有端口号的IP地址，但是IP和对应的端口号构成的endpoints由于某些原因而没有被系统标记为ready。可能的原因有：尚未初始化成功、未能通过最近一次的可用性检查(readiness check)，或者未能通过最近一次的活性检查(liveness check)。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_endpointaddress">v1.EndpointAddress</a> array</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ports</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Port numbers available on the related IP addresses.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">端口号，与相关联的IP地址可构成 可用的endpoints。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_endpointport">v1.EndpointPort</a> array</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2476,7 +2476,7 @@ The resulting set of endpoints can be viewed as:<br>
 <div class="sect2">
 <h3 id="_v1_secretvolumesource">v1.SecretVolumeSource</h3>
 <div class="paragraph">
-<p>SecretVolumeSource adapts a Secret into a VolumeSource. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/design/secrets.md">http://releases.k8s.io/HEAD/docs/design/secrets.md</a></p>
+<p>SecretVolumeSource会修改Secret使其适用于VolumeSource。详情查看：<a href="http://releases.k8s.io/HEAD/docs/design/secrets.md">http://releases.k8s.io/HEAD/docs/design/secrets.md</a></p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -2498,7 +2498,7 @@ The resulting set of endpoints can be viewed as:<br>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">secretName</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SecretName is the name of a secret in the pod&#8217;s namespace. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#secrets">http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#secrets</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SecretName是在当前pod的命名空间中 一个secret的名字。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#secrets">http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#secrets</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2510,7 +2510,7 @@ The resulting set of endpoints can be viewed as:<br>
 <div class="sect2">
 <h3 id="_v1_envvarsource">v1.EnvVarSource</h3>
 <div class="paragraph">
-<p>EnvVarSource represents a source for the value of an EnvVar.</p>
+<p>EnvVarSource表示环境变量(EnvVar)值的来源。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -2532,7 +2532,7 @@ The resulting set of endpoints can be viewed as:<br>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">fieldRef</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Selects a field of the pod. Only name and namespace are supported.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">用于加密pod的一个字段，目前只支持加密Name和Namespace。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_objectfieldselector">v1.ObjectFieldSelector</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2544,7 +2544,7 @@ The resulting set of endpoints can be viewed as:<br>
 <div class="sect2">
 <h3 id="_v1_loadbalanceringress">v1.LoadBalancerIngress</h3>
 <div class="paragraph">
-<p>LoadBalancerIngress represents the status of a load-balancer ingress point: traffic intended for the service should be sent to an ingress point.</p>
+<p>LoadBalancerIngress表示负载均衡器的入口状态，对应服务的所有流量都应该被发往该入口。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -2566,14 +2566,14 @@ The resulting set of endpoints can be viewed as:<br>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ip</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">IP is set for load-balancer ingress points that are IP based (typically GCE or OpenStack load-balancers)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">如果负载均衡器入口是基于IP的，比如GCE或者openstack的均衡器，那么会设置IP字段。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hostname</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Hostname is set for load-balancer ingress points that are DNS based (typically AWS load-balancers)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">如果负载均衡器入口是局域DNS的，比如AWS的均衡器，那么会设置hostname字段。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2585,7 +2585,7 @@ The resulting set of endpoints can be viewed as:<br>
 <div class="sect2">
 <h3 id="_v1_service">v1.Service</h3>
 <div class="paragraph">
-<p>Service is a named abstraction of software service (for example, mysql) consisting of local port (for example 3306) that the proxy listens on, and the selector that determines which pods will answer requests sent through the proxy.</p>
+<p>Service是对软件服务(比如mysql)的命名抽象，它是由两部分组成：1. 代理监听的本地端口(比如3306)；2. 用于确定哪些pods应答请求的选择器(selector)。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -2628,14 +2628,14 @@ The resulting set of endpoints can be viewed as:<br>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">spec</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Spec defines the behavior of a service. <a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spec定义了一个servicce的行为。<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_servicespec">v1.ServiceSpec</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Most recently observed status of the service. 该字段由系统生成的，是一个只读字段。 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">最近一次观察到的service的状态。该字段由系统生成的，是一个只读字段。 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_servicestatus">v1.ServiceStatus</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2647,7 +2647,7 @@ The resulting set of endpoints can be viewed as:<br>
 <div class="sect2">
 <h3 id="_v1_serviceaccountlist">v1.ServiceAccountList</h3>
 <div class="paragraph">
-<p>ServiceAccountList is a list of ServiceAccount objects</p>
+<p>ServiceAccountList是一组ServiceAccount对象。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -2690,7 +2690,7 @@ The resulting set of endpoints can be viewed as:<br>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">items</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">List of ServiceAccounts. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/design/service_accounts.md#service-accounts">http://releases.k8s.io/HEAD/docs/design/service_accounts.md#service-accounts</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ServiceAccount列表。详情查看：<a href="http://releases.k8s.io/HEAD/docs/design/service_accounts.md#service-accounts">http://releases.k8s.io/HEAD/docs/design/service_accounts.md#service-accounts</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_serviceaccount">v1.ServiceAccount</a> array</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2702,7 +2702,7 @@ The resulting set of endpoints can be viewed as:<br>
 <div class="sect2">
 <h3 id="_v1_limitrangelist">v1.LimitRangeList</h3>
 <div class="paragraph">
-<p>LimitRangeList is a list of LimitRange items.</p>
+<p>LimitRangeList一组LimitRange条目。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -2745,7 +2745,7 @@ The resulting set of endpoints can be viewed as:<br>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">items</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Items is a list of LimitRange objects. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/design/admission_control_limit_range.md">http://releases.k8s.io/HEAD/docs/design/admission_control_limit_range.md</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">一组LimitRange对象。详情查看：<a href="http://releases.k8s.io/HEAD/docs/design/admission_control_limit_range.md">http://releases.k8s.io/HEAD/docs/design/admission_control_limit_range.md</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_limitrange">v1.LimitRange</a> array</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2757,7 +2757,7 @@ The resulting set of endpoints can be viewed as:<br>
 <div class="sect2">
 <h3 id="_v1_endpoints">v1.Endpoints</h3>
 <div class="paragraph">
-<p>Endpoints is a collection of endpoints that implement the actual service. Example:<br>
+<p>Endpoints用来支撑service的endpoints集合，实际的请求都是要通过service分发到不同的endpoints去处理。例如：<br>
   Name: "mysvc",<br>
   Subsets: [<br>
     {<br>
@@ -2811,7 +2811,7 @@ The resulting set of endpoints can be viewed as:<br>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">subsets</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The set of all endpoints is the union of all subsets. Addresses are placed into subsets according to the IPs they share. A single address with multiple ports, some of which are ready and some of which are not (because they come from different containers) will result in the address being displayed in different subsets for the different ports. No address will appear in both Addresses and NotReadyAddresses in the same subset. Sets of addresses and ports that comprise a service.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">所有endpoints子集合(subset)的并集。不同的地址(addresses)根据他们共享的IP被放到不同的子集合中。一个具有多个端口的地址(address)，如果一些端口是ready，而另一些由于来自于不同的容器而not ready，可能会在多个子集合中显示，但是会带有不同的端口号。任何一个地址，都不可能在同一个子集合的Addresses和NotReadyAddresses字段中同时存在。地址和端口号的集合组成一个service。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_endpointsubset">v1.EndpointSubset</a> array</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2823,7 +2823,7 @@ The resulting set of endpoints can be viewed as:<br>
 <div class="sect2">
 <h3 id="_v1_deleteoptions">v1.DeleteOptions</h3>
 <div class="paragraph">
-<p>DeleteOptions may be provided when deleting an API object</p>
+<p>DeleteOptions可能会在删除一个API对象时提供。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -2859,7 +2859,7 @@ The resulting set of endpoints can be viewed as:<br>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">gracePeriodSeconds</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">定义了对象将在多少秒后删除，必须是非负值。该字段为0意味着立即删除。如果该字段为空(nil)，将采用默认值。如果没有指定默认值，那么将采用该对象的值。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer (int64)</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -2871,7 +2871,7 @@ The resulting set of endpoints can be viewed as:<br>
 <div class="sect2">
 <h3 id="_v1_volume">v1.Volume</h3>
 <div class="paragraph">
-<p>Volume represents a named volume in a pod that may be accessed by any container in the pod.</p>
+<p>Volume表示pod中的一个已命名存储卷，该存储卷可以被pod中的所有容器访问。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -2893,119 +2893,119 @@ The resulting set of endpoints can be viewed as:<br>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Volume&#8217;s name. Must be a DNS_LABEL and unique within the pod. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/identifiers.md#names">http://releases.k8s.io/HEAD/docs/user-guide/identifiers.md#names</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">存储卷名字。必须是一个DNS）LABEL，并且在一个pod中必须是唯一的。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/identifiers.md#names">http://releases.k8s.io/HEAD/docs/user-guide/identifiers.md#names</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hostPath</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HostPath represents a pre-existing file or directory on the host machine that is directly exposed to the container. This is generally used for system agents or other privileged things that are allowed to see the host machine. Most containers will NOT need this. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#hostpath">http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#hostpath</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HostPath是指存储卷在宿主机上的文件/目录路径，该路径被直接暴露给容器。只有系统级Agent或者享有特权的进程才允许查看宿主机文件系统，因此大多数容器不需要这个字段。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#hostpath">http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#hostpath</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_hostpathvolumesource">v1.HostPathVolumeSource</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">emptyDir</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EmptyDir represents a temporary directory that shares a pod&#8217;s lifetime. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#emptydir">http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#emptydir</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EmptyDir表示一个临时目录，其生命周期与所在的pod一致。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#emptydir">http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#emptydir</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_emptydirvolumesource">v1.EmptyDirVolumeSource</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">gcePersistentDisk</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">GCEPersistentDisk represents a GCE Disk resource that is attached to a kubelet&#8217;s host machine and then exposed to the pod. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#gcepersistentdisk">http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#gcepersistentdisk</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GCEPersistentDisk表示GCE磁盘资源，它被挂载到运行kubelet的宿主机上，直接暴露给pod。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#gcepersistentdisk">http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#gcepersistentdisk</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_gcepersistentdiskvolumesource">v1.GCEPersistentDiskVolumeSource</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">awsElasticBlockStore</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AWSElasticBlockStore represents an AWS Disk resource that is attached to a kubelet&#8217;s host machine and then exposed to the pod. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#awselasticblockstore">http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#awselasticblockstore</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AWSElasticBlockStore代表AWS磁盘资源，它被挂载到运行kubelet的宿主机上，直接暴露给pod。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#awselasticblockstore">http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#awselasticblockstore</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_awselasticblockstorevolumesource">v1.AWSElasticBlockStoreVolumeSource</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">gitRepo</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">GitRepo represents a git repository at a particular revision.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GitRepo表示一个特定版本的git 仓库。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_gitrepovolumesource">v1.GitRepoVolumeSource</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">secret</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Secret represents a secret that should populate this volume. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#secrets">http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#secrets</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Secret是存在于存储卷中的secret。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#secrets">http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#secrets</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_secretvolumesource">v1.SecretVolumeSource</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">nfs</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NFS represents an NFS mount on the host that shares a pod&#8217;s lifetime 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#nfs">http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#nfs</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS代表一次宿主机上的nfs磁盘挂载，随pod产生而挂载，随pod删除卸载。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#nfs">http://releases.k8s.io/HEAD/docs/user-guide/volumes.md#nfs</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_nfsvolumesource">v1.NFSVolumeSource</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">iscsi</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ISCSI represents an ISCSI Disk resource that is attached to a kubelet&#8217;s host machine and then exposed to the pod. 详情查看：<a href="http://releases.k8s.io/HEAD/examples/iscsi/README.md">http://releases.k8s.io/HEAD/examples/iscsi/README.md</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ISCSI代表ISCSI磁盘资源，它被挂载到运行kubelet的宿主机上，直接暴露给pod。详情查看：<a href="http://releases.k8s.io/HEAD/examples/iscsi/README.md">http://releases.k8s.io/HEAD/examples/iscsi/README.md</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_iscsivolumesource">v1.ISCSIVolumeSource</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">glusterfs</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Glusterfs represents a Glusterfs mount on the host that shares a pod&#8217;s lifetime. 详情查看：<a href="http://releases.k8s.io/HEAD/examples/glusterfs/README.md">http://releases.k8s.io/HEAD/examples/glusterfs/README.md</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Glusterfs代表一次宿主机上的Glusterfs磁盘挂载，随pod产生而挂载，随pod删除卸载。 详情查看：<a href="http://releases.k8s.io/HEAD/examples/glusterfs/README.md">http://releases.k8s.io/HEAD/examples/glusterfs/README.md</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_glusterfsvolumesource">v1.GlusterfsVolumeSource</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">persistentVolumeClaim</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">PersistentVolumeClaimVolumeSource represents a reference to a PersistentVolumeClaim in the same namespace. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#persistentvolumeclaims">http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#persistentvolumeclaims</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PersistentVolumeClaimVolumeSource表示指向同一个命名空间下一个PersistentVolumeClaim的索引。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#persistentvolumeclaims">http://releases.k8s.io/HEAD/docs/user-guide/persistent-volumes.md#persistentvolumeclaims</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_persistentvolumeclaimvolumesource">v1.PersistentVolumeClaimVolumeSource</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">rbd</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">RBD represents a Rados Block Device mount on the host that shares a pod&#8217;s lifetime. 详情查看：<a href="http://releases.k8s.io/HEAD/examples/rbd/README.md">http://releases.k8s.io/HEAD/examples/rbd/README.md</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RBD代表一次宿主机上的Rados块设备挂载，随pod产生而挂载，随pod删除卸载。详情查看：<a href="http://releases.k8s.io/HEAD/examples/rbd/README.md">http://releases.k8s.io/HEAD/examples/rbd/README.md</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_rbdvolumesource">v1.RBDVolumeSource</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">cinder</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cinder represents a cinder volume attached and mounted on kubelets host machine 详情查看：<a href="http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md">http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cinder表示一个cinder存储卷，它被挂载到运行kubelet的宿主机上。详情查看：<a href="http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md">http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_cindervolumesource">v1.CinderVolumeSource</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">cephfs</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CephFS represents a Ceph FS mount on the host that shares a pod&#8217;s lifetime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CephFS代表一次宿主机上的Ceph文件系统挂载，随pod产生而挂载，随pod删除卸载。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_cephfsvolumesource">v1.CephFSVolumeSource</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">flocker</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Flocker represents a Flocker volume attached to a kubelet&#8217;s host machine. This depends on the Flocker control service being running</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Flocker表示一个Flocker存储卷，它被挂载到运行着kubelet的宿主机上，依赖于Flocker control service的正常运行。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_flockervolumesource">v1.FlockerVolumeSource</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">downwardAPI</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DownwardAPI represents downward API about the pod that should populate this volume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DownwardAPI代表使用该存储卷的pod的下行Api。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_downwardapivolumesource">v1.DownwardAPIVolumeSource</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">fc</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">FC represents a Fibre Channel resource that is attached to a kubelet&#8217;s host machine and then exposed to the pod.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FC表示一个Fibre Channel资源，它被挂载到运行着kubelet的宿主机上，直接暴露给pod。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_fcvolumesource">v1.FCVolumeSource</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -3021,7 +3021,7 @@ The resulting set of endpoints can be viewed as:<br>
 <div class="sect2">
 <h3 id="_v1_probe">v1.Probe</h3>
 <div class="paragraph">
-<p>Probe describes a health check to be performed against a container to determine whether it is alive or ready to recieve traffic.</p>
+<p>Probe (探针)描述了一个将对容器执行的健康状态检查，以确定该容器在运行中并且可以处理请求。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -3043,56 +3043,56 @@ The resulting set of endpoints can be viewed as:<br>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">exec</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">One and only one of the following should be specified. Exec specifies the action to take.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exec定义了要执行的动作，必须且只能指定下面的一个动作(tbd)。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_execaction">v1.ExecAction</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">httpGet</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPGet specifies the http request to perform.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HTTPGet定义了一个将要发送的http请求。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_httpgetaction">v1.HTTPGetAction</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">tcpSocket</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TCPSocket定义了一个将要发送的tcp请求，目前尚不支持tcp钩子。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_tcpsocketaction">v1.TCPSocketAction</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">initialDelaySeconds</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of seconds after the container has started before liveness probes are initiated. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/pod-states.md#container-probes">http://releases.k8s.io/HEAD/docs/user-guide/pod-states.md#container-probes</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">容器启动以后，需要等待一段时间才去初始化探针。该字段表示等待的秒数。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/pod-states.md#container-probes">http://releases.k8s.io/HEAD/docs/user-guide/pod-states.md#container-probes</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer (int64)</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">timeoutSeconds</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/pod-states.md#container-probes">http://releases.k8s.io/HEAD/docs/user-guide/pod-states.md#container-probes</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">探针运行的超时时间，默认为1秒，最小值为1。详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/pod-states.md#container-probes">http://releases.k8s.io/HEAD/docs/user-guide/pod-states.md#container-probes</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer (int64)</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">periodSeconds</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">运行探针程序的周期（以秒为单位），默认是10秒，最小值为1。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer (int64)</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">successThreshold</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness. Minimum value is 1.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">探针运行失败系统认定容器不可用以后，至少连续运行<successThreshold>次成功才判定容器是可用的。默认是1次，最小值为1。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer (int32)</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">failureThreshold</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">探针运行成功系统认定容器可用以后，至少连续运行<failureThreshold>次失败才判定容器是不可用的。默认是3，最小值是1。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer (int32)</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -3104,7 +3104,7 @@ The resulting set of endpoints can be viewed as:<br>
 <div class="sect2">
 <h3 id="_v1_replicationcontroller">v1.ReplicationController</h3>
 <div class="paragraph">
-<p>ReplicationController represents the configuration of a replication controller.</p>
+<p>ReplicationController表示一个replication controller的配置。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -3140,21 +3140,21 @@ The resulting set of endpoints can be viewed as:<br>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">metadata</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If the Labels of a ReplicationController are empty, they are defaulted to be the same as the Pod(s) that the replication controller manages. 标准对象元数据。详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">如果ReplicationController的labels为空，metadata被默认为与该replication controller管理的pod是一致的。标准对象元数据。详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#metadata</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_objectmeta">v1.ObjectMeta</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">spec</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Spec defines the specification of the desired behavior of the replication controller. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spec定义了replication controller期望行为的规格。详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_replicationcontrollerspec">v1.ReplicationControllerSpec</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Status is the most recently observed status of the replication controller. This data may be out of date by some window of time. 该字段由系统生成的，是一个只读字段。 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status是最近一次观察到的replication controller的状态。由于窗口期(window time),改状态可能与实际状态不符。该字段由系统生成的，是一个只读字段。 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_replicationcontrollerstatus">v1.ReplicationControllerStatus</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -3170,7 +3170,7 @@ The resulting set of endpoints can be viewed as:<br>
 <div class="sect2">
 <h3 id="_v1_limitrange">v1.LimitRange</h3>
 <div class="paragraph">
-<p>LimitRange sets resource usage limits for each kind of resource in a Namespace.</p>
+<p>LimitRange设定了一个Namespace中每种资源的使用率限制。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -3213,7 +3213,7 @@ The resulting set of endpoints can be viewed as:<br>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">spec</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Spec defines the limits enforced. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spec定义了要实施的资源限制。详情查看：<a href="http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status">http://releases.k8s.io/HEAD/docs/devel/api-conventions.md#spec-and-status</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_limitrangespec">v1.LimitRangeSpec</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -3225,7 +3225,7 @@ The resulting set of endpoints can be viewed as:<br>
 <div class="sect2">
 <h3 id="_v1_downwardapivolumefile">v1.DownwardAPIVolumeFile</h3>
 <div class="paragraph">
-<p>DownwardAPIVolumeFile represents information to create the file containing the pod field</p>
+<p>DownwardAPIVolumeFile表示包含pod字段的文件的信息。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -3247,14 +3247,14 @@ The resulting set of endpoints can be viewed as:<br>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">path</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Required: Path is  the relative path name of the file to be created. Must not be absolute or contain the <em>..</em> path. Must be utf-8 encoded. The first item of the relative path must not start with <em>..</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">必填字段。表示要创建的文件的相对路径，不能包含任何绝对路径或者"<em>..</em>"，必须采用utf8编码。该字段的第一部分不能以"<em>..</em>"开头。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">fieldRef</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">必填字段。可以选择pod的某个字段，目前支持annotations, labels, name, namespace。</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_objectfieldselector">v1.ObjectFieldSelector</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -3266,7 +3266,7 @@ The resulting set of endpoints can be viewed as:<br>
 <div class="sect2">
 <h3 id="_v1_podstatus">v1.PodStatus</h3>
 <div class="paragraph">
-<p>PodStatus represents information about the status of a pod. Status may trail the actual state of a system.</p>
+<p>PodStatus代表一个pod的状态信息。PodStatus会跟踪系统的实际运行状态。</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width:100%; ">
 <colgroup>
@@ -3288,7 +3288,7 @@ The resulting set of endpoints can be viewed as:<br>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">phase</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Current condition of the pod. 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/pod-states.md#pod-phase">http://releases.k8s.io/HEAD/docs/user-guide/pod-states.md#pod-phase</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pod当前运行在哪个阶段(pending, running, etc.)。 详情查看：<a href="http://releases.k8s.io/HEAD/docs/user-guide/pod-states.md#pod-phase">http://releases.k8s.io/HEAD/docs/user-guide/pod-states.md#pod-phase</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"></td>
