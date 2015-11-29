@@ -15,7 +15,7 @@ kube-apiserver
   --allow-privileged[=false]: true，表示允许特权容器。
   --authorization-mode="AlwaysAllow": 安全端口授权插件的有序列表，分别以逗号分隔，AlwaysAllow,AlwaysDeny,ABAC。
   --authorization-policy-file="": 授权策略的CSV文件，使用于--authorization-mode=ABAC模式的配置。
-  --basic-auth-file="":
+  --basic-auth-file="": 如果配置该选项，该文件会通过HTTP基本认证允许API Server安全端口的请求。
   --bind-address=0.0.0.0:
   --cert-dir="/var/run/kubernetes":
   --client-ca-file="":
