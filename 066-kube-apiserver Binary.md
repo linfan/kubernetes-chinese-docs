@@ -13,7 +13,7 @@ kube-apiserver
   --admission-control-config-file="": Admission Controller配置文件。
   --advertise-address=<nil>: 广播API Server给所有集群成员的IP地址。其它集群都可以访问该IP地址，如果为空，会使用--bind-address配置；如果该配置没有指定，会使用主机的默认接口。
   --allow-privileged[=false]: true，表示允许特权容器。
-  --authorization-mode="AlwaysAllow":
+  --authorization-mode="AlwaysAllow": 安全端口授权插件的有序列表，分别以逗号分隔，AlwaysAllow,AlwaysDeny,ABAC。
   --authorization-policy-file="":
   --basic-auth-file="":
   --bind-address=0.0.0.0:
