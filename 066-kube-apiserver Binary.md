@@ -26,7 +26,7 @@ kube-apiserver
   --etcd-config="": ETCD客户端的配置文件，与-etcd-servers配置项互斥。
   --etcd-prefix="/registry": ETCD中所有资源路径的前缀。
   --etcd-servers=[]: ETCD服务器（http://ip:port）列表，以逗号分隔。与-etcd-config配置项互斥。
-  --etcd-servers-overrides=[]:
+  --etcd-servers-overrides=[]: 每个资源ETCD服务器覆盖文件，以逗号分隔。独立覆盖格式，group/resource#servers，服务器是http://ip:port，以分号分隔。
   --event-ttl=1h0m0s: 保留事件的时间值，默认1小时。
   --experimental-keystone-url="": 如果Passed，激活Keystone认证插件。
   --external-hostname="": 为Master生成外部URLs使用的主机名。
