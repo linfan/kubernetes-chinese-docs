@@ -21,7 +21,7 @@ kube-apiserver
   --client-ca-file="": 如果设置，任何提交客户端证书的请求都会验证与相关客户端证书的CommonName的身份。该客户端证书是由client-ca-file中的一个认证机构重签的。
   --cloud-config="": 云提供商配置文件的路径，空表示没有该配置文件。
   --cloud-provider="": 云服务的提供商，空表示没有该提供商。
-  --cluster-name="kubernetes":
+  --cluster-name="kubernetes": 集群实例的前缀。
   --cors-allowed-origins=[]:
   --etcd-config="":
   --etcd-prefix="/registry": 
