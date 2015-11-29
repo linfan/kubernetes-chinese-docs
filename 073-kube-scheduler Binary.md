@@ -8,7 +8,7 @@ kube-scheduler
 ## **选项**
 ```
       --address=127.0.0.1：服务的IP地址 (set to 0.0.0.0 for all interfaces)
-      --algorithm-provider="DefaultProvider": The scheduling algorithm provider to use, one of: DefaultProvider
+      --algorithm-provider="DefaultProvider"：The scheduling algorithm provider to use, one of: DefaultProvider
       --bind-pods-burst=100: Number of bindings per second scheduler is allowed to make during bursts
       --bind-pods-qps=50: Number of bindings per second scheduler is allowed to continuously make
       --google-json-key="": The Google Cloud Platform Service Account JSON Key to use for authentication.
