@@ -11,11 +11,11 @@ kube-scheduler
       --algorithm-provider="DefaultProvider"：提供的调度算法，DfaultProvider是其中一种。
       --bind-pods-burst=100：爆发期间每秒允许绑定的调度数量。
       --bind-pods-qps=50: 可以继续工作的每秒允许绑定的调度数量。
-      --google-json-key=""；用户认证的Google Cloud Platform Service Account JSON Key。
+      --google-json-key=""：用户认证的Google Cloud Platform Service Account JSON Key。
       --kubeconfig="": 含有授权和主位置信息的Kube配置文件路径。
       --log-flush-frequency=5s：日志缓冲最大值，单位是秒。
       --master=""：Kubernetes API服务器地址（Kube配置文件里都有说明）
       --policy-config-file=""：含有调度策略的配置文件。
-      --port=10251: 调度的HTTP协议服务端口。
-      --profiling[=true]: Enable profiling via web interface host:port/debug/pprof/
+      --port=10251：调度的HTTP协议服务端口。
+      --profiling[=true]：通过Web接口host:port/debug/pprof/，激活Profiling（翻译待考虑）。
 ```
