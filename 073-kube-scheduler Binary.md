@@ -13,7 +13,7 @@ kube-scheduler
       --bind-pods-qps=50: 可以继续工作的每秒允许绑定的调度数量。
       --google-json-key=""；用户认证的Google Cloud Platform Service Account JSON Key。
       --kubeconfig="": 含有授权和主位置信息的Kube配置文件路径。
-      --log-flush-frequency=5s: 每秒日志缓冲间的最大值。
+      --log-flush-frequency=5s：日志缓冲最大值，单位是秒。
       --master="": The address of the Kubernetes API server (overrides any value in kubeconfig)
       --policy-config-file="": File with scheduler policy configuration
       --port=10251: The port that the scheduler's http service runs on
