@@ -6,3 +6,16 @@ Kubernetes调度器是一个函数，policy-rich，topology-aware和workload-spe
 kube-scheduler
 ```
 ## **选项**
+```
+      --address=127.0.0.1: The IP address to serve on (set to 0.0.0.0 for all interfaces)
+      --algorithm-provider="DefaultProvider": The scheduling algorithm provider to use, one of: DefaultProvider
+      --bind-pods-burst=100: Number of bindings per second scheduler is allowed to make during bursts
+      --bind-pods-qps=50: Number of bindings per second scheduler is allowed to continuously make
+      --google-json-key="": The Google Cloud Platform Service Account JSON Key to use for authentication.
+      --kubeconfig="": Path to kubeconfig file with authorization and master location information.
+      --log-flush-frequency=5s: Maximum number of seconds between log flushes
+      --master="": The address of the Kubernetes API server (overrides any value in kubeconfig)
+      --policy-config-file="": File with scheduler policy configuration
+      --port=10251: The port that the scheduler's http service runs on
+      --profiling[=true]: Enable profiling via web interface host:port/debug/pprof/
+```
