@@ -23,7 +23,7 @@ kube-apiserver
   --cloud-provider="": 云服务的提供商，空表示没有该提供商。
   --cluster-name="kubernetes": 集群实例的前缀。
   --cors-allowed-origins=[]: CORS的允许起源（allowed origins, 翻译待考虑）的列表，用逗号分隔。一个允许起源可以是支持子域匹配的正则表达式。如果该列表是空，则不启用CORS。
-  --etcd-config="":
+  --etcd-config="": ETCD客户端的配置文件，与-etcd-servers配置项互斥。
   --etcd-prefix="/registry": 
   --etcd-servers=[]:
   --etcd-servers-overrides=[]:
