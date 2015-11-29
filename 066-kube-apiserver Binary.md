@@ -17,7 +17,7 @@ kube-apiserver
   --authorization-policy-file="": 授权策略的CSV文件，使用于--authorization-mode=ABAC模式的配置。
   --basic-auth-file="": 如果配置该选项，该文件会通过HTTP基本认证允许API Server安全端口的请求。
   --bind-address=0.0.0.0: 服务--read-only-port和--secure-port端口的IP地址。相关接口必须是其它集群通过CLI/web客户端可访问的。默认配置0.0.0.0。
-  --cert-dir="/var/run/kubernetes": TLS证书的目录（默认/var/run/kubernetes）。如果配置--tls-cert-file和--tls-private-key-file选项，会忽略该配置。
+  --cert-dir="/var/run/kubernetes": TLS证书的目录（默认/var/run/kubernetes）。如果配置--tls-cert-file和--tls-private-key-file两个选项，会忽略该配置--cert-dir。
   --client-ca-file="":
   --cloud-config="":
   --cloud-provider="": 
