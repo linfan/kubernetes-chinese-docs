@@ -9,7 +9,7 @@ kube-apiserver
 
 ## **选项**
 ```
-  --admission-control="AlwaysAdmit"：
+  --admission-control="AlwaysAdmit"：集群中资源的Admission Controller插件的有序列表，使用逗号分隔。
   --admission-control-config-file="":
   --advertise-address=<nil>:
   --allow-privileged[=false]:
