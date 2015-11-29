@@ -25,7 +25,7 @@ kube-apiserver
   --cors-allowed-origins=[]: CORS的允许起源（allowed origins, 翻译待考虑）的列表，用逗号分隔。一个允许起源可以是支持子域匹配的正则表达式。如果该列表是空，则不启用CORS。
   --etcd-config="": ETCD客户端的配置文件，与-etcd-servers配置项互斥。
   --etcd-prefix="/registry": ETCD中所有资源路径的前缀。
-  --etcd-servers=[]: 
+  --etcd-servers=[]: ETCD服务器（http://ip:port）列表，以逗号分隔。与-etcd-config配置项互斥。
   --etcd-servers-overrides=[]:
   --event-ttl=1h0m0s: 保留事件的时间值，默认1小时。
   --experimental-keystone-url="": 如果Passed，激活Keystone认证插件。
