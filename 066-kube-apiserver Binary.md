@@ -22,7 +22,7 @@ kube-apiserver
   --cloud-config="": 云提供商配置文件的路径，空表示没有该配置文件。
   --cloud-provider="": 云服务的提供商，空表示没有该提供商。
   --cluster-name="kubernetes": 集群实例的前缀。
-  --cors-allowed-origins=[]: CORS的允许起源（allowed origins, 翻译不确定）的列表，用逗号分隔。
+  --cors-allowed-origins=[]: CORS的允许起源（allowed origins, 翻译待考虑）的列表，用逗号分隔。
   --etcd-config="":
   --etcd-prefix="/registry": 
   --etcd-servers=[]:
