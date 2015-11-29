@@ -10,7 +10,7 @@ kube-scheduler
       --address=127.0.0.1：服务的IP地址 (所有的接口，设置为0.0.0.0)
       --algorithm-provider="DefaultProvider"：提供的调度算法，DfaultProvider是其中一种。
       --bind-pods-burst=100：爆发期间每秒允许绑定的调度数量。
-      --bind-pods-qps=50: Number of bindings per second scheduler is allowed to continuously make
+      --bind-pods-qps=50: 可以继续工作的每秒允许绑定的调度数量。
       --google-json-key="": The Google Cloud Platform Service Account JSON Key to use for authentication.
       --kubeconfig="": Path to kubeconfig file with authorization and master location information.
       --log-flush-frequency=5s: Maximum number of seconds between log flushes
