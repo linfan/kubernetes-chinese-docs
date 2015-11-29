@@ -11,7 +11,7 @@ kube-scheduler
       --algorithm-provider="DefaultProvider"：提供的调度算法，DfaultProvider是其中一种。
       --bind-pods-burst=100：爆发期间每秒允许绑定的调度数量。
       --bind-pods-qps=50: 可以继续工作的每秒允许绑定的调度数量。
-      --google-json-key="": The Google Cloud Platform Service Account JSON Key to use for authentication.
+      --google-json-key=""；用户认证的Google Cloud Platform Service Account JSON Key。
       --kubeconfig="": Path to kubeconfig file with authorization and master location information.
       --log-flush-frequency=5s: Maximum number of seconds between log flushes
       --master="": The address of the Kubernetes API server (overrides any value in kubeconfig)
