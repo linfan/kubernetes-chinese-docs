@@ -15,7 +15,7 @@ kube-scheduler
       --kubeconfig="": 含有授权和主位置信息的Kube配置文件路径。
       --log-flush-frequency=5s：日志缓冲最大值，单位是秒。
       --master=""：Kubernetes API服务器地址（Kube配置文件里都有说明）
-      --policy-config-file="": File with scheduler policy configuration
+      --policy-config-file=""：含有调度策略的配置文件。
       --port=10251: The port that the scheduler's http service runs on
       --profiling[=true]: Enable profiling via web interface host:port/debug/pprof/
 ```
