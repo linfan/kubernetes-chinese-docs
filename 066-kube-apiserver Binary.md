@@ -1,4 +1,4 @@
-# **Kube-apiserver**
+# **Kube-API Server**
 
 ## **概要**
 
