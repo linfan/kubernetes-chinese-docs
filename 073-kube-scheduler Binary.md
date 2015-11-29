@@ -14,7 +14,7 @@ kube-scheduler
       --google-json-key=""；用户认证的Google Cloud Platform Service Account JSON Key。
       --kubeconfig="": 含有授权和主位置信息的Kube配置文件路径。
       --log-flush-frequency=5s：日志缓冲最大值，单位是秒。
-      --master="": The address of the Kubernetes API server (overrides any value in kubeconfig)
+      --master=""：Kubernetes API服务器地址（Kube配置文件里都有说明）
       --policy-config-file="": File with scheduler policy configuration
       --port=10251: The port that the scheduler's http service runs on
       --profiling[=true]: Enable profiling via web interface host:port/debug/pprof/
