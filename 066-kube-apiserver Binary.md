@@ -20,7 +20,7 @@ kube-apiserver
   --cert-dir="/var/run/kubernetes": TLS证书的目录（默认/var/run/kubernetes）。如果配置--tls-cert-file和--tls-private-key-file两个选项，会忽略该配置--cert-dir。
   --client-ca-file="": 如果设置，任何提交客户端证书的请求都会验证与相关客户端证书的CommonName的身份。该客户端证书是由client-ca-file中的一个认证机构重签的。
   --cloud-config="": 云提供商配置文件的路径，空表示没有该配置文件。
-  --cloud-provider="": 
+  --cloud-provider="": 云服务的提供商，空表示没有该提供商。
   --cluster-name="kubernetes":
   --cors-allowed-origins=[]:
   --etcd-config="":
