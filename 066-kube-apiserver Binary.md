@@ -37,9 +37,9 @@ kube-apiserver
   --kubelet-client-certificate="": TLS客户端证书文件路径。
   --kubelet-client-key="": TLS客户端秘钥文件路径。
   --kubelet-https[=true]: 使用https建立Kubelet连接。
-  --kubelet-port=10250: Kubelet端口
-  --kubelet-timeout=5s: Kubelet操作Timeout
-  --log-flush-frequency=5s: 日志缓冲秒数的最大值
+  --kubelet-port=10250: Kubelet端口。
+  --kubelet-timeout=5s: Kubelet操作Timeout值。
+  --log-flush-frequency=5s: 日志缓冲秒数的最大值。
   --long-running-request-regexp="(/|^)((watch|proxy)(/|$)|(logs?|portforward|exec|attach)/?$)": 匹配长时间运行请求的正则表达式，该请求不属于最大机请求处理。
   --master-service-namespace="default": Namespace，该Namespace的Kubernetes主服务应该注入Pod。
   --max-connection-bytes-per-sec=0: 如果非零，表示每个用户连接的最大值，字节数/秒，当前只适用于长时间运行的请求。
