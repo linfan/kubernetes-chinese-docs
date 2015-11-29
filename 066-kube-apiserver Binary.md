@@ -11,7 +11,7 @@ kube-apiserver
 ```
   --admission-control="AlwaysAdmit"：集群中资源的Admission Controller的插件的有序列表，分别使用逗号分隔，AlwaysAdmit, AlwaysDeny, DenyEscalatingExec, DenyExecOnPrivileged, InitialResources, LimitRanger, NamespaceAutoProvision, NamespaceExists, NamespaceLifecycle, ResourceQuota, SecurityContextDeny, ServiceAccount。
   --admission-control-config-file="": Admission Controller配置文件。
-  --advertise-address=<nil>:
+  --advertise-address=<nil>:广播API Server给所有集群成员的IP地址。
   --allow-privileged[=false]:
   --authorization-mode="AlwaysAllow":
   --authorization-policy-file="":
