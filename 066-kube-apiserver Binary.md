@@ -62,5 +62,5 @@ kube-apiserver
   --tls-cert-file="": 该文件包含HTTPS的x509证书。(CA证书，如果存在，连接在服务器证书之后）。如果支持HTTPS服务，且没有配置--tls-cert-file和--tls-private-key-file选项，会为公共地址生成一个自签的证书和对应的秘钥，保存在/var/run/kubernetes中。
   --tls-private-key-file="": 该文件包含x509私钥匹配项--tls-cert-file.
   --token-auth-file="": 该文件使用Token验证保护API Server的安全端口。
-  --watch-cache[=true]: 可以在apiserver看缓存。
+  --watch-cache[=true]: 可以在apiserver查看缓存。
 ```
