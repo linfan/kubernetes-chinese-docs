@@ -1,12 +1,12 @@
-# Rolling update example
+# 滚动升级示例
 
-This example demonstrates the usage of Kubernetes to perform a [rolling update](../kubectl/kubectl_rolling-update.md) on a running group of [pods](../../../docs/user-guide/pods.md). See [here](../managing-deployments.md#updating-your-application-without-a-service-outage) to understand why you need a rolling update. Also check [rolling update design document](../../design/simple-rolling-update.md) for more information.
+本例展示了如何使用Kubernetes对一组正在运行的[pods](../../../docs/user-guide/pods.md)做[滚动升级 rolling update](../kubectl/kubectl_rolling-update.md)。如果你还不知道为什么需要滚动升级，或者什么时候做滚动升级，请查看[这里](../managing-deployments.md#updating-your-application-without-a-service-outage)。更多信息查看[滚动升级设计文档](../../design/simple-rolling-update.md)。
 
-### Step Zero: Prerequisites
+### 第一步: 前提条件
 
-This example assumes that you have forked the repository and [turned up a Kubernetes cluster](../../../docs/getting-started-guides/):
+本例子假设你已经fork了一份Kubernetes代码，并且创建了一个[Kubernetes集群](../../../docs/getting-started-guides/):
 
-```console
+```控制台
 $ cd kubernetes
 $ ./cluster/kube-up.sh
 ```
