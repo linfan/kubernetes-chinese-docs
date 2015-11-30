@@ -18,7 +18,8 @@
     * [第2.13节  从零开始](014-scratch.md)
     * [第2.14节  CoreOS上部署入门](015-AWS or GCE(CoreOS).md)
     * [第2.15节  Juju上部署入门](016-AWS or Joyent(Ubuntu).md)
-    * [第2.16节 Racksapec上部署入门](017-Racksepce(CoreOS).md)
+    * [第2.16节 Racksapec上部署入门
+](017-Racksepce(CoreOS).md)
     * [第2.17节  CloudStack入门指南](019-CloudStack.md)
     * [第2.18节 vSphere的入门指南](020-VMware.md)
     * [第2.19节  libvirt CoreOS的入门指南](022-libvirt (CoreOS).md)
@@ -83,11 +84,16 @@
     * [第3.2.8节  Kubernetes集群管理指南：集群组件](065-Administering Clusters.md)
     * [第3.2.9节]()
     * [第3.2.10节  Kube-API Server](066-kube-apiserver Binary.md)
-    * [第3.2.11节  授权插件](067-Authorization.md)
-    * [第3.2.12节  认证插件](068-Authentication.md)
-    * [第3.2.13节  API Server端口配置](069-Accessing the API.md)
-    * [第3.2.14节  Admission Controller](070-Admission Controllers.md)
-    * [第3.2.15节  Service Accounts集群管理指南](071-Administrating Service Accounts.md)
+    * [第3.2.11节  授权插件
+](067-Authorization.md)
+    * [第3.2.12节  认证插件
+](068-Authentication.md)
+    * [第3.2.13节  API Server端口配置
+](069-Accessing the API.md)
+    * [第3.2.14节  Admission Controller
+](070-Admission Controllers.md)
+    * [第3.2.15节  Service Accounts集群管理指南
+](071-Administrating Service Accounts.md)
     * [第3.2.16节  Kube调度器](073-kube-scheduler Binary.md)
     * [第3.2.17节]()
     * [第3.2.18节]()
@@ -115,7 +121,8 @@
     * [第4.1.3节 Spark例子](096-Spark example.md)
     * [第4.1.4节  **Storm 示例**](097-Apache Storm.md)
     * [第4.1.5节  示例: 分布式任务队列 Celery, RabbitMQ和Flower](098-Distributed Task Queue.md)
-    * [第4.1.6节 Kubernetes在Hazelcast平台上部署原生云应用](099-Hazelcast.md)
+    * [第4.1.6节 Kubernetes在Hazelcast平台上部署原生云应用
+](099-Hazelcast.md)
     * [第4.1.7节]()
     * [第4.1.8节]()
     * [第4.1.9节]()
@@ -153,8 +160,8 @@
     * [第5.1.1节]()
     * [第5.1.2节]()
     * [第5.1.3节]()
-    * [第5.1.4节]()
-    * [第5.1.5节]()
+    * [第5.1.4节 Operations](134-Operations.md)
+    * [第5.1.5节 Definitions](135-Definitions.md)
     * [第5.1.6节]()
     * [第5.1.7节]()
 * 第5.2章
