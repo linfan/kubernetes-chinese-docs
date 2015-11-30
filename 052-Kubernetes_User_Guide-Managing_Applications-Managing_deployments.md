@@ -1,5 +1,5 @@
 #Kubernetes用户指南：管理应用：管理部署
-`译者：it2afl0rd` `校对：无`
+`译者：iT2afL0rd` `校对：无`
 
 
 ##组织资源配置
@@ -61,18 +61,18 @@ $ kubectl create -f ./nginx/
 
 `kubectl`会读取任何后缀名为`.yaml`,`.yml`或者`.json`的文件。
 
+推荐的做法是把同样的微服务或者应用层相关的资源放在同一个文件里，然后把整个应用相关的文件都放在同一个目录里。如果应用中的各个层通过DNS互相绑定了，那么你就可以简单地一起部署它们。
 
-It is a recommended practice to put resources related to the same microservice or application tier into the same file, and to group all of the files associated with your application in the same directory. If the tiers of your application bind to each other using DNS, then you can then simply deploy all of the components of your stack en masse.
-
-A URL can also be specified as a configuration source, which is handy for deploying directly from configuration files checked into github:
+URL也可以成为配置文件的源，这样对于直接部署GitHub上的配置文件非常好用：
 
 ```
 $ kubectl create -f https://raw.githubusercontent.com/GoogleCloudPlatform/kubernetes/master/docs/user-guide/replication.yaml
 replicationcontrollers/nginx
 ```
 
-##Bulk operations in kubectl
-Resource creation isn’t the only operation that kubectl can perform in bulk. It can also extract resource names from configuration files in order to perform other operations, in particular to delete the same resources you created:
+##kubectl批量操作
+
+`kubectl`可以批量做的不仅仅只有创建资源。它也可以从配置文件里抽取资源名字来执行其他操作，特别是用来删除创建的重复资源：
 
 ```
 $ kubectl delete -f ./nginx/
@@ -80,13 +80,13 @@ replicationcontrollers/my-nginx
 services/my-nginx-svc
 ```
 
-In the case of just two resources, it’s also easy to specify both on the command line using the resource/name syntax:
+在只有两个资源的情况下，可以简单地在命令行上指定资源或者名字：
 
 ```
 $ kubectl delete replicationcontrollers/my-nginx services/my-nginx-svc
 ```
 
-For larger numbers of resources, one can use labels to filter resources. The selector is specified using -l:
+为了处理更大量的资源，可以用Label来过滤资源。Selector用`-l`参数来指定：
 
 ```
 $ kubectl delete all -lapp=nginx
@@ -94,7 +94,7 @@ replicationcontrollers/my-nginx
 services/my-nginx-svc
 ```
 
-Because kubectl outputs resource names in the same syntax it accepts, it’s easy to chain operations using $() or xargs:
+因为`kubectl`用它可以接受的语法输出资源名字，用`$()`或者`xargs`就可以简单地把这些才做串起来：
 
 ```
 $ kubectl get $(kubectl create -f ./nginx/ | grep my-nginx)
@@ -104,7 +104,11 @@ NAME           LABELS      SELECTOR    IP(S)          PORT(S)
 my-nginx-svc   app=nginx   app=nginx   10.0.152.174   80/TCP
 ```
 
-##Using labels effectively
+##有效地使用Label
+
+目前为止我们使用的例子，对任何资源来说，最多只有一个Label。有许多必须要使用多重Label的场景，来把不同的集合区分开。
+
+比如，不同的应用
 The examples we’ve used so far apply at most a single label to any resource. There are many scenarios where multiple labels should be used to distinguish sets from one another.
 
 For instance, different applications would use different values for the app label, but a multi-tier application, such as the [guestbook example](http://kubernetes.io/v1.1/examples/guestbook/), would additionally need to distinguish each tier. The frontend could carry the following labels:
