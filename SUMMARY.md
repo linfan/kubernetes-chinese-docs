@@ -147,8 +147,8 @@
    * 第4.2.19节
    * 第4.2.20节
    * 第4.2.21节
-   * 第4.2.22节
-   * 第4.2.23节
+   * [第4.2.22节 Exploring Pods](127-Exploring Pods.md)
+   * [第4.2.23节 Updating Live Pods](128-Updating Live Pods.md)
 * 第五章
 * 第5.1章
    * [第5.1.1节 Kubernetes API](129-api_basicsmd.md)
