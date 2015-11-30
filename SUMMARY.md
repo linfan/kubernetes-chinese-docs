@@ -1,6 +1,5 @@
 # Summary
 
-* [封面](001-Version_1.1.md)
 * 第一章
     * [第1.1节  什么是Kubernetes？](002-whatisk8s.md)
 * 第二章
@@ -65,7 +64,7 @@
     * [第3.1.29节 管理应用：部署持续运行的应用](049-Managing_Applications-Deploying_continuously_running_applications.md)
     * [第3.1.30节 管理应用：连接应用](050-Managing_Applications-Connecting_applications.md)
     * [第3.1.31节  管理应用： 在生产环境中使用Pods和容器](051-Working with Containers.md)
-    * [第3.1.32节 Kubernetes用户指南：管理应用：管理部署](052-Kubernetes User Guide: Managing Applications: Managing deployments.md)
+    * [第3.1.32节 Kubernetes用户指南：管理应用：管理部署](052-Kubernetes_User_Guide-Managing_Applications-Managing_deployments.md)
     * [第3.1.33节]()
     * [第3.1.34节  Kubernetes UI](054-Web Interface.md)
     * [第3.1.35节]()
