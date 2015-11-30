@@ -18,7 +18,7 @@
    * 第2.12节
    * [第2.13节  从零开始](014-scratch.md)
    * [第2.14节  CoreOS上部署入门](015-AWS or GCE.md)
-   * [第2.15节  Juju上部署入门](016-AWS or Joyent(Ubuntu)
+   * [第2.15节  Juju上部署入门](016-AWS or Joyent.md)
    * [第2.16节 Racksapec上部署入门
    * [第2.17节  CloudStack入门指南](019-CloudStack.md)
    * [第2.18节 vSphere的入门指南](020-VMware.md)
