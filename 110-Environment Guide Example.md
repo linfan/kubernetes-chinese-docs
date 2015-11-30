@@ -1,6 +1,5 @@
-<!-- END MUNGE: UNVERSIONED_WARNING -->
-环境向导示例
-=========================
+# 环境向导示例
+
 这个示例展示了pod,replication controller 和 service是如何运行的。示例给出了两种pod:前端pod和后端pod，在这两种pod的前面都有service与之连接。访问前端pod将返回他自己的环境变量信息，以及该pod通过service可以访问的后端pod。这个示例主要目的是说明在k8s集群里运行的容器时，可利用的环境变量元数据。k8s环境变量文档在 [这里](../../../docs/user-guide/container-environment.md)。
 
 ![Diagram](images/diagram.png)
@@ -64,7 +63,5 @@ Backend Namespace: default
     kubectl delete rc,service -l type=show-type
     kubectl delete rc,service -l type=backend-type
 
+![Analytics](https://kubernetes-site.appspot.com/UA-36037335-10/GitHub/docs/user-guide/environment-guide/README.md?pixel)
 
-<!-- BEGIN MUNGE: GENERATED_ANALYTICS -->
-[![Analytics](https://kubernetes-site.appspot.com/UA-36037335-10/GitHub/docs/user-guide/environment-guide/README.md?pixel)]()
-<!-- END MUNGE: GENERATED_ANALYTICS -->
