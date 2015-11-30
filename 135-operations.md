@@ -1,3 +1,0 @@
-# operations
-
-{% include operations.html %}
