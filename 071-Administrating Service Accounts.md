@@ -1,10 +1,10 @@
-# **Service Accounts集群管理指南**
+# Service Accounts集群管理指南
 
 *这是对Service Accounts的集群管理指南，详情[Service Accounts用户指南](http://kubernetes.io/v1.1/docs/user-guide/service-accounts.html).*
 
 *对用户授权和用户账户的支持正在计划中，还没有完全完成。有时候，不完整的一些特性，可以更好的描述Service Accounts。*
 
-## **User Accounts和Service Accounts**
+## User Accounts和Service Accounts
 
 基于以下原因，Kubernetes区分了User Accounts和Service Accounts：
 - User Accounts针对人，Service Accounts针对运行在Pod的进程；
@@ -13,14 +13,14 @@
 - 对人类和Service Accounts的审核注意事项是不同的。
 - 复杂系统的配置包含对系统组件的各种Service Accounts的定义。因为Service Accounts可以创建ad-hoc，可以命名，配置是便携式的。
 
-## **Service Accounts自动化**
+## Service Accounts自动化
 
 三个独立的组件合作实现对Service Accounts的自动化。
 - Service账户Admission Controller
 - Token控制器
 - Service Accounts控制器
 
-### **Service Accounts Admission Controller**
+### Service Accounts Admission Controller
 Pod的修改是[Admission Controller](http://kubernetes.io/v1.1/docs/admin/admission-controllers.html)插件实现的，该插件是apiserver的一部分。插件的创建和更新，会同步修改Pod。当插件状态是active（大多版本中，默认是active），创建或者修改Pod会遵循以下流程：
 
 1.	如果该Pod没有ServiceAccount集，将ServiceAccount设为default
@@ -60,6 +60,6 @@ kubectl describe secret mysecretname
 ```
 kubectl delete secret mysecretname
 ```
-### **服务账户控制器(Service Account Controller)（考虑可以不翻译）**
+### 服务账户控制器(Service Account Controller)（考虑可以不翻译）
 
 Service Account Controller管理Namespace中的ServiceAccount，确保每一个“default”的ServiceAccount存在于每一个活动空间中。

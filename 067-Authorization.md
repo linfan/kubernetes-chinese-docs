@@ -1,4 +1,5 @@
-# **授权插件**
+# 授权插件
+
 授权是Kubernetes认证中的一个独立部分，参考[认证部分](http://kubernetes.io/v1.1/docs/admin/authentication.html)的文档。
 
 授权应用在主（安全）API服务端口的所有HTTP访问请求。
@@ -13,8 +14,8 @@
 
 AlwaysDeny会阻止所有的请求（测试中使用的）。AlwaysAllow允许所有请求，如果不需要授权，可以使用这个参数。ABAC（Attribute-Based Access Control）用于已经配置的用户授权规则。
 
-## **ABAC模式**
-### **请求属性**
+## ABAC模式
+### 请求属性
 一个授权请求可配置五个参数：
 
 - 用户（用户是否是用户串）
@@ -26,7 +27,7 @@ AlwaysDeny会阻止所有的请求（测试中使用的）。AlwaysAllow允许�
 
 我们期望增加更多的属性，允许更细粒度的访问控制，并协助策略管理。
 
-### **策略文件格式**
+### 策略文件格式
 ABAC模式，也可以指定参数：--authorization-policy-file=SOME_FILENAME
 
 该文件格式每行有[一个JSON对象]( http://jsonlines.org/)，不会有封闭列表或者映射，而仅仅每行有一个映射。
@@ -43,7 +44,7 @@ ABAC模式，也可以指定参数：--authorization-policy-file=SOME_FILENAME
 
 在未来，策略可以展现在JSON格式中，并通过REST接口进行管理。
 
-### **授权算法**
+### 授权算法
 一个请求属性和一个策略对象的属性是相关的。
 
 一个请求被接受时，其属性是确定的。未知属性默认设置为0，如空串，0，false。
@@ -62,7 +63,7 @@ ABAC模式，也可以指定参数：--authorization-policy-file=SOME_FILENAME
 
 [完整文件示例]( https://github.com/kubernetes/kubernetes/blob/release-1.1/pkg/auth/authorizer/abac/example_policy_file.jsonl)
 
-### **服务账户的快速标记**
+### 服务账户的快速标记
 一个服务账户会自动生成一个用户。该用户的名字生成是根据如下命名规范：
 ```
 system:serviceaccount:<namespace>:<serviceaccountname>
@@ -79,7 +80,7 @@ system:serviceaccount:<namespace>:default
 ```
 重启apiserver使新添加的规则生效。
 
-## **插件开发**
+## 插件开发
 其余实现的开发相对容易，API服务会调用Authorizer接口：
 ```sh
 type Authorizer interface {

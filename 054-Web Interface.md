@@ -1,9 +1,8 @@
-
 # Kubernetes UI
 
 Kubernetes有一个基于web的用户界面，它可以图表化显示当前集群状态。
 
-# 访问UI
+## 访问UI
 
 Kubernetes界面默认是作为集群插件部署的。要访问它需要进入`https://<kubernetes-master>/ui`这个地址，之后会重定向到`https://<kubernetes-master>/api/v1/proxy/namespaces/kube-system/services/kube-ui/#/dashboard/`。
 
@@ -15,7 +14,7 @@ kubectl create -f cluster/addons/kube-ui/kube-ui-svc.yaml --namespace=kube-syste
 ```
 通常，这些应该通过`kube-addons.sh` 脚本自动地被运行在主节点上。
 
-# 使用UI
+## 使用UI
 
 Kubernetes UI可以被用于监控你当前的集群，例如查看资源利用率或者检查错误信息。但是你不能用UI修改集群。
 
@@ -46,7 +45,7 @@ Explore视图允许你轻松看到当前集群的pods，replication controller�
 其他视图（Pods, Nodes, Replication Controllers, Services, and Events）简单列出了每种资源的信息。你也可以点击其他种类获取更多细节。
 ![](k8s-ui-nodes.png)
 
-# 更多信息
+## 更多信息
 
 
 想了解更多信息，访问[Kubernetes UI development document](http://releases.k8s.io/v1.0.6/www/README.md) 在web目录。

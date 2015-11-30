@@ -1,13 +1,13 @@
-# **Kube-API Server**
+# Kube-API Server
 
-## **概要**
+## 概要
 
 Kubernetes API服务器为API对象验证和配置数据，这些对象包含Pod，Service，Replication Controller等等。API Server提供REST操作以及前端到集群的共享状态，所有其它组件可以通过这些共享状态交互。
 ```
 kube-apiserver
 ```
 
-## **选项**
+## 选项
 ```
   --admission-control="AlwaysAdmit"：集群中资源的Admission Controller的插件的有序列表，分别使用逗号分隔，AlwaysAdmit, AlwaysDeny, DenyEscalatingExec, DenyExecOnPrivileged, InitialResources, LimitRanger, NamespaceAutoProvision, NamespaceExists, NamespaceLifecycle, ResourceQuota, SecurityContextDeny, ServiceAccount。
   --admission-control-config-file="": Admission Controller配置文件。

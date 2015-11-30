@@ -1,4 +1,4 @@
-# **认证插件**
+# 认证插件
 
 Kubernetes使用客户端证书，令牌，或者HTTP基本身份验证用户的API调用。
 
@@ -29,11 +29,11 @@ OpenID Connect ID Token，传递下面的参数给apiserver：
 
 Keystone认证会在API Server启动的时候把--experimental-keystone-url='AuthURL'参数传给API Server，该认证就会生效。该插件在plugin/pkg/auth/authenticator/request/keystone/keystone.go文件中实现。有关如何使用Keystone去管理项目和用户的详细信息，请参考[Keystone文档](http://docs.openstack.org/developer/keystone/)。请注意，该插件还处于试验阶段，很可能还会变化。请参考有关该插件的[讨论](https://github.com/kubernetes/kubernetes/pull/11798#issuecomment-129655212)和[计划](https://github.com/kubernetes/kubernetes/issues/11626)了解更多细节。
 
-## **插件开发** 
+## 插件开发 
 我们计划给Kubernetes API Server解决Token问题。使用“bedrock”认证用户，外部提供者给Kubernetes。我们计划使Kubernetes和一个Bedrock认证提供者（如github.com，google.com，Enterprise Directory, Kerberos等等）之间的接口开发更容易。
 
-## **附录**
-### **创建证书 **
+## 附录
+### 创建证书 
 客户端证书认证，用户可以手动产生证书，也可以使用已经存在的脚本部署。
 
 部署脚本路径在cluster/saltbase/salt/generate-cert/make-ca-cert.sh。执行该脚本需要两个参数，一个是API Server的IP地址，另一个是IP：<ip-address>或者DNS：<dns-name>主题备用名称的列表。该脚本会产生三个文件，ca.crt，server.crt和server.key。最后，添加下面的参数作为API Server的启动参数， --client-ca-file=/srv/kubernetes/ca.crt，--tls-cert-file=/srv/kubernetes/server.cert，--tls-private-key-file=/srv/kubernetes/server.key。

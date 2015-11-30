@@ -1,4 +1,3 @@
-
 # 使用kubectl exec检查容器中的环境变量
 
 Kubernetes通过环境变量来暴露[services](http://kubernetes.io/v1.0/docs/user-guide/services.html#environment-variables)。使`用kubectl exec`去检查环境变量会很方便。

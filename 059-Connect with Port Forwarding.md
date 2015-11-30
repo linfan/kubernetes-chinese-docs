@@ -1,9 +1,8 @@
-
 # 应用：kubectl port-forward
 
 kubectl port-forward命令转发了本地端口到pod端口的连接。它的[手册](http://kubernetes.io/v1.0/docs/user-guide/kubectl/kubectl_port-forward.html)现在这里可以查看。相比于[kubectl proxy](http://kubernetes.io/v1.0/docs/user-guide/accessing-the-cluster.html#using-kubectl-proxy)，`kubectl port-forward`也可以转发TCP流量而`kubectl proxy`只能转发HTTP流量。本页阐述了如何使用`kubectl port-forward`去连接Redis 数据库，这在数据库查错中很有用。
 
-# 创建一个Redis主服务
+## 创建一个Redis主服务
 
 ```
 $ kubectl create examples/redis/redis-master.yaml
@@ -18,7 +17,7 @@ redis-master   2/2       Running   0          41s
 
 ```
 
-# 连接到Redis主服务
+## 连接到Redis主服务
 
 Redis主服务监听在端口6379，使用下面命令可以验证，
 ```
