@@ -1,28 +1,28 @@
 # Juju上部署入门
 `译者：王乐` `校对：无`
 
+Juju使通过配置部署Kubernetes，在集群中安装和配置所有系统更加简单。可通过一个命令增加集群尺寸来简单的扩展集群
 
-Juju使通过配置部署Kubernetes，在集群中安装和配置所有系统更加简单。可通过一个命令增加集群尺寸来简单的扩展部署集群
+内容列表
 
-## 内容列表
-
-* [先决条件](#先决条件)
+* [部署需求](#部署需求)
     * [Ubuntu上部署](#Ubuntu上部署)
     * [Docker相关部署](#Docker相关部署)
 * [运行Kubernetes集群](#运行Kubernetes集群)
-* [探索集群](#探索集群)
+* [检测集群](#检测集群)
 * [运行多个容器！](#运行多个容器！)
 * [扩展集群](#扩展集群)
 * [运行“k8petsore”示例应用](#运行“k8petsore”示例应用)
-* [拆除集群]
-* [更多信息]
-    * [云兼容]
+* [删除集群](#删除集群)
+* [更多信息](#更多信息)
+    * [云兼容](#云兼容)
 
-## 先决条件
+## **部署需求**
 
 注意：如果你运行kube-up，在Ubuntu上——所有的依赖会为您处理。你可以跳转到这个部分：运行Kubernetes集群
 
-### Ubuntu上部署
+
+### **Ubuntu上部署**
 
 在您的本地Ubuntu系统安装Juju客户端。
 
@@ -32,7 +32,7 @@ sudo apt-get update
 sudo apt-get install juju-core juju-quickstart
 ```
 
-### Docker相关部署
+### **Docker相关部署**
 
 如果您不使用Ubuntu，而是使用Docker，您可以运行以下命令：
 
@@ -47,11 +47,15 @@ sudo docker run -v ~/.juju:/home/ubuntu/.juju -ti jujusolutions/jujubox:latest
 
 ```
 juju quickstart --constraints="mem=3.75G" -i```
-容器flag是可选的，当请求一个新的虚拟机时，他改变Juju生成的虚拟机尺寸。大的虚拟机相比小虚拟机运行的更快，但是花费更多。
+
+这里```constraints``` flag是可选的，当请求一个新的虚拟机时，他改变Juju生成的虚拟机尺寸。大的虚拟机相比小虚拟机运行的更快，但是花费更多。
 
 根据对话选择```save```和```use```。快速入门将启动Juju跟节点，根据用户接口设置Juju页面。
 
-## 运行Kubernetes集群
+
+## **运行Kubernetes集群**
+
+
 启动集群之前需要导出环境变量```KUBERNETES_PROVIDER```。
 ```
 export KUBERNETES_PROVIDER=juju
@@ -61,7 +65,7 @@ cluster/kube-up.sh```
 
 下一步它会部署kubernetes master，etcd，2个带有flannel的nodes，flannel是基础软件定义网络(SDN)，它可以使在不同的主机上的容器互相通信。
 
-## 探索集群
+## **检测集群**
 ```juju status```命令提供了集群中每个单元的信息：
 ```
 $ juju status --format=oneline
@@ -80,7 +84,7 @@ $ juju status --format=oneline
 ```
 juju ssh kubernetes-master/0
 ```
-## 运行多个容器！
+## **运行多个容器！**
 
 在Kubernetes主节点```kubectl```是可用的。我们ssh登录去运行一些容器，但也可以通过设置```KUBERNETES_MASTER```为“kubernetes-master/0”的ip地址来使用本地```kubectl```。
 
@@ -143,13 +147,13 @@ curl $(juju status --format=oneline kubernetes/1 | cut -d' ' -f3)```
 juju ssh kubernetes-master/0
 kubectl delete pods hello```
 
-##扩展集群
+## **扩展集群**
 我们可以想这样增加节点单元：
 ```
 juju add-unit docker # creates unit docker/2, kubernetes/2, docker-flannel/2```
 
 
-## 运行“k8petsore”示例应用
+## **运行“k8petsore”示例应用**
 
 [k8petstore示例](https://github.com/kubernetes/kubernetes/tree/master/examples/k8petstore)可以像一个[juju action](https://jujucharms.com/docs/devel/actions)获取到。
 ```
@@ -157,7 +161,7 @@ juju action do kubernetes-master/0```
 
 注意：这个示例既包含curl状态来练习这个应用。这个应用自动生成“prestore”日志写到redis上，并且允许你在浏览器上可视化吞吐量。
 
-## 拆除集群
+## **删除集群**
 ```
 ./kube-down.sh```
 
@@ -165,20 +169,20 @@ juju action do kubernetes-master/0```
 ```
 juju destroy-environment --force `juju env````
 
-## 更多信息
+## **更多信息**
 Kubernetes的分支和包可以在github.com的```kubernetes```项目中找到：
 * [镜像包](http://releases.k8s.io/HEAD/cluster/juju/bundles)
 	* [Kubernetes主节点分支](https://github.com/kubernetes/kubernetes/tree/master/cluster/juju/charms/trusty/kubernetes-master)
 	* [Kubernetes节点分支](https://github.com/kubernetes/kubernetes/blob/master/cluster/juju/charms/trusty/kubernetes)
 * [关于Juju的更多信息](https://jujucharms.com/)
 
-###云兼容
+### **云兼容**
 
 Juju运行在本地和各种公共云提供商。Juju当前和[Amazon Web Service](https://jujucharms.com/docs/stable/config-aws)，[Windows Azure](https://jujucharms.com/docs/stable/config-azure)，[DigitalOcean](https://jujucharms.com/docs/stable/config-digitalocean)，[Google Compute Engine](https://jujucharms.com/docs/stable/config-gce)，[HP Public Cloud](https://jujucharms.com/docs/stable/config-hpcloud)，[Joyent](https://jujucharms.com/docs/stable/config-joyent)，[LXC](https://jujucharms.com/docs/stable/config-LXC)，任何[OpenStack](https://jujucharms.com/docs/stable/config-openstack)部署，[Vagrant](https://jujucharms.com/docs/stable/config-vagrant)，和 [Vmware vSphere](https://jujucharms.com/docs/stable/config-vmware)。
 
 如果你没有在多个云列表看到你比较喜欢的云供应商，可以配置为[手动配置](https://jujucharms.com/docs/stable/config-manual)。
 
-Kubernetes包已经在GCE和AWS上测试，且使用1.0.0版本
+Kubernetes包已经在GCE和AWS上测试，使用1.0.0版本验证通过。
 
 
 
