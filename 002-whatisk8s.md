@@ -1,4 +1,6 @@
 # 什么是Kubernetes？
+`译者：razr` `校对：iT2afL0rd`
+
 
 Kubernetes一个用于容器集群的自动化部署、扩容以及运维的开源平台。
 

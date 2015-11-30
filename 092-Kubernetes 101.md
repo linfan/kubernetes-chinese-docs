@@ -1,4 +1,6 @@
 # **Kubernetes 101 - Kubectl CLI和Pods**
+`译者：张迪` `校对：无`
+
 
 Kubernetes 101 - Kubectl CLI and Pods
 

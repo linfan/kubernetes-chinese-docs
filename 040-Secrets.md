@@ -1,4 +1,6 @@
 # Secrets
+`译者：kz` `校对：无`
+
 
 Objects of type `secret` are intended to hold sensitive information, such as
 passwords, OAuth tokens, and ssh keys.  Putting this information in a `secret`

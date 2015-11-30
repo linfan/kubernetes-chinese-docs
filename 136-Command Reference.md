@@ -1,4 +1,6 @@
 ## kubectl
+`译者：hurf` `校对：无`
+
 
 使用kubectl来管理Kubernetes集群。
 

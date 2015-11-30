@@ -1,4 +1,6 @@
 ## kubectl logs
+`译者：hurf` `校对：无`
+
 
 输出pod中一个容器的日志。
 

@@ -1,4 +1,6 @@
 #Spark例子
+`译者：卢文泉` `校对：无`
+
 在下面的例子中，你会学习使用Kubernetes和[Docker](http://docker.io/)创建一个能够使用的阿帕奇[Spark](http://spark.apache.org/)集群。我们使用Spark的[单例模式](http://spark.apache.org/docs/latest/spark-standalone.html)创建一个Spark master节点服务和一系列Spark workers节点。
 
 对于不耐心的专家，直接跳到[这个部分](http://kubernetes.io/v1.0/examples/spark/README.html#tldr)

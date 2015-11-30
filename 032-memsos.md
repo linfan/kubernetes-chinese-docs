@@ -1,4 +1,6 @@
 # 如何在Mesos上运行Kubernetes
+`译者：王乐` `校对：无`
+
 
 ## 关于在Mesos上运行Kubernetes
 

@@ -1,4 +1,6 @@
 ## kubectl config
+`译者：hurf` `校对：无`
+
 
 修改kubeconfig配置文件。
 

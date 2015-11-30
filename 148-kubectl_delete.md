@@ -1,4 +1,6 @@
 ## kubectl delete
+`译者：hurf` `校对：无`
+
 
 通过文件名、控制台输入、资源名或者label selector删除资源。
 

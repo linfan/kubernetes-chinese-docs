@@ -1,4 +1,6 @@
 # Replication Controller
+`译者：kz` `校对：无`
+
 
 
 ## What is a _replication controller_?

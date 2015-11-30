@@ -1,4 +1,6 @@
 # Service Accounts集群管理指南
+`译者：Nancy` `校对：无`
+
 
 *这是对Service Accounts的集群管理指南，详情[Service Accounts用户指南](http://kubernetes.io/v1.1/docs/user-guide/service-accounts.html).*
 

@@ -1,4 +1,6 @@
 # libvirt CoreOS的入门指南
+`译者：mr.art` `校对：无`
+
 
 ## 亮点
 

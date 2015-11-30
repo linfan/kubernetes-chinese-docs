@@ -1,4 +1,6 @@
 #使用Kubernetes在云上原生部署cassandra
+`译者：卢文泉` `校对：无`
+
 
 下面的文档描述了在Kubernetes上部署*cloud native* [Cassandra](http://cassandra.apache.org/)的开发过程。当我们讲*cloud native时，我们是指这样一款应用，它运行在集群管理器中，并利用集群管理器的基础设施来实现应用的功能。特别的是，在本章介绍的实例中，一个定制好的Cassandra *SeedProvider* 可以确保Cassandra能够动态发现新的Cassandra节点并把它添加到集群中。
 

@@ -1,4 +1,6 @@
 # 配置kubernetes
+`译者：李昂` `校对：无`
+
 
 除了像`kubectl run`和`kubectl expose`这些必要的命令，它们在[各种地方](http://kubernetes.io/v1.0/docs/user-guide/quick-start.html)都有介绍，kubernetes也支持可声明式的配置。配置文件也需要必要的命令，这样就可以在代码审查中检查版本控制和文件改动，而代码审查对复杂的具有鲁棒性的可靠生产系统是非常重要的。
 

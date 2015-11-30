@@ -1,4 +1,6 @@
 # Kubenetes集群管理员手册
+`译者：李昂` `校对：无`
+
 
 管理员手册适合于创建了或者正在管理Kubernetes集群的人。阅读管理员手册最好已经熟悉[用户手册](http://kubernetes.io/v1.0/docs/user-guide/README.html)中的一些概念。
 

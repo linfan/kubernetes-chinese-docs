@@ -1,4 +1,6 @@
 # Kube-API Server
+`译者：Nancy` `校对：无`
+
 
 ## 概要
 

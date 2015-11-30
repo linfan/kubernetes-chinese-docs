@@ -1,4 +1,6 @@
 # 应用：kubectl proxy和apiserver proxy
+`译者：李昂` `校对：无`
+
 
 你已经看过了`kubectl proxy`和`apiserver proxy`的[基本知识](http://kubernetes.io/v1.0/docs/user-guide/accessing-the-cluster.html)。本页将为你展示如何一起使用它们去访问运行在你的工作站上的Kubernetes集群提供的服务（[kube-ui](http://kubernetes.io/v1.0/docs/user-guide/ui.html)）。
 

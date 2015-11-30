@@ -1,4 +1,6 @@
 ## kubectl api-versions
+`译者：hurf` `校对：无`
+
 
 以“组/版本”的格式输出服务端支持的API版本。
 

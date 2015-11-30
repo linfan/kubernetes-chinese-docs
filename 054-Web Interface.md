@@ -1,4 +1,6 @@
 # Kubernetes UI
+`译者：李昂` `校对：无`
+
 
 Kubernetes有一个基于web的用户界面，它可以图表化显示当前集群状态。
 

@@ -1,4 +1,6 @@
 # 环境向导示例
+`译者：丁麒玮` `校对：无`
+
 
 这个示例展示了pod,replication controller 和 service是如何运行的。示例给出了两种pod:前端pod和后端pod，在这两种pod的前面都有service与之连接。访问前端pod将返回他自己的环境变量信息，以及该pod通过service可以访问的后端pod。这个示例主要目的是说明在k8s集群里运行的容器时，可利用的环境变量元数据。k8s环境变量文档在 [这里](../../../docs/user-guide/container-environment.md)。
 

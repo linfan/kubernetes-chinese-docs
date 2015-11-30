@@ -1,4 +1,6 @@
 ## kubectl annotate
+`译者：hurf` `校对：无`
+
 
 更新某个资源的注解
 

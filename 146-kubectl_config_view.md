@@ -1,4 +1,6 @@
 ## kubectl config view
+`译者：hurf` `校对：无`
+
 
 显示合并后的kubeconfig设置，或者一个指定的kubeconfig配置文件。
 

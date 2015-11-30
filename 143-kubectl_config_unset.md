@@ -1,4 +1,6 @@
 ## kubectl config unset
+`译者：hurf` `校对：无`
+
 
 在kubeconfig配置文件中清除一个单独的值。
 

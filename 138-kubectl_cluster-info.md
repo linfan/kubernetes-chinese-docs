@@ -1,4 +1,6 @@
 ## kubectl cluster-info
+`译者：hurf` `校对：无`
+
 
 显示集群信息。
 

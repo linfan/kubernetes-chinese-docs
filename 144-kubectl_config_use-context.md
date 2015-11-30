@@ -1,4 +1,6 @@
 ## kubectl config use-context
+`译者：hurf` `校对：无`
+
 
 使用kubeconfig中的一个环境项作为当前配置。
 

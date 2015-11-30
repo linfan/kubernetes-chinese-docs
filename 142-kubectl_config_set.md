@@ -1,4 +1,6 @@
 ## kubectl config set
+`译者：hurf` `校对：无`
+
 
 在kubeconfig配置文件中设置一个单独的值。
 

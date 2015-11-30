@@ -1,4 +1,6 @@
 #从本地运行k8s开始 v1.0
+`译者：卢文泉` `校对：无`
+
 [原文地址](http://kubernetes.io/v1.0/docs/getting-started-guides/locally.html)
 
 ###环境需求

@@ -1,4 +1,6 @@
 #Kubernetes DNS 实例实战
+`译者：钟健鑫` `校对：无`
+
 
 这是一个好玩的例子来演示如何使用kubernetes DNS
 

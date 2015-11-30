@@ -1,4 +1,6 @@
 # CoreOS上部署入门
+`译者：安雪艳` `校对：无`
+
 
 ## CoreOS上运行Kubernetes有多条指南
 

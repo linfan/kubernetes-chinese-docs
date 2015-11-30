@@ -1,4 +1,6 @@
 #Downward API 范例
+`译者：钟健鑫` `校对：无`
+
 
 接下来的例子，你会创建一个pod, 它包含了一个通过访问[downward API](http://kubernetes.io/v1.0/docs/user-guide/downward-api.html)来使用这个pod名字和命名空的容器
 

@@ -1,4 +1,6 @@
 # 利用Docker安装多节点Kubernetes
+`译者：王乐` `校对：无`
+
 
 _注意_:
 这个介绍一定程度上会比[single node](docker.md)里的介绍要更进一步。如果你有兴趣探索Kubernetes，我们建议你从这里开始。

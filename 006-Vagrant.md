@@ -1,4 +1,6 @@
 #使用Vagrant
+`译者：卢文泉` `校对：无`
+
 使用Vagrant（和VirtualBox）运行Kubernetes是在本地机器（Linux，Mac OS X）进行运行/测试/开发的简单方法。
 
 ##预备知识

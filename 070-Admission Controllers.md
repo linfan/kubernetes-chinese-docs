@@ -1,4 +1,6 @@
 # Admission Controller
+`译者：Nancy` `校对：无`
+
 
 目录
 - Admission Controller『参见以下内容』

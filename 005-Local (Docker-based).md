@@ -1,4 +1,6 @@
 #基于Docker本地运行Kubernetes
+`译者：razr` `校对：无`
+
 
 **目录**
 

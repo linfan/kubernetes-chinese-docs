@@ -1,4 +1,6 @@
 # Volumes
+`译者：kz` `校对：无`
+
 
 On-disk files in a container are ephemeral, which presents some problems for
 non-trivial applications when running in containers.  First, when a container

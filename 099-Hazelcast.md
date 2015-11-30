@@ -1,4 +1,6 @@
 #Kubernetes在Hazelcast平台上部署原生云应用
+`译者：贾澜鹏` `校对：无`
+
 
 这篇文档主要是描述Kubernetes在[Hazelcast](http://hazelcast.org/)平台上部署原生云应用的方法。当我们提到原生云应用时，意味着我们的应用程序是运行在一个集群之上，同时使用这个集群的基础设施实现这个应用程序。值得注意的是，在此情况下，一个定制化的Hazelcast`引导程序`被用来使Hazelcast可以动态的发现已经加入集群的Hazelcast节点。
 
