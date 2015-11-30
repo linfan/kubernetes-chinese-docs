@@ -152,7 +152,7 @@
 * 第五章
 * 第5.1章
    * [第5.1.1节 Kubernetes API](129-api_basicsmd.md)
-   * 第5.1.2节
+   * [第5.1.2节 资源管理](132-Working with Resources.md)
    * 第5.1.3节
    * [第5.1.4节 Operations](134-Operations.md)
    * [第5.1.5节 Definitions](135-Definitions.md)
