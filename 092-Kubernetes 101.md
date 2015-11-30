@@ -57,21 +57,29 @@ Pod管理
 
 创建一个包含nginx server的pod（pod-nginx.yaml http://kubernetes.io/v1.1/docs/user-guide/walkthrough/pod-nginx.yaml）:
 
+```
 $ kubectl create -f docs/user-guide/walkthrough/pod-nginx.yaml
+```
 
 列出所有pods:
 
+```
 $ kubectl get pods
+```
 
 在Pod部署的大部分环境里，Pod的IP都是外部不可见的。最便捷的测试Pod是否工作的方法是创建一个BusyBoxPod并且在上面远程运行命令。请查看可执行命令文档http://kubernetes.io/v1.1/docs/user-guide/kubectl/kubectl_exec.html以找到更多细节。
 
 如果Pod IP可以访问，你应该可以利用curl访问在80端口访问http端点。
 
+```
 $ curl http://$(kubectl get pod nginx -o=template -t={{.status.podIP}})
+```
 
 通过名字删除pod：
 
+```
 $ kubectl delete pod nginx
+```
 
 Volumes
 
@@ -82,20 +90,25 @@ Volumes
 在下面的例子中，我们将创建一个Redis Pod，这个Pod包括一个named Volume和包含Volume安装路径的Volume安装点。
 
 1、定义一个Volume：
+```
 volumes:
     - name: redis-persistent-storage
       emptyDir: {}
+```
       
 1. 在容器定义内定义一个Volume安装点
 
+```
 volumeMounts:
     # 名字必须与下面的Volume名字一致
     - name: redis-persistent-storage
       # 容器中的安装点
       mountPath: /data/redis
+```
 
 带有持续存储Volume的Redis Pod定义举例（pod-redis.yamlhttp://kubernetes.io/v1.1/docs/user-guide/walkthrough/pod-redis.yaml）：
 
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -110,6 +123,7 @@ spec:
   volumes:
   - name: redis-persistent-storage
     emptyDir: {}
+```
 
 案例下载http://kubernetes.io/v1.1/docs/user-guide/walkthrough/pod-redis.yaml
 
@@ -130,6 +144,7 @@ Volume 类型
 However, often you want to have two different containers that work together. An example of this would be a web server, and a helper job that polls a git repository for new updates:
 然而，通常你会希望存在两种容器在一起工作。一个例子是网站服务器，和一个可以从git仓库中拉出更新的帮助任务。
 
+```
 apiVersion: v1
 kind: Pod
 metadata:
@@ -153,6 +168,7 @@ spec:
   volumes:
   - name: www-data
     emptyDir: {}
+```
 
 注意我们也在这里增加了一个volume。在这个例子里，这个volume同时被安装在两个容器中。在网页服务器容器中，由于并不需要写这个目录，因此被标注为**只读**。
 
