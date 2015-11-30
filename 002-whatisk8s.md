@@ -1,4 +1,3 @@
-
 # 什么是Kubernetes？
 
 Kubernetes一个用于容器集群的自动化部署、扩容以及运维的开源平台。
