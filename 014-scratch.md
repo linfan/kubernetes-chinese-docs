@@ -432,61 +432,61 @@ Log can be written to non-durable storage because storage is replicated.
 ```
 可选设置的apiserver的选项：
 
+
+
 * `--cloud-provider=` 参见 [cloud providers](#cloud-providers)
 * `--cloud-config=` 参见 [cloud providers](#cloud-providers)
-* `--address=${MASTER_IP}` *or* `--bind-address=127.0.0.1` and `--address=127.0.0.1` if you want to run a proxy on the master node.
+* 如果你想在主节点运行proxy，你需要设置`—address=${MASTER_IP}` *或者* `--bind-address=127.0.0.1`和 `--address=127.0.0.1`。
 * `--cluster-name=$CLUSTER_NAME`
 * `--service-cluster-ip-range=$SERVICE_CLUSTER_IP_RANGE`
 * `--etcd-servers=http://127.0.0.1:4001`
 * `--tls-cert-file=/srv/kubernetes/server.cert`
 * `--tls-private-key-file=/srv/kubernetes/server.key`
 * `--admission-control=$RECOMMENDED_LIST`
-  - 参考 [admission controllers](../admin/admission-controllers.md).
-* `--allow-privileged=true`, only if you trust your cluster user to run pods as root.
+  * 参考 [admission controllers](../admin/admission-controllers.md).
+* 只有当你相信你的集群用户可以使用root权限来运行pod时，开启这个选项`--allow-privileged=true`, 
 
-If you are following the firewall-only security approach, then use these arguments:
 
-- `--token-auth-file=/dev/null`
-- `--insecure-bind-address=$MASTER_IP`
-- `--advertise-address=$MASTER_IP`
+如果你是按照firewall-only的安全方式来配置的，你需要以下设置：
+* `--token-auth-file=/dev/null`
+* `—insecure-bind-address=$MASTER_IP`
+* `--advertise-address=$MASTER_IP`
 
-If you are using the HTTPS approach, then set:
-- `--client-ca-file=/srv/kubernetes/ca.crt`
-- `--token-auth-file=/srv/kubernetes/known_tokens.csv`
-- `--basic-auth-file=/srv/kubernetes/basic_auth.csv`
+如果你是按照HTTPS的安全方式来配置的，你需要以下设置：
+* `--client-ca-file=/srv/kubernetes/ca.crt`
+* `--token-auth-file=/srv/kubernetes/known_tokens.csv`
+* `--basic-auth-file=/srv/kubernetes/basic_auth.csv`
 
-This pod mounts several node file system directories using the  `hostPath` volumes.  Their purposes are:
-- The `/etc/ssl` mount allows the apiserver to find the SSL root certs so it can
-  authenticate external services, such as a cloud provider.
-  - This is not required if you do not use a cloud provider (e.g. bare-metal).
-- The `/srv/kubernetes` mount allows the apiserver to read certs and credentials stored on the
-  node disk.  These could instead be stored on a persistent disk, such as a GCE PD, or baked into the image.
-- Optionally, you may want to mount `/var/log` as well and redirect output there (not shown in template).
-  - Do this if you prefer your logs to be accessible from the root filesystem with tools like journalctl.
+这个pod使用`hostPath`加载多个节点文件系统目录。这些加载的目录的用途是：
 
-*TODO* document proxy-ssh setup.
+* 加载`/etc/ssl`目录可以允许apiserver找到SSL根证书，从而验证例如云服务提供商所提供的外部服务。
+  * 如果你不使用任何云服务提供商，你就不需要配置这里（比如，只使用物理裸机）。
+* 加载`/srv/kubernetes`目录可以允许读取存储在节点磁盘上的证书和认证信息。
+* 可选, 你也可以加在`/var/log`目录从而将日志记录在这个目录里(没有在template里举例标明)。
+  * 如果你想用类似journalctl的工具从根文件系统来访问日志的话，可以加载这个目录。
+*TODO* 描述如何架设proxy-ssh。
 
 ##### Cloud Providers
 
-Apiserver supports several cloud providers.
+Apiserver支持多个cloud providers。
 
-- options for `--cloud-provider` flag are `aws`, `gce`, `mesos`, `openshift`, `ovirt`, `rackspace`, `vagrant`, or unset.
-- unset used for e.g. bare metal setups.
-- support for new IaaS is added by contributing code [here](../../pkg/cloudprovider/providers/)
+* `--cloud-provider`选项的值可以是`aws`，`gce`，`mesos`，`openshift`，`ovirt`，`rackspace`，`vagrant`或者不´未设置。
+* 未设置选项可以用来设置物理裸机。
+* 在[这里](../../pkg/cloudprovider/providers/)添加新的IaaS。
 
-Some cloud providers require a config file. If so, you need to put config file into apiserver image or mount through hostPath.
+一些cloud providers需要配置文件。这种情况下，你需要将配置文件放置在apiserver的镜像中或者通过`hostPath`来加载。
 
-- `--cloud-config=` set if cloud provider requires a config file.
-- Used by `aws`, `gce`, `mesos`, `openshift`, `ovirt` and `rackspace`.
-- You must put config file into apiserver image or mount through hostPath.
-- Cloud config file syntax is [Gcfg](https://code.google.com/p/gcfg/).
-- AWS format defined by type [AWSCloudConfig](../../pkg/cloudprovider/providers/aws/aws.go)
-- There is a similar type in the corresponding file for other cloud providers.
-- GCE example: search for `gce.conf` in [this file](../../cluster/gce/configure-vm.sh)
+* 如果cloud providers需要配置文件，设置`—cloud-config=`这个选项。
+* `aws`，`gce`，`mesos`，`openshift`，`ovirt`和`rackspace`会使用到这个选项。
+* 你必须需要将配置文件放置在apiserver的镜像中或者通过`hostPath`来加载。
+* 云配置文件的语法[Gcfg](https://code.google.com/p/gcfg/)。
+* AWS格式是用类型来定义的[AWSCloudConfig](../../pkg/cloudprovider/providers/aws/aws.go)。
+* 其他的云服务提供商也有类似的对应文件。
+* 比如在GCE里: 在[这个文件](../../cluster/gce/configure-vm.sh)找`gce.conf`字节。
 
 #### Scheduler pod template
 
-Complete this template for the scheduler pod:
+完成scheduler pod的template：
 
 ```json
 
@@ -527,11 +527,11 @@ Complete this template for the scheduler pod:
 ```
 通常，不需要额外设置scheduler。
 
-Optionally, you may want to mount `/var/log` as well and redirect output there.
+你或许想加载`/var/log`并将输出记录在这个日志目录里。
 
 #### Controller Manager Template
 
-Template for controller manager pod:
+完成controller manager pod的template：
 
 ```json
 
@@ -596,31 +596,28 @@ Template for controller manager pod:
 
 ```
 
-Flags to consider using with controller manager:
- - `--cluster-name=$CLUSTER_NAME`
- - `--cluster-cidr=`
-   - *TODO*: explain this flag.
- - `--allocate-node-cidrs=`
-   - *TODO*: explain when you want controller to do this and when you want to do it another way.
- - `--cloud-provider=` and `--cloud-config` as described in apiserver section.
- - `--service-account-private-key-file=/srv/kubernetes/server.key`, used by the [service account](../user-guide/service-accounts.md) feature.
- - `--master=127.0.0.1:8080`
+配合controller manager所使用的选项：
+ * `--cluster-name=$CLUSTER_NAME`
+ * `—cluster-cidr=`
+   * *TODO*: 解释这个选项
+ * `--allocate-node-cidrs=`
+   * *TODO*: 解释这个选项
+ * `--cloud-provider=`和`--cloud-config`在apiserver章节里解释过。
+ * `--service-account-private-key-file=/srv/kubernetes/server.key`，这个值是[service account](../user-guide/service-accounts.md)功能所使用的。
+ * `--master=127.0.0.1:8080`
 
-#### Starting and Verifying Apiserver, Scheduler, and Controller Manager
+#### 运行和验证Apiserver，Scheduler和Controller Manager
 
-Place each completed pod template into the kubelet config dir
-(whatever `--config=` argument of kubelet is set to, typically
-`/etc/kubernetes/manifests`).  The order does not matter: scheduler and
-controller manager will retry reaching the apiserver until it is up.
+将每个完成的pod template放置在kubelet的配置文件夹中（文件夹地址是在kubelet的`--config=`选项所指向的地址， 通常是`/etc/kubernetes/manifests`）。没有放置顺序关系: scheduler和controller manager会一直尝试连接到apiserver，直到连接成功。
 
-Use `ps` or `docker ps` to verify that each process has started.  For example, verify that kubelet has started a container for the apiserver like this:
+用`ps`或者`docker ps`来检测每一个进程是否正常运行。 比如，你可以这样看apiserver的容器是否被kubelet启动了：
 
 ```console
 $ sudo docker ps | grep apiserver:
 5783290746d5        gcr.io/google_containers/kube-apiserver:e36bf367342b5a80d7467fd7611ad873            "/bin/sh -c '/usr/lo'"    10 seconds ago      Up 9 seconds                              k8s_kube-apiserver.feb145e7_kube-apiserver-kubernetes-master_default_eaebc600cf80dae59902b44225f2fc0a_225a4695
 ```
 
-Then try to connect to the apiserver:
+之后尝试连接apiserver:
 
 ```console
 $ echo $(curl -s http://localhost:8080/healthz)
@@ -633,9 +630,7 @@ $ curl -s http://localhost:8080/api
 }
 ```
 
-如果你选择`--register-node=true` option for kubelets, they will now begin self-registering with the apiserver.
-You should soon be able to see all your nodes by running the `kubectl get nodes` command.
-Otherwise, you will need to manually create node objects.
+如果kubelets使用`--register-node=true`这个选项，他们会开始自动注册到apiserver上。很快，你就可以使用`kubectl get nodes`命令看到所有的节点。否则，你需要手动注册这些节点。
 
 ### 日志
 
