@@ -652,7 +652,7 @@ $ curl -s http://localhost:8080/api
 }
 ```
 
-If you have selected the `--register-node=true` option for kubelets, they will now begin self-registering with the apiserver.
+如果你选择`--register-node=true` option for kubelets, they will now begin self-registering with the apiserver.
 You should soon be able to see all your nodes by running the `kubectl get nodes` command.
 Otherwise, you will need to manually create node objects.
 
