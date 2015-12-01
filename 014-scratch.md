@@ -287,93 +287,74 @@ brctl delbr docker0
 需要给每一个节点新建一个叫`cbr0`网桥。网桥会在[networking documentation](../admin/networking.md)里做详细介绍。约定俗成，`$NODE_X_POD_CIDR`里的第一个IP地址作为这个网桥的IP地址。这个地址叫做`NODE_X_BRIDGE_ADDR`。比如，`NODE_X_POD_CIDR`是`10.0.0.0/16`，那么`NODE_X_BRIDGE_ADDR`是`10.0.0.1/16`。注意：这里用`/16`这个后缀是因为之后也会这么使用。
 
 
-- Recommended, automatic approach:
-  1. Set `--configure-cbr0=true` option in kubelet init script and restart kubelet service.  Kubelet will configure cbr0 automatically.
-     It will wait to do this until the node controller has set Node.Spec.PodCIDR.  Since you have not setup apiserver and node controller
-     yet, the bridge will not be setup immediately.
-- Alternate, manual approach:
-  1. Set `--configure-cbr0=false` on kubelet and restart.
-  1. Create a bridge
-  - e.g. `brctl addbr cbr0`.
-  1. Set appropriate MTU
-  - `ip link set dev cbr0 mtu 1460` (NOTE: the actual value of MTU will depend on your network environment)
-  1. Add the clusters network to the bridge (docker will go on other side of bridge).
-  - e.g. `ip addr add $NODE_X_BRIDGE_ADDR dev cbr0`
-  1. Turn it on
-  - e.g. `ip link set dev cbr0 up`
+* 推荐的自动化步骤:
+  1. 在初始化的脚本里，设置kubelet的选项为`--configure-cbr0=true`，并重启kubelet服务。Kubelet会自动设置cobr0. 它会一直等待，直到节点controller正确设置Node.Spec.PodCIDR。因为你目前还没有设置好apiserver和节点controller，所以网桥不会马上完成设置。
+* 人工步骤:
+  1. 设置kubelet的选项`--configure-cbr0=false`，并重启kubelet。
+  2. 新建网桥
+   * 比如`brctl addbr cbr0`.
+  3. 设定合适的MTU
+   * 比如`ip link set dev cbr0 mtu 1460` (注意: 真实的MTU值是由你的网络环境所决定的)
+  4. 把集群网络加入网桥(docker会连接在这个网桥的另一端)。
+   * 比如`ip addr add $NODE_X_BRIDGE_ADDR dev cbr0`
+  5. 开启网桥
+   * 比如`ip link set dev cbr0 up`
 
-If you have turned off Docker's IP masquerading to allow pods to talk to each
-other, then you may need to do masquerading just for destination IPs outside
-the cluster network.  For example:
+在你关闭了Docker的IP伪装的情况下，为了让pod之间相互通信，你可能需要为去往集群网络外的流量做目的IP地址伪装，例如：
+
 
 ```sh
 iptables -t nat -A POSTROUTING ! -d ${CLUSTER_SUBNET} -m addrtype ! --dst-type LOCAL -j MASQUERADE
 ```
 
-This will rewrite the source address from
-the PodIP to the Node IP for traffic bound outside the cluster, and kernel
-[connection tracking](http://www.iptables.info/en/connection-state.html)
-will ensure that responses destined to the node still reach
-the pod.
+这样会重写从PodIP到节点IP的数据流量的原地址。内核[connection tracking](http://www.iptables.info/en/connection-state.html)会确保发向节点的回复能够到达pod。
 
-NOTE: This is environment specific.  Some environments will not need
-any masquerading at all.  Others, such as GCE, will not allow pod IPs to send
-traffic to the internet, but have no problem with them inside your GCE Project.
+注意: 需不需要IP地址伪装是视环境而定的。在一些环境下是不需要IP伪装的。例如GCE这样的环境从pod发出的数据是不允许发向Interent的，但如果在同一个GCE项目里是不会有问题的。
 
 ### 其他
-
-- Enable auto-upgrades for your OS package manager, if desired.
-- Configure log rotation for all node components (e.g. using [logrotate](http://linux.die.net/man/8/logrotate)).
-- Setup liveness-monitoring (e.g. using [monit](http://linux.die.net/man/1/monit)).
-- Setup volume plugin support (optional)
-  - Install any client binaries for optional volume types, such as `glusterfs-client` for GlusterFS
-    volumes.
+* 如果需要，为你的系统安装包管理器开启自动升级。
+* 为所有的节点设置日志轮询(比如，使用[logrotate](http://linux.die.net/man/8/logrotate))。
+* 建立liveness-monitoring (比如，使用[monit](http://linux.die.net/man/1/monit))。
+* 建立存储插件的支持(可选)
+  * 为可选的存储类型安装所需的客户端程序，比如为GlusterFS安装`glusterfs-client`。
 
 ### 使用配置管理工具
 
-The previous steps all involved "conventional" system administration techniques for setting up
-machines.  You may want to use a Configuration Management system to automate the node configuration
-process.  There are examples of [Saltstack](../admin/salt.md), Ansible, Juju, and CoreOS Cloud Config in the
-various Getting Started Guides.
+之前架设服务器的步骤都是使用“传统”的系统管理方式。你可以尝试使用系统配置工具来自动化架设流程。你可以参考其他入门指南，比如使用[Saltstack](../admin/salt.md)， Ansible， Juju和CoreOS Cloud Config。
 
 ## 引导安装集群
 
-While the basic node services (kubelet, kube-proxy, docker) are typically started and managed using
-traditional system administration/automation approaches, the remaining *master* components of Kubernetes are
-all configured and managed *by Kubernetes*:
-  - their options are specified in a Pod spec (yaml or json) rather than an /etc/init.d file or
-    systemd unit.
-  - they are kept running by Kubernetes rather than by init.
+通常情况下，基本的节点服务(kubelet， kube-proxy和docker)都是由传统的系统配置方式完成建立和管理的。其他的Kubernetes的相关部分都是由*Kubernetes*本身来完成配置和管理的：
+  * 配置和管理的选项在Pod spec(yaml or json)而不是/etc/init.d文件或systemd unit里定义的。
+  * 他们都是由Kubernetes而不是init来负责运行的。
 
 ### etcd
 
-You will need to run one or more instances of etcd.
-  - Recommended approach: run one etcd instance, with its log written to a directory backed
-    by durable storage (RAID, GCE PD)
-  - Alternative: run 3 or 5 etcd instances.
-    - Log can be written to non-durable storage because storage is replicated.
-    - run a single apiserver which connects to one of the etc nodes.
- See [cluster-troubleshooting](../admin/cluster-troubleshooting.md) for more discussion on factors affecting cluster
-availability.
+你需要运行一个或多个etcd实例。
+  * 推荐方式: 运行一个etcd实例，将日志保存在类似RAID，GCE PD的永久存储空间上。
+  * 或者: 运行3个或者5个etcd实例。
+    * 日志可以保存在
+Log can be written to non-durable storage because storage is replicated.
+    * 运行一个apiserver，这个apiserver连接到其中一个etc实例上。
+ 参见[cluster-troubleshooting](../admin/cluster-troubleshooting.md)获取更多的有关集群可用性的信息。
 
-To run an etcd instance:
+启动一个etcd实例:
 
-1. copy `cluster/saltbase/salt/etcd/etcd.manifest`
-1. make any modifications needed
-1. start the pod by putting it into the kubelet manifest directory
+1.复制`cluster/saltbase/salt/etcd/etcd.manifest`
+2.做有必要的设置修改
+3.将这个文件放到kubelet mainfest的文件夹中
 
-### Apiserver, Controller Manager, and Scheduler
+### Apiserver，Controller Manager和Scheduler
 
-The apiserver, controller manager, and scheduler will each run as a pod on the master node.
+在主节点上，apiserver，controller manager，scheduler会运行在各自的pod里。
 
-For each of these components, the steps to start them running are similar:
-
-1. Start with a provided template for a pod.
-1. Set the `HYPERKUBE_IMAGE` to the values chosen in [Selecting Images](#selecting-images).
-1. Determine which flags are needed for your cluster, using the advice below each template.
-1. Set the flags to be individual strings in the command array (e.g. $ARGN below)
-1. Start the pod by putting the completed template into the kubelet manifest directory.
-1. Verify that the pod is started.
+启动以上三个服务的步骤大同小异：
+1. 从为pod所提供的template开始。
+2. 设置`HYPERKUBE_IMAGE`的值为[选择安装镜像](#选择安装镜像)中所设置的值。
+3. 可参考以下的template来决定你集群所需的选项。
+4. 在`commands`列表里设置所需的运行选项（例如，$ARGN）。
+5. 将完成的template放在kubelet manifest的文件夹内。
+6. 验证pod是否运行。
 
 #### Apiserver pod模版
 
