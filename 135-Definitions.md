@@ -1,7 +1,4 @@
 ## Top Level API Objects
 
-{% include "135-Definitions.html" %} 
+{% include "include/135-Definitions.html" %} 
 
-<!-- BEGIN MUNGE: GENERATED_ANALYTICS -->
-[![Analytics](https://kubernetes-site.appspot.com/UA-36037335-10/GitHub/docs/api-reference/v1/definitions.md?pixel)]()
-<!-- END MUNGE: GENERATED_ANALYTICS -->
