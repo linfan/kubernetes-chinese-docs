@@ -1,6 +1,7 @@
 
-# **[CoreOS](https://coreos.com)上部署入门指南**
 `译者：安雪艳` `校对：无`
+
+# **[CoreOS](https://coreos.com)上部署入门指南**
 
 在[Coreos](https://coreos.com/kubernetes/docs/latest/)运行Kubernetes有多个指南:
 

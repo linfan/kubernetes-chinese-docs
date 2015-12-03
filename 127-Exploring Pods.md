@@ -1,4 +1,6 @@
 # 滚动升级示例
+`译者：赵帅龙` `校对：无`
+
 
 本例展示了如何使用Kubernetes对一组正在运行的[pods](../../../docs/user-guide/pods.md)做[滚动升级 rolling update](../kubectl/kubectl_rolling-update.md)。如果你还不知道为什么需要滚动升级，或者什么时候做滚动升级，请查看[这里](../managing-deployments.md#updating-your-application-without-a-service-outage)。更多信息查看[滚动升级设计文档](../../design/simple-rolling-update.md)。
 

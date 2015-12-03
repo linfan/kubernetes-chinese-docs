@@ -1,4 +1,6 @@
 ### explorer
+`译者：赵帅龙` `校对：无`
+
 
 Explorer is a little container for examining the runtime environment kubernetes produces for your pods.
 

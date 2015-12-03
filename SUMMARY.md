@@ -1,209 +1,210 @@
 # Summary
 
-* [Introduction](README.md)
 * 第一章
-   * [第1.1节  什么是Kubernetes？](002-whatisk8s.md)
+    * [第1.1节  什么是Kubernetes？](002-whatisk8s.md)
 * 第二章
-   * [第2.1节  Kubernetes概览](033-Overview and Concepts.md)
-   * [第2.2节  创建Kubernetes集群](003-Creating_Kubernetes_Clusters.md)
-   * [第2.3节  从本地环境起步](004-Local-machine Solutions.md)
-   * [第2.4节 基于Docker本地运行Kubernetes](005-Local (Docker-based)
-   * [第2.5节 使用Vagrant](006-Vagrant.md)
-   * [第2.6节 从本地运行k8s开始 v1.0](007-Local (No VM)
-   * [第2.7节 容器引擎](008-Hosted_Solution-Google_Container_Engine.md)
-   * [第2.8节 入门指南：完整的解决方案](009-Turn-key Cloud Solutions.md)
-   * [第2.9节 Google Computer Engine入门](010-GCE.md)
-   * [第2.10节 AWS EC2快速入门](011-AWS.md)
-   * [第2.11节 在Azure上使用CoreOS和Weave的Kubernetes](012-Azure.md)
-   * 第2.12节
-   * [第2.13节  从零开始](014-scratch.md)
-   * [第2.14节  CoreOS上部署入门](015-AWS or GCE.md)
-   * [第2.15节  Juju上部署入门](016-AWS or Joyent.md)
-   * [第2.16节 Racksapec上部署入门](017-Racksepce.md)
-   * [第2.17节  CloudStack入门指南](019-CloudStack.md)
-   * [第2.18节 vSphere的入门指南](020-VMware.md)
-   * [第2.19节  libvirt CoreOS的入门指南](022-libvirt (CoreOS)
-   * [第2.20节](023-oVirt.md)
-   * [第2.21节](024-libvirt or KVM.md)
-   * [第2.22节  离线安装（使用裸机和CoreOS系统）](025-Offline.md)
-   * 第2.23节
-   * [第2.24节  从Ferdora入门Kubernetes](027-fedora_single_node.md)
-   * [第2.25节  从CentOS入门Kubernetes](029-centos_manual_config.md)
-   * [第2.26节  在Ubuntu物理节点上部署Kubernets](030-ubuntu.md)
-   * [第2.27节  利用Docker安装多节点Kubernetes](031-docker-multinode.md)
-   * [第2.28节  如何在Mesos上运行Kubernetes](032-memsos.md)
+    * [第2.1节  Kubernetes概览](033-Overview and Concepts.md)
+    * [第2.2节  创建Kubernetes集群](003-Creating_Kubernetes_Clusters.md)
+    * [第2.3节  从本地环境起步](004-Local-machine Solutions.md)
+    * [第2.4节 基于Docker本地运行Kubernetes](005-Local (Docker-based).md)
+    * [第2.5节 使用Vagrant](006-Vagrant.md)
+    * [第2.6节 从本地运行k8s开始 v1.0](007-Local (No VM).md)
+    * [第2.7节](008-Hosted_Solution-Google_Container_Engine.md
+008-hosted_solution_google_container_engine.md)
+    * [第2.8节 入门指南：完整的解决方案](009-Turn-key Cloud Solutions.md)
+    * [第2.9节 Google Computer Engine入门](010-GCE.md)
+    * [第2.10节 AWS EC2快速入门](011-AWS.md)
+    * [第2.11节 在Azure上使用CoreOS和Weave的Kubernetes](012-Azure.md)
+    * [第2.12节]()
+    * [第2.13节  从零开始](014-scratch.md)
+    * [第2.14节](015-AWS or GCE.md)
+    * [第2.15节  Juju上部署入门](016-AWS or Joyent.md)
+    * [第2.16节  **Racksapec上部署入门**](017-Racksepce.md)
+    * [第2.17节  CloudStack入门指南](019-CloudStack.md)
+    * [第2.18节 vSphere的入门指南](020-VMware.md)
+    * [第2.19节  libvirt CoreOS的入门指南](022-libvirt (CoreOS).md)
+    * [第2.20节](023-oVirt.md)
+    * [第2.21节](024-libvirt or KVM.md)
+    * [第2.22节  离线安装（使用裸机和CoreOS系统）](025-Offline.md)
+    * [第2.23节]()
+    * [第2.24节  从Ferdora入门Kubernetes](027-fedora_single_node.md)
+    * [第2.25节  从CentOS入门Kubernetes](029-centos_manual_config.md)
+    * [第2.26节  在Ubuntu物理节点上部署Kubernets](030-ubuntu.md)
+    * [第2.27节  利用Docker安装多节点Kubernetes](031-docker-multinode.md)
+    * [第2.28节  如何在Mesos上运行Kubernetes](032-memsos.md)
 * 第三章
 * 第3.1章
-   * [第3.1.1节 Kubernetes用户指南：应用程序管理](044-Overview and Concepts.md)
-   * 第3.1.2节
-   * 第3.1.3节
-   * 第3.1.4节
-   * [第3.1.5节  Pods](035-Pods.md)
-   * [第3.1.6节  Labels](036-Labels and Selectors.md)
-   * [第3.1.7节  Replication Controller](037-Replication Controller.md)
-   * [第3.1.8节  Services in Kubernetes](038-Services.md)
-   * [第3.1.9节  Volumes](039-Volumes.md)
-   * 第3.1.10节
-   * [第3.1.11节  Secrets](040-Secrets.md)
-   * [第3.1.12节  Identifiers](041-Names.md)
-   * [第3.1.13节  Namespaces](042-Namespaces.md)
-   * 第3.1.14节
-   * [第3.1.15节  Annotations](043-Annotations.md)
-   * 第3.1.16节
-   * 第3.1.17节
-   * 第3.1.18节
-   * 第3.1.19节
-   * 第3.1.20节
-   * 第3.1.21节
-   * 第3.1.22节
-   * [第3.1.23节  基础教程](045-Quick Walkthrough (Basics Tutorials)
-   * [第3.1.24节  **Kubernetes 101 - Kubectl CLI和Pods**](092-Kubernetes 101.md)
-   * [第3.1.25节  **Kubernetes 201 - 标签, 副本控制, 服务和健康检查**](093-Kubernetes 201.md)
-   * 第3.1.26节
-   * [第3.1.27节  配置kubernetes](048-Configuring Containers.md)
-   * 第3.1.28节
-   * [第3.1.29节 管理应用：部署持续运行的应用](049-Managing_Applications-Deploying_continuously_running_applications.md)
-   * [第3.1.30节 管理应用：连接应用](050-Managing_Applications-Connecting_applications.md)
-   * [第3.1.31节  管理应用： 在生产环境中使用Pods和容器](051-Working with Containers.md)
-   * [第3.1.32节 Kubernetes用户指南：管理应用：管理部署](052-Kubernetes_User_Guide-Managing_Applications-Managing_deployments.md)
-   * 第3.1.33节
-   * [第3.1.34节  Kubernetes UI](054-Web Interface.md)
-   * 第3.1.35节
-   * 第3.1.36节
-   * [第3.1.37节  使用kubectl exec检查容器中的环境变量](057-Container Access (exec)
-   * [第3.1.38节  应用：kubectl proxy和apiserver proxy](058-Connect with Proxies.md)
-   * [第3.1.39节  应用：kubectl port-forward](059-Connect with Port Forwarding.md)
+    * [第3.1.1节 Kubernetes用户指南：应用程序管理](044-Overview and Concepts.md)
+    * [第3.1.2节]()
+    * [第3.1.3节]()
+    * [第3.1.4节]()
+    * [第3.1.5节  Pods](035-Pods.md)
+    * [第3.1.6节  Labels](036-Labels and Selectors.md)
+    * [第3.1.7节  Replication Controller](037-Replication Controller.md)
+    * [第3.1.8节  Services in Kubernetes](038-Services.md)
+    * [第3.1.9节  Volumes](039-Volumes.md)
+    * [第3.1.10节]()
+    * [第3.1.11节  Secrets](040-Secrets.md)
+    * [第3.1.12节  Identifiers](041-Names.md)
+    * [第3.1.13节  Namespaces](042-Namespaces.md)
+    * [第3.1.14节]()
+    * [第3.1.15节  Annotations](043-Annotations.md)
+    * [第3.1.16节]()
+    * [第3.1.17节]()
+    * [第3.1.18节]()
+    * [第3.1.19节]()
+    * [第3.1.20节]()
+    * [第3.1.21节]()
+    * [第3.1.22节]()
+    * [第3.1.23节  基础教程](045-Quick Walkthrough (Basics Tutorials).md)
+    * [第3.1.24节  **Kubernetes 101 - Kubectl CLI和Pods**](092-Kubernetes 101.md)
+    * [第3.1.25节  **Kubernetes 201 - 标签, 副本控制, 服务和健康检查**](093-Kubernetes 201.md)
+    * [第3.1.26节]()
+    * [第3.1.27节  配置kubernetes](048-Configuring Containers.md)
+    * [第3.1.28节]()
+    * [第3.1.29节 管理应用：部署持续运行的应用](049-Managing_Applications-Deploying_continuously_running_applications.md)
+    * [第3.1.30节 管理应用：连接应用](050-Managing_Applications-Connecting_applications.md)
+    * [第3.1.31节  管理应用： 在生产环境中使用Pods和容器](051-Working with Containers.md)
+    * [第3.1.32节 Kubernetes用户指南：管理应用：管理部署](052-Kubernetes_User_Guide-Managing_Applications-Managing_deployments.md)
+    * [第3.1.33节]()
+    * [第3.1.34节  Kubernetes UI](054-Web Interface.md)
+    * [第3.1.35节]()
+    * [第3.1.36节]()
+    * [第3.1.37节  使用kubectl exec检查容器中的环境变量](057-Container Access (exec).md)
+    * [第3.1.38节  应用：kubectl proxy和apiserver proxy](058-Connect with Proxies.md)
+    * [第3.1.39节  应用：kubectl port-forward](059-Connect with Port Forwarding.md)
 * 第3.2章
-   * [第3.2.1节  Kubenetes集群管理员手册](060-Overview and Concepts.md)
-   * [第3.2.2节  Kubernetes架构](034-Architecture.md)
-   * [第3.2.3节](061-Planning and Designing.md)
-   * [第3.2.4节](062-Security.md)
-   * 第3.2.5节
-   * [第3.2.6节](063-Access Management.md)
-   * [第3.2.7节](064-Namespaces.md)
-   * [第3.2.8节  Kubernetes集群管理指南：集群组件](065-Administering Clusters.md)
-   * 第3.2.9节
-   * [第3.2.10节  Kube-API Server](066-kube-apiserver Binary.md)
-   * [第3.2.11节  授权插件
-   * [第3.2.12节  认证插件
-   * [第3.2.13节  API Server端口配置
-   * [第3.2.14节  Admission Controller
-   * [第3.2.15节  Service Accounts集群管理指南
-   * [第3.2.16节  Kube调度器](073-kube-scheduler Binary.md)
-   * 第3.2.17节
-   * 第3.2.18节
-   * 第3.2.19节
-   * 第3.2.20节
-   * [第3.2.21节  网络](079-networkingmd.md)
-   * 第3.2.22节
-   * 第3.2.23节
-   * 第3.2.24节
-   * 第3.2.25节
-   * 第3.2.26节
-   * 第3.2.27节
-   * 第3.2.28节
-   * 第3.2.29节
-   * 第3.2.30节
-   * 第3.2.31节
-   * 第3.2.32节
-   * 第3.2.33节
-   * [第3.2.34节  从集群级别日志到Google云日志平台](090-Logging.md)
-   * 第3.2.35节
+    * [第3.2.1节  Kubenetes集群管理员手册](060-Overview and Concepts.md)
+    * [第3.2.2节  Kubernetes架构](034-Architecture.md)
+    * [第3.2.3节](061-Planning and Designing.md)
+    * [第3.2.4节](062-Security.md)
+    * [第3.2.5节]()
+    * [第3.2.6节](063-Access Management.md)
+    * [第3.2.7节](064-Namespaces.md)
+    * [第3.2.8节  Kubernetes集群管理指南：集群组件](065-Administering Clusters.md)
+    * [第3.2.9节]()
+    * [第3.2.10节  Kube-API Server](066-kube-apiserver Binary.md)
+    * [第3.2.11节  授权插件](067-Authorization.md)
+    * [第3.2.12节  认证插件](068-Authentication.md)
+    * [第3.2.13节  API Server端口配置](069-Accessing the API.md)
+    * [第3.2.14节  Admission Controller](070-Admission Controllers.md)
+    * [第3.2.15节  Service Accounts集群管理指南](071-Administrating Service Accounts.md)
+    * [第3.2.16节  Kube调度器](073-kube-scheduler Binary.md)
+    * [第3.2.17节]()
+    * [第3.2.18节]()
+    * [第3.2.19节]()
+    * [第3.2.20节]()
+    * [第3.2.21节  网络](079-networkingmd.md)
+    * [第3.2.22节]()
+    * [第3.2.23节]()
+    * [第3.2.24节]()
+    * [第3.2.25节]()
+    * [第3.2.26节]()
+    * [第3.2.27节]()
+    * [第3.2.28节]()
+    * [第3.2.29节]()
+    * [第3.2.30节]()
+    * [第3.2.31节]()
+    * [第3.2.32节]()
+    * [第3.2.33节]()
+    * [第3.2.34节  从集群级别日志到Google云日志平台](090-Logging.md)
+    * [第3.2.35节]()
 * 第四章
 * 第4.1章
-   * 第4.1.1节
-   * [第4.1.2节 使用Kubernetes在云上原生部署cassandra](095-Apache Cassandra Database.md)
-   * [第4.1.3节 Spark例子](096-Spark example.md)
-   * [第4.1.4节  **Storm 示例**](097-Apache Storm.md)
-   * [第4.1.5节  示例: 分布式任务队列 Celery, RabbitMQ和Flower](098-Distributed Task Queue.md)
-   * [第4.1.6节 Kubernetes在Hazelcast平台上部署原生云应用
-   * 第4.1.7节
-   * 第4.1.8节
-   * 第4.1.9节
-   * 第4.1.10节
-   * 第4.1.11节
-   * 第4.1.12节
-   * 第4.1.13节
-   * 第4.1.14节
+    * [第4.1.1节]()
+    * [第4.1.2节 使用Kubernetes在云上原生部署cassandra](095-Apache Cassandra Database.md)
+    * [第4.1.3节 Spark例子](096-Spark example.md)
+    * [第4.1.4节  **Storm 示例**](097-Apache Storm.md)
+    * [第4.1.5节  示例: 分布式任务队列 Celery, RabbitMQ和Flower](098-Distributed Task Queue.md)
+    * [第4.1.6节 Kubernetes在Hazelcast平台上部署原生云应用](099-Hazelcast.md)
+    * [第4.1.7节]()
+    * [第4.1.8节]()
+    * [第4.1.9节]()
+    * [第4.1.10节]()
+    * [第4.1.11节]()
+    * [第4.1.12节]()
+    * [第4.1.13节]()
+    * [第4.1.14节]()
 * 第4.2章
-   * 第4.2.1节
-   * [第4.2.2节 配置文件使用入门](109-Getting started with config files.md)
-   * [第4.2.3节  环境向导示例](110-Environment Guide Example.md)
-   * [第4.2.4节 Downward API 范例](111-Downward API example.md)
-   * 第4.2.5节
-   * 第4.2.6节
-   * 第4.2.7节
-   * 第4.2.8节
-   * [第4.2.9节 在Kubernetes上运行你的第一个容器](114-Running your first containers in Kubernetes.md)
-   * [第4.2.10节 Kubernetes DNS 实例实战](115-Kubernetes DNS example.md)
-   * 第4.2.11节
-   * 第4.2.12节
-   * 第4.2.13节
-   * 第4.2.14节
-   * 第4.2.15节
-   * 第4.2.16节
-   * 第4.2.17节
-   * 第4.2.18节
-   * 第4.2.19节
-   * 第4.2.20节
-   * 第4.2.21节
-   * [第4.2.22节 Exploring Pods](127-Exploring Pods.md)
-   * [第4.2.23节 Updating Live Pods](128-Updating Live Pods.md)
+    * [第4.2.1节]()
+    * [第4.2.2节 配置文件使用入门](109-Getting started with config files.md)
+    * [第4.2.3节  环境向导示例](110-Environment Guide Example.md)
+    * [第4.2.4节 Downward API 范例](111-Downward API example.md)
+    * [第4.2.5节]()
+    * [第4.2.6节]()
+    * [第4.2.7节]()
+    * [第4.2.8节]()
+    * [第4.2.9节 在Kubernetes上运行你的第一个容器](114-Running your first containers in Kubernetes.md)
+    * [第4.2.10节 Kubernetes DNS 实例实战](115-Kubernetes DNS example.md)
+    * [第4.2.11节]()
+    * [第4.2.12节]()
+    * [第4.2.13节]()
+    * [第4.2.14节]()
+    * [第4.2.15节]()
+    * [第4.2.16节]()
+    * [第4.2.17节]()
+    * [第4.2.18节]()
+    * [第4.2.19节]()
+    * [第4.2.20节]()
+    * [第4.2.21节]()
+    * [第4.2.22节  滚动升级示例](127-Exploring Pods.md)
+    * [第4.2.23节  explorer](128-Updating Live Pods.md)
 * 第五章
 * 第5.1章
-   * [第5.1.1节 Kubernetes API](129-api_basicsmd.md)
-   * [第5.1.2节 资源管理](132-working_with_resourcesmd.md)
-   * [第5.1.3节 Kubernetes API 应用参考](133-kubernetes_api_referencemd.md)
-   * [第5.1.4节 Operations](134-operations.md)
-   * [第5.1.5节 Definitions](135-Definitions.md)
-   * 第5.1.6节
-   * 第5.1.7节
+    * [第5.1.1节](129-api_basicsmd.md)
+    * [第5.1.2节](132-working_with_resourcesmd.md)
+    * [第5.1.3节](133-kubernetes_api_referencemd.md)
+    * [第5.1.4节](134-operations.html
+134-operations.md)
+    * [第5.1.5节](135-Definitions.html
+135-Definitions.md)
+    * [第5.1.6节]()
+    * [第5.1.7节]()
 * 第5.2章
-   * 第5.2.1节
-   * [第5.2.2节  kubectl](136-Command Reference.md)
-   * [第5.2.3节  kubectl annotate](198-kubectl_annotate.md)
-   * [第5.2.4节  kubectl api-versions](137-kubectl_api-versions.md)
-   * [第5.2.5节  kubectl apply](199-kubectl_apply.md)
-   * [第5.2.6节  kubectl attach](200-kubectl_attach.md)
-   * [第5.2.7节  kubectl cluster-info](138-kubectl_cluster-info.md)
-   * [第5.2.8节  kubectl config](145-kubectl_config.md)
-   * [第5.2.9节  kubectl config set-cluster](139-kubectl_config_set-cluster.md)
-   * [第5.2.10节  kubectl config set-context](140-kubectl_config_set-context.md)
-   * [第5.2.11节  kubectl config set-credentials](141-kubectl_config_set-credentials.md)
-   * [第5.2.12节  kubectl config set](142-kubectl_config_set.md)
-   * [第5.2.13节  kubectl config unset](143-kubectl_config_unset.md)
-   * [第5.2.14节  kubectl config use-context](144-kubectl_config_use-context.md)
-   * [第5.2.15节  kubectl config view](146-kubectl_config_view.md)
-   * [第5.2.16节  kubectl create](147-kubectl_create.md)
-   * [第5.2.17节  kubectl delete](148-kubectl_delete.md)
-   * [第5.2.18节  kubectl describe](149-kubectl_describe.md)
-   * [第5.2.19节  kubectl edit](201-kubectl_edit.md)
-   * [第5.2.20节  kubectl exec](150-kubectl_exec.md)
-   * 第5.2.21节
-   * 第5.2.22节
-   * 第5.2.23节
-   * [第5.2.24节  kubectl logs](154-kubectl_logs.md)
-   * 第5.2.25节
-   * 第5.2.26节
-   * 第5.2.27节
-   * 第5.2.28节
-   * 第5.2.29节
-   * 第5.2.30节
-   * 第5.2.31节
-   * [第5.2.32节  kubectl version](164-kubectl_version.md)
-   * 第5.2.33节
-   * 第5.2.34节
+    * [第5.2.1节]()
+    * [第5.2.2节  kubectl](136-Command Reference.md)
+    * [第5.2.3节  kubectl annotate](198-kubectl_annotate.md)
+    * [第5.2.4节  kubectl api-versions](137-kubectl_api-versions.md)
+    * [第5.2.5节  kubectl apply](199-kubectl_apply.md)
+    * [第5.2.6节  kubectl attach](200-kubectl_attach.md)
+    * [第5.2.7节  kubectl cluster-info](138-kubectl_cluster-info.md)
+    * [第5.2.8节  kubectl config](145-kubectl_config.md)
+    * [第5.2.9节  kubectl config set-cluster](139-kubectl_config_set-cluster.md)
+    * [第5.2.10节  kubectl config set-context](140-kubectl_config_set-context.md)
+    * [第5.2.11节  kubectl config set-credentials](141-kubectl_config_set-credentials.md)
+    * [第5.2.12节  kubectl config set](142-kubectl_config_set.md)
+    * [第5.2.13节  kubectl config unset](143-kubectl_config_unset.md)
+    * [第5.2.14节  kubectl config use-context](144-kubectl_config_use-context.md)
+    * [第5.2.15节  kubectl config view](146-kubectl_config_view.md)
+    * [第5.2.16节  kubectl create](147-kubectl_create.md)
+    * [第5.2.17节  kubectl delete](148-kubectl_delete.md)
+    * [第5.2.18节  kubectl describe](149-kubectl_describe.md)
+    * [第5.2.19节  kubectl edit](201-kubectl_edit.md)
+    * [第5.2.20节  kubectl exec](150-kubectl_exec.md)
+    * [第5.2.21节]()
+    * [第5.2.22节]()
+    * [第5.2.23节]()
+    * [第5.2.24节  kubectl logs](154-kubectl_logs.md)
+    * [第5.2.25节]()
+    * [第5.2.26节]()
+    * [第5.2.27节]()
+    * [第5.2.28节]()
+    * [第5.2.29节]()
+    * [第5.2.30节]()
+    * [第5.2.31节]()
+    * [第5.2.32节  kubectl version](164-kubectl_version.md)
+    * [第5.2.33节]()
+    * [第5.2.34节]()
 * 第六章
-   * [第6.1节  故障排查](165-Troubleshooting and Support.md)
-   * 第6.2节
-   * [第6.3节  应用程序相关的故障排查](166-Applications.md)
-   * [第3.2.34节  集群相关的故障排查](167-Clusters.md)
-   * [第6.4节  日常使用的常见问题](168-User_FAQ.md)
-   * [第6.5节  开发和调试的常见问题](169-Debugging_FAQ.md)
-   * [第6.6节  服务相关的常见问题](170-Services_FAQ.md)
-   * 第6.7节
-   * 第6.8节
+    * [第6.1节  故障排查](165-Troubleshooting and Support.md)
+    * [第6.2节]()
+    * [第6.3节  应用程序相关的故障排查](166-Applications.md)
+    * [第3.2.34节  集群相关的故障排查](167-Clusters.md)
+    * [第6.4节  日常使用的常见问题](168-User_FAQ.md)
+    * [第6.5节  开发和调试的常见问题](169-Debugging_FAQ.md)
+    * [第6.6节  服务相关的常见问题](170-Services_FAQ.md)
+    * [第6.7节]()
+    * [第6.8节]()
 * 第七章
-   * 第7.1节
-   * 第7.2节
-
+    * [第7.1节]()
+    * [第7.2节]()

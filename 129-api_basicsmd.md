@@ -1,4 +1,6 @@
 
+`译者：安雪艳` `校对：无`
+
 # **Kubernetes API**
 
 [用户指南](https://github.com/kubernetes/kubernetes/blob/master/docs/user-guide/README.md)记录了主系统和API概念。

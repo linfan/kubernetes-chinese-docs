@@ -1,4 +1,6 @@
 
+`译者：安雪艳` `校对：无`
+
 # **资源管理**
 
 本篇文章的目的是为了那些已经使用过一些示例并且想学习更多关于kubectl管理资源pod或者services的用户。想直接通过REST API访问的用户和想扩展Kubernetes API的开发者都应该参考文档 [api conventions](../devel/api-conventions.html)和[api document](../api.html).
