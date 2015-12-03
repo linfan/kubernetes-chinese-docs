@@ -1,7 +1,6 @@
 # 授权插件
 `译者：Nancy` `校对：无`
 
-
 授权是Kubernetes认证中的一个独立部分，参考[认证部分](http://kubernetes.io/v1.1/docs/admin/authentication.html)的文档。
 
 授权应用在主（安全）API服务端口的所有HTTP访问请求。
