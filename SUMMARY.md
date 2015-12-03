@@ -154,8 +154,8 @@
     * [第5.1.1节](129-api_basicsmd.md)
     * [第5.1.2节](132-working_with_resourcesmd.md)
     * [第5.1.3节](133-kubernetes_api_referencemd.md)
-    * [第5.1.4节](134-operations.html)
-    * [第5.1.5节](135-Definitions.html)
+    * [第5.1.4节](134-operations.md)
+    * [第5.1.5节](135-Definitions.md)
     * [第5.1.6节]()
     * [第5.1.7节]()
 * 第5.2章
