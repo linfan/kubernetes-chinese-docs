@@ -1,1 +1,6 @@
-{}
+{
+    "title": "Kubernetes中文文档",
+    "description": "Kubernetes文档的中文译本,由DockOne社区组织翻译。",
+    "language": "zh",
+    "plugins": ["splitter"]
+}
