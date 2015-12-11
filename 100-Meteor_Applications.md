@@ -1,4 +1,6 @@
 #Meteor on Kuberenetes
+`译者：贾澜鹏` `校对：无`
+
 
 这个例子将会向你展示如何在Kubernetes上打包运行一个[Meteor](https://www.meteor.com/) app。
 
