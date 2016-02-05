@@ -1,7 +1,6 @@
 # 什么是Kubernetes？
 `译者：razr` `校对：iT2afL0rd`
 
-
 Kubernetes一个用于容器集群的自动化部署、扩容以及运维的开源平台。
 
 使用Kubernetes，你可以快速高效地响应客户需求：
@@ -64,4 +63,4 @@ Kubernetes并不是单单的"编排系统"；它排除了对编排的需要:
 
 #### Kuberbetes这个名字是什么意思？k8s又是什么？
 
-Kubernetes这个名字源自希腊语，意思是“舵手”，也是“管理者”，“治理者”等词的源头。k8s是Kubernetes的简称（用8替代发音相近的“ubernete”）。
+Kubernetes这个名字源自希腊语，意思是“舵手”，也是“管理者”，“治理者”等词的源头。k8s是Kubernetes的简称（用数字『8』替代中间的8个字母『ubernete』）。
