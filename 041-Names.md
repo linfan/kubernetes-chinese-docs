@@ -1,4 +1,6 @@
 # Identifiers
+`译者：kz` `校对：无`
+
 
 All objects in the Kubernetes REST API are unambiguously identified by a Name and a UID.
 

@@ -1,4 +1,6 @@
 # Namespaces
+`译者：kz` `校对：无`
+
 
 Kubernetes supports multiple virtual clusters backed by the same physical cluster.
 These virtual clusters are called namespaces.

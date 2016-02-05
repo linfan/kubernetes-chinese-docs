@@ -1,22 +1,7 @@
 # Replication Controller
+`译者：kz` `校对：无`
 
-**Table of Contents**
-<!-- BEGIN MUNGE: GENERATED_TOC -->
 
-- [Replication Controller](#replication-controller)
-  - [What is a _replication controller_?](#what-is-a-replication-controller)
-  - [How does a replication controller work?](#how-does-a-replication-controller-work)
-    - [Pod template](#pod-template)
-    - [Labels](#labels)
-  - [Responsibilities of the replication controller](#responsibilities-of-the-replication-controller)
-  - [Common usage patterns](#common-usage-patterns)
-    - [Rescheduling](#rescheduling)
-    - [Scaling](#scaling)
-    - [Rolling updates](#rolling-updates)
-    - [Multiple release tracks](#multiple-release-tracks)
-  - [API Object](#api-object)
-
-<!-- END MUNGE: GENERATED_TOC -->
 
 ## What is a _replication controller_?
 

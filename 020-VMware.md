@@ -1,16 +1,17 @@
-vSphere的入门指南
--------------------------------
+#vSphere的入门指南
+`译者：tiger` `校对：无`
+
 
 下面的示例使用了4个虚拟工作节点和1个虚拟主机（即集群中一共有5台虚拟机）来创建一个Kubernetes集群。集群是通过你的工作站（或任何你觉得方便的地方）来安装和控制的。
 
 **内容列表**
 
-- [先决条件](#prerequisites)
+- [前提条件](#prerequisites)
 - [安装](#setup)
 - [启动集群](#starting-a-cluster)
 - [其他：部署失败调试](#extra-debugging-deployment-failure)
 
-### 先决条件
+### 前提条件
 
 1. 需要有一台ESXi机器或vCenter实例的管理员权限。 
 2. 需要先安装Go（1.2或以上版本）。下载地址： [www.golang.org](http://www.golang.org).

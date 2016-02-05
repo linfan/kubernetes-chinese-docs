@@ -1,88 +1,48 @@
 ＃ 从juju开始
--------------------------
 
-[Juju](https://jujucharms.com/docs/stable/about-juju)实现安装，配置集群内的系统 makes it easy to deploy
-Kubernetes by provisioning, installing and configuring all the systems in
-the cluster.  Once deployed the cluster can easily scale up with one command
-to increase the cluster size.
+[Juju](https://jujucharms.com/docs/stable/about-juju)可以通过扩展，安装和配置集群内的所有系统从而实现简易部署Kubernetes。
+一旦部署完毕，集群可以轻松支持单命令扩展集群大小。
 
+## 前提条件
 
-**Table of Contents**
+> 注意: 如果你在Ubuntu上运行kube-up，所有的相关依赖的安装都会被相对应处理。你可以放心越过章节[运行
+> Kubernetes集群](#运行Kubernetes集群)的阅读。
 
-- [Prerequisites](#prerequisites)
-   - [On Ubuntu](#on-ubuntu)
-   - [With Docker](#with-docker)
-- [Launch Kubernetes cluster](#launch-kubernetes-cluster)
-- [Exploring the cluster](#exploring-the-cluster)
-- [Run some containers!](#run-some-containers)
-- [Scale out cluster](#scale-out-cluster)
-- [Launch the "k8petstore" example app](#launch-the-k8petstore-example-app)
-- [Tear down cluster](#tear-down-cluster)
-- [More Info](#more-info)
-    - [Cloud compatibility](#cloud-compatibility)
+### Ubuntu上
+
+在你的本地Ubuntu系统上安装[安装Juju客户端](https://jujucharms.com/get-started):
+
+    `sudo add-apt-repository ppa:juju/stable`
+    `sudo apt-get update`
+    `sudo apt-get install juju-core juju-quickstart`
 
 
-## Prerequisites
+### 使用Docker
+如果你不使用Ubuntu或者你倾向于Docker，你可以是用以下命令命令：
 
-> Note: If you're running kube-up, on Ubuntu - all of the dependencies
-> will be handled for you. You may safely skip to the section:
-> [Launch Kubernetes Cluster](#launch-kubernetes-cluster)
+    `mkdir ~/.juju`
+    `sudo docker run -v ~/.juju:/home/ubuntu/.juju -ti jujusolutions/jujubox:latest`
 
-### On Ubuntu
+到这里你不可避免的要需要使用`juju quickstart`命令。
+为你的云环境创建登入信息：
 
-[Install the Juju client](https://jujucharms.com/get-started) on your
-local Ubuntu system:
+    `juju quickstart --constraints="mem=3.75G" -i`
 
-    sudo add-apt-repository ppa:juju/stable
-    sudo apt-get update
-    sudo apt-get install juju-core juju-quickstart
+> `constraints`参数是可选项，它用来决定Juju所新建的虚拟机的内存大小。相比较性能越强的虚拟机会占用更多资> 源，造成更高开销。
+根据接下来的提示选择`save`和`use`。Quickstart将会引导创建Juju根节点并建立Juju的用户网页界面。
 
+## 运行Kubernetes集群
+你需要在启动集群前设置`KUBERNETES_PROVIDER`的环境变量。
 
-### With Docker
+    `export KUBERNETES_PROVIDER=juju`
+   ` cluster/kube-up.sh`
 
-If you are not using Ubuntu or prefer the isolation of Docker, you may
-run the following:
+如果是你第一次运行`kube-up.sh`脚本，这个脚本会安装所依赖的程序，并运行一个配置向导来让你选择你的云服务商和登入信息。
 
-    mkdir ~/.juju
-    sudo docker run -v ~/.juju:/home/ubuntu/.juju -ti jujusolutions/jujubox:latest
+下一步它将会部署Kubernetes主节点，etc和2个基于Flannel的Software Defined Networking (SDN)节点，从而支持容器间的相互通信。
 
-At this point from either path you will have access to the `juju
-quickstart` command.
-
-To set up the credentials for your chosen cloud run:
-
-    juju quickstart --constraints="mem=3.75G" -i
-
-> The `constraints` flag is optional, it changes the size of virtual machines
-> that Juju will generate when it requests a new machine.  Larger machines
-> will run faster but cost more money than smaller machines.
-
-Follow the dialogue and choose `save` and `use`.  Quickstart will now
-bootstrap the juju root node and setup the juju web based user
-interface.
-
-
-## Launch Kubernetes cluster
-
-You will need to export the `KUBERNETES_PROVIDER` environment variable before
-bringing up the cluster.
-
-    export KUBERNETES_PROVIDER=juju
-    cluster/kube-up.sh
-
-If this is your first time running the `kube-up.sh` script, it will install
-the required dependencies to get started with Juju, additionally it will
-launch a curses based configuration utility allowing you to select your cloud
-provider and enter the proper access credentials.
-
-Next it will deploy the kubernetes master, etcd, 2 nodes with flannel based
-Software Defined Networking (SDN) so containers on different hosts can
-communicate with each other.
-
-
-## Exploring the cluster
-
-The `juju status` command provides information about each unit in the cluster:
+## 发现集群
+`juju status`命令提供集群内每一个部署单元的信息：
 
     $ juju status --format=oneline
     - docker/0: 52.4.92.78 (started)
@@ -95,18 +55,16 @@ The `juju status` command provides information about each unit in the cluster:
     - juju-gui/0: 52.5.205.174 (started) 80/tcp, 443/tcp
     - kubernetes-master/0: 52.6.19.238 (started) 8080/tcp
 
-You can use `juju ssh` to access any of the units:
+你可以使用`juju ssh`来访问任意单元:
 
-    juju ssh kubernetes-master/0
+   ` juju ssh kubernetes-master/0`
 
 
-## Run some containers!
+## 运行一些容器！
 
-`kubectl` is available on the Kubernetes master node.  We'll ssh in to
-launch some containers, but one could use `kubectl` locally by setting
-`KUBERNETES_MASTER` to point at the ip address of "kubernetes-master/0".
+在主节点上你可以找到`kubectl`。我们使用ssh登入主节点来启动一些容器，当然你也可以设置`KUBERNETES_MASTER`为"kubernetes-master/0”的IP地址，从而在本地使用`kubectl`。
 
-No pods will be available before starting a container:
+在启动容器前pods是不会存在的：
 
     kubectl get pods
     NAME             READY     STATUS    RESTARTS   AGE
@@ -114,9 +72,10 @@ No pods will be available before starting a container:
     kubectl get replicationcontrollers
     CONTROLLER  CONTAINER(S)  IMAGE(S)  SELECTOR  REPLICAS
 
-We'll follow the aws-coreos example. Create a pod manifest: `pod.json`
+我们依照aws-coreos这个例子。创建一个pod的manifest: `pod.json`
 
-```json
+```
+json
 {
   "apiVersion": "v1",
   "kind": "Pod",
@@ -140,23 +99,18 @@ We'll follow the aws-coreos example. Create a pod manifest: `pod.json`
 }
 ```
 
-Create the pod with kubectl:
+用kubectl建立pod:
 
-    kubectl create -f pod.json
-
-
-Get info on the pod:
-
-    kubectl get pods
+    `kubectl create -f pod.json`
 
 
-To test the hello app, we need to locate which node is hosting
-the container. Better tooling for using Juju to introspect container
-is in the works but we can use `juju run` and `juju status` to find
-our hello app.
+获取pod信息:
 
-Exit out of our ssh session and run:
+    `kubectl get pods`
 
+让我们来测试一个hello应用。首先让我们找到这个容器运行在哪个节点上。Juju是个更好和容器交互的工具，我们可以用`juju run`和`juju status` 到到这个hello应用。
+
+退出ssh并运行：
     juju run --unit kubernetes/0 "docker ps -n=1"
     ...
     juju run --unit kubernetes/1 "docker ps -n=1"
@@ -164,49 +118,45 @@ Exit out of our ssh session and run:
     02beb61339d8        quay.io/kelseyhightower/hello:latest   /hello              About an hour ago   Up About an hour                        k8s_hello....
 
 
-We see "kubernetes/1" has our container, we can open port 80:
+我们可以看到容器运行在”kubernetes/1”上, 我们可以打开端口80:
 
     juju run --unit kubernetes/1 "open-port 80"
     juju expose kubernetes
     sudo apt-get install curl
     curl $(juju status --format=oneline kubernetes/1 | cut -d' ' -f3)
 
-Finally delete the pod:
+最后删除pod:
 
     juju ssh kubernetes-master/0
     kubectl delete pods hello
 
 
-## Scale out cluster
-
-We can add node units like so:
+## 扩展集群
+我们可以用如下命令来添加节点单元：
 
     juju add-unit docker # creates unit docker/2, kubernetes/2, docker-flannel/2
 
-## Launch the "k8petstore" example app
+## 运行”k8petstore”示例应用
 
-The [k8petstore example](../../examples/k8petstore/) is available as a
-[juju action](https://jujucharms.com/docs/devel/actions).
+示例[k8petstore example](../../examples/k8petstore/)是一个现成的
+[juju action](https://jujucharms.com/docs/devel/actions)。
 
     juju action do kubernetes-master/0
 
-> Note: this example includes curl statements to exercise the app, which
-> automatically generates "petstore" transactions written to redis, and allows
-> you to visualize the throughput in your browser.
+> 注意: 这个示例包括的curl自动生成"petstore”的商品交易，这些交易储存在Redia中，并在网页上显示交易流量
+> 大小。
 
-## Tear down cluster
+## 拆除集群
 
     ./kube-down.sh
 
-or destroy your current Juju environment (using the `juju env` command):
+或者拆除目前整个Juju环境(使用`juju env`命令):
 
     juju destroy-environment --force `juju env`
 
 
-## More Info
-
-The Kubernetes charms and bundles can be found in the `kubernetes` project on
-github.com:
+## 更多信息
+你可以github.com的`kubernetes`项目里找到Kubernetes的charms和bundles：
 
  - [Bundle Repository](http://releases.k8s.io/HEAD/cluster/juju/bundles)
    * [Kubernetes master charm](../../cluster/juju/charms/trusty/kubernetes-master/)
@@ -214,10 +164,8 @@ github.com:
  - [More about Juju](https://jujucharms.com)
 
 
-### Cloud compatibility
-
-Juju runs natively against a variety of public cloud providers. Juju currently
-works with [Amazon Web Service](https://jujucharms.com/docs/stable/config-aws),
+### 云环境的兼容性
+Juju已经在不同的公有云测试过了。目前Juju测试过的云平台是[Amazon Web Service](https://jujucharms.com/docs/stable/config-aws),
 [Windows Azure](https://jujucharms.com/docs/stable/config-azure),
 [DigitalOcean](https://jujucharms.com/docs/stable/config-digitalocean),
 [Google Compute Engine](https://jujucharms.com/docs/stable/config-gce),
@@ -228,14 +176,7 @@ works with [Amazon Web Service](https://jujucharms.com/docs/stable/config-aws),
 [Vagrant](https://jujucharms.com/docs/stable/config-vagrant), and
 [Vmware vSphere](https://jujucharms.com/docs/stable/config-vmware).
 
-If you do not see your favorite cloud provider listed many clouds can be
-configured for [manual provisioning](https://jujucharms.com/docs/stable/config-manual).
+如果你没有在列表里发现合适你的云服务提供商，许多云服务是可以通过[manual provisioning](https://jujucharms.com/docs/stable/config-manual)手动设置的。
 
-The Kubernetes bundle has been tested on GCE and AWS and found to work with
-version 1.0.0.
-
-
-<!-- BEGIN MUNGE: GENERATED_ANALYTICS -->
-[![Analytics](https://kubernetes-site.appspot.com/UA-36037335-10/GitHub/docs/getting-started-guides/juju.md?pixel)]()
-<!-- END MUNGE: GENERATED_ANALYTICS -->
-
+Kubernetes
+Kubernetes安装集成包已经在GCE和AWS上测试过了，版本1.0.0可以正常工作。

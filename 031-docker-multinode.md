@@ -1,92 +1,41 @@
-<!-- BEGIN MUNGE: UNVERSIONED_WARNING -->
+# 利用Docker安装多节点Kubernetes
+`译者：王乐` `校对：无`
 
-<!-- BEGIN STRIP_FOR_RELEASE -->
 
-<img src="http://kubernetes.io/img/warning.png" alt="WARNING"
-     width="25" height="25">
-<img src="http://kubernetes.io/img/warning.png" alt="WARNING"
-     width="25" height="25">
-<img src="http://kubernetes.io/img/warning.png" alt="WARNING"
-     width="25" height="25">
-<img src="http://kubernetes.io/img/warning.png" alt="WARNING"
-     width="25" height="25">
-<img src="http://kubernetes.io/img/warning.png" alt="WARNING"
-     width="25" height="25">
+_注意_:
+这个介绍一定程度上会比[single node](docker.md)里的介绍要更进一步。如果你有兴趣探索Kubernetes，我们建议你从这里开始。
+_注意_:
+Docker 1.7.0里的一个[bug](https://github.com/docker/docker/issues/14106)影响Docker上多节点的正常安装。
+请安装Docker版本1.6.2或1.7.1.
 
-<h2>PLEASE NOTE: This document applies to the HEAD of the source tree</h2>
+## 前提条件
 
-If you are using a released version of Kubernetes, you should
-refer to the docs that go with that version.
+1. 你需要你一台安装有正确版本的Docker的主机。
 
-<strong>
-The latest 1.0.x release of this document can be found
-[here](http://releases.k8s.io/release-1.0/docs/getting-started-guides/docker-multinode.md).
+## 概括介绍
 
-Documentation for other releases can be found at
-[releases.k8s.io](http://releases.k8s.io).
-</strong>
---
+本指南会指导架设有2个节点的Kubernetes集群。其中包括一个支持API服务器和编排工作的_主节点_，和一个从主节点接受任务的_从节点_。你可以按照同样的步骤添加任意数量的从节点，从而假设一个庞大的集群。
 
-<!-- END STRIP_FOR_RELEASE -->
-
-<!-- END MUNGE: UNVERSIONED_WARNING -->
-Running Multi-Node Kubernetes Using Docker
-------------------------------------------
-
-_Note_:
-These instructions are somewhat significantly more advanced than the [single node](docker.md) instructions.  If you are
-interested in just starting to explore Kubernetes, we recommend that you start there.
-
-_Note_:
-There is a [bug](https://github.com/docker/docker/issues/14106) in Docker 1.7.0 that prevents this from working correctly.
-Please install Docker 1.6.2 or Docker 1.7.1.
-
-**Table of Contents**
-
-- [Prerequisites](#prerequisites)
-- [Overview](#overview)
-  - [Bootstrap Docker](#bootstrap-docker)
-- [Master Node](#master-node)
-- [Adding a worker node](#adding-a-worker-node)
-- [Deploy a DNS](#deploy-a-dns)
-- [Testing your cluster](#testing-your-cluster)
-
-## Prerequisites
-
-1. You need a machine with docker of right version installed.
-
-## Overview
-
-This guide will set up a 2-node Kubernetes cluster, consisting of a _master_ node which hosts the API server and orchestrates work
-and a _worker_ node which receives work from the master.  You can repeat the process of adding worker nodes an arbitrary number of
-times to create larger clusters.
-
-Here's a diagram of what the final result will look like:
+这里的图标展示了最终的结果：
 ![Kubernetes Single Node on Docker](k8s-docker.png)
 
-### Bootstrap Docker
+### 引导启动Docker
 
-This guide also uses a pattern of running two instances of the Docker daemon
-   1) A _bootstrap_ Docker instance which is used to start system daemons like `flanneld` and `etcd`
-   2) A _main_ Docker instance which is used for the Kubernetes infrastructure and user's scheduled containers
+本指南同样运行两个Docker后台程序实例的模式
+ 1) 一个_引导启动_的Docker容器实例用来运行例如`flanneld`和`etcd`系统后台程序。
+ 2) 一个_主_Docker容器实例来服务Kubernetes和用户容器。
 
-This pattern is necessary because the `flannel` daemon is responsible for setting up and managing the network that interconnects
-all of the Docker containers created by Kubernetes.  To achieve this, it must run outside of the _main_ Docker daemon.  However,
-it is still useful to use containers for deployment and management, so we create a simpler _bootstrap_ daemon to achieve this.
+这个模式是有必要的，因为`flannel`的后台程序是负责建立和管理Kubernetes新建的Docker容器间的相互通信。所以`flannel`必须要运行在_主_Docker后台程序之外。为了利用容器来方便部署和管理，我们使用了这个较简单的_引导启动_的Docker后台程序来实现这一点。
 
-You can specify k8s version on very node before install:
-
+在安装前你可以在每个节点上选择k8s的版本：
 ```
 export K8S_VERSION=<your_k8s_version (e.g. 1.0.3)>
 ```
 
-Otherwise, we'll use latest `hyperkube` image as default k8s version.
-
-## Master Node
-
-The first step in the process is to initialize the master node.
-
-Clone the Kubernetes repo, and run [master.sh](docker-multinode/master.sh) on the master machine with root:
+否则, 我们会使用最新的`hyperkube`镜像当作默认k8s版本。
+## 主节点
+第一步是初始化主节点。
+复制Kubernetes在Github上的repo，并在主节点的主机上以root身份运行脚本[master.sh](docker-multinode/master.sh):
 
 ```sh
 cd kubernetes/docs/getting-started-guides/docker-multinode/
@@ -95,13 +44,12 @@ cd kubernetes/docs/getting-started-guides/docker-multinode/
 
 `Master done!`
 
-See [here](docker-multinode/master.md) for detailed instructions explanation.
+参考[这里](docker-multinode/master.md) for detailed instructions explanation.
 
-## Adding a worker node
+## 添加从节点
+当主节点正常运行后，你可以在不同的主机上添加更多的从节点。
 
-Once your master is up and running you can add one or more workers on different machines.
-
-Clone the Kubernetes repo, and run [worker.sh](docker-multinode/worker.sh) on the worker machine with root:
+复制Kubernetes在Github上的repo，并在从节点的主机上以root身份运行脚本[worker.sh](docker-multinode/worker.sh):
 
 ```sh
 export MASTER_IP=<your_master_ip (e.g. 1.2.3.4)>
@@ -111,20 +59,13 @@ cd kubernetes/docs/getting-started-guides/docker-multinode/
 
 `Worker done!`
 
-See [here](docker-multinode/worker.md) for detailed instructions explanation.
+参考[这里](docker-multinode/worker.md) for detailed instructions explanation.
 
-## Deploy a DNS
+## 部署DNS
 
-See [here](docker-multinode/deployDNS.md) for instructions.
+参考[这里](docker-multinode/deployDNS.md) for instructions.
 
-## Testing your cluster
+## 测试你的集群
+一旦你的集群创建完毕，你可以进行[测试](docker-multinode/testing.md)
 
-Once your cluster has been created you can [test it out](docker-multinode/testing.md)
-
-For more complete applications, please look in the [examples directory](../../examples/)
-
-
-<!-- BEGIN MUNGE: GENERATED_ANALYTICS -->
-[![Analytics](https://kubernetes-site.appspot.com/UA-36037335-10/GitHub/docs/getting-started-guides/docker-multinode.md?pixel)]()
-<!-- END MUNGE: GENERATED_ANALYTICS -->
-
+请参见[examples directory](../../examples/)里更多的完整应用。

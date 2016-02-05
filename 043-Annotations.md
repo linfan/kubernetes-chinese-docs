@@ -1,4 +1,6 @@
 # Annotations
+`译者：kz` `校对：无`
+
 
 We have [labels](labels.md) for identifying metadata.
 
